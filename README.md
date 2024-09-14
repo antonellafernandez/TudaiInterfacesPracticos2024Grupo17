@@ -5,3 +5,8 @@
 <h3>Tecnicatura Universitaria en Desarrollo de Aplicaciones Informáticas</h3>
 
 <h4>Trabajo Práctico Especial realizado de manera colaborativa entre Echazú Candela Azul, Fanucchi Matías Julián y Fernández Daniela Antonella para la materia Interfaces de Usuario e Interacción.</h4>
+
+<h4>Comentarios</h4>
+<p>Entregable N°1 - En Desktop/Game la idea del botón "Share With" es que despliegue más opciones.</p>
+
+
