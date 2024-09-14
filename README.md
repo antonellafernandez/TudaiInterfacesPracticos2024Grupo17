@@ -1,4 +1,4 @@
-<h1>Interfaces de Usuario e Interacción 2024</h1>
+<h1>Interfaces de Usuario e Interacción 2024 - Grupo 17</h1>
 
 <h2>Facultad de Ciencias Exactas | Universidad Nacional del Centro de la Provincia de Buenos Aires</h2>
 
