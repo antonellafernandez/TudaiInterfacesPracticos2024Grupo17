@@ -7,6 +7,6 @@
 <h4>Trabajo Práctico Especial realizado de manera colaborativa entre Echazú Candela Azul, Fanucchi Matías Julián y Fernández Daniela Antonella para la materia Interfaces de Usuario e Interacción.</h4>
 
 <h4>Comentarios</h4>
-<p>Entregable N°1 - En Desktop/Game la idea del botón "Share With" es que despliegue más opciones.</p>
+<p>Entregable N°1 - En Desktop/Game la idea del botón "Share With" es que despliegue los íconos que se ven al lado.</p>
 
 
