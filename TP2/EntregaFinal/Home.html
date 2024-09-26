@@ -2,33 +2,118 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/home_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="css/home_style.css" rel="stylesheet" >
     <title>Arcade •713•</title>
 </head>
 <body>
+    <!-- Loader -->
 
-    <div class="loader-container">
-        <div class="loader">
-            <svg class="circular-loader" viewBox="0 0 36 36">
-                <path class="circle-background"
-                      d="M18 2.0845
-                        a 15.9155 15.9155 0 0 1 0 31.831
-                        a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path class="circle-progress"
-                      stroke-dasharray="0, 100"
-                      d="M18 2.0845
-                        a 15.9155 15.9155 0 0 1 0 31.831
-                        a 15.9155 15.9155 0 0 1 0 -31.831" />
-            </svg>
-            <div class="percentage" id="percentage">0%</div>
-        </div>
-    </div>
 
     <!-- Contenido de la página -->
-    <div class="content" style="display: none;">
-        <h1>Bienvenido a Arcade •713•</h1>
-        <p>Este es el contenido principal de la página.</p>
-        <!-- Más contenido aquí -->
+    <div class="grid">
+        <header class="header">Header</header>
+
+        <main class="main">
+            <section>
+                <h2 class="section-title">FEATURED GAMES</h2>
+
+                <div class="featured-games">
+                    <div class="featured-card">
+                        <img src="img/dig-dug.jpg" alt="Dig Dug" class="featured-game-image">
+
+                        <div class="featured-game-info">
+                            <div class="info">
+                                <h3 class="game-title">Dig Dug</h3>
+                                <p class="game-price">$200.00</p>
+                            </div>
+
+                            <button class="buy-button">Comprar</button>
+                        </div>
+                    </div>
+
+                    <div class="featured-games">
+                        <div class="featured-card">
+                            <img src="img/galaga.jpg" alt="Galaga" class="featured-game-image">
+
+                            <div class="featured-game-info">
+                                <div class="info">
+                                    <h3 class="game-title">Galaga</h3>
+                                    <p class="game-price">$200.00</p>
+                                </div>
+
+                                <button class="buy-button">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="featured-games">
+                        <div class="featured-card">
+                            <img src="img/pac-man.jpg" alt="Pac-Man" class="featured-game-image">
+
+                            <div class="featured-game-info">
+                                <div class="info">
+                                    <h3 class="game-title">Pac-Man</h3>
+                                    <p class="game-price">$200.00</p>
+                                </div>
+
+                                <button class="buy-button">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="featured-games">
+                        <div class="featured-card">
+                            <img src="img/tmnt.jpg" alt="Teenage Mutant Ninja Turtles: Shredder's Revenge" class="featured-game-image">
+
+                            <div class="featured-game-info">
+                                <div class="info">
+                                    <h3 class="game-title">Teenage Mutant Ninja Turtles: Shredder's Revenge</h3>
+                                    <p class="game-price">$200.00</p>
+                                </div>
+
+                                <button class="buy-button">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="featured-games">
+                        <div class="featured-card">
+                            <img src="img/scott-pilgrim.jpg" alt="Scott Pilgrim vs. The World™: The Game" class="featured-game-image">
+
+                            <div class="featured-game-info">
+                                <div class="info">
+                                    <h3 class="game-title">Scott Pilgrim vs. The World™: The Game</h3>
+                                    <p class="game-price">$200.00</p>
+                                </div>
+
+                                <button class="buy-button">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">TOP 10 OF THE WEEK</h2>
+                <div class="carousel">Carrusel 1</div>
+
+                <h2 class="section-title">STILL PLAYING, USERNAME?</h2>
+                <div class="carousel">Carrusel 2</div>
+
+                <h2 class="section-title">POPULAR</h2>
+                <div class="carousel">Carrusel 3</div>
+
+                <h2 class="section-title">PLATFORM</h2>
+                <div class="carousel">Carrusel 4</div>
+
+                <h2 class="section-title">RPG</h2>
+                <div class="carousel">Carrusel 5</div>
+            </section>
+        </main>
+
+        <footer class="footer">Footer</footer>
     </div>
 
 <script src="js/home_script.js"></script>
