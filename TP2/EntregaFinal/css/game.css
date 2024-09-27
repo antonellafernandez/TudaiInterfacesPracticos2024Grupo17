@@ -1,0 +1,468 @@
+/* General Styles */
+body {
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    background-color: #16181d;
+    color: white;
+    overflow-x: hidden;
+    padding: 75px;
+}
+
+
+  /* Navigation */
+.breadcrumb p {
+    color: #888;
+    font-size: 14px;
+}
+
+  /* Title and Share Buttons */
+.title-share {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+    width: 1110px;
+}
+
+.title-share h1 {
+    font-family: "Audiowide", sans-serif;
+    font-size: 24px;
+    margin-bottom: 0px;
+    letter-spacing: 0.8px;
+    font-weight: 400;
+}
+
+.share-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-btn, .share-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn i {
+    font-size: 30px; /* Tamaño de los íconos de los otros botones */
+    color: white;
+}
+
+/* Estilos específicos para el botón de "Share With" */
+.share-btn {
+    background-color: #ff0055; /* Fondo rosa */
+    border-radius: 12px; /* Cambiado a 12px para mayor suavidad */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 117px;
+    height: 41px;
+}
+
+.share-btn i {
+    font-size: 20px; /* Tamaño reducido del ícono del botón de compartir */
+    margin-bottom: 0; /* Eliminado margen inferior */
+    color: white;
+}
+
+.share-p {
+    margin: 0;
+    color: white;
+    font-size: 13px;
+}
+
+.separator {
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0.5;
+    width: 792px;
+    margin: 20px 0;
+    
+}
+
+  /* Main Content Layout */
+.main-content {
+    display: flex;
+    gap: 20px;
+    align-items: stretch; /* Make both sections the same height */
+}
+
+ /* Game Image (Main Section) */
+.game-image {
+    position: relative;
+    width: 792px;
+    height: 519px;
+}
+
+.image {
+    width: 792px;
+    height: 519px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.play-button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #16181d;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    width: 125px;
+    height: 36px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.play-button:hover {
+    background-color: #434956;
+}
+
+.play-icon {
+    background-color: #ff0055;
+    color: #16181d;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border-radius: 50%;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-icon i {
+    font-size: 12px; /* Ajusta el tamaño del icono de la flecha */
+}
+
+.play-text {
+    font-size: 14px;
+}
+
+.play-button:hover .play-icon {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+}
+
+
+/* Game Modes & Player Controls (Aside Section) */
+aside.card {
+    width: 323px;
+    height: 500px;
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header h2 {
+    font-size: 24px;
+    margin-bottom: 5px; /* Ajusta este valor para reducir espacio */
+    text-align: center;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+aside.card {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.section-title {
+    font-size: 24px;
+    margin: 20px; /* Reduce el margen arriba y abajo */
+    text-align: center;
+}
+
+
+.game-modes {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.control-group {
+    text-align: center;
+    margin: 0;
+}
+
+.arrow-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.control-btn {
+    background-color: #434956;
+    color: #ffff;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Galeria, desc y tags */
+
+/* Estilos para la galería */
+
+.gallery {
+    margin-top: 20px;
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 16px; /* Espaciado inferior */
+    gap: 25px; /* Espacio entre las imágenes */
+    margin-bottom: 20px;
+
+}
+
+.gallery::-webkit-scrollbar {
+    width: 1px;
+
+}
+
+.gallery::-webkit-scrollbar-thumb {
+    background-color: #21252b; /* Color de la barra de desplazamiento */
+    border-radius: 10px; /* Bordes redondeados */
+
+}
+
+.gallery::-webkit-scrollbar-track {
+    background: transparent; /* Fondo de la pista de desplazamiento */
+}
+
+.gallery img {
+    width: 210px;
+    height: 128px;
+    object-fit: cover;
+    border-radius: 12px; /* Bordes redondeados */
+}
+
+.btn-icon {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    padding: 8px; /* Espaciado interno */
+    border-radius: 6px; /* Bordes redondeados */
+    transition: background 0.3s; /* Transición suave al pasar el mouse */
+}
+
+.rounded-lg {
+    border-radius: 8px; /* 0.5rem = 8px */
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/*Acá abajo están los estilos de la caja de Descripciones*/
+
+.card-description {
+    background-color: #21252b;
+    border: 1px solid #444;
+    border-radius: 12px;
+    font-size: 16;
+}
+
+.card-description-text {
+    padding: 10px;
+}
+
+.card-tags {
+    margin-bottom: 8px;
+}
+
+.btn-tag {
+    background: transparent;
+    border: 1px solid #33d6ff;
+    color: #33d6ff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/*ESTILOS PARA LA SECCION DE COMENTARIOS*/
+
+.feedback-section {
+    padding: 20px;
+    width: 792px;
+}
+.title-comments{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-comments h2 {
+    font-size: 24px;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.separator-share {
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0.5;
+    width: 100%;
+    margin-top:0;
+    margin-bottom: 20px;
+    
+}
+
+.comment-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #00b8e6;;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    height: 30px;
+}
+
+.comment-input input {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    outline: none;
+    caret-color: white;
+}
+
+.comment-input input::placeholder {
+    color: #888888;
+}
+
+.comment-input button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #ff0055;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: rotate(40deg);
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+}
+
+.view-more{
+    display: flex;
+    margin:auto;
+    gap: 13px;
+    align-items: center;
+}
+
+.view-more i{
+    color: #00b8e6;
+}
+
+
+
+.user-name{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-right: 40px;
+}
+
+.user-name p{
+    font-size: 13px;
+}
+
+
+.comment-card {
+    display: flex;
+    background-color: #282c34;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.avatar {
+    width: 51px;
+    height: 51px;
+    border-radius: 50%;
+    margin: auto;
+    border: 2px solid #00b8e6;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #434956;
+    border-radius: 12px;
+    width: 90%;
+}
+
+.username {
+    font-size: 16px;
+    color: #ffff;
+    margin-bottom: 5px;
+}
+
+.comment-text {
+    color: #BFBFBF;
+    font-size: 14px;
+    margin-left: 20px;
+}
