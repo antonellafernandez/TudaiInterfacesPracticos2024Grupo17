@@ -1,4 +1,4 @@
-/*ESTILOS DE LA BARRA GRAL*/
+ /*ESTILOS DE LA BARRA GRAL*/
 .main-nav{
     background-color: #282c34;
     width: 100%;
@@ -48,9 +48,8 @@
     gap: 30px; /* Espacio entre el carrito y la foto del usuario */
   }
 
-
-
-  /* Estilos para la barra lateral (sidebar) */
+ 
+ /* Estilos para la barra lateral (sidebar) */
 .sidebar {
     height: 100%;
     width: 250px;
@@ -60,24 +59,29 @@
     background-color: #21252b;
     color: white;
     transition: 0.3s;
-    padding-top: 60px;
+    padding-top: 0px;
     z-index: 1000;
 }
 
-/* Estilos para el botón de cierre ("X") */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
+/* Estilos para el overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Oculto por defecto */
+    z-index: 999; /* Debajo de la barra lateral pero encima de otros elementos */
 }
 
-.close-btn:hover {
-    color: #FF7A00; /* Cambia de color al pasar el mouse */
+/* Mostrar la barra lateral cuando está activa */
+.sidebar.active {
+    left: 0; /* Muestra la barra lateral */
+}
+
+.overlay.active {
+    display: block; /* Muestra el overlay cuando la barra está abierta */
 }
 
 .sidebar ul {
@@ -86,8 +90,13 @@
 }
 
 .sidebar ul li {
-    padding: 10px;
+    padding: 20px;
     text-align: start;
+    border-bottom: 1px solid #575757; /* Separadores entre opciones */
+}
+
+.sidebar ul li:last-child {
+    border-bottom: none; /* El último elemento no tiene separador */
 }
 
 .sidebar ul li a {
@@ -103,11 +112,8 @@
     transition: 0.3s;
 }
 
-hr {
-    border: 0;
-    height: 1px;
-    background-color: #575757; /* Color gris para el separador */
+/* Si necesitas un estilo específico para el hover */
+.sidebar ul li a:hover {
+    background-color: #575757; /* Cambia el color de fondo al pasar el mouse */
+    transition: 0.3s;
 }
-
-  
-/* TERMINAN LOS ESTILOS DEL NAV GRAL*/

@@ -1,17 +1,16 @@
-// Selecciona el menú de hamburguesa, la barra lateral y el botón de cierre
+// Seleccionamos los elementos necesarios
 const menuBtn = document.getElementById('menu-btn');
 const sidebar = document.getElementById('sidebar');
-const closeBtn = document.getElementById('close-btn');
-const content = document.querySelector('.content');
+const overlay = document.getElementById('overlay');
 
-// Función para mostrar la barra lateral
+// Función para abrir la barra lateral
 menuBtn.addEventListener('click', function() {
-    sidebar.style.left = '0';
-    content.classList.add('sidebar-open');
+    sidebar.classList.add('active');  // Añadir clase para mostrar la barra lateral
+    overlay.classList.add('active');  // Mostrar el overlay
 });
 
-// Función para cerrar la barra lateral
-closeBtn.addEventListener('click', function() {
-    sidebar.style.left = '-250px';
-    content.classList.remove('sidebar-open');
+// Función para cerrar la barra lateral al hacer clic fuera
+overlay.addEventListener('click', function() {
+    sidebar.classList.remove('active'); // Quitar la clase para ocultar la barra lateral
+    overlay.classList.remove('active'); // Ocultar el overlay
 });
