@@ -112,7 +112,6 @@
     transition: 0.3s;
 }
 
-/* Si necesitas un estilo específico para el hover */
 .sidebar ul li a:hover {
     background-color: #575757; /* Cambia el color de fondo al pasar el mouse */
     transition: 0.3s;
