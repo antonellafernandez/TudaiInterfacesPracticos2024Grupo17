@@ -50,29 +50,37 @@ body {
 /* Secciones */
 .section-title {
     font-family: 'Audiowide', sans-serif;
+    font-weight: normal;
+    margin-bottom: 0.5vw;
 }
 
-/* Featured Game Card */
+/* Asegurarse de que padding y border se incluyan en el tamaño total */
+* {
+    box-sizing: border-box;
+}
+
+/* Featured Games */
 .featured-games {
     display: flex;
     flex-direction: row;
+    margin-bottom: 2vw;
 }
 
+/* Featured Game Card */
 .featured-card {
     background-color: #434956;
-    width: 15vw;
+    width: 14vw;
     height: 20vw;
     border-radius: 1vw;
     display: flex;
     flex-direction: column;
     overflow: hidden; /* Ocultar cualquier contenido que se salga de la tarjeta */
     margin: 0.3vw;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
 }
 
 .featured-game-image {
     width: 100%;
-    height: 85%;
+    height: 80%;
     object-fit: cover;
 }
 
@@ -83,17 +91,17 @@ body {
     flex-direction: row;
     justify-content: space-between; /* Espaciado entre los elementos */
     align-items: center; /* Alinear verticalmente al centro */
-    height: 15%;
+    height: 20%;
 }
 
 .info {
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column;
     width: 50%;
 }
 
-.game-title {
+.featured-game-title {
     margin: 0; /* Elimina margen */
     width: 100%;
     white-space: nowrap; /* No permitir saltos de línea */
@@ -105,47 +113,126 @@ body {
 .game-price {
     margin: 0 0 0 0;
     font-weight: 300; /* Light */
+    font-size: 0.9vw;
 }
 
-.buy-button {
+.in-cart-game-price {
+    margin: 0 0 0 0;
+    font-weight: 300; /* Light */
+    font-size: 0.9vw;
+    visibility: hidden;
+}
+
+.featured-buy-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #ff4081;
     border: none; /* Sin borde */
     border-radius: 1vw;
     color: #ffffff;
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    height: 2.5vw;
-    width: 5vw;
+    height: 2vw;
+    width: 4.25vw;
 }
 
-.buy-button i {
-    font-size: 1.25vw;
+.featured-buy-button i {
+    font-size: 1.125vw;
+}
+
+/* Carousel */
+.carousel {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2vw;
 }
 
 /* Game Card */
 .card {
     background-color: #434956;
-    width: 15vw;
-    height: 10vw;
+    width: 13vw;
+    height: 9.5vw;
     border-radius: 1vw;
     display: flex;
     flex-direction: column;
     overflow: hidden; /* Ocultar cualquier contenido que se salga de la tarjeta */
-    margin: 0.3vw;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    margin: 0.2vw;
 }
 
 .game-image {
     width: 100%;
-    height: 60%;
+    height: 68%;
     object-fit: cover;
 }
 
 .game-info {
     background-color: #282C34;
-    padding: 1vw;
+    padding: 0.75vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between; /* Espaciado entre los elementos */
     align-items: center; /* Alinear verticalmente al centro */
-    height: 40%;
+    height: 32%;
+}
+
+.game-title {
+    margin: 0; /* Elimina margen */
+    width: 100%;
+    white-space: nowrap; /* No permitir saltos de línea */
+    overflow: hidden; /* Ocultar cualquier texto que desborde el contenedor */
+    text-overflow: ellipsis; /* Mostrar '...' al final si hay desbordamiento */
+    font-weight: 600; /* Semibold */
+    font-size: 0.8vw;
+}
+
+.buy-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff4081;
+    border: none; /* Sin borde */
+    border-radius: 1vw;
+    color: #ffffff;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    height: 1.5vw;
+    width: 4.25vw;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    font-size: 0.7vw;
+}
+
+.buy-button i {
+    font-size: 1vw;
+}
+
+.in-cart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff4081;
+    border: none; /* Sin borde */
+    border-radius: 1vw;
+    color: #ffffff;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    height: 1.5vw;
+    width: 4.25vw;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    font-size: 0.7vw;
+}
+
+.play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007997;
+    border: none; /* Sin borde */
+    border-radius: 1vw;
+    color: #ffffff;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    height: 1.5vw;
+    width: 4.25vw;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    font-size: 0.7vw;
 }
