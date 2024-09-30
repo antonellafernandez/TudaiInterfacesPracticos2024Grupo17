@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="928ec8fa-add8-4070-a8cd-a0e95b79e92b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EntregaFinal/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/Home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/css/home_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/css/home_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +39,21 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="TP2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="TP2" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -57,7 +72,9 @@
       <updated>1727377500424</updated>
       <workItem from="1727377501865" duration="13998000" />
       <workItem from="1727534062991" duration="612000" />
-      <workItem from="1727618677622" duration="8396000" />
+      <workItem from="1727618677622" duration="8679000" />
+      <workItem from="1727634418547" duration="445000" />
+      <workItem from="1727694343369" duration="873000" />
     </task>
     <servers />
   </component>
