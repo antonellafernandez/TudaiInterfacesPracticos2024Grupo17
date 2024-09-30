@@ -1,0 +1,113 @@
+/*ESTILOS DE LA BARRA GRAL*/
+.main-nav{
+    background-color: #282c34;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+    object-fit: contain; 
+}
+
+.user-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #00b8e6;
+}
+
+.user-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fas {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+
+.nav-left, .nav-center, .nav-right {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.nav-center {
+    justify-content: center;
+}
+
+.nav-right {
+    gap: 30px; /* Espacio entre el carrito y la foto del usuario */
+  }
+
+
+
+  /* Estilos para la barra lateral (sidebar) */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Escondido por defecto */
+    background-color: #21252b;
+    color: white;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+/* Estilos para el botón de cierre ("X") */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #FF7A00; /* Cambia de color al pasar el mouse */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: start;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar ul li:hover {
+    background-color: #575757;
+    transition: 0.3s;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #575757; /* Color gris para el separador */
+}
+
+  
+/* TERMINAN LOS ESTILOS DEL NAV GRAL*/
