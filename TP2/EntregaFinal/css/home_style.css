@@ -48,10 +48,19 @@ body {
 }
 
 /* Secciones */
+section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
 .section-title {
     font-family: 'Audiowide', sans-serif;
     font-weight: normal;
-    margin-bottom: 0.5vw;
+    font-size: 1.25vw;
+    margin-bottom: 0.75vw;
+    width: 90%;
 }
 
 /* Asegurarse de que padding y border se incluyan en el tamaño total */
@@ -62,8 +71,10 @@ body {
 /* Featured Games */
 .featured-games {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
-    margin-bottom: 2vw;
+    margin-bottom: 3vw;
 }
 
 /* Featured Game Card */
@@ -76,6 +87,12 @@ body {
     flex-direction: column;
     overflow: hidden; /* Ocultar cualquier contenido que se salga de la tarjeta */
     margin: 0.3vw;
+    transition: transform 0.3s ease;
+}
+
+.featured-card:hover {
+    transform: scale(1.02);
+    z-index: 1;
 }
 
 .featured-game-image {
@@ -141,10 +158,48 @@ body {
 }
 
 /* Carousel */
-.carousel {
+.carousel-wrap {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
     margin-bottom: 2vw;
+    width: 90%;
+}
+
+.prev-button, .next-button {
+    /* background-color: transparent; */
+    cursor: pointer;
+    width: 2vw;
+    height: 9.5vw;
+    border: none;
+    border-radius: 1vw;
+}
+
+.prev-button {
+    margin-right: 0.3vw;
+}
+
+.next-button {
+    margin-left: 0.3vw;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 0.3vw;
+    width: 100%;
 }
 
 /* Game Card */
@@ -156,7 +211,6 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden; /* Ocultar cualquier contenido que se salga de la tarjeta */
-    margin: 0.2vw;
 }
 
 .game-image {
