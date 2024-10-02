@@ -17,28 +17,29 @@ body {
         "main"
         "footer";
     grid-template-columns: 1fr;
-    grid-template-rows: 2fr 24fr 6fr;
+    grid-template-rows: 0.2fr 5fr 1fr;
 }
 
-.header, .main, .footer {
+.main, .footer {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-.main {
-    display: grid;
-
-}
-
 /* Contenedores */
 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     grid-area: header;
     background-color: #282c34;
+    padding: 2vw;
+    overflow: hidden;
 }
 
 .main {
+    display: grid;
     grid-area: main;
 }
 
@@ -197,7 +198,7 @@ section {
 
 .carousel {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: repeat(6, auto);
     grid-gap: 0.3vw;
     width: 100%;
 }
