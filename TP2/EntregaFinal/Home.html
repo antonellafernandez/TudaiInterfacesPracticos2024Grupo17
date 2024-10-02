@@ -19,21 +19,39 @@
 
     <!-- Contenido de la página -->
     <div class="grid">
+        <!-- Header -->
         <header class="header">
             <div class="nav-left">
-                <i class="fas fa-bars" id="menu-btn"></i> <!-- Icono de menú hamburguesa -->
+                <i class="fas fa-bars" id="menu-btn"></i> <!-- Ícono de menú hamburguesa -->
             </div>
             <div class="nav-center">
-                <img src="/TP2/images/logo.png" alt="Logo" class="logo">
+                <img src="img/logo.png" alt="Logo" class="logo">
             </div>
             <div class="nav-right">
-                <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito -->
+                <i class="fas fa-shopping-cart"></i> <!-- Ícono de carrito -->
                 <div class="user-photo">
-                    <img src="/TP2/images/avatar.jpg" alt="Usuario">
+                    <img src="img/avatar.jpg" alt="Usuario">
                 </div>
             </div>
         </header>
 
+        <!-- Barra lateral oculta inicialmente -->
+        <div id="sidebar" class="sidebar">
+            <ul>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#social-media">Social Media</a></li>
+                <li><a href="#help-support">Help & Support</a></li>
+                <li><a href="#logout">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Overlay para detectar clic fuera de la barra lateral -->
+        <div id="overlay" class="overlay"></div>
+
+        <!-- Main -->
         <main class="main">
             <section>
                 <h2 class="section-title">FEATURED GAMES</h2>
@@ -580,6 +598,7 @@
             </section>
         </main>
 
+        <!-- Footer -->
         <footer class="footer">Footer</footer>
     </div>
 

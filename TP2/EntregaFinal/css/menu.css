@@ -1,4 +1,4 @@
- /*ESTILOS DE LA BARRA GRAL*/
+/* Estilos de la barra general */
 .main-nav{
     background-color: #282c34;
     width: 100%;
@@ -48,8 +48,7 @@
     gap: 30px; /* Espacio entre el carrito y la foto del usuario */
   }
 
- 
- /* Estilos para la barra lateral (sidebar) */
+/* Estilos para la barra lateral (sidebar) */
 .sidebar {
     height: 100%;
     width: 250px;
