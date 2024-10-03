@@ -1,3 +1,32 @@
+// Función de easing (aceleración rápida y desaceleración lenta)
+function easeInOutCubic(progress) {
+    if (progress < 0.5) {
+        return 4 * progress * progress * progress; // Aceleración rápida
+    }
+    return 1 - Math.pow(-2 * progress + 2, 3) / 2; // Desaceleración lenta
+}
+
+// Función personalizada de desplazamiento suave con animación
+function smoothScroll(scrollContainer, distance, duration) {
+    const start = scrollContainer.scrollLeft;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1); // Normaliza entre 0 y 1
+
+        const easing = easeInOutCubic(progress); // Aplica la curva de aceleración
+        scrollContainer.scrollLeft = start + distance * easing; // Actualiza la posición
+
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation); // Sigue animando hasta completar la duración
+        }
+    }
+
+    requestAnimationFrame(animation); // Inicia la animación
+}
+
 // Seleccionar todos los carruseles
 const carousels = document.querySelectorAll(".carousel-wrap");
 
@@ -9,8 +38,8 @@ carousels.forEach(carouselWrap => {
     let nextBtn = carouselWrap.querySelector(".next-button");
     let cards = carouselWrap.querySelectorAll(".card");
 
-    let card = carouselWrap.querySelector(".card");
-    const movement = carousel.offsetWidth;
+    let movement = carousel.offsetWidth; // Ancho de un "card"
+    let duration = 1000; // Duración de la animación en milisegundos
 
     let atEnd = false;
     let atStart = true;
@@ -22,20 +51,18 @@ carousels.forEach(carouselWrap => {
             atStart = false; // Actualizar el indicador
             atEnd = false; // Resetear el indicador de fin
         } else {
-            scrollContainer.style.scrollBehavior = "smooth";
-            scrollContainer.scrollLeft -= movement;
+            smoothScroll(scrollContainer, -movement, duration); // Desplazarse hacia la izquierda
         }
     });
 
     nextBtn.addEventListener("click", () => {
         if (atEnd) {
             // Resetear al inicio si se está al final
-            scrollContainer.scrollLeft = 0;
+            scrollContainer.scrollLeft = 0; // Desplazar al inicio
             atEnd = false; // Reiniciar el indicador
             atStart = true; // Resetear el indicador de inicio
         } else {
-            scrollContainer.style.scrollBehavior = "smooth";
-            scrollContainer.scrollLeft += movement;
+            smoothScroll(scrollContainer, movement, duration); // Desplazarse hacia la derecha
         }
     });
 
