@@ -1,29 +1,38 @@
-// Selecciona todos los carruseles
+// Seleccionar todos los carruseles
 const carousels = document.querySelectorAll(".carousel-wrap");
 
 carousels.forEach(carouselWrap => {
     let scrollContainer = carouselWrap.querySelector(".carousel-container");
+    let carousel = carouselWrap.querySelector(".carousel");
 
     let prevBtn = carouselWrap.querySelector(".prev-button");
     let nextBtn = carouselWrap.querySelector(".next-button");
     let cards = carouselWrap.querySelectorAll(".card");
 
     let card = carouselWrap.querySelector(".card");
-    const movement = card.offsetWidth;
+    const movement = carousel.offsetWidth;
 
-    let atEnd = false; // Indicador de si estamos al final
+    let atEnd = false;
+    let atStart = true;
 
     prevBtn.addEventListener("click", () => {
-        scrollContainer.style.scrollBehavior = "smooth";
-        scrollContainer.scrollLeft -= movement;
-        atEnd = false; // Reiniciamos indicador al desplazarse hacia atrás
+        if (atStart) {
+            // Resetear al final si se está al principio
+            scrollContainer.scrollLeft = scrollContainer.scrollWidth; // Desplazar al final
+            atStart = false; // Actualizar el indicador
+            atEnd = false; // Resetear el indicador de fin
+        } else {
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft -= movement;
+        }
     });
 
     nextBtn.addEventListener("click", () => {
         if (atEnd) {
-            // Si estamos al final, reseteamos al inicio
+            // Resetear al inicio si se está al final
             scrollContainer.scrollLeft = 0;
-            atEnd = false; // Reiniciamos el indicador
+            atEnd = false; // Reiniciar el indicador
+            atStart = true; // Resetear el indicador de inicio
         } else {
             scrollContainer.style.scrollBehavior = "smooth";
             scrollContainer.scrollLeft += movement;
@@ -33,8 +42,16 @@ carousels.forEach(carouselWrap => {
     scrollContainer.addEventListener('scroll', () => {
         // Verificar si se ha alcanzado el final del scroll
         if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
-            atEnd = true; // Indicamos que hemos llegado al final
+            atEnd = true; // Indicar que se ha llegado al final
+        } else {
+            atEnd = false;
+        }
+
+        // Verificar si se está al principio
+        if (scrollContainer.scrollLeft === 0) {
+            atStart = true; // Indicar que está en el principio
+        } else {
+            atStart = false;
         }
     });
 });
-

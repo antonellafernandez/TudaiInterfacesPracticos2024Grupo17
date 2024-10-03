@@ -54,6 +54,7 @@ section {
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    margin-top: 3vw;
 }
 
 .section-title {
@@ -61,7 +62,7 @@ section {
     font-weight: normal;
     font-size: 1.25vw;
     margin-bottom: 0.75vw;
-    width: 90%;
+    width: 80%;
 }
 
 /* Asegurarse de que padding y border se incluyan en el tamaño total */
@@ -75,7 +76,6 @@ section {
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    margin-bottom: 3vw;
 }
 
 /* Featured Game Card */
@@ -163,18 +163,43 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
-    margin-bottom: 2vw;
+    margin: 0 auto 3vw;
+    width: 80%;
+}
+
+.carousel-container {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.carousel {
     width: 90%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 0.3vw;
+    padding: 0.15vw;
+    flex: none;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
 }
 
 .prev-button, .next-button {
-    /* background-color: transparent; */
+    background-color: transparent;
     cursor: pointer;
-    width: 2vw;
+    width: 3vw;
     height: 9.5vw;
     border: none;
     border-radius: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prev-button:hover, .next-button:hover {
+    background-color: #282C34;
 }
 
 .prev-button {
@@ -185,28 +210,15 @@ section {
     margin-left: 0.3vw;
 }
 
-.carousel-container {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    overflow-x: scroll;
-}
-
-.carousel-container::-webkit-scrollbar {
-    display: none;
-}
-
-.carousel {
-    display: grid;
-    grid-template-columns: repeat(6, auto);
-    grid-gap: 0.3vw;
-    width: 100%;
+.prev-button i, .next-button i {
+    color: #ffffff;
+    font-size: 2vw;
 }
 
 /* Game Card */
 .card {
     background-color: #434956;
-    width: 13vw;
+    width: 100%;
     height: 9.5vw;
     border-radius: 1vw;
     display: flex;
