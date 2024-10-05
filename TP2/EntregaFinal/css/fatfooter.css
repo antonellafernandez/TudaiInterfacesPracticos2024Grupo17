@@ -5,16 +5,14 @@ footer {
     padding: 50px;
     padding-bottom: 3px;
     text-align: center;
+    overflow-x: hidden;
   }
   
   .footer-container {
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
-    margin: auto;
-    margin-left: 6%;
-    padding: 0 20px; /* Añade algo de espacio horizontal */
-    gap: 20px;
+    gap: 10px;
   }
   footer {
     display: block;

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+ 
   }
   body {
     font-family: Arial, sans-serif;
@@ -75,10 +76,8 @@
     position: relative;
   }
   input[type="date"] {
-    appearance: none; /* Elimina el estilo por defecto del navegador */
-    -webkit-appearance: none; /* Estilo para Safari/Chrome */
     border: none;
-    border-bottom: 1px solid #ccc; /* Solo el borde inferior */
+    border-bottom: 1px solid #ccc;
     background-color: transparent;
     color: #fff; /* Color del texto */
     padding: 10px;
@@ -97,6 +96,7 @@
   padding: 0.5rem 0;          /* Espaciado interno arriba y abajo */
   width: 100%;                /* Ajusta el ancho completo */
   outline: none;  
+  border-radius: 0%;
   }
   
   .password-toggle {
@@ -286,55 +286,7 @@
 .login-btn:focus {
   outline: none;                 /* Asegura que no haya borde cuando el botón recibe foco */
 }
-footer {
-  width: 100%; /* Asegura que el footer ocupe el ancho completo */
-  background-color: #282C34;
-  color: #ffffff;
-  padding: 50px;
-  padding-bottom: 3px;
-  text-align: center;
-}
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: auto;
-  margin-left: 6%;
-  padding: 0 20px; /* Añade algo de espacio horizontal */
-  gap: 20px;
-}
-footer {
-  display: block;
-  width: 100%;
-}
-.footer-column {
-  flex: 1; /* Hace que todas las columnas tengan el mismo tamaño */
-  min-width: 150px; /* Define un ancho mínimo para evitar que se compriman demasiado */
-  text-align: left;/* Alinea el contenido de la columna a la izquierda */
-  margin: 0 15px; /* Aumenta el espaciado entre columnas (de 10px a 20px) */
-}
-.footer-column h3 {
-  font-size: 16px;
-  color: #ffffff;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
-  text-align: left;
-}
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-}
-.footer-column ul li {
-  margin-bottom: 0.5rem;
-}
-.footer-column ul li a {
-  color: #b0b3b8;
-  text-decoration: none;
-  font-size: 17px;
-}
-.footer-column ul li a:hover {
-  color: #ffffff;
-}
+
 @media (max-width: 768px) {
   .footer-column {
     width: 100%; /* Las columnas ocuparán el ancho completo en pantallas pequeñas */

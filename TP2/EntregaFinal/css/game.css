@@ -142,32 +142,25 @@ body {
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
     gap: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
+/* Efecto de pulsación */
 .play-button:hover {
-    background-color: #434956;
+    transform: scale(1.1); /* Escalar y rotar */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7), 0 0 20px #ff0055; /* Sombra y resplandor */
 }
 
-.play-button.animate {
-    transition: all 0.5s ease-in-out; /* Transición suave */
-    width: 50px; /* Se reduce a un círculo pequeño */
-    height: 50px; /* Se convierte en un círculo */
-    border-radius: 50%; /* Para que sea completamente redondo */
-    background-color: #ff0055; /* Cambia el color al encogerse */
-    transform: translateY(-20px) scale(0.8); /* Eleva y reduce el tamaño */
+/* Efecto de parpadeo en el texto */
+.play-button:hover .play-text {
+    animation: blink 0.5s infinite; /* Añadir animación de parpadeo */
 }
 
-/* Ocultar el texto al transformarse */
-.play-button.animate .play-text {
-    opacity: 0; /* Oculta el texto */
-    transition: opacity 0.3s ease; /* Transición suave para la opacidad */
-}
-
-/* Ajustar el icono para que se mantenga centrado */
-.play-button.animate .play-icon {
-    margin: auto;
+@keyframes blink {
+    0%, 20%, 100% { opacity: 1; }
+    10% { opacity: 0; }
 }
 
 .play-icon {
@@ -180,21 +173,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease; /* Suaviza el cambio de escala */
 }
 
 .play-icon i {
     font-size: 12px; /* Ajusta el tamaño del icono de la flecha */
 }
 
+/* Efecto de escalado en el icono al hacer hover */
+.play-button:hover .play-icon {
+    transform: scale(1.2); /* Escalar el icono un poco más */
+}
+
 .play-text {
     font-size: 14px;
 }
 
-/* Efecto en el icono al hacer hover */
-.play-button:hover .play-icon {
-    transform: scale(1.1);
-    transition: transform 0.2s;
-}
+
+
 
 
 /* Game Modes & Player Controls (Aside Section) */
