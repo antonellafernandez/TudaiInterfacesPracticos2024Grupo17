@@ -1,12 +1,11 @@
 * {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
- 
   }
   body {
-    font-family: Arial, sans-serif;
-    background-color: #21252B;
+    background-color: #16181d;
     color: #22d3ee;
     display: flex;
     flex-direction: column;
@@ -15,7 +14,7 @@
   }
   
   .container {
-    flex: 1; /* Esto permite que la parte principal del contenido crezca */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +24,7 @@
   .form-box {
     padding: 100px;
     padding-top: 50px;
-    background-color: #21252b;
+    background-color: #16181d;
     border: 2px solid #ff4081;
     border-radius: 8px;
     width: 609px;
@@ -34,11 +33,14 @@
   }
   
   .form-title {
+    font-family: "Audiowide", sans-serif;
     text-align: center;
-    font-size: 2rem;
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 1.5rem;
     color: #22d3ee;
+    letter-spacing: 0.9px;
+    font-weight: 400;
   }
   
   .form {
@@ -253,6 +255,8 @@
     color: #666;
     cursor: pointer;
   }
+
+
 .login-line{
   display: flex;
   justify-content: center;
@@ -293,6 +297,62 @@
   outline: none;                 /* Asegura que no haya borde cuando el botón recibe foco */
 }
 
+footer {
+  width: 100%;
+  background-color: #282C34;
+  color: #ffffff;
+  padding: 50px;
+  padding-bottom: 3px;
+  text-align: center;
+  overflow-x: hidden;
+  height: 335px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  gap: 10px;
+}
+footer {
+  display: block;
+  width: 100%;
+}
+.footer-column {
+  flex: 1; /* Hace que todas las columnas tengan el mismo tamaño */
+  min-width: 150px; /* Define un ancho mínimo para evitar que se compriman demasiado */
+  text-align: left;/* Alinea el contenido de la columna a la izquierda */
+  margin: 0 15px; /* Aumenta el espaciado entre columnas (de 10px a 20px) */
+
+
+}
+.footer-column h3 {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  text-align: left;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #b0b3b8;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.footer-column ul li a:hover {
+  color: #ffffff;
+}
+
 @media (max-width: 768px) {
   .footer-column {
     width: 100%; /* Las columnas ocuparán el ancho completo en pantallas pequeñas */
@@ -304,12 +364,15 @@
   }
   .footer-container{
     flex-wrap: wrap;
+
   }
 }
+
+
+
 .copyright{
   padding: 20px 0;
   text-align: center;
-  margin-top: 24px; /* Espaciado entre las columnas y el texto */
   font-size: 21px; /* Ajusta el tamaño de la fuente según sea necesario */
   color: #ffffff; /* Cambia el color del texto si lo deseas */
   }
