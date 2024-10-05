@@ -38,19 +38,22 @@
           <input id="email" type="email" placeholder="you@example.com" class="form-input" />
         </div>
         <div class="form-group relative">
-            <label for="password" class="form-label">Password</label>
-            <input id="password" type="password" placeholder="••••••••" class="form-input" />
-            <button type="button" class="password-toggle">
-              <i class="fas fa-eye"></i>
-            </button>
-          </div>
-          <div class="form-group relative">
-            <label for="confirmPassword" class="form-label">Confirm Password</label>
-            <input id="confirmPassword" type="password" placeholder="••••••••" class="form-input" />
-            <button type="button" class="password-toggle">
-              <i class="fas fa-eye"></i>
-            </button>
-          </div>
+          <label for="password" class="form-label">Password</label>
+          <input id="password" type="password" placeholder="••••••••" class="form-input" />
+          <button type="button" class="password-toggle">
+            <span class="show-password"><i class="fas fa-eye"></i></span>
+            <span class="hide-password" style="display: none;"><i class="fas fa-eye-slash"></i></span>
+          </button>
+        </div>
+        
+        <div class="form-group relative">
+          <label for="confirm-password" class="form-label">Confirm Password</label>
+          <input id="confirm-password" type="password" placeholder="••••••••" class="form-input" />
+          <button type="button" class="password-toggle">
+            <span class="show-password"><i class="fas fa-eye"></i></span>
+            <span class="hide-password" style="display: none;"><i class="fas fa-eye-slash"></i></span>
+          </button>
+        </div>
 
           <div class="g-recaptcha">
             <div class="checkbox-container">
@@ -154,7 +157,8 @@
       <p>® 2024, Arcade Inc.</p>
     </div>
   </footer>
-  
+  <script src="js\register.js" ></script>
+
 </body>
 
 </html>

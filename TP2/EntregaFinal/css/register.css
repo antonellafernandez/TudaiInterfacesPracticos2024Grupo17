@@ -108,8 +108,14 @@
     border: none;
     color: #FF4081;
     cursor: pointer;
+    display: block;
   }
-  
+  .show-password {
+    display: inline;
+  }
+  .hide-password {
+    display: none;
+  }
   .password-toggle i {
     font-size: 1.25rem;
   }
