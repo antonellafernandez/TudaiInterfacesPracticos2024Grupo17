@@ -28,7 +28,7 @@
     border: 2px solid #ff4081;
     border-radius: 8px;
     width: 609px;
-    height: 1052px;
+    height: 1185px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
@@ -101,7 +101,7 @@
   
   .password-toggle {
     position: absolute;
-    top: 75%;
+    top: 65%;
     right: 10px;
     transform: translateY(-50%);
     background: none;
@@ -135,7 +135,7 @@
     border-radius: 12px;
     cursor: pointer;
     margin: auto;
-    margin-top: 15px;
+    margin-top: 28px;
     font-size: 18px;
   }
   
@@ -145,8 +145,8 @@
   
   .social-login {
     text-align: center;
-    margin-top: 1.5rem;
-    
+    margin-top: 2.0rem;
+
   }
   
   .social-text {
@@ -189,7 +189,8 @@
     padding: 15px;
     width: 300px;
     border-radius: 5px;
-    margin: auto;
+    margin: 5px;
+    margin-left: 60px;
   }
   
   .checkbox-container {
@@ -267,7 +268,7 @@
 }
 .login-message{
   text-align: center;  /* Centra el texto horizontalmente */
-  margin-top: 30px;
+  margin-top: 60px;
 }
 .login-message p {
   color: #ffffff;      /* Cambia el color del texto */
@@ -292,6 +293,21 @@
 .login-btn:focus {
   outline: none;                 /* Asegura que no haya borde cuando el botón recibe foco */
 }
+.g-recaptcha .error {
+  color: red; /* O el color que prefieras */
+  font-size: 14px;
+  margin-top: 5px; /* Un poco de margen para que se separe del checkbox */
+}
+
+.form-input .error input{
+  border:rgb(255, 0, 0);
+}
+.form-group .error{
+    color:rgb(255, 0, 0);
+    font-size: 12px;
+    height: 13px;
+}
+
 footer {
   width: 100%; /* Asegura que el footer ocupe el ancho completo */
   background-color: #282C34;
