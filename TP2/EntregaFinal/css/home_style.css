@@ -10,6 +10,58 @@ body {
     margin: 0;
 }
 
+/* Inicio Loading */
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #16181d; /* Fondo negro */
+    z-index: 1000; /* Asegúrate de que esté encima de todo */
+    font-size: 2vw; /* Tamaño de fuente responsivo */
+    color: #ff0055; /* Color del texto */
+    font-family: "Audiowide", sans-serif; /* Fuente estilo arcade */
+}
+
+.spinner {
+    border: 8px solid rgba(255, 0, 85, 0.5); /* Fondo del spinner con opacidad */
+    border-left-color: #33d6ff; /* Color brillante del spinner */
+    border-radius: 50%; /* Forma circular */
+    width: 60px; /* Tamaño del spinner */
+    height: 60px; /* Tamaño del spinner */
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px; /* Espaciado debajo del spinner */
+    box-shadow: 0 0 15px #ff4081; /* Resplandor */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    font-size: 1.5rem; 
+    color: #ff0055; 
+    animation: blink 1s infinite; /* Animación de parpadeo */
+}
+
+/* Animación de parpadeo para el texto */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+/* Fin Loading */
+
+/* Grid */
 .grid {
     display: grid;
     grid-template-areas:
@@ -17,7 +69,7 @@ body {
         "main"
         "footer";
     grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 5fr 1fr;
+    grid-template-rows: 0.1fr auto 1fr;
 }
 
 .main, .footer {
@@ -44,6 +96,10 @@ body {
 }
 
 .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     grid-area: footer;
     background-color: #282c34;
 }
@@ -152,10 +208,17 @@ section {
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     height: 2vw;
     width: 4.25vw;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .featured-buy-button i {
     font-size: 1.125vw;
+}
+
+.featured-buy-button:hover {
+    transform: scale(1.1); /* Aumenta el tamaño del botón */
+    background-color: #b3003b; /* Cambia el color en hover */
+    box-shadow: 0 0 10px #ff6699;
 }
 
 /* Carousel */
@@ -266,6 +329,7 @@ section {
     font-weight: bold;
     letter-spacing: 0.2em;
     font-size: 0.7vw;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .buy-button i {
@@ -286,6 +350,20 @@ section {
     font-weight: bold;
     letter-spacing: 0.2em;
     font-size: 0.7vw;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative; /* Necesario para posicionar el icono */
+}
+
+.in-cart-button span {
+    transition: opacity 0.3s ease; /* Transición suave para ocultar el texto */
+}
+
+.in-cart-button i {
+    font-size: 1vw; /* Tamaño del icono */
+    display: none; /* El ícono empieza oculto */
+    position: absolute; /* Para que esté centrado como el texto */
+    opacity: 0; /* Oculto inicialmente */
+    transition: opacity 0.3s ease; /* Transición suave para mostrar el ícono */
 }
 
 .play-button {
@@ -302,4 +380,112 @@ section {
     font-weight: bold;
     letter-spacing: 0.2em;
     font-size: 0.7vw;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
+
+.buy-button:hover {
+    transform: scale(1.1); 
+    background-color: #e6005c; 
+    box-shadow: 0 0 10px #ff6699; 
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+    background-color: #003d4d; /* Color azul más oscuro en hover */
+    box-shadow: 0 0 10px #00b8e6; 
+}
+
+.in-cart-button:hover {
+    transform: scale(1.1); /* Aumenta el tamaño del botón en hover */
+    background-color: #e6005c; /* Color más oscuro en hover */
+    box-shadow: 0 0 10px #ff6699; 
+}
+
+.in-cart-button:hover span {
+    opacity: 0; /* Oculta el texto en hover */
+}
+
+.in-cart-button:hover i {
+    display: block; /* Muestra el ícono en hover */
+    opacity: 1; /* El ícono aparece suavemente */
+}
+
+
+/* DANI A PARTIR DE ACA PUSE LOS ESTILOS DEL FOOTER, MODIFICA SI LO NECESIATS */
+footer {
+    color: #ffffff;
+    padding: 50px;
+    padding-bottom: 3px;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    gap: 10px;
+  }
+  footer {
+    display: block;
+    width: 100%;
+  }
+  .footer-column {
+    flex: 1; /* Hace que todas las columnas tengan el mismo tamaño */
+    min-width: 150px; /* Define un ancho mínimo para evitar que se compriman demasiado */
+    text-align: left;/* Alinea el contenido de la columna a la izquierda */
+    margin: 0 15px; /* Aumenta el espaciado entre columnas (de 10px a 20px) */
+  
+  
+  }
+  .footer-column h3 {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    text-align: left;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-column ul li a {
+    color: #b0b3b8;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #ffffff;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-column {
+      width: 100%; /* Las columnas ocuparán el ancho completo en pantallas pequeñas */
+      flex: 1 1 100%; /* Colapsar columnas a ancho completo */
+      margin-bottom: 10px; /* Espacio entre columnas en móviles */
+    }
+    .footer {
+      text-align: center; /* Alinear el texto del footer al centro */
+    }
+    .footer-container{
+      flex-wrap: wrap;
+  
+    }
+  }
+  
+  
+  
+  .copyright{
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 24px; /* Espaciado entre las columnas y el texto */
+    font-size: 21px; /* Ajusta el tamaño de la fuente según sea necesario */
+    color: #ffffff; /* Cambia el color del texto si lo deseas */
+    }

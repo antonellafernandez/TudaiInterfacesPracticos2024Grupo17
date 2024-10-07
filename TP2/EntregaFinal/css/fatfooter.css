@@ -1,20 +1,19 @@
 footer {
-    width: 100%; /* Asegura que el footer ocupe el ancho completo */
+    width: 100%;
     background-color: #282C34;
     color: #ffffff;
     padding: 50px;
     padding-bottom: 3px;
     text-align: center;
+    overflow-x: hidden;
+    height: 335px;
   }
   
   .footer-container {
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
-    margin: auto;
-    margin-left: 6%;
-    padding: 0 20px; /* Añade algo de espacio horizontal */
-    gap: 20px;
+    gap: 10px;
   }
   footer {
     display: block;
@@ -75,7 +74,6 @@ footer {
   .copyright{
     padding: 20px 0;
     text-align: center;
-    margin-top: 24px; /* Espaciado entre las columnas y el texto */
     font-size: 21px; /* Ajusta el tamaño de la fuente según sea necesario */
     color: #ffffff; /* Cambia el color del texto si lo deseas */
     }

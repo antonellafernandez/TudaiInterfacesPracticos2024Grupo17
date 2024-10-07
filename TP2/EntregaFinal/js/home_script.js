@@ -1,3 +1,25 @@
+// funcion para el loading
+document.addEventListener('DOMContentLoaded', function () {
+    const loadingContainer = document.getElementById('loading');
+    const content = document.getElementById('content');
+    const percentageText = document.getElementById('percentage');
+
+    let progress = 0;
+    const loadingInterval = setInterval(() => {
+        progress += 1; // Aumentar el progreso en 1% cada 100ms
+        percentageText.textContent = `${progress}%`;
+
+        if (progress >= 100) {
+            clearInterval(loadingInterval); // Detener el intervalo
+            loadingContainer.style.display = 'none'; // Ocultar el loading
+            content.style.display = 'block'; // Mostrar el contenido
+        }
+    }, 50); 
+});
+
+
+
+
 // Función de easing (aceleración rápida y desaceleración lenta)
 function easeInOutCubic(progress) {
     if (progress < 0.5) {

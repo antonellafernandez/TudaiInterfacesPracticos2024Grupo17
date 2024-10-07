@@ -1,4 +1,11 @@
 /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+  }
+
 body {
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
@@ -142,32 +149,25 @@ body {
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
     gap: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
+/* Efecto de pulsación */
 .play-button:hover {
-    background-color: #434956;
+    transform: scale(1.1); /* Escalar y rotar */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7), 0 0 20px #ff0055; /* Sombra y resplandor */
 }
 
-.play-button.animate {
-    transition: all 0.5s ease-in-out; /* Transición suave */
-    width: 50px; /* Se reduce a un círculo pequeño */
-    height: 50px; /* Se convierte en un círculo */
-    border-radius: 50%; /* Para que sea completamente redondo */
-    background-color: #ff0055; /* Cambia el color al encogerse */
-    transform: translateY(-20px) scale(0.8); /* Eleva y reduce el tamaño */
+/* Efecto de parpadeo en el texto */
+.play-button:hover .play-text {
+    animation: blink 0.5s infinite; /* Añadir animación de parpadeo */
 }
 
-/* Ocultar el texto al transformarse */
-.play-button.animate .play-text {
-    opacity: 0; /* Oculta el texto */
-    transition: opacity 0.3s ease; /* Transición suave para la opacidad */
-}
-
-/* Ajustar el icono para que se mantenga centrado */
-.play-button.animate .play-icon {
-    margin: auto;
+@keyframes blink {
+    0%, 20%, 100% { opacity: 1; }
+    10% { opacity: 0; }
 }
 
 .play-icon {
@@ -180,27 +180,30 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease; /* Suaviza el cambio de escala */
 }
 
 .play-icon i {
     font-size: 12px; /* Ajusta el tamaño del icono de la flecha */
 }
 
+/* Efecto de escalado en el icono al hacer hover */
+.play-button:hover .play-icon {
+    transform: scale(1.2); /* Escalar el icono un poco más */
+}
+
 .play-text {
     font-size: 14px;
 }
 
-/* Efecto en el icono al hacer hover */
-.play-button:hover .play-icon {
-    transform: scale(1.1);
-    transition: transform 0.2s;
-}
+
+
 
 
 /* Game Modes & Player Controls (Aside Section) */
 aside.card {
     width: 323px;
-    height: 500px;
+    height: 520px;
     background-color: #2c2c2c;
     border: 1px solid #444;
     border-radius: 12px;
@@ -212,7 +215,7 @@ aside.card {
 
 .card-header h2 {
     font-size: 24px;
-    margin-bottom: 5px; /* Ajusta este valor para reducir espacio */
+    margin-bottom: 15px; /* Ajusta este valor para reducir espacio */
     text-align: center;
 }
 
@@ -255,18 +258,24 @@ aside.card {
 .player-controls {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 20px;
 }
 
 .control-group {
     text-align: center;
-    margin: 0;
+    margin-top: 0px;
+   
+}
+
+.control-btn{
+    margin-top: 10px;
 }
 
 .arrow-controls {
     display: flex;
     justify-content: center;
     gap: 10px;
+    padding: 10px;
 }
 
 .control-btn {
@@ -284,7 +293,7 @@ aside.card {
 .gallery {
     margin-top: 20px;
     display: flex;
-    overflow-x: auto;
+    overflow: visible;
     padding-bottom: 16px;
     gap: 25px;
     margin-bottom: 20px;
@@ -308,11 +317,47 @@ aside.card {
 }
 
 .gallery img {
-    width: 210px;
+    width: 205px;
     height: 128px;
     object-fit: cover;
     border-radius: 12px;
-    filter: brightness(50%);
+    filter: brightness(60%);
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Sombra neón */
+    border: 2px solid transparent; /* Borde transparente inicialmente */
+}
+
+.gallery img:hover {
+    transform: scale(1.1); /* Agranda la imagen */
+    filter: brightness(100%);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(255, 0, 255, 0.7);
+    border: 2px solid rgba(255, 0, 255, 0.7); /* Borde neón estilo arcade */
+}
+
+.gallery img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2)); /* Luz en diagonal */
+    transition: left 0.5s ease;
+}
+
+
+.gallery img:hover {
+    animation: flicker 0.15s infinite; /* Añade un efecto de parpadeo rápido */
+}
+
+@keyframes flicker {
+    0%, 100% {
+        filter: brightness(100%);
+    }
+    50% {
+        filter: brightness(120%);
+    }
 }
 
 .btn-icon {
@@ -348,7 +393,7 @@ aside.card {
     background-color: #21252b;
     border: 1px solid #444;
     border-radius: 12px;
-    font-size: 16;
+    font-size: 16px;
     padding: 15px;
     width: 1120px;
 }
@@ -367,6 +412,13 @@ aside.card {
     border-radius: 8px;
     cursor: pointer;
     margin-right: 20px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-tag:hover {
+    background-color: #33d6ff; /* Fondo cambia al color del borde */
+    color: #21252b; /* El texto cambia a un color oscuro (para contraste) */
 }
 
 /*ESTILOS PARA LA SECCION DE COMENTARIOS*/
@@ -405,7 +457,7 @@ aside.card {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 12px;
-    height: 30px;
+    height: 48px;
 }
 
 .comment-input input {
@@ -506,4 +558,83 @@ aside.card {
     color: #BFBFBF;
     font-size: 14px;
     margin-left: 20px;
+    margin-top: 10px;
 }
+
+
+
+
+footer {
+    width: 100%;
+    background-color: #282C34;
+    color: #ffffff;
+    padding: 50px;
+    text-align: center;
+}
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 1200px;
+  }
+
+  .footer-column {
+    flex: 1; /* Hace que todas las columnas tengan el mismo tamaño */
+    min-width: 150px; /* Define un ancho mínimo para evitar que se compriman demasiado */
+    text-align: left;/* Alinea el contenido de la columna a la izquierda */
+    margin: 0 15px;
+  
+  
+  }
+  .footer-column h3 {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    margin-right: 1rem;
+    text-align: left;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-column ul li a {
+    color: #b0b3b8;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #ffffff;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-column {
+      width: 100%; /* Las columnas ocuparán el ancho completo en pantallas pequeñas */
+      flex: 1 1 100%; /* Colapsar columnas a ancho completo */
+      margin-bottom: 10px; /* Espacio entre columnas en móviles */
+    }
+    .footer {
+      text-align: center; /* Alinear el texto del footer al centro */
+    }
+    .footer-container{
+      flex-wrap: wrap;
+  
+    }
+  }
+  
+  
+  
+  .copyright{
+    padding: 20px 0;
+    text-align: center;
+    font-size: 21px; /* Ajusta el tamaño de la fuente según sea necesario */
+    color: #ffffff; /* Cambia el color del texto si lo deseas */
+    margin-bottom: 0px;
+    }
