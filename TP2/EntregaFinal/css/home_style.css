@@ -70,6 +70,7 @@ body {
         "footer";
     grid-template-columns: 1fr;
     grid-template-rows: 0.1fr auto 1fr;
+    height: 100%;
 }
 
 .main, .footer {
@@ -130,20 +131,20 @@ section {
 .featured-games {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row;
+    width: 80%;
 }
 
 /* Featured Game Card */
 .featured-card {
     background-color: #434956;
-    width: 14vw;
-    height: 20vw;
+    width: 15.3vw;
+    height: 21vw;
     border-radius: 1vw;
     display: flex;
     flex-direction: column;
     overflow: hidden; /* Ocultar cualquier contenido que se salga de la tarjeta */
-    margin: 0.3vw;
     transition: transform 0.3s ease;
 }
 
