@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
   }
+
   body {
     background-color: #16181d;
     color: #22d3ee;
@@ -12,13 +13,29 @@
     min-height: 100vh; /* Para que ocupe toda la altura de la pantalla */
     margin: 0;
   }
-  
-  .container {
-    flex: 1;
+
+  .main-nav{
+    background-color: #282c34;
+    width: 100%;
+    height: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 65px;
+    color: #ffff;
+  }
+
+  .logo {
+    width: 200px;
+    object-fit: contain; 
+  }
+
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 65px;
+    padding-bottom: 65px;
   }
   
   .form-box {
@@ -338,7 +355,7 @@
 }
 .login-message{
   text-align: center;  /* Centra el texto horizontalmente */
-  margin-top: 60px;
+  margin-top: 35px;
 }
 .login-message p {
   color: #ffffff;      /* Cambia el color del texto */
@@ -355,18 +372,19 @@
   cursor: pointer;               /* Cursor en forma de mano al pasar por encima */
   padding: 0;                    /* Elimina padding para evitar espacio adicional */
   outline: none;                 /* Elimina el contorno de enfoque (outline) */
-  color: #ffffff;                /* Asegúrate de que el texto esté en blanco */
+  color: #ffffff;  
+  margin-bottom: 10px;           
 }
 .login-btn p {
-  color: #ffffff;                /* Color blanco para el texto dentro del botón */
+  color: #ffffff;               
 }
 .login-btn:focus {
-  outline: none;                 /* Asegura que no haya borde cuando el botón recibe foco */
+  outline: none;                 
 }
 .g-recaptcha .error {
-  color: red; /* O el color que prefieras */
+  color: red; 
   font-size: 14px;
-  margin-top: 5px; /* Un poco de margen para que se separe del checkbox */
+  margin-top: 5px; 
 }
 
 .form-input .error input{
@@ -374,8 +392,9 @@
 }
 .form-group .error{
     color:rgb(255, 0, 0);
-    font-size: 12px;
+    font-size: 13px;
     height: 13px;
+    margin-top: 8px; 
 }
 
 footer {
