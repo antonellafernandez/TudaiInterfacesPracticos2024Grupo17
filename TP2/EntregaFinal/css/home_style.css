@@ -91,7 +91,7 @@ body {
     grid-area: main;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .footer {
@@ -107,11 +107,10 @@ body {
 
 /* Secciones */
 section {
-    background-color: red;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     max-height: fit-content;
 }
 
@@ -119,6 +118,7 @@ section {
     font-family: 'Audiowide', sans-serif;
     font-weight: normal;
     font-size: 1.25vw;
+    margin-top: 2%;
     margin-bottom: 0.75%;
     width: 80%;
 }
@@ -135,7 +135,7 @@ section {
     justify-content: space-between;
     flex-direction: row;
     width: 80%;
-    margin-bottom: 1vw;
+    margin-bottom: 2%;
 }
 
 /* Featured Game Card */
@@ -229,7 +229,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1vw;
+    margin: 0 auto 2%;
     width: 80%;
 }
 
