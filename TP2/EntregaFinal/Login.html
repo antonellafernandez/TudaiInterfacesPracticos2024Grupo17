@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <Header class="main-nav">
+        <div class="nav-left">
+            <i class="fas fa-bars" id="menu-btn"></i> <!-- Icono de menú hamburguesa -->
+          </div>
+          <div class="nav-center">
+            <img src="img/logo.png" alt="Logo" class="logo">
+          </div>
+      </Header>
+
+      <!-- Barra lateral oculta inicialmente -->
+<div id="sidebar" class="sidebar">
+    <ul>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#social-media">Social Media</a></li>
+        <li><a href="#help-support">Help & Support</a></li>
+        <li><a href="Login.html">Logout</a></li>
+    </ul>
+  </div>
+  
+  <!-- Overlay para detectar clic fuera de la barra lateral -->
+  <div id="overlay" class="overlay"></div>
+
+  <div class="container">
+    <div class="form-box">
+      <h2 class="form-title">Login</h2>
+      <form class="form">
+        <div class="grid">
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input id="email" type="text" placeholder="you@example.com" class="form-input" />
+                <section class="error"></section>
+            </div>
+            <div class="form-group relative">
+                <label for="password" class="form-label">Password</label>
+                <input id="password" type="password" placeholder="••••••••" class="form-input" />
+                <button type="button" class="password-toggle">
+                  <span class="show-password"><i class="fas fa-eye"></i></span>
+                  <span class="hide-password" style="display: none;"><i class="fas fa-eye-slash"></i></span>
+                </button>
+                <section class="error"></section>
+            </div>
+            <div class="submit-div">
+                <button type="submit" class="submit-button" >Login</button>
+            </div>
+
+            </form>
+            
+            <div class="social-login">
+              <div class="login-line">
+                <div class="line"></div>
+              <p class="social-text">Or sign up with</p>
+              <div class="line"></div>
+              </div>
+              <div class="social-icons">
+                <button class="social-btn">
+                  <img src="img\logotipo-de-google-124289805.jpg" alt="Google" class="icon" />
+                </button>
+                <button class="social-btn">
+                  <img src="img\90dd9f12fdd1eefb8c8976903944c026-logotipo-de-icono-de-facebook.jpg" alt="Google" class="icon" />
+                </button>
+              </div>
+            </div>
+            <div class="login-message">
+              <button class="login-btn">Don't have an account? <a href="Register.html">Register</a></button>
+            </div>
+    
+</body>
+</html>

@@ -1,0 +1,203 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #16181d;
+    color: #22d3ee;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Para que ocupe toda la altura de la pantalla */
+    margin: 0;
+  }
+  
+  .container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 65px;
+  }
+  
+  .form-box {
+    padding: 100px;
+    padding-top: 50px;
+    background-color: #16181d;
+    border: 2px solid #ff4081;
+    border-radius: 8px;
+    width: 609px;
+    height: 550px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-title {
+    font-family: "Audiowide", sans-serif;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #22d3ee;
+    letter-spacing: 0.9px;
+    font-weight: 400;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+    
+  .form-group {
+    margin-bottom: 1rem;
+    position:relative;
+  }
+
+  .form-group label {
+    display: inline-block;
+  }
+
+  
+  .form-label {
+    padding-top: 15px;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #22d3ee;
+    background-color: #21252b;
+    color: #22d3ee;
+    border-radius: 12px;
+  }
+  
+  .relative {
+    position: relative;
+  }
+
+  .password-toggle {
+    position: absolute;
+    top: 74%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #FF4081;
+    cursor: pointer;
+    display: block;
+  }
+  .show-password {
+    display: inline;
+  }
+  .hide-password {
+    display: none;
+  }
+  .password-toggle i {
+    font-size: 1.25rem;
+  }
+  .submit-div {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    margin-top: 20px;
+  }
+  .submit-button {
+    width: 157.7px;
+    height: 47.02px;
+    padding: 0.75rem;
+    background-color: #0891b2;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 28px;
+    font-size: 18px;
+  }
+  
+  .submit-button:hover {
+    background-color: #0e7490;
+  }
+
+  .social-login {
+    text-align: center;
+    margin-top: 2.0rem;
+
+  }
+  
+  .social-text {
+    margin: 0 10px;
+    font-size: 0.875rem;
+    color: #ffffff;
+    line-height: 1;
+    text-align: center;
+    
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .social-btn {
+    background-color: white;
+    border-radius:50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    border: none;
+  }
+  .social-btn img{
+    position: contain;
+    border-radius:50%;
+    white-space: nowrap;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+
+  .login-line{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    align-items: center;
+    
+  }
+  .line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+  }
+  .login-message {
+    text-align: center;  /* Centra el texto horizontalmente */
+    margin-top: 20px;    /* Espacio entre el botón y el mensaje */
+  }
+  
+  .login-message p {
+    color: #ffffff;      /* Cambia el color del texto */
+    font-size: 1rem;
+  }
+  .login-btn a {
+    text-decoration: none;
+    color: #22d3ee;      /* Cambia el color del enlace */
+  }
+  .login-btn {
+    background-color: transparent; /* Fondo transparente */
+    border: none;                  /* Sin bordes */
+    font-size: 1rem;               /* Tamaño del texto */
+    cursor: pointer;               /* Cursor en forma de mano al pasar por encima */
+    padding: 0;                    /* Elimina padding para evitar espacio adicional */
+    outline: none;                 /* Elimina el contorno de enfoque (outline) */
+    color: #ffffff;                /* Asegúrate de que el texto esté en blanco */
+  }
+  .login-btn p {
+    color: #ffffff;                /* Color blanco para el texto dentro del botón */
+  }
+  .login-btn:focus {
+    outline: none;                 /* Asegura que no haya borde cuando el botón recibe foco */
+  }

@@ -56,7 +56,13 @@
   
   .form-group {
     margin-bottom: 1rem;
+    position:relative;
   }
+
+  .form-group label {
+    display: inline-block;
+  }
+
   
   .form-label {
     padding-top: 15px;
@@ -121,12 +127,24 @@
   .password-toggle i {
     font-size: 1.25rem;
   }
+
+  .password-hint {
+    font-style: italic; /* Texto en cursiva */
+    color: #ffffff; /* Color blanco para que se vea bien en el tema oscuro */
+    font-size: 12px; /* Texto más pequeño que el label */
+    margin-left: 10px; /* Separación respecto al label */
+    display: inline-block; /* Para mantenerlo alineado con el label */
+    vertical-align: middle; /* Alinear con el texto del label */
+  }
+  
   .form-checkbox {
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
-  
+  .submit-div{
+    margin-left: 120px ;
+  }
   .submit-button {
     width: 157.7px;
     height: 47.02px;
@@ -144,6 +162,54 @@
   .submit-button:hover {
     background-color: #0e7490;
   }
+
+
+  #id_popover::backdrop{
+    background-color: rgba(0, 0, 0, 0.7 );
+  }
+  
+  /* Popover estilo arcade */
+#id_popover {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1a1a2e; /* Fondo oscuro */
+  padding: 40px;
+  border: 2px solid #22d3ee;
+  border-radius: 8px;
+  z-index: 1000;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+#id_popover p {
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff; /* Texto blanco */
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.close_popover {
+  margin-top: 2px;
+  
+}
+
+.close_popover button {
+  padding: 8px 20px;
+  background-color: #ff007f; /* Botón neón rosa */
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close_popover button:hover {
+  background-color: #ff66b2;
+}
+
+  
   
   .social-login {
     text-align: center;
@@ -297,7 +363,6 @@
 .login-btn:focus {
   outline: none;                 /* Asegura que no haya borde cuando el botón recibe foco */
 }
-<<<<<<< HEAD
 .g-recaptcha .error {
   color: red; /* O el color que prefieras */
   font-size: 14px;
@@ -312,8 +377,6 @@
     font-size: 12px;
     height: 13px;
 }
-=======
->>>>>>> 7c35c256dec4b27840bdd8647a9d23af4eef1ed6
 
 footer {
   width: 100%;
@@ -385,8 +448,6 @@ footer {
 
   }
 }
-
-
 
 .copyright{
   padding: 20px 0;

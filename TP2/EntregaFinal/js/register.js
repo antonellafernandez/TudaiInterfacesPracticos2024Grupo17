@@ -7,9 +7,14 @@ const password = document.getElementById('password');
 const confirmPassword = document.getElementById('confirm-password');
 const recaptchaCheckbox = document.querySelector('#recaptcha-checkbox');
 
+const popover = document.querySelector('#id_popover');
+
 form.addEventListener('submit', e => {
   e.preventDefault();
-  validateInputs();
+
+  if (validateInputs()) {
+    popover.showPopover(); // Mostrar el popover solo si la validación es exitosa
+  }
 });
 
 const setError = (element, message) => {
@@ -36,6 +41,8 @@ const isValidEmail = email => {
 };
 
 const validateInputs = () => {
+  let isValid = true;  // Variable que indica si el formulario es válido
+
   const nameValue = namee.value.trim();
   const lastnameValue = lastname.value.trim();
   const birthdayValue = birthday.value.trim();
@@ -46,55 +53,66 @@ const validateInputs = () => {
 
   if (nameValue === '') {
     setError(namee, 'Name is required');
+    isValid = false;
   } else {
     setSuccess(namee);
   }
 
   if (lastnameValue === '') {
     setError(lastname, 'Lastname is required');
+    isValid = false;
   } else {
     setSuccess(lastname);
   }
 
   if (birthdayValue === '') {
     setError(birthday, 'Birthday is required');
+    isValid = false;
   } else {
     setSuccess(birthday);
   }
 
   if (emailValue === '') {
     setError(email, 'Email is required');
+    isValid = false;
   } else if (!isValidEmail(emailValue)) {
     setError(email, 'Provide a valid email address, like you@example.com');
+    isValid = false;
   } else {
     setSuccess(email);
   }
 
   if (passwordValue === '') {
     setError(password, 'Password is required');
-  } else if (passwordValue.length < 8) {  // Corregido: uso de .length
+    isValid = false;
+  } else if (passwordValue.length < 8) {
     setError(password, 'Password must be at least 8 characters');
+    isValid = false;
   } else {
     setSuccess(password);
   }
 
   if (confirmPasswordValue === '') {
     setError(confirmPassword, 'Confirm Password is required');
+    isValid = false;
   } else if (confirmPasswordValue !== passwordValue) {
     setError(confirmPassword, 'Passwords do not match');
+    isValid = false;
   } else {
     setSuccess(confirmPassword);
   }
 
-  if (!recaptchaCheckboxValue) {  // Validación de que esté marcado
+  if (!recaptchaCheckboxValue) {
     const errorDisplay = document.querySelector('.g-recaptcha .error');
     errorDisplay.innerText = 'Please confirm you are not a robot';
+    isValid = false;
   } else {
     const errorDisplay = document.querySelector('.g-recaptcha .error');
-    errorDisplay.innerText = '';  // Limpiar el mensaje de error si está marcado
+    errorDisplay.innerText = '';
   }
-};
 
+  return isValid;  // Retornar si el formulario es válido o no
+};
 
 
 
