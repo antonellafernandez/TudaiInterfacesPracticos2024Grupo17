@@ -98,13 +98,9 @@ body {
 }
 
 .footer {
-    display: flex;
     flex-direction: column;
-
-    align-items: center;
     grid-area: footer;
     background-color: #282c34;
-    height: 100%;
     text-align: center;
     overflow-x: hidden;
 }
@@ -427,7 +423,7 @@ section {
 
 .footer-column {
     margin: 1%;
-    text-align: left;/* Alinea el contenido de la columna a la izquierda */
+    text-align: left; /* Alinea el contenido de la columna a la izquierda */
 }
 
 .footer-column h3 {
