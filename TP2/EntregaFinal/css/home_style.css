@@ -128,13 +128,31 @@ section {
 }
 
 /* Featured Games */
-.featured-games {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    width: 80%;
-    margin-bottom: 2%;
+@media only screen and (max-width: 767px) {
+    .featured-carousel-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2%;
+        max-width: 80vw;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .featured-carousel-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+
+    .featured-games {
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 1vw;
+    }
 }
 
 /* Featured Game Card */
@@ -346,6 +364,16 @@ section {
         margin-top: 2%;
         margin-bottom: 0.75%;
         width: 80%;
+    }
+
+    /* Featured Games */
+    .featured-games {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 80%;
+        margin-bottom: 2%;
     }
 
     /* Featured Game Card */
