@@ -374,6 +374,10 @@ section {
         width: 50%;
     }
 
+    .featured-game-title {
+        font-size: 1vw;
+    }
+
     .game-price {
         margin: 0 0 0 0;
         font-weight: 300; /* Light */
