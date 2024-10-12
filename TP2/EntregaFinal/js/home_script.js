@@ -1,4 +1,4 @@
-// funcion para el loading
+// Función para el loading
 document.addEventListener('DOMContentLoaded', function () {
     const loadingContainer = document.getElementById('loading');
     const content = document.getElementById('content');
@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, 50); 
 });
-
 
 
 
