@@ -4,12 +4,12 @@
     padding: 0;
     box-sizing: border-box;
   }
+  
   body {
     background-color: #16181d;
     color: #22d3ee;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Para que ocupe toda la altura de la pantalla */
     margin: 0;
   }
 
@@ -31,7 +31,6 @@
 
   
   .container {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,3 +217,59 @@
   .login-btn:focus {
     outline: none;                 /* Asegura que no haya borde cuando el botón recibe foco */
   }
+
+  footer {
+    width: 1000px;
+    height: 335px;
+    background-color: #282C34;
+    color: #ffffff;
+    padding: 50px;
+    padding-bottom: 3px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    gap: 1%;
+  }
+  
+  .footer-column {
+    margin: 1%;
+    text-align: left; /* Alinea el contenido de la columna a la izquierda */
+  }
+  
+  .footer-column h3 {
+    margin-bottom: 1%;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 5%;
+  }
+  
+  .footer-column ul li a {
+    color: #b0b3b8;
+    text-decoration: none;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #ffffff;
+  }
+  
+  .copyright{
+    text-align: center;
+    font-size: 1.25vw; /* Ajusta el tamaño de la fuente según sea necesario */
+  }
+  

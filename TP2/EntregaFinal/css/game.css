@@ -7,18 +7,23 @@
   }
 
 body {
-    margin: 0 auto;
     font-family: 'Roboto', sans-serif;
     background-color: #16181d;
     color: white;
-    overflow-x: hidden;    
 }
 
-.game_container{
-    padding-top: 35px;
-    padding-bottom: 65px;
-    padding-right: 65px;
-    padding-left: 65px;
+.wrapper { /* Nuevo contenedor alrededor de game_container */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+}
+
+.game_container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
   /* Navigation */
@@ -564,77 +569,3 @@ aside.card {
 
 
 
-footer {
-    width: 100%;
-    background-color: #282C34;
-    color: #ffffff;
-    padding: 50px;
-    text-align: center;
-}
-  
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    max-width: 1200px;
-  }
-
-  .footer-column {
-    flex: 1; /* Hace que todas las columnas tengan el mismo tamaño */
-    min-width: 150px; /* Define un ancho mínimo para evitar que se compriman demasiado */
-    text-align: left;/* Alinea el contenido de la columna a la izquierda */
-    margin: 0 15px;
-  
-  
-  }
-  .footer-column h3 {
-    font-size: 16px;
-    color: #ffffff;
-    margin-bottom: 20px;
-    margin-right: 1rem;
-    text-align: left;
-  }
-  
-  .footer-column ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-column ul li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-column ul li a {
-    color: #b0b3b8;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  .footer-column ul li a:hover {
-    color: #ffffff;
-  }
-  
-  @media (max-width: 768px) {
-    .footer-column {
-      width: 100%; /* Las columnas ocuparán el ancho completo en pantallas pequeñas */
-      flex: 1 1 100%; /* Colapsar columnas a ancho completo */
-      margin-bottom: 10px; /* Espacio entre columnas en móviles */
-    }
-    .footer {
-      text-align: center; /* Alinear el texto del footer al centro */
-    }
-    .footer-container{
-      flex-wrap: wrap;
-  
-    }
-  }
-  
-  
-  
-  .copyright{
-    padding: 20px 0;
-    text-align: center;
-    font-size: 21px; /* Ajusta el tamaño de la fuente según sea necesario */
-    color: #ffffff; /* Cambia el color del texto si lo deseas */
-    margin-bottom: 0px;
-    }
