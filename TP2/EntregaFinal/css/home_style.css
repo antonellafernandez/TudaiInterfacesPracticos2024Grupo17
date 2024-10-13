@@ -161,7 +161,8 @@ section {
     font-size: 4.1vw;
     margin-top: 4%;
     margin-bottom: 2.75%;
-    width: 80%;
+    max-width: 90vw;
+    width: 100%;
 }
 
 /* Asegurarse de que padding y border se incluyan en el tamaño total */
@@ -176,7 +177,7 @@ section {
         align-items: center;
         justify-content: center;
         margin: 0 auto 2%;
-        max-width: 100vw;
+        max-width: 90vw;
         width: 100%;
         overflow: hidden;
     }
@@ -199,7 +200,7 @@ section {
 /* Featured Game Card */
 .featured-card {
     background-color: #434956;
-    width: 100vw;
+    width: 80vw;
     height: 56.3vw;
     border-radius: 3vw;
     display: flex;
@@ -316,7 +317,7 @@ a {
     align-items: center;
     justify-content: center;
     margin: 0 auto 2%;
-    max-width: 100vw;
+    max-width: 90vw;
     width: 100%;
     overflow: hidden;
 }
