@@ -581,19 +581,19 @@ footer {
     align-items: center;
     flex-direction: column;
   }
-  
+
   .footer-container {
     display: flex;
     justify-content: center;
     width: 100%;
     gap: 1%;
   }
-  
+
   .footer-column {
     margin: 1%;
-    text-align: left; 
+    text-align: left;
   }
-  
+
   .footer-column h3 {
     font-size: 16px;
     color: #ffffff;
@@ -601,30 +601,27 @@ footer {
     margin-right: 1rem;
     text-align: left;
 }
-  
+
   .footer-column ul {
     list-style: none;
     padding: 0;
   }
-  
+
   .footer-column ul li {
     margin-bottom: 5%;
   }
-  
+
   .footer-column ul li a {
     color: #b0b3b8;
     text-decoration: none;
-    
+
   }
-  
+
   .footer-column ul li a:hover {
     color: #ffffff;
   }
-  
+
   .copyright{
     text-align: center;
     font-size: 1.25vw;
   }
-  
-
-
