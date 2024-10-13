@@ -101,7 +101,49 @@ body {
     text-align: center;
     overflow-x: hidden;
     padding: 1%;
-    height: 14.5%;
+    height: fit-content;
+    font-size: 2.5vw;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    gap: 1%;
+}
+
+.footer-column {
+    margin: 1%;
+    text-align: left; /* Alinea el contenido de la columna a la izquierda */
+}
+
+.footer-column h3 {
+    margin-bottom: 1%;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 5%;
+}
+
+.footer-column ul li a {
+    color: #b0b3b8;
+    text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+    color: #ffffff;
+}
+
+.copyright{
+    text-align: center;
+    font-size: 2.8vw;
 }
 
 /* Secciones */
@@ -116,7 +158,7 @@ section {
 .section-title {
     font-family: 'Audiowide', sans-serif;
     font-weight: normal;
-    font-size: 3vw;
+    font-size: 4.1vw;
     margin-top: 4%;
     margin-bottom: 2.75%;
     width: 80%;
@@ -134,7 +176,7 @@ section {
         align-items: center;
         justify-content: center;
         margin: 0 auto 2%;
-        max-width: 80vw;
+        max-width: 100vw;
         width: 100%;
         overflow: hidden;
     }
@@ -144,26 +186,59 @@ section {
         flex-wrap: nowrap;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
     }
 
     .featured-games {
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
         display: flex;
         flex-wrap: nowrap;
-        gap: 1vw;
+        gap: 2vw;
     }
 }
 
 /* Featured Game Card */
 .featured-card {
     background-color: #434956;
-    width: 50vw; /*19.3vw;*/
-    height: 56.3vw; /*25vw;*/
+    width: 100vw;
+    height: 56.3vw;
     border-radius: 3vw;
     display: flex;
     flex-direction: column;
     overflow: hidden; /* Ocultar cualquier contenido que se salga de la tarjeta */
+    transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+
+@keyframes animacion-escala-derecha {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes animacion-escala-izquierda {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-scale-right {
+    animation: animacion-escala-derecha 1s;
+}
+
+.animate-scale-left {
+    animation: animacion-escala-izquierda 1s;
+    animation-direction: reverse;
 }
 
 .featured-game-image {
@@ -196,20 +271,20 @@ section {
     overflow: hidden; /* Ocultar cualquier texto que desborde el contenedor */
     text-overflow: ellipsis; /* Mostrar '...' al final si hay desbordamiento */
     font-weight: 600; /* Semibold */
-    font-size: 2.8vw;
+    font-size: 4vw;
 }
 
 
 .game-price {
     margin: 0 0 0 0;
     font-weight: 300; /* Light */
-    font-size: 0.9vw;
+    font-size: 4.1vw;
 }
 
 .in-cart-game-price {
     margin: 0 0 0 0;
     font-weight: 300; /* Light */
-    font-size: 0.9vw;
+    font-size: 4.1vw;
     visibility: hidden;
 }
 
@@ -231,13 +306,17 @@ section {
     font-size: 2.8vw;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* Carousel */
 .carousel-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 2%;
-    max-width: 80vw;
+    max-width: 100vw;
     width: 100%;
     overflow: hidden;
 }
@@ -252,10 +331,10 @@ section {
 .carousel {
     display: flex;
     flex-wrap: nowrap;
-    gap: 1vw;
+    gap: 2vw;
 }
 
-.carousel-container::-webkit-scrollbar {
+.carousel-container::-webkit-scrollbar, .featured-carousel-container::-webkit-scrollbar {
     display: none;
 }
 
@@ -266,12 +345,45 @@ section {
 /* Game Card */
 .card {
     background-color: #434956;
-    width: 50vw;
-    height: 46.5vw;
+    width: 46vw;
+    height: 42.5vw;
     border-radius: 3vw;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: hidden;transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+
+@keyframes animacion-escala-derecha {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes animacion-escala-izquierda {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-scale-right {
+    animation: animacion-escala-derecha 1s;
+}
+
+.animate-scale-left {
+    animation: animacion-escala-izquierda 1s;
+    animation-direction: reverse;
 }
 
 .game-image {
@@ -297,11 +409,7 @@ section {
     overflow: hidden; /* Ocultar cualquier texto que desborde el contenedor */
     text-overflow: ellipsis; /* Mostrar '...' al final si hay desbordamiento */
     font-weight: 600; /* Semibold */
-    font-size: 2.8vw;
-}
-
-.game-price {
-    font-size: 3vw;
+    font-size: 4vw;
 }
 
 .buy-button, .in-cart-button {
@@ -358,6 +466,16 @@ section {
 }
 
 @media only screen and (min-width: 768px) {
+    /* Footer */
+    .footer {
+        height: 14.5%;
+        font-size: 1vw;
+    }
+
+    .copyright{
+        font-size: 1.3vw;
+    }
+
     /* Section */
     .section-title {
         font-size: 1.25vw;
@@ -367,12 +485,23 @@ section {
     }
 
     /* Featured Games */
+    .featured-carousel-wrap {
+        overflow: visible;
+        max-width: 80vw;
+        width: 80%;
+    }
+
+    .featured-carousel-container {
+        overflow-x: visible;
+        scroll-snap-type: none;
+    }
+
     .featured-games {
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-direction: row;
-        width: 80%;
+        width: 100%;
         margin-bottom: 2%;
     }
 
@@ -569,46 +698,4 @@ section {
         display: block; /* Muestra el ícono en hover */
         opacity: 1; /* El ícono aparece suavemente */
     }
-}
-
-/* Footer */
-.footer-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    gap: 1%;
-}
-
-.footer-column {
-    margin: 1%;
-    text-align: left; /* Alinea el contenido de la columna a la izquierda */
-}
-
-.footer-column h3 {
-    margin-bottom: 1%;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-column ul li {
-    margin-bottom: 5%;
-}
-
-.footer-column ul li a {
-    color: #b0b3b8;
-    text-decoration: none;
-}
-
-.footer-column ul li a:hover {
-    color: #ffffff;
-}
-
-.copyright{
-    text-align: center;
-    font-size: 1.3vw; /* Ajusta el tamaño de la fuente según sea necesario */
 }
