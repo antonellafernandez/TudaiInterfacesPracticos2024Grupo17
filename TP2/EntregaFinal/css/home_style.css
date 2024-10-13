@@ -116,7 +116,7 @@ body {
 }
 
 .footer-column {
-    width: fit-content;
+    width: 25%;
     margin: 1%;
     text-align: left; /* Alinea el contenido de la columna a la izquierda */
 }
@@ -632,6 +632,10 @@ a {
 
     .footer-container {
         flex-wrap: nowrap;
+    }
+
+    .footer-column {
+        width: fit-content;
     }
 
     .copyright{
