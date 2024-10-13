@@ -1,10 +1,8 @@
-/* General Styles */
 * {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
- 
   }
 
 body {
@@ -567,61 +565,3 @@ aside.card {
     margin-top: 10px;
 }
 
-/*estilos para el footer */
-
-footer {
-    width: 100%;
-    height: 335px;
-    background-color: #282C34;
-    color: #ffffff;
-    text-align: center;
-    overflow-x: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .footer-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 1%;
-  }
-
-  .footer-column {
-    margin: 1%;
-    text-align: left;
-  }
-
-  .footer-column h3 {
-    font-size: 16px;
-    color: #ffffff;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
-    text-align: left;
-}
-
-  .footer-column ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .footer-column ul li {
-    margin-bottom: 5%;
-  }
-
-  .footer-column ul li a {
-    color: #b0b3b8;
-    text-decoration: none;
-
-  }
-
-  .footer-column ul li a:hover {
-    color: #ffffff;
-  }
-
-  .copyright{
-    text-align: center;
-    font-size: 1.25vw;
-  }
