@@ -134,6 +134,11 @@
     margin-top: 28px;
     font-size: 18px;
   }
+
+  .submit-div a{
+    text-decoration: none;
+    color: #ffff;
+  }
   
   .submit-button:hover {
     background-color: #0e7490;
