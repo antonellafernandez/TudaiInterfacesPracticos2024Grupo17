@@ -13,6 +13,7 @@
 <h4>Entregable N°2</h4>
 <p>Link a GitHub Pages Entregable N°2: https://antonellafernandez.github.io/TudaiInterfacesPracticos2024Grupo17/TP2/EntregaFinal/Register<p>
 <p>Opciones de navegación:</p>
+<p>/Register</p>
 <p>/Login</p>
 <p>/Home</p>
 <p>/Game</p>
