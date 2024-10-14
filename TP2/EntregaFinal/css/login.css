@@ -98,7 +98,7 @@
 
   .password-toggle {
     position: absolute;
-    top: 74%;
+    top: 50%;
     right: 10px;
     transform: translateY(-50%);
     background: none;
@@ -116,6 +116,17 @@
   .password-toggle i {
     font-size: 1.25rem;
   }
+
+  
+.form-input .error input{
+  border:rgb(255, 0, 0);
+}
+.form-group .error{
+    color:rgb(255, 0, 0);
+    font-size: 13px;
+    height: 13px;
+    margin-top: 8px; 
+}
   .submit-div {
     display: flex;
     justify-content: center; /* Centra el botón horizontalmente */
