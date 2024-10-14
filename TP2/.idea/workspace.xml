@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928ec8fa-add8-4070-a8cd-a0e95b79e92b" name="Changes" comment="" />
+    <list default="true" id="928ec8fa-add8-4070-a8cd-a0e95b79e92b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/EntregaFinal/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/Home.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +29,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Admin/IdeaProjects/ArquitecturasWeb2024Grupo4/tp_03_ejercicio_integrador",
+    "last_opened_file_path": "C:/Users/Admin/IdeaProjects/Interfaces2024Grupo17/TP2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -74,6 +76,7 @@
       <workItem from="1727694343369" duration="873000" />
       <workItem from="1728334028152" duration="1421000" />
       <workItem from="1728346581537" duration="16000" />
+      <workItem from="1728941693110" duration="13000" />
     </task>
     <servers />
   </component>
