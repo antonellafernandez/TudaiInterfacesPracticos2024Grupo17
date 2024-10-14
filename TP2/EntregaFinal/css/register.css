@@ -10,7 +10,7 @@
     color: #22d3ee;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Para que ocupe toda la altura de la pantalla */
+    min-height: 100vh; 
     margin: 0;
   }
 
@@ -104,22 +104,22 @@
     border: none;
     border-bottom: 1px solid #ccc;
     background-color: transparent;
-    color: #fff; /* Color del texto */
+    color: #fff; 
     padding: 10px;
     font-size: 16px;
     width: 100%;
   }
   input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1); /* Invierte el color del icono para que se vea blanco */
+    filter: invert(1); 
   }
   #birthday{
-    border: none;               /* Elimina todos los bordes */
-  border-bottom: 2px solid #ffffff;  /* Añade solo el borde inferior */
-  background-color: transparent; /* Fondo transparente */
-  color: #ffffff;             /* Color del texto */
-  font-size: 1rem;            /* Tamaño del texto */
-  padding: 0.5rem 0;          /* Espaciado interno arriba y abajo */
-  width: 100%;                /* Ajusta el ancho completo */
+    border: none;               
+  border-bottom: 2px solid #ffffff; 
+  background-color: transparent; 
+  color: #ffffff;             
+  font-size: 1rem;            
+  padding: 0.5rem 0;          
+  width: 100%;                
   outline: none;  
   border-radius: 0%;
   }
@@ -146,12 +146,12 @@
   }
 
   .password-hint {
-    font-style: italic; /* Texto en cursiva */
-    color: #ffffff; /* Color blanco para que se vea bien en el tema oscuro */
-    font-size: 12px; /* Texto más pequeño que el label */
-    margin-left: 10px; /* Separación respecto al label */
-    display: inline-block; /* Para mantenerlo alineado con el label */
-    vertical-align: middle; /* Alinear con el texto del label */
+    font-style: italic; 
+    color: #ffffff; 
+    font-size: 12px; 
+    margin-left: 10px; 
+    display: inline-block; 
+    vertical-align: middle; 
   }
   
   .form-checkbox {
@@ -185,13 +185,13 @@
     background-color: rgba(0, 0, 0, 0.7 );
   }
   
-  /* Popover estilo arcade */
+
 #id_popover {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #1a1a2e; /* Fondo oscuro */
+  background-color: #1a1a2e; 
   padding: 40px;
   border: 2px solid #22d3ee;
   border-radius: 8px;
@@ -202,7 +202,7 @@
 
 #id_popover p {
   font-family: 'Roboto', sans-serif;
-  color: #ffffff; /* Texto blanco */
+  color: #ffffff; 
   margin-bottom: 30px;
   font-size: 16px;
 }
@@ -214,7 +214,7 @@
 
 .close_popover button {
   padding: 8px 20px;
-  background-color: #ff007f; /* Botón neón rosa */
+  background-color: #ff007f; 
   color: #fff;
   font-family: 'Press Start 2P', cursive;
   border: none;
@@ -297,7 +297,7 @@
   }
   
   .recaptcha-checkbox:checked {
-    background-color: #4285f4; /* Google blue */
+    background-color: #4285f4; 
     border-color: #4285f4;
     position: relative;
   }
@@ -354,24 +354,24 @@
   background-color: #ccc;
 }
 .login-message{
-  text-align: center;  /* Centra el texto horizontalmente */
+  text-align: center;  
   margin-top: 35px;
 }
 .login-message p {
-  color: #ffffff;      /* Cambia el color del texto */
+  color: #ffffff;      
   font-size: 1rem;
 }
 .login-btn a {
   text-decoration: none;
-  color: #22d3ee;      /* Cambia el color del enlace */
+  color: #22d3ee;      
 }
 .login-btn {
-  background-color: transparent; /* Fondo transparente */
-  border: none;                  /* Sin bordes */
-  font-size: 1rem;               /* Tamaño del texto */
-  cursor: pointer;               /* Cursor en forma de mano al pasar por encima */
-  padding: 0;                    /* Elimina padding para evitar espacio adicional */
-  outline: none;                 /* Elimina el contorno de enfoque (outline) */
+  background-color: transparent; 
+  border: none;                  
+  font-size: 1rem;              
+  cursor: pointer;               
+  padding: 0;                    
+  outline: none;                 
   color: #ffffff;  
   margin-bottom: 10px;           
 }

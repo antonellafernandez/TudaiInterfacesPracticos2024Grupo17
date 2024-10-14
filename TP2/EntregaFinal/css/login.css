@@ -10,7 +10,7 @@
     color: #22d3ee;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Para que ocupe toda la altura de la pantalla */
+    min-height: 100vh;
     margin: 0;
   }
 
@@ -129,7 +129,7 @@
 }
   .submit-div {
     display: flex;
-    justify-content: center; /* Centra el botón horizontalmente */
+    justify-content: center; 
     margin-top: 20px;
   }
   .submit-button {
@@ -208,30 +208,30 @@
     background-color: #ccc;
   }
   .login-message {
-    text-align: center;  /* Centra el texto horizontalmente */
-    margin-top: 40px;    /* Espacio entre el botón y el mensaje */
+    text-align: center;  
+    margin-top: 40px;    
   }
   
   .login-message p {
-    color: #ffffff;      /* Cambia el color del texto */
+    color: #ffffff;      
     font-size: 1rem;
   }
   .login-btn a {
     text-decoration: none;
-    color: #22d3ee;      /* Cambia el color del enlace */
+    color: #22d3ee;      
   }
   .login-btn {
-    background-color: transparent; /* Fondo transparente */
-    border: none;                  /* Sin bordes */
-    font-size: 1rem;               /* Tamaño del texto */
-    cursor: pointer;               /* Cursor en forma de mano al pasar por encima */
-    padding: 0;                    /* Elimina padding para evitar espacio adicional */
-    outline: none;                 /* Elimina el contorno de enfoque (outline) */
-    color: #ffffff;                /* Asegúrate de que el texto esté en blanco */
+    background-color: transparent; 
+    border: none;                  
+    font-size: 1rem;               
+    cursor: pointer;             
+    padding: 0;                    
+    outline: none;                 
+    color: #ffffff;                
   }
   .login-btn p {
-    color: #ffffff;                /* Color blanco para el texto dentro del botón */
+    color: #ffffff;                
   }
   .login-btn:focus {
-    outline: none;                 /* Asegura que no haya borde cuando el botón recibe foco */
+    outline: none;                 
   }

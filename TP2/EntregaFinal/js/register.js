@@ -13,7 +13,7 @@ form.addEventListener('submit', e => {
   e.preventDefault();
 
   if (validateInputs()) {
-    popover.showPopover(); // Mostrar el popover solo si la validación es exitosa
+    popover.showPopover(); 
   }
 });
 
@@ -41,7 +41,7 @@ const isValidEmail = email => {
 };
 
 const validateInputs = () => {
-  let isValid = true;  // Variable que indica si el formulario es válido
+  let isValid = true;  
 
   const nameValue = namee.value.trim();
   const lastnameValue = lastname.value.trim();
@@ -111,7 +111,7 @@ const validateInputs = () => {
     errorDisplay.innerText = '';
   }
 
-  return isValid;  // Retornar si el formulario es válido o no
+  return isValid;  
 };
 
 
