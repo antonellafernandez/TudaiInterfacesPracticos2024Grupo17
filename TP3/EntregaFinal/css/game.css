@@ -1,0 +1,567 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+    background-color: #16181d;
+    color: white;
+}
+
+.wrapper { 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+}
+
+.game_container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+  /* Navigation */
+.breadcrumb p {
+    color: #888;
+    font-size: 14px;
+}
+
+  /* Title and Share Buttons */
+.title-share {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+    width: 1110px;
+}
+
+.title-share h1 {
+    font-family: "Audiowide", sans-serif;
+    font-size: 24px;
+    margin-bottom: 0px;
+    letter-spacing: 0.8px;
+    font-weight: 400;
+}
+
+.share-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-btn, .share-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.icon-btn i {
+    font-size: 30px;
+    color: white;
+}
+
+/* Estilos específicos para el botón de "Share With" */
+.share-btn {
+    background-color: #ff0055;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 117px;
+    height: 41px;
+}
+
+.share-btn i {
+    font-size: 20px; /* Tamaño reducido del ícono del botón de compartir */
+    margin-bottom: 0; /* Eliminado margen inferior */
+    color: white;
+}
+
+.icon-btn:hover {
+    transform: scale(1.1); /* Escala del 110% */
+}
+.share-p {
+    margin: 0;
+    color: white;
+    font-size: 13px;
+}
+
+.separator {
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0.5;
+    width: 792px;
+    margin: 20px 0;
+    
+}
+
+  /* Main Content Layout */
+.main-content {
+    display: flex;
+    gap: 20px;
+    align-items: stretch; /* Make both sections the same height */
+}
+
+ /* Game Image (Main Section) */
+.game-image {
+    position: relative;
+    width: 792px;
+    height: 519px;
+}
+
+.image {
+    width: 792px;
+    height: 519px;
+    border-radius: 8px;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+
+.play-button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #16181d;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    width: 125px;
+    height: 36px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    gap: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Efecto de pulsación */
+.play-button:hover {
+    transform: scale(1.1); /* Escalar y rotar */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7), 0 0 20px #ff0055; /* Sombra y resplandor */
+}
+
+/* Efecto de parpadeo en el texto */
+.play-button:hover .play-text {
+    animation: blink 0.5s infinite; /* Añadir animación de parpadeo */
+}
+
+@keyframes blink {
+    0%, 20%, 100% { opacity: 1; }
+    10% { opacity: 0; }
+}
+
+.play-icon {
+    background-color: #ff0055;
+    color: #16181d;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease; /* Suaviza el cambio de escala */
+}
+
+.play-icon i {
+    font-size: 12px; /* Ajusta el tamaño del icono de la flecha */
+}
+
+/* Efecto de escalado en el icono al hacer hover */
+.play-button:hover .play-icon {
+    transform: scale(1.2); /* Escalar el icono un poco más */
+}
+
+.play-text {
+    font-size: 14px;
+}
+
+
+
+
+
+/* Game Modes & Player Controls (Aside Section) */
+aside.card {
+    width: 323px;
+    height: 520px;
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header h2 {
+    font-size: 24px;
+    margin-bottom: 15px; /* Ajusta este valor para reducir espacio */
+    text-align: center;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+aside.card {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.section-title {
+    font-size: 24px;
+    margin: 20px; /* Reduce el margen arriba y abajo */
+    text-align: center;
+}
+
+
+.game-modes {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.control-group {
+    text-align: center;
+    margin-top: 0px;
+   
+}
+
+.control-btn{
+    margin-top: 10px;
+}
+
+.arrow-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.control-btn {
+    background-color: #434956;
+    color: #ffff;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Galeria, desc y tags */
+
+/* Estilos para la galería */
+
+.gallery {
+    margin-top: 20px;
+    display: flex;
+    overflow: visible;
+    padding-bottom: 16px;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.gallery::-webkit-scrollbar {
+    width: 1px;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+    background-color: #21252b;
+    border-radius: 10px;
+}
+
+.gallery::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.image-container {
+    position: relative;
+}
+
+.gallery img {
+    width: 205px;
+    height: 128px;
+    object-fit: cover;
+    border-radius: 12px;
+    filter: brightness(60%);
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Sombra neón */
+    border: 2px solid transparent; /* Borde transparente inicialmente */
+}
+
+.gallery img:hover {
+    transform: scale(1.1); /* Agranda la imagen */
+    filter: brightness(100%);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(255, 0, 255, 0.7);
+    border: 2px solid rgba(255, 0, 255, 0.7); /* Borde neón estilo arcade */
+}
+
+.gallery img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2)); /* Luz en diagonal */
+    transition: left 0.5s ease;
+}
+
+
+.gallery img:hover {
+    animation: flicker 0.15s infinite; /* Añade un efecto de parpadeo rápido */
+}
+
+@keyframes flicker {
+    0%, 100% {
+        filter: brightness(100%);
+    }
+    50% {
+        filter: brightness(120%);
+    }
+}
+
+.btn-icon {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    color: white;
+}
+
+/* Estilos del icono de play más grande y centrado */
+.play-icon-gallery {
+    font-size: 60px;
+    background: none;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Estilos del icono de lupa más pequeño y en la esquina superior derecha */
+.lupa-icon {
+    font-size: 5px;
+    top: 3px;
+    right: 3px;
+    background: none;
+}
+
+/*Acá abajo están los estilos de la caja de Descripciones*/
+
+.card-description {
+    background-color: #21252b;
+    border: 1px solid #444;
+    border-radius: 12px;
+    font-size: 16px;
+    padding: 15px;
+    width: 1120px;
+}
+
+.card-description-text{
+    margin-bottom: 50px;
+}
+
+
+
+.btn-tag {
+    background: transparent;
+    border: 1px solid #33d6ff;
+    color: #33d6ff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-tag:hover {
+    background-color: #33d6ff; /* Fondo cambia al color del borde */
+    color: #21252b; /* El texto cambia a un color oscuro (para contraste) */
+}
+
+/*ESTILOS PARA LA SECCION DE COMENTARIOS*/
+
+.feedback-section {
+    padding: 20px;
+    width: 792px;
+}
+.title-comments{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-comments h2 {
+    font-size: 24px;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.separator-share {
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0.5;
+    width: 100%;
+    margin-top:0;
+    margin-bottom: 20px;
+    
+}
+
+.comment-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #00b8e6;;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    height: 48px;
+}
+
+.comment-input input {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    outline: none;
+    caret-color: white;
+}
+
+.comment-input input::placeholder {
+    color: #888888;
+}
+
+.comment-input button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #ff0055;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: rotate(40deg);
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+}
+
+.view-more{
+    display: flex;
+    margin:auto;
+    gap: 13px;
+    align-items: center;
+}
+
+.view-more i{
+    color: #00b8e6;
+}
+
+
+
+.user-name{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-right: 30px;
+   gap: 5px;
+}
+
+.user-name p{
+    font-size: 13px;
+}
+
+
+.comment-card {
+    display: flex;
+    background-color: #282c34;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.avatar {
+    width: 51px;
+    height: 51px;
+    border-radius: 50%;
+    margin: auto;
+    border: 2px solid #00b8e6;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #434956;
+    border-radius: 12px;
+    width: 90%;
+}
+
+.username {
+    font-size: 16px;
+    color: #ffff;
+    margin-bottom: 5px;
+}
+
+.comment-text {
+    color: #BFBFBF;
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
