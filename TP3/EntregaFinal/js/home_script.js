@@ -92,7 +92,7 @@ carousels.forEach(carouselWrap => {
     const prevBtn = carouselWrap.querySelector(".prev-button");
     const nextBtn = carouselWrap.querySelector(".next-button");
 
-    const movementLeft = carousel.offsetWidth;
+    const movementLeft = carousel.offsetWidth - (card.offsetWidth + gap) * 5;
     const movementRight = (card.offsetWidth + gap) * 5;
     const duration = 1000;
 
@@ -131,3 +131,14 @@ carousels.forEach(carouselWrap => {
 
 // Agregar evento scroll a featured carousel
 addScrollEvent(document.querySelector('.featured-carousel-container'));
+
+// Transformar en desplegable el footer Mobile
+// Agregar evento click a cada h3
+document.querySelectorAll('.footer-column h3').forEach(h3 => {
+    h3.addEventListener('click', () => {
+        // Toggle clase 'active' en el h3
+        h3.classList.toggle('active');
+        // Toggle visibilidad de la ul
+        h3.nextElementSibling.classList.toggle('show');
+    });
+});

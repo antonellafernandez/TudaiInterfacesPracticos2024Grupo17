@@ -13,6 +13,11 @@ body {
     display: flex; /* Agregar esto para usar flexbox */
 }
 
+.body-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
 /* Inicio Loading */
 .loading-container {
     position: fixed;
@@ -71,7 +76,7 @@ body {
     height: fit-content;
 }
 
-.main, .footer {
+.header, .main, .footer {
     width: 100%;
 }
 
@@ -107,31 +112,52 @@ body {
 
 .footer-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
     width: 100%;
     height: 100%;
     margin: 0 auto;
+    padding: 0 2%;
 }
 
 .footer-column {
-    width: 25%;
-    margin: 1%;
-    text-align: left; /* Alinea el contenido de la columna a la izquierda */
+    width: 100%;
+    margin: 1% 0;
+    text-align: left;
 }
 
 .footer-column h3 {
+    position: relative;
     margin-bottom: 1%;
 }
 
+.footer-column h3.active + ul {
+    display: block;
+}
+
+.footer-column h3::after {
+    content: ' +';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer-column h3.active::after {
+    content: ' -';
+}
+
 .footer-column ul {
+    display: none;
     list-style: none;
     padding: 0;
+    border-bottom: 0.1vw solid #575757;
 }
 
 .footer-column ul li {
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 .footer-column ul li a {
@@ -632,11 +658,36 @@ a {
     }
 
     .footer-container {
-        flex-wrap: nowrap;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 0;
     }
 
     .footer-column {
         width: fit-content;
+        margin: 1%;
+    }
+
+    .footer-column h3::after {
+        content: '';
+        right: initial;
+        top: initial;
+        transform: initial;
+    }
+
+    .footer-column h3.active::after {
+        content: '';
+    }
+
+    .footer-column ul {
+        display: block;
+        border-bottom: none;
+    }
+
+    .footer-column ul li {
+        margin-bottom: 5%;
     }
 
     .copyright{
