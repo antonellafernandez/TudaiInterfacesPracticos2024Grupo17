@@ -475,7 +475,8 @@ a {
     border-radius: 3vw;
     display: flex;
     flex-direction: column;
-    overflow: hidden;transition: transform 0.3s ease-in-out; /* Transición suave */
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; /* Transición suave */
 }
 
 @keyframes animacion-escala-derecha {

@@ -49,25 +49,35 @@ function smoothScroll(scrollContainer, distance, duration) {
 
 // Función para agregar evento scroll a cada carousel
 function addScrollEvent(carousel) {
-    let lastScrollPosition = 0;
-    const cards = carousel.querySelectorAll('.card, .featured-card');
+    let lastScrollPosition = carousel.scrollLeft; // Inicializar con la posición actual
 
     carousel.addEventListener('scroll', () => {
         const scrollX = carousel.scrollLeft;
+
+        // Evitar el procesamiento si no hay cambio en la posición
+        if (scrollX === lastScrollPosition) return;
+
         const scrollDirection = scrollX > lastScrollPosition ? 'right' : 'left';
         lastScrollPosition = scrollX;
 
-        if (scrollDirection === 'right') {
-            cards.forEach((card) => {
+        // Seleccionar todas las cards actuales (incluye las clonadas)
+        const allCards = carousel.querySelectorAll('.card, .featured-card');
+
+        allCards.forEach((card) => {
+            if (scrollDirection === 'right') {
                 card.classList.add('animate-scale-right');
                 card.classList.remove('animate-scale-left');
-            });
-        } else if (scrollDirection === 'left') {
-            cards.forEach((card) => {
+            } else {
                 card.classList.add('animate-scale-left');
                 card.classList.remove('animate-scale-right');
-            });
-        }
+            }
+
+            // Reiniciar la animación
+            setTimeout(() => {
+                card.classList.remove('animate-scale-right');
+                card.classList.remove('animate-scale-left');
+            }, 1000);
+        });
     });
 }
 
@@ -77,61 +87,43 @@ const carousels = document.querySelectorAll(".carousel-wrap");
 carousels.forEach(carouselWrap => {
     const scrollContainer = carouselWrap.querySelector(".carousel-container");
     const carousel = carouselWrap.querySelector(".carousel");
+    const gap = parseFloat(getComputedStyle(carousel).gap);
+    const card = carouselWrap.querySelector(".card");
     const prevBtn = carouselWrap.querySelector(".prev-button");
     const nextBtn = carouselWrap.querySelector(".next-button");
 
-    const card = carouselWrap.querySelector(".card");
-
-    const movement = scrollContainer.offsetWidth * 75 / 100;
+    const movementLeft = carousel.offsetWidth;
+    const movementRight = (card.offsetWidth + gap) * 5;
     const duration = 1000;
 
-    let atEnd = false;
-    let atStart = true;
+    const clonedCarouselStart = carousel.cloneNode(true);
+    const clonedCarouselEnd = carousel.cloneNode(true);
+    scrollContainer.insertBefore(clonedCarouselStart, scrollContainer.firstChild);
+    scrollContainer.appendChild(clonedCarouselEnd);
+    scrollContainer.style.gap = getComputedStyle(carousel).gap;
+
+    addScrollEvent(clonedCarouselStart);
+    addScrollEvent(clonedCarouselEnd);
+
+    scrollContainer.scrollLeft = clonedCarouselStart.offsetWidth + gap;
 
     prevBtn.addEventListener("click", () => {
-        if (atStart) {
-            const clonedCarousel = carousel.cloneNode(true);
-            scrollContainer.insertBefore(clonedCarousel, scrollContainer.firstChild);
-            scrollContainer.style.gap = getComputedStyle(carousel).gap;
+        const clonedCarousel = carousel.cloneNode(true);
+        scrollContainer.insertBefore(clonedCarousel, scrollContainer.firstChild);
+        scrollContainer.style.gap = getComputedStyle(carousel).gap;
 
-            scrollContainer.scrollLeft = clonedCarousel.offsetWidth;
-
-            smoothScroll(scrollContainer, -movement, duration);
-
-            atStart = false;
-            atEnd = false;
-        } else {
-            smoothScroll(scrollContainer, -movement, duration);
-        }
+        addScrollEvent(clonedCarousel);
+        scrollContainer.scrollLeft += clonedCarousel.offsetWidth;
+        smoothScroll(scrollContainer, -movementLeft, duration);
     });
 
     nextBtn.addEventListener("click", () => {
-        if (atEnd) {
-            const clonedCarousel = carousel.cloneNode(true);
-            scrollContainer.appendChild(clonedCarousel);
-            scrollContainer.style.gap = getComputedStyle(carousel).gap;
+        const clonedCarousel = carousel.cloneNode(true);
+        scrollContainer.appendChild(clonedCarousel);
+        scrollContainer.style.gap = getComputedStyle(carousel).gap;
 
-            smoothScroll(scrollContainer, movement, duration);
-
-            atEnd = false;
-            atStart = true;
-        } else {
-            smoothScroll(scrollContainer, movement, duration);
-        }
-    });
-
-    scrollContainer.addEventListener('scroll', () => {
-        if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
-            atEnd = true;
-        } else {
-            atEnd = false;
-        }
-
-        if (scrollContainer.scrollLeft === 0) {
-            atStart = true;
-        } else {
-            atStart = false;
-        }
+        addScrollEvent(clonedCarousel);
+        smoothScroll(scrollContainer, movementRight, duration);
     });
 
     addScrollEvent(scrollContainer);
