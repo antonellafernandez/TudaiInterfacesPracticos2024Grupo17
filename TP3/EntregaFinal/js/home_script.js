@@ -92,7 +92,7 @@ carousels.forEach(carouselWrap => {
     const prevBtn = carouselWrap.querySelector(".prev-button");
     const nextBtn = carouselWrap.querySelector(".next-button");
 
-    const movementLeft = carousel.offsetWidth - (card.offsetWidth + gap) * 5;
+    const movementLeft = carousel.offsetWidth;
     const movementRight = (card.offsetWidth + gap) * 5;
     const duration = 1000;
 
