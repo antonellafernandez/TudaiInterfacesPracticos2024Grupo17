@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="928ec8fa-add8-4070-a8cd-a0e95b79e92b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/js/home_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/js/home_script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntregaFinal/Game.html" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/Game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntregaFinal/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntregaFinal/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/Login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntregaFinal/Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/Register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntregaFinal/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntregaFinal/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/css/register.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +86,7 @@
       <workItem from="1729806257324" duration="8263000" />
       <workItem from="1729819064960" duration="172000" />
       <workItem from="1729896296828" duration="9731000" />
-      <workItem from="1729956071692" duration="4059000" />
+      <workItem from="1729956071692" duration="8650000" />
     </task>
     <servers />
   </component>
