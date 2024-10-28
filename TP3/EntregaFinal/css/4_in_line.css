@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #012;
+    font-family: "Baloo Chettan 2", cursive;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.four-in-line {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+}
+
+.game-info h3 {
+    margin-right: 1rem;
+    display: flex;
+    font-size: 1.2rem;
+}
+
+.game-info span {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.game-info p {
+    font-size: 1.2rem;
+}
+
+.game-info canvas {
+    width: 850px;
+    height: 620px;
+    margin-left: 15%;
+}
+
+.canva-size-options {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.canva-size-options button {
+    margin-left: 1rem;
+}
+
+#restart {
+    background-image: none;
+    background-color: red;
+}
+
+.selected {
+    border:white 5px dotted;
+
+}
+
+#select-sub-zero {
+    width: 12.5rem;
+}
+
+#select-reptile {
+    width: 15rem;
+}
+
+#select-scorpion {
+    width: 11rem;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+.text .text-h2 {
+    margin-top: 1rem;
+}
+
+.text .text-p {
+    text-align: center;
+    width: 80%;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.controls p:nth-child(2) {
+    margin-top: 1rem;
+}
+
+.controls p {
+    width: 80%;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.position-description {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: #003950;
+    height: 15rem;
+    width: 90%;
+}
+
+.position-description h2 {
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+.position-description p {
+    margin-top: 1rem;
+    width: 80%;
+    font-size: 1.4rem;
+}
+
+.background {
+    background-color: #001427;
+}
+
+button {
+    border: 0;
+    background-image: linear-gradient(150deg, #004400, #116611, #55aa55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 9rem;
+    height: 2.5rem;
+    border-radius: 1rem;
+    font-size: 20px;
+    padding: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    animation-name: animationButton; /* Nombre de la animación */
+    animation-duration: 4s; /* Duración de la animación en segundos */
+    animation-timing-function: ease-in-out; /* Función de temporización (puedes ajustarla según tus preferencias) */
+    animation-iteration-count: calc(1); /* Repetir la animación infinitamente */
+}
+
+button span {
+    padding: 10px 30px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+@keyframes animationButton {
+    0% {
+        transform: rotate(0turn);
+    }
+
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.winner {
+    color: green;
+}
