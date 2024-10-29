@@ -8,37 +8,49 @@
     <link href="css/4_in_line.css" rel="stylesheet">
 </head>
 <body>
-    <div class="four-in-line">
+    <div class="game-container">
+        <div class="player-options">
+            <p>¡Select Player 1 token!</p>
 
-        <div class="game-info" id="info">
-            <h3 id="turn"></h3>
-            <span>Time Remaining:</span><p id="time-remaining">TIME</p>
+            <div class="options">
+                <button id="btn-token-11">Sub Zero 1</button>
+                <button id="btn-token-12">Sub Zero 2</button>
+            </div>
+
+            <div id="player1-tokens"></div>
         </div>
 
-        <canvas id="canvas" width="850" height="620"></canvas>
-        <img src="img/4_in_line/frost.jpeg" id="frost-empty-slot" class="hidden">
-        <img src="img/4_in_line/fire.jpeg" id="fire-empty-slot" class="hidden">
-        <img id="SubZeroToken" src="img/4_in_line/sub_zero.webp" class="hidden">
-        <img id="ScorpionToken" width="195" height="123" src="img/4_in_line/scorpion.webp" class="hidden">
-        <img id="SmokeToken" src="img/4_in_line/smoke.webp" class="hidden">
-        <img id="ReptileToken" src="img/4_in_line/reptile.webp" class="hidden" >
+        <div class="board-options">
+            <p>¡Select board dimension!</p>
 
-        <div class="canva-size-options" id="options">
-            <button id="start">Start</button>
-            <button id="restart" type="button" class="btn btn-outline-light hidden ">
-                Restart
-            </button>
-            <button id="btn-4-in-line">4 In Line</button>
-            <button id="btn-5-in-line">5 In Line</button>
-            <button id="btn-6-in-line">6 In Line</button>
-            <button id="btn-7-in-line">7 In Line</button>
-            <button class="selected" id="select-sub-zero">Team Sub Zero</button>
-            <button id="select-scorpion">Team Scorpion</button>
-            <button class="selected" id="select-smoke">Team Smoke</button>
-            <button id="select-reptile">Team Reptile</button>
+            <div class="options">
+                <button id="btn-connect4">Connect 4</button>
+                <button id="btn-connect5">Connect 5</button>
+                <button id="btn-connect6">Connect 6</button>
+                <button id="btn-connect7">Connect 7</button>
+            </div>
+
+            <div class="connect-container">
+                <p>Time Remaining: <span id="time-remaining">00:00</span></p>
+
+                <div id="board-container"></div>
+            </div>
+        </div>
+
+        <div class="player-options">
+            <p>¡Select Player 2 token!</p>
+
+            <div class="options">
+                <button id="btn-token-21">Scorpion 1</button>
+                <button id="btn-token-22">Scorpion 2</button>
+            </div>
+
+            <div id="player2-tokens"></div>
         </div>
     </div>
 
-    <script type="module" src="js/4_in_line.js"></script>
+    <script src="js/entities/Board.js"></script>
+    <script src="js/entities/Token.js"></script>
+    <script src="js/4_in_line.js"></script>
 </body>
 </html>
