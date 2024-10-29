@@ -1,3 +1,6 @@
+import Board  from './entities/Board.js';
+import Circle from './entities/Circle.js';
+
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 let canvasWidth = canvas.width;
@@ -17,12 +20,21 @@ let btnScorpion = document.getElementById("select-scorpion");
 let btnSmoke = document.getElementById("select-smoke");
 let btnReptile = document.getElementById("select-reptile");
 let lineMode= 4;
+let board = null;
+let mode = "default";
+let col = 7;
+let fil = 6;
+
+const SRC_SUB_ZERO_IMG = '../EntregaFinal/img/4_in_line/sub-zero.jpg';
+const SRC_SCORPION_IMG = '../EntregaFinal/img/4_in_line/scorpion.jpg';
+const SRC_SMOKE_IMG = '../EntregaFinal/img/4_in_line/smoke.jpg';
+const SRC_REPTILE_IMG = '../EntregaFinal/img/4_in_line/reptile.jpg';
 
 function addTokenSubZero() {
     let initialY = 50;
     tokens_1 = [];
     let subZeroImg = new Image();
-    subZeroImg.src = "../img/4_in_line/sub_zero.webp";
+    subZeroImg.src = SRC_SUB_ZERO_IMG;
 
     for (let i = 0; i < 5; i++) {
         let posX = 30;
@@ -36,7 +48,7 @@ function addTokenScorpion() {
     let initialY = 50;
     tokens_2 = [];
     let scorpionImg = new Image();
-    scorpionImg.src = "../img/4_in_line/scorpion.webp";
+    scorpionImg.src = SRC_SCORPION_IMG;
 
     for (let i = 0; i < 5; i++) {
         let posX = canvasWidth - 30;
@@ -50,7 +62,7 @@ function addTokenSmoke() {
     let initialY = 50;
     tokens_2 = [];
     let smokeImg = new Image();
-    smokeImg.src = "../img/4_in_line/smoke.webp";
+    smokeImg.src = SRC_SMOKE_IMG;
 
     for (let i = 0; i < 5; i++) {
         let posX = canvasWidth - 30;
@@ -64,7 +76,7 @@ function addTokenReptile() {
     let initialY = 50;
     tokens_1 = [];
     let reptileImg = new Image();
-    reptileImg.src = "../img/4_in_line/reptile.webp";
+    reptileImg.src = SRC_REPTILE_IMG;
 
     for (let i = 0; i < 5; i++) {
         let posX = 30;
@@ -201,7 +213,7 @@ let gameStarted = false;
 function start() {
     gameStarted = true; // Se inicia el juego
     updateTimer();
-    board = new Board(fil, col, lineMode);
+    board = new Board(fil, col, lineMode, ctx);
     board.buildBoard();
     btnRestart.addEventListener("click", reloadPage);
     clearCanvas();
@@ -210,7 +222,6 @@ function start() {
     RemoveModeAndTeams();
     btnRestart.classList.remove("hidden");
     document.getElementById("turn").innerHTML= "<h3>Turn: Player " + player + "</h3>";
-
 }
 
 function reloadPage() { // Reiniciar el juego recargando la página
@@ -309,7 +320,7 @@ function mode4() {
     mode = "default";
     lineMode = 4;
     switchColumnsAndRows();
-    board = new Board(fil, col, lineMode);
+    board = new Board(fil, col, lineMode, ctx);
     board.buildBoard();
     clearCanvas();
     board.drawBoard();
@@ -380,7 +391,7 @@ function ShowTokenSubZero() {
     btnReptile.classList.remove("selected");
     btnSubZero.classList.add("selected");
     addTokenSubZero();
-    token_1.src = "../img/4_in_line/sub_zero.webp";
+    token_1.src = SRC_SUB_ZERO_IMG;
 }
 
 btnScorpion.addEventListener("click", ShowTokenScorpion);
@@ -389,7 +400,7 @@ function ShowTokenScorpion() {
     btnSmoke.classList.remove("selected");
     btnScorpion.classList.add("selected");
     addTokenScorpion();
-    token_2.src = "../img/4_in_line/scorpion.webp";
+    token_2.src = SRC_SCORPION_IMG;
 }
 
 btnSmoke.addEventListener("click", ShowTokenSmoke);
@@ -398,7 +409,7 @@ function ShowTokenSmoke() {
     btnScorpion.classList.remove("selected");
     btnSmoke.classList.add("selected");
     addTokenSmoke();
-    token_2.src = "../img/4_in_line/smoke.webp";
+    token_2.src = SRC_SMOKE_IMG;
 }
 
 btnReptile.addEventListener("click", ShowTokenReptile);
@@ -407,5 +418,5 @@ function ShowTokenReptile() {
     btnSubZero.classList.remove("selected");
     btnReptile.classList.add("selected");
     addTokenReptile();
-    token_1.src = "../img/4_in_line/reptile.webp";
+    token_1.src = SRC_REPTILE_IMG;
 }

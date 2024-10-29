@@ -1,60 +1,91 @@
+import Token from './Token.js';
+
 class Circle extends Token {
+    /**
+     * Constructor de un círculo.
+     * @param {number} posX Posición x.
+     * @param {number} posY Posición y.
+     * @param {number} radius Radio.
+     * @param {HTMLImageElement} img Imagen.
+     * @param {CanvasRenderingContext2D} ctx Contexto del canvas.
+     * @param {string} player Jugador.
+     */
     constructor(posX, posY, radius, img, ctx, player) {
         super(posX, posY, null, ctx);
-        this.radius = radius;
-        this.img = img;
         this.initialPosX = posX;
         this.initialPosY = posY;
-        this.player = player;
+        this._posX = posX;
+        this._posY = posY;
+        this._radius = radius;
+        this._img = img;
+        this._ctx = ctx;
+        this._player = player;
     }
 
-    getRadius() {
-        return this.radius;
+    /**
+     * Getters y Setters.
+     */
+    get posX() {
+        return this._posX;
     }
 
-    setRadius(radius) {
-        this.radius = radius;
+    set posX(value) {
+        this._posX = value;
     }
 
-    getPlayer() {
-        return this.player;
+    get posY() {
+        return this._posY;
     }
 
-    setPlayer(player) {
-        this.player = player;
+    set posY(value) {
+        this._posY = value;
     }
 
-    resetPosition() {
-        this.setPosition(this.initialPosX, this.initialPosY);
+    get radius() {
+        return this._radius;
     }
 
-    drawCircle() {
+    set radius(value) {
+        this._radius = value;
+    }
+
+    get img() {
+        return this._img;
+    }
+
+    set img(value) {
+        this._img = value;
+    }
+
+    get ctx() {
+        return this._ctx;
+    }
+
+    set ctx(value) {
+        this._ctx = value;
+    }
+
+    get player() {
+        return this._player;
+    }
+
+    set player(value) {
+        this._player = value;
+    }
+
+    /**
+     * Dibuja la forma del círculo.
+     */
+    drawShape() {
         this.ctx.beginPath();
-        this.ctx.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
+        this.ctx.arc(this.posX, this.posY, this._radius, 0, 2 * Math.PI);
         this.ctx.closePath();
-    }
+        this.ctx.fill();
 
-    drawImage() {
-        if (this.img) {
-            this.ctx.drawImage(this.img, this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
+        if (this._img) {
+            this.ctx.drawImage(this._img, this.posX - this._radius, this.posY - this._radius, this._radius * 2, this._radius * 2);
         }
-    }
-
-    draw() {
-        super.draw();
-        this.drawCircle();
-        this.drawImage();
-
-        if (this.selected) {
-            this.ctx.strokeStyle = this.styleSelected;
-            this.ctx.lineWidth = 2;
-            this.ctx.stroke();
-        }
-    }
-
-    isPointInside(x, y) {
-        let _x = this.posX - x;
-        let _y = this.posY - y;
-        return Math.hypot(_x, _y) < this.radius;
     }
 }
+
+export default Circle;
