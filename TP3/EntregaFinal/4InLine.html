@@ -5,52 +5,47 @@
     <title>FrostFire Prueba</title>
 
     <!-- CSS -->
-    <link href="css/4_in_line.css" rel="stylesheet">
+    <link href="/TP3/EntregaFinal/css/4_in_line.css" rel="stylesheet">
 </head>
 <body>
-    <div class="game-container">
-        <div class="player-options">
-            <p>¡Select Player 1 token!</p>
-
-            <div class="options">
-                <button id="btn-token-11">Sub Zero 1</button>
-                <button id="btn-token-12">Sub Zero 2</button>
-            </div>
-
-            <div id="player1-tokens"></div>
+    <div id="initial-screen">
+        <h1>Configuración del Juego</h1>
+        <label for="player1-name">Nombre del Jugador 1:</label>
+        <input type="text" id="player1-name" placeholder="Jugador 1">
+    
+        <label for="player2-name">Nombre del Jugador 2:</label>
+        <input type="text" id="player2-name" placeholder="Jugador 2">
+    
+        <h2>Selecciona el Tamaño del Tablero</h2>
+        <button id="btn-connect4">Conectar 4</button>
+        <button id="btn-connect5">Conectar 5</button>
+        <button id="btn-connect6">Conectar 6</button>
+        <button id="btn-connect7">Conectar 7</button>
+    
+        <h2>Selecciona las Fichas</h2>
+        <p>Jugador 1:</p>
+        <button id="btn-token-11">Sub Zero 1</button>
+        <button id="btn-token-12">Sub Zero 2</button>
+    
+        <p>Jugador 2:</p>
+        <button id="btn-token-21">Scorpion 1</button>
+        <button id="btn-token-22">Scorpion 2</button>
+    
+        <button id="start-game">Iniciar Juego</button>
+    </div>
+    
+    <div id="game-screen" style="display: none;">
+        <h1>Conecta 4</h1>
+        <p id="turn-indicator"></p>
+        <div id="pantalla-juego">
+            <canvas id="main-canvas" width="800" height="600"></canvas>
+            <!-- Opcionalmente puedes incluir un botón para reiniciar el juego aquí -->
         </div>
-
-        <div class="board-options">
-            <p>¡Select board dimension!</p>
-
-            <div class="options">
-                <button id="btn-connect4">Connect 4</button>
-                <button id="btn-connect5">Connect 5</button>
-                <button id="btn-connect6">Connect 6</button>
-                <button id="btn-connect7">Connect 7</button>
-            </div>
-
-            <div class="connect-container">
-                <p>Time Remaining: <span id="time-remaining">00:00</span></p>
-
-                <div id="board-container"></div>
-            </div>
-        </div>
-
-        <div class="player-options">
-            <p>¡Select Player 2 token!</p>
-
-            <div class="options">
-                <button id="btn-token-21">Scorpion 1</button>
-                <button id="btn-token-22">Scorpion 2</button>
-            </div>
-
-            <div id="player2-tokens"></div>
-        </div>
+        <button id="restart-game">Reiniciar Juego</button>
     </div>
 
-    <script src="js/entities/Board.js"></script>
-    <script src="js/entities/Token.js"></script>
-    <script src="js/4_in_line.js"></script>
+    <script src="/TP3/EntregaFinal/js/entities/Board.js"></script>
+
+    <script src="/TP3/EntregaFinal/js/entities/4_in_line.js"></script>
 </body>
 </html>

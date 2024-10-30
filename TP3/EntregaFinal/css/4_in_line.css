@@ -1,72 +1,71 @@
 body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1c1c1c; /* Fondo oscuro */
+    color: #f5f5f5; /* Color de texto claro */
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-}
-
-.game-container {
-    display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
 }
 
-/* Board */
-.board-options, .connect-container, .player-options {
+#initial-screen {
+    background: rgba(50, 50, 50, 0.8); /* Fondo semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    text-align: center; /* Centrar texto */
+}
+
+h1, h2 {
+    font-family: 'Impact', sans-serif; /* Fuente más acorde al estilo de juego */
+    color: #e63946; /* Color rojo oscuro */
+}
+
+label {
+    margin-top: 10px;
+    display: block; /* Cada etiqueta en su propia línea */
+}
+
+input[type="text"] {
+    width: 90%; /* Ancho del input */
+    padding: 10px;
+    margin: 10px 0; /* Margen arriba y abajo */
+    border: 1px solid #e63946; /* Borde rojo */
+    border-radius: 5px;
+    background: #333; /* Fondo del input */
+    color: #f5f5f5; /* Texto claro */
+}
+
+button {
+    background: #e63946; /* Fondo rojo */
+    color: #f5f5f5; /* Texto claro */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espaciado del botón */
+    margin: 10px 5px; /* Margen de los botones */
+    border-radius: 5px;
+    cursor: pointer; /* Cursor de mano */
+    font-weight: bold;
+    transition: background 0.3s ease; /* Transición suave para el hover */
+}
+
+button:hover {
+    background: #d62839; /* Color más oscuro al pasar el mouse */
+}
+
+#game-screen {
+    display: none; /* Oculto por defecto */
+}
+
+#pantalla-juego {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column; /* Colocar canvas y botones en columna */
+    align-items: center; /* Centrar elementos horizontalmente */
+    margin-top: 20px;
 }
 
-.options {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.options button {
-    margin: 1%;
-    min-width: fit-content;
-}
-
-#board-container {
-    display: flex;
-    flex-direction: column;
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 1%;
-}
-
-.row {
-    display: flex;
-}
-
-.cell {
-    width: 60px;
-    height: 60px;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    margin: 5px;
-    background-color: #ffffff;
-}
-
-/* Token */
-.token {
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin: 5px;
-}
-
-#player1-tokens, #player2-tokens {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 300px;
+#main-canvas {
+    border: 2px solid #e63946; /* Borde rojo alrededor del canvas */
+    border-radius: 5px;
 }
