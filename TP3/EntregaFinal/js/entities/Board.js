@@ -1,80 +1,68 @@
 class Board {
-    constructor(rows, cols, img) {
-        this.rows = rows; // Número de filas
-        this.cols = cols; // Número de columnas
-        this.img = img;   // Ruta de la imagen de fondo
-        this.board = [];  // Matriz que representa el tablero
-        this.createBoard(); // Llama al método para crear el tablero
+    constructor(rows, cols, canvasContext, cellWidth, cellHeight) {
+        this.rows = rows;
+        this.cols = cols;
+        this.canvasContext = canvasContext;
+        this.cellWidth = cellWidth;
+        this.cellHeight = cellHeight;
+        this.grid = Array.from({ length: rows }, () => Array(cols).fill(null)); // Inicializa el tablero vacío
+
+        // Carga las imágenes de los tokens
+        this.player1TokenImage = new Image();
+        this.player1TokenImage.src = player1Token; // Asegúrate de que player1Token esté definido antes de usarlo
+        this.player2TokenImage = new Image();
+        this.player2TokenImage.src = player2Token; // Asegúrate de que player2Token esté definido antes de usarlo
     }
 
-    // Método para crear el tablero
-    createBoard() {
-        for (let i = 0; i < this.rows; i++) {
-            let row = [];
-            for (let j = 0; j < this.cols; j++) {
-                row.push(null); // Inicializa la celda como nula
+    // Método para dibujar el tablero
+    draw(boardImage) {
+        // Dibuja el fondo del tablero
+        const background = new Image();
+        background.src = boardImage;
+        background.onload = () => {
+            // Limpia el canvas antes de dibujar
+            this.canvasContext.clearRect(0, 0, this.canvasContext.canvas.width, this.canvasContext.canvas.height);
+            
+            // Dibuja la imagen de fondo del tablero
+            this.canvasContext.drawImage(background, 0, 0, this.cellWidth * this.cols, this.cellHeight * this.rows);
+            
+            // Dibuja las celdas
+            this.canvasContext.strokeStyle = 'black'; // Establecer el color del borde de las celdas
+            for (let row = 0; row < this.rows; row++) {
+                for (let col = 0; col < this.cols; col++) {
+                    this.canvasContext.strokeRect(col * this.cellWidth, row * this.cellHeight, this.cellWidth, this.cellHeight);
+                }
             }
-            this.board.push(row); // Añade la fila al tablero
-        }
+            
+            // Llama a la función para dibujar las fichas colocadas en el tablero
+            this.drawPlacedTokens();
+        };
     }
 
-    // Método para dibujar el tablero en el HTML
-    drawBoard() {
-        let boardHtml = '';
-        for (let i = 0; i < this.rows; i++) {
-            boardHtml += '<div class="row">';
-            for (let j = 0; j < this.cols; j++) {
-                boardHtml += `<div class="cell" id="cell-${i}-${j}"></div>`;
-            }
-            boardHtml += '</div>';
-        }
-        document.getElementById('board-container').innerHTML = boardHtml;
-
-        // Establece la imagen de fondo
-        const boardContainer = document.getElementById('board-container');
-        boardContainer.style.backgroundImage = `url(${this.img})`;
-        boardContainer.style.backgroundSize = 'cover';
-        boardContainer.style.backgroundRepeat = 'no-repeat';
-
-        // Establecer estilos adicionales para que las celdas se vean correctamente
-        this.setCellStyles();
-    }
-
-    // Método para establecer estilos de las celdas
-    setCellStyles() {
-        const cells = document.querySelectorAll('.cell');
-        cells.forEach(cell => {
-            cell.style.width = `${100 / this.cols}%`; // Ajusta el ancho de cada celda
-            cell.style.height = `${100 / this.rows}vh`; // Ajusta la altura de cada celda
-            cell.style.position = 'relative'; // Para posicionar correctamente las fichas
-            cell.style.border = '1px solid rgba(255, 255, 255, 0.5)'; // Bordes de las celdas
-        });
-    }
-
-    // Método para obtener la fila disponible en una columna
-    getAvailableRow(column) {
+    // Método para colocar una ficha en el tablero
+    placeToken(col, player) {
         for (let row = this.rows - 1; row >= 0; row--) {
-            if (this.board[row][column] === null) {
-                return row; // Retorna la fila disponible
+            if (this.grid[row][col] === null) {
+                this.grid[row][col] = player; // Guarda el jugador (1 o 2) en la celda
+                return true; // Retorna true si la colocación fue exitosa
             }
         }
-        return -1; // No hay filas disponibles
+        return false; // Retorna false si no se pudo colocar la ficha
     }
 
-    // Método para agregar una ficha en el tablero
-    placePiece(row, column, piece) {
-        if (this.board[row][column] === null) {
-            this.board[row][column] = piece; // Coloca la ficha en la matriz
-            return true; // Ficha colocada con éxito
+    // Método para dibujar las fichas colocadas en el tablero
+    drawPlacedTokens() {
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.cols; col++) {
+                if (this.grid[row][col] !== null) {
+                    // Usa el token correspondiente ya cargado
+                    const tokenImage = this.grid[row][col] === 1 ? this.player1TokenImage : this.player2TokenImage;
+                    
+                    // Dibuja el token en la posición correspondiente
+                    this.canvasContext.drawImage(tokenImage, col * this.cellWidth, row * this.cellHeight, this.cellWidth, this.cellHeight);
+                }
+            }
         }
-        return false; // No se pudo colocar la ficha
-    }
-
-    // Método para verificar si hay un ganador (simplificado)
-    checkWinner() {
-        // Implementación de lógica de ganador (horizontal, vertical, diagonal)
-        // Debes adaptarlo según tus reglas de juego.
-        return null; // Retorna el ganador o null si no hay
     }
 }
 

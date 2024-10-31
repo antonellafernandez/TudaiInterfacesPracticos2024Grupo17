@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -9,6 +10,7 @@ body {
     height: 100vh; /* Ocupa toda la altura de la pantalla */
 }
 
+/* Pantalla inicial */
 #initial-screen {
     background: rgba(50, 50, 50, 0.8); /* Fondo semi-transparente */
     padding: 20px;
@@ -23,6 +25,7 @@ h1, h2 {
     color: #e63946; /* Color rojo oscuro */
 }
 
+/* Estilos de formularios */
 label {
     margin-top: 10px;
     display: block; /* Cada etiqueta en su propia línea */
@@ -38,6 +41,7 @@ input[type="text"] {
     color: #f5f5f5; /* Texto claro */
 }
 
+/* Botones */
 button {
     background: #e63946; /* Fondo rojo */
     color: #f5f5f5; /* Texto claro */
@@ -54,6 +58,52 @@ button:hover {
     background: #d62839; /* Color más oscuro al pasar el mouse */
 }
 
+/* Contenedor del juego */
+.game-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Estilos generales para las áreas de fichas */
+.player-drag-area {
+    display: flex;
+    flex-direction: column; /* Coloca el título y el contenedor de fichas en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+/* Contenedor de fichas de jugadores */
+.draggable-token-container {
+    display: flex; /* Usa flexbox para colocar las fichas en fila */
+    flex-wrap: wrap; /* Permite que las fichas se ajusten a la siguiente línea si es necesario */
+    gap: 5px; /* Espacio entre las fichas */
+    margin-top: 10px; /* Espacio entre el título y las fichas */
+    max-width: calc(50px * 4 + 15px * 3); /* Ajusta el ancho máximo para 4 fichas (50px cada una + 3 espacios de 5px) */
+}
+
+/* Estilos de fichas */
+.draggable-token {
+    background-size: contain; /* Asegura que la imagen se ajuste */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+    width: 50px; /* Ajusta el tamaño de las fichas */
+    height: 50px; /* Ajusta el tamaño de las fichas */
+    cursor: pointer; /* Cambia el cursor al pasar sobre la ficha */
+    border: 2px solid #e63946; /* Opción: añade un borde para distinguir las fichas */
+}
+
+/* Área de fichas del Jugador 2 */
+#player2-drag-tokens {
+    margin-left: 20px; /* Ajusta este valor para aumentar o disminuir la distancia con el tablero */
+}
+
+
+/* Iconos */
+.icon {
+    width: 100%;
+    height: auto;
+}
+
+/* Pantalla del juego */
 #game-screen {
     display: none; /* Oculto por defecto */
 }
@@ -65,7 +115,40 @@ button:hover {
     margin-top: 20px;
 }
 
+/* Canvas */
 #main-canvas {
     border: 2px solid #e63946; /* Borde rojo alrededor del canvas */
     border-radius: 5px;
+}
+
+/* Contenedor de íconos de jugadores */
+.icon-container-player {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Espacio entre los botones */
+    padding-bottom: 20px; /* Opcional: para separación con otros elementos */
+}
+
+/* Estilos de botones de íconos */
+.icon-button {
+    background: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    padding: 0; /* Sin padding para ajustar al ícono */
+    width: 60px; /* Ajusta el tamaño del botón */
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button .icon {
+    width: 70px; /* Tamaño del ícono */
+    height: 70px;
+    border-radius: 50%; /* Hace que el ícono sea redondo */
+    background: #1c1c1c; /* Fondo oscuro para el ícono */
+}
+
+.icon-button.selected {
+    border: 2px solid #d62839; /* Borde rojo para indicar selección */
+    background-color: #333; /* Fondo oscuro */
 }

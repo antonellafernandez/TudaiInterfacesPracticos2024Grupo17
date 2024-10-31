@@ -5,47 +5,97 @@
     <title>FrostFire Prueba</title>
 
     <!-- CSS -->
-    <link href="/TP3/EntregaFinal/css/4_in_line.css" rel="stylesheet">
+    <link href="css/4_in_line.css" rel="stylesheet">
 </head>
 <body>
+
     <div id="initial-screen">
-        <h1>Configuración del Juego</h1>
-        <label for="player1-name">Nombre del Jugador 1:</label>
-        <input type="text" id="player1-name" placeholder="Jugador 1">
+        <h1>Conecta 4</h1>
+        
+        <!-- Input de nombres de jugadores -->
+        <div class="player-input">
+            <label for="player1-name">Nombre Jugador 1:</label>
+            <input type="text" id="player1-name" placeholder="Ingresa tu nombre">
+        </div>
+        <div class="player-input">
+            <label for="player2-name">Nombre Jugador 2:</label>
+            <input type="text" id="player2-name" placeholder="Ingresa tu nombre">
+        </div>
     
-        <label for="player2-name">Nombre del Jugador 2:</label>
-        <input type="text" id="player2-name" placeholder="Jugador 2">
+        <!-- Selección de tamaño del tablero -->
+        <div class="board-size-selection">
+            <h3>Selecciona el tamaño del tablero:</h3>
+            <button id="btn-connect4">Conecta 4</button>
+            <button id="btn-connect5">Conecta 5</button>
+            <button id="btn-connect6">Conecta 6</button>
+            <button id="btn-connect7">Conecta 7</button>
+        </div>
     
-        <h2>Selecciona el Tamaño del Tablero</h2>
-        <button id="btn-connect4">Conectar 4</button>
-        <button id="btn-connect5">Conectar 5</button>
-        <button id="btn-connect6">Conectar 6</button>
-        <button id="btn-connect7">Conectar 7</button>
+        <!-- Selección de personajes/fichas -->
+        <div class="token-selection">
+            <h3>Selecciona tus personajes:</h3>
+            <div id="player1-token" class="player-token">
+                <h4>Jugador 1</h4>
+                <div class="icon-container-player">
+                    <button class="icon-button token-toggle-player1" data-token="img/4_in_line/sub-zero-1-token.png">
+                        <img src="img/4_in_line/sub-zero-1-token.png" alt="Subzero 1" class="icon" />
+                    </button>
+                    <button class="icon-button token-toggle-player1" data-token="img/4_in_line/sub-zero-2-token.png">
+                        <img src="img/4_in_line/sub-zero-2-token.png" alt="Subzero 2" class="icon" />
+                    </button>
+                </div>
+            </div>
     
-        <h2>Selecciona las Fichas</h2>
-        <p>Jugador 1:</p>
-        <button id="btn-token-11">Sub Zero 1</button>
-        <button id="btn-token-12">Sub Zero 2</button>
-    
-        <p>Jugador 2:</p>
-        <button id="btn-token-21">Scorpion 1</button>
-        <button id="btn-token-22">Scorpion 2</button>
+            <div id="player2-token" class="player-token">
+                <h4>Jugador 2</h4>
+                <div class="icon-container-player">
+                    <button class="icon-button token-toggle-player2" data-token="img/4_in_line/scorpion-1-token.png">
+                        <img src="img/4_in_line/scorpion-1-token.png" alt="Scorpion 1" class="icon" />
+                    </button>
+                    <button class="icon-button token-toggle-player2" data-token="img/4_in_line/scorpion-2-token.png">
+                        <img src="img/4_in_line/scorpion-2-token.png" alt="Scorpion 2" class="icon" />
+                    </button>
+                </div>
+            </div>
+        </div>
     
         <button id="start-game">Iniciar Juego</button>
     </div>
     
+    <!-- Pantalla del juego -->
     <div id="game-screen" style="display: none;">
         <h1>Conecta 4</h1>
         <p id="turn-indicator"></p>
-        <div id="pantalla-juego">
-            <canvas id="main-canvas" width="800" height="600"></canvas>
-            <!-- Opcionalmente puedes incluir un botón para reiniciar el juego aquí -->
-        </div>
-        <button id="restart-game">Reiniciar Juego</button>
+    
+<!-- Contenedor principal del juego -->
+<div class="game-container">
+
+    <!-- Área de fichas del Jugador 1 a la izquierda del tablero -->
+    <div id="player1-drag-tokens" class="player-drag-area">
+        <h4 id="player1-name-display">Fichas de Jugador 1</h4>
+        <div class="draggable-token-container" id="player1-token-img"></div> <!-- Cambiado aquí -->
     </div>
 
-    <script src="/TP3/EntregaFinal/js/entities/Board.js"></script>
+    <!-- Tablero de juego en el centro -->
+    <div id="pantalla-juego" class="game-board">
+        <canvas id="main-canvas" width="700" height="800"></canvas>
+    </div>
 
-    <script src="/TP3/EntregaFinal/js/entities/4_in_line.js"></script>
+    <!-- Área de fichas del Jugador 2 a la derecha del tablero -->
+    <div id="player2-drag-tokens" class="player-drag-area">
+        <h4 id="player2-name-display">Fichas de Jugador 2</h4>
+        <div class="draggable-token-container" id="player2-token-img"></div> <!-- Cambiado aquí -->
+    </div>
+</div>
+    </div>
+    
+
+
+
+
+
+    <script src="js/entities/Board.js"></script>
+    <script src="js/entities/Ficha.js"></script>
+    <script src="js/entities/4_in_line.js"></script>
 </body>
 </html>

@@ -1,19 +1,4 @@
-let selectedRows = 6;
-let selectedCols = 7;
-let boardImage = '';
-let player1Token = '';
-let player2Token = '';
-let player1Name = '';
-let player2Name = '';
-let currentPlayer = 1;
-
-// Src imágenes de fondo
-const SRC_ARENA_1 = '../EntregaFinal/img/4_in_line/dead-pool.webp';
-const SRC_ARENA_2 = '../EntregaFinal/img/4_in_line/jinsei-chamber.webp';
-const SRC_ARENA_3 = '../EntregaFinal/img/4_in_line/khans-arena.webp';
-const SRC_ARENA_4 = '../EntregaFinal/img/4_in_line/sea-of-blood.webp';
-
-// Elementos HTML
+// Selección de elementos HTML
 const initialScreen = document.getElementById("initial-screen");
 const gameScreen = document.getElementById("game-screen");
 const player1NameInput = document.getElementById("player1-name");
@@ -23,137 +8,140 @@ const turnIndicator = document.getElementById("turn-indicator");
 const canvas = document.getElementById("main-canvas");
 const ctx = canvas.getContext("2d");
 
-// Tamaño de tablero y fondo según el modo seleccionado
-document.getElementById('btn-connect4').addEventListener('click', () => { 
-    selectedRows = 6; 
-    selectedCols = 7; 
-    boardImage = SRC_ARENA_1; 
-});
-document.getElementById('btn-connect5').addEventListener('click', () => { 
-    selectedRows = 7; 
-    selectedCols = 8; 
-    boardImage = SRC_ARENA_2; 
-});
-document.getElementById('btn-connect6').addEventListener('click', () => { 
-    selectedRows = 8; 
-    selectedCols = 9; 
-    boardImage = SRC_ARENA_3; 
-});
-document.getElementById('btn-connect7').addEventListener('click', () => { 
-    selectedRows = 9; 
-    selectedCols = 10; 
-    boardImage = SRC_ARENA_4; 
+
+// Variables globales
+let selectedRows = 6;
+let selectedCols = 7;
+let boardImage = '';
+let player1Token = '';
+let player2Token = '';
+let currentPlayer = 1;
+const SRC_ARENA = [
+    '../EntregaFinal/img/4_in_line/dead-pool.webp',
+    '../EntregaFinal/img/4_in_line/jinsei-chamber.webp',
+    '../EntregaFinal/img/4_in_line/khans-arena.webp',
+    '../EntregaFinal/img/4_in_line/sea-of-blood.webp'
+];
+
+// Clase para el tablero
+let board;
+
+// Configurar los botones de selección de tablero
+const modeButtons = [
+    { button: 'btn-connect4', rows: 6, cols: 7, image: SRC_ARENA[0] },
+    { button: 'btn-connect5', rows: 7, cols: 8, image: SRC_ARENA[1] },
+    { button: 'btn-connect6', rows: 8, cols: 9, image: SRC_ARENA[2] },
+    { button: 'btn-connect7', rows: 9, cols: 10, image: SRC_ARENA[3] },
+];
+
+// Asignar eventos a los botones de selección de tablero
+modeButtons.forEach(mode => {
+    document.getElementById(mode.button).addEventListener('click', () => {
+        selectedRows = mode.rows;
+        selectedCols = mode.cols;
+        boardImage = mode.image;
+    });
 });
 
-// Selección de fichas para cada jugador
-document.getElementById('btn-token-11').addEventListener('click', () => { player1Token = './images/sub-zero-1-token.png'; });
-document.getElementById('btn-token-12').addEventListener('click', () => { player1Token = './images/sub-zero-2-token.png'; });
-document.getElementById('btn-token-21').addEventListener('click', () => { player2Token = './images/scorpion-1-token.png'; });
-document.getElementById('btn-token-22').addEventListener('click', () => { player2Token = './images/scorpion-2-token.png'; });
+// Configurar los botones de selección de fichas para cada jugador
+const toggleButtonsPlayer1 = document.querySelectorAll('.token-toggle-player1');
+toggleButtonsPlayer1.forEach(button => {
+    button.addEventListener('click', () => {
+        player1Token = button.dataset.token;
+        toggleActiveButton(toggleButtonsPlayer1, button); // Resalta el botón seleccionado
+    });
+});
 
-// Iniciar el juego
-startGameButton.addEventListener('click', () => {
-    player1Name = player1NameInput.value || 'Jugador 1';
-    player2Name = player2NameInput.value || 'Jugador 2';
+const toggleButtonsPlayer2 = document.querySelectorAll('.token-toggle-player2');
+toggleButtonsPlayer2.forEach(button => {
+    button.addEventListener('click', () => {
+        player2Token = button.dataset.token;
+        toggleActiveButton(toggleButtonsPlayer2, button); // Resalta el botón seleccionado
+    });
+});
 
-    // Ocultar pantalla inicial y mostrar pantalla del juego
+// Función para resaltar el botón seleccionado
+function toggleActiveButton(buttons, activeButton) {
+    buttons.forEach(button => button.classList.remove('active'));
+    activeButton.classList.add('active');
+}
+
+// Función para configurar y comenzar el juego
+function initializeGame() {
+    // Obtener nombres de los jugadores
+    const player1Name = player1NameInput.value || 'Jugador 1';
+    const player2Name = player2NameInput.value || 'Jugador 2';
+
+    // Mostrar la pantalla del juego y ocultar la pantalla inicial
     initialScreen.style.display = 'none';
     gameScreen.style.display = 'block';
 
-    // Indicar turno del jugador
+    // Actualiza los nombres mostrados en el HTML
+    document.getElementById('player1-name-display').innerText = `Fichas de ${player1Name}`;
+    document.getElementById('player2-name-display').innerText = `Fichas de ${player2Name}`;
+
+    // Configurar el indicador de turno
     turnIndicator.innerText = `Turno de ${player1Name}`;
+
+    // Inicializar el tablero
+    canvas.width = selectedCols * 80; // Ajusta el ancho total del canvas (80 es el tamaño de las celdas)
+    canvas.height = selectedRows * 80 * 0.8; // Ajusta el alto total del canvas (70% del tamaño de las celdas)
+
+    const cellWidth = canvas.width / selectedCols;  // Ancho de cada celda
+    const cellHeight = canvas.height / selectedRows; // Alto de cada celda
+
+    // Calcular el número de fichas por jugador
+    const totalCells = selectedRows * selectedCols;
+    const tokensPerPlayer = totalCells / 2; // La mitad de las celdas para cada jugador
+
+    board = new Board(selectedRows, selectedCols, ctx, cellWidth, cellHeight);
     
-    // Crear el tablero y dibujarlo
-    drawBoard();
-
-    // Agregar event listeners al canvas
-    canvas.addEventListener('click', handleCanvasClick);
-});
-
-// Dibujar el tablero
-function drawBoard() {
-    const cellWidth = canvas.width / selectedCols;
-    const cellHeight = canvas.height / selectedRows;
-
-    // Dibujar la imagen de fondo
-    const background = new Image();
-    background.src = boardImage;
-    background.onload = () => {
-        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
-        // Dibujar las celdas vacías
-        for (let row = 0; row < selectedRows; row++) {
-            for (let col = 0; col < selectedCols; col++) {
-                ctx.strokeStyle = '#000'; // Color del borde
-                ctx.strokeRect(col * cellWidth, row * cellHeight, cellWidth, cellHeight); // Dibujar borde
-            }
-        }
-    };
+    // Dibujar el tablero y las fichas seleccionadas
+    board.draw(boardImage);
+    setPlayerTokenImages(tokensPerPlayer); // Pasa el cálculo a la función
 }
 
-// Manejar el clic en el canvas
-function handleCanvasClick(event) {
-    const rect = canvas.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
 
-    const cellWidth = canvas.width / selectedCols;
-    const cellHeight = canvas.height / selectedRows;
+// Evento para el botón de inicio que llama a la función `initializeGame`
+startGameButton.addEventListener('click', initializeGame);
 
-    const col = Math.floor(x / cellWidth);
-    const row = findAvailableRow(col); // Encuentra la fila disponible en la columna seleccionada
+// Función para cargar las fichas seleccionadas en el área de cada jugador
+function setPlayerTokenImages(tokensPerPlayer) {
+    const player1TokenImg = document.getElementById('player1-token-img');
+    const player2TokenImg = document.getElementById('player2-token-img');
 
-    if (row !== -1) {
-        const token = currentPlayer === 1 ? player1Token : player2Token;
+    // Asignar las imágenes de las fichas seleccionadas a cada contenedor
+    player1TokenImg.innerHTML = ''; // Limpiar contenido anterior
+    player2TokenImg.innerHTML = ''; // Limpiar contenido anterior
 
-        // Dibujar la ficha en la celda correspondiente
-        const tokenImage = new Image();
-        tokenImage.src = token;
-        tokenImage.onload = () => {
-            ctx.drawImage(tokenImage, col * cellWidth, row * cellHeight, cellWidth, cellHeight);
-        };
+    for (let i = 0; i < tokensPerPlayer; i++) {
+        const token1 = document.createElement('div');
+        token1.className = 'draggable-token'; // Añadir clase para estilos
+        token1.style.backgroundImage = `url(${player1Token})`;
+        token1.style.width = '50px';
+        token1.style.height = '50px';
+        player1TokenImg.appendChild(token1); // Agregar al contenedor correcto
 
-        // Cambiar el turno
-        currentPlayer = currentPlayer === 1 ? 2 : 1;
-        turnIndicator.innerText = `Turno de ${currentPlayer === 1 ? player1Name : player2Name}`;
+        const token2 = document.createElement('div');
+        token2.className = 'draggable-token'; // Añadir clase para estilos
+        token2.style.backgroundImage = `url(${player2Token})`;
+        token2.style.width = '50px';
+        token2.style.height = '50px';
+        player2TokenImg.appendChild(token2); // Agregar al contenedor correcto
     }
 }
 
-// Buscar la fila disponible en la columna seleccionada
-function findAvailableRow(col) {
-    for (let row = selectedRows - 1; row >= 0; row--) {
-        // Comprobar si la celda está vacía (puedes implementar una lógica más avanzada para almacenar el estado del juego)
-        const imageData = ctx.getImageData(col * (canvas.width / selectedCols), row * (canvas.height / selectedRows), canvas.width / selectedCols, canvas.height / selectedRows);
-        const isEmpty = imageData.data.every(value => value === 0); // Verifica si es transparente
+// Función para dibujar las fichas en el área de arrastre de cada jugador
+function drawTokens(container, tokenImage, count) {
+    container.innerHTML = ''; // Limpia el contenedor antes de agregar fichas
 
-        if (isEmpty) {
-            return row; // Devuelve la fila disponible
-        }
+    for (let i = 0; i < count; i++) {
+        const tokenDiv = document.createElement('div');
+        tokenDiv.classList.add('draggable-token');
+        tokenDiv.style.backgroundImage = `url(${tokenImage})`;
+        tokenDiv.style.width = '50px';
+        tokenDiv.style.height = '50px';
+        tokenDiv.style.margin = '5px'; // Espaciado entre fichas
+        container.appendChild(tokenDiv); // Agrega la ficha al contenedor
     }
-    return -1; // No hay espacio disponible
 }
-
-// Reiniciar juego
-document.getElementById("restart-game").addEventListener("click", () => {
-    // Reiniciar variables
-    selectedRows = 6;
-    selectedCols = 7;
-    boardImage = '';
-    player1Token = '';
-    player2Token = '';
-    player1Name = '';
-    player2Name = '';
-    currentPlayer = 1;
-
-    // Ocultar pantalla del juego y mostrar pantalla inicial
-    initialScreen.style.display = 'block';
-    gameScreen.style.display = 'none';
-    
-    // Limpiar nombres de los jugadores
-    player1NameInput.value = '';
-    player2NameInput.value = '';
-    turnIndicator.innerText = '';
-    
-    // Limpiar el canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpiar el canvas
-});
