@@ -58,12 +58,6 @@ button:hover {
     background: #d62839; /* Color más oscuro al pasar el mouse */
 }
 
-/* Contenedor del juego */
-.game-container {
-    display: flex;
-    justify-content: space-between;
-}
-
 /* Estilos generales para las áreas de fichas */
 .player-drag-area {
     display: flex;

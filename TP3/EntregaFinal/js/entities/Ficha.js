@@ -1,52 +1,51 @@
 class Ficha {
-    constructor(canvasContext, imageSrc, player, x, y, size) {
-        this.canvasContext = canvasContext;
-        this.img = new Image();
-        this.img.src = imageSrc;
-        this.player = player;
-        this.x = x;
-        this.y = y;
+    constructor(ctx, imagePath, playerNumber, index, totalSlots, size = 50) {
+        this.ctx = ctx;
+        this.imagePath = imagePath;
+        this.playerNumber = playerNumber;
         this.size = size;
-        this.isDragging = false; // Indica si la ficha está siendo arrastrada
-    }
-
-    // Método que se llama al iniciar el arrastre
-    onDragStart(mouseX, mouseY) {
-        this.isDragging = true;
-        this.offsetX = mouseX - this.x;
-        this.offsetY = mouseY - this.y;
-    }
-
-    // Método para manejar el movimiento de la ficha
-    onDrag(mouseX, mouseY) {
-        if (this.isDragging) {
-            this.x = mouseX - this.offsetX;
-            this.y = mouseY - this.offsetY;
-        }
-    }
-
-    // Método para manejar la finalización del arrastre
-    onDrop() {
         this.isDragging = false;
+        this.index = index; // Agregamos el índice para posicionar la ficha
+        this.setPosition(totalSlots); // Llamamos al método para establecer la posición inicial
     }
 
     draw() {
-        // Dibuja un círculo en lugar de una imagen rectangular
-        this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        this.ctx.closePath();
-        this.ctx.clip(); // Asegúrate de que se recorte al círculo
-
-        const tokenImage = new Image();
-        tokenImage.src = this.img;
-        tokenImage.onload = () => {
-            this.ctx.drawImage(tokenImage, this.x - this.radius, this.y - this.radius, this.radius * 2, this.radius * 2);
+        const image = new Image();
+        image.src = this.imagePath;
+        image.onload = () => {
+            this.ctx.drawImage(image, this.x - this.size / 2, this.y - this.size / 2, this.size, this.size);
         };
+    }
+
+    onDragStart(mouseX, mouseY) {
+        this.isDragging = true;
+        this.x = mouseX;
+        this.y = mouseY;
+    }
+
+    onDrag(mouseX, mouseY) {
+        this.x = mouseX;
+        this.y = mouseY;
+        this.draw(); // Redibuja la ficha en la nueva posición
+    }
+
+    onDrop() {
+        this.isDragging = false;
+        this.draw(); // Redibuja la ficha después de soltarla
+    }
+
+    setPosition(totalSlots) {
+        const fichasPorFila = 6; // Número de fichas por fila
+        const spacing = 10;       // Espacio entre fichas
+        const startX = this.playerNumber === 1 
+            ? (this.ctx.canvas.width / 2 - 150) // Espacio a la izquierda del tablero
+            : (this.ctx.canvas.width / 2 + 50); // Espacio a la derecha del tablero
         
-        // Dibuja el borde del círculo (opcional)
-        this.ctx.lineWidth = 2;
-        this.ctx.strokeStyle = 'black';
-        this.ctx.stroke();
+        const fila = Math.floor(this.index / fichasPorFila);  // Determina la fila actual
+        const col = this.index % fichasPorFila;               // Determina la columna actual
+
+        this.x = startX + col * (this.size + spacing);
+        this.y = (this.ctx.canvas.height / 2 - 100) + fila * (this.size + spacing); // Centrar verticalmente
     }
 }
 
