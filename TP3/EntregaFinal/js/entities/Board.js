@@ -43,4 +43,4 @@ class Board {
     }
 }
 
-window.Board = Board; // Exponer la clase Ficha globalmente
+window.Board = Board;

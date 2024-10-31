@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928ec8fa-add8-4070-a8cd-a0e95b79e92b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/4InLine.html" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/4InLine.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/css/4_in_line.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/css/4_in_line.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/img/4_in_line/reptile.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/img/4_in_line/reptile.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/img/4_in_line/scorpion.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/img/4_in_line/scorpion.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/img/4_in_line/smoke.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/img/4_in_line/smoke.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/img/4_in_line/sub-zero.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/img/4_in_line/sub-zero.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/js/4_in_line.js" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/js/4_in_line.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/js/entities/Board.js" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/js/entities/Board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/js/entities/Box.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/js/entities/Circle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntregaFinal/js/entities/Token.js" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/js/entities/Token.js" afterDir="false" />
-    </list>
+    <list default="true" id="928ec8fa-add8-4070-a8cd-a0e95b79e92b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -48,24 +31,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Node.js.4_in_line.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Admin/IdeaProjects/Interfaces2024Grupo17/TP3",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Node.js.4_in_line.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/InterfacesTPE3.github.io&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="TP2" />
@@ -125,6 +108,7 @@
       <workItem from="1730226057188" duration="918000" />
       <workItem from="1730226993800" duration="5405000" />
       <workItem from="1730233423396" duration="10170000" />
+      <workItem from="1730392129743" duration="15071000" />
     </task>
     <servers />
   </component>

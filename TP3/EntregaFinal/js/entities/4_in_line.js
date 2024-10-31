@@ -22,10 +22,10 @@ let player1Token = '';
 let player2Token = '';
 let currentPlayer = 1;
 let draggingFicha = null; // Definición de la variable global
-let timeRemaining = 180; 
+let timeRemaining = 180;
 
 // Declaración del tablero
-let board; 
+let board;
 
 // Arreglos para las fichas de los jugadores
 let player1Tokens = []; // Array para almacenar fichas del jugador 1
