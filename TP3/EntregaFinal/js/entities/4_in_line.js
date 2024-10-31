@@ -7,7 +7,6 @@ const gameScreen = document.getElementById("game-screen");
 const player1NameInput = document.getElementById("player1-name");
 const player2NameInput = document.getElementById("player2-name");
 const startGameButton = document.getElementById("start-game");
-const turnIndicator = document.getElementById("turn-indicator");
 const player1TokenContainer = document.getElementById("player1-token");
 const player2TokenContainer = document.getElementById("player2-token");
 
@@ -18,10 +17,11 @@ let boardWidth = 800; // Ancho del tablero
 let boardHeight = 600; // Alto del tablero
 let cellWidth; // Ancho de las celdas
 let cellHeight; // Alto de las celdas
-let boardImage = ''; 
-let player1Token = ''; 
-let player2Token = ''; 
-let currentPlayer = 1; 
+let boardImage = '';
+let player1Token = '';
+let player2Token = '';
+let currentPlayer = 1;
+let draggingFicha = null; // Definición de la variable global
 
 // Declaración del tablero
 let board; 
@@ -59,8 +59,8 @@ function initializeGame() {
     }
 
     // Establecer el tamaño del canvas
-    canvas.width = boardWidth + 460; // Ancho total del canvas (tablero + márgenes)
-    canvas.height = boardHeight; // Alto del canvas
+    canvas.width = window.innerWidth; // Ancho total del canvas
+    canvas.height = window.innerHeight; // Alto total del canvas
 
     // Calcular el tamaño de las celdas
     cellWidth = boardWidth / selectedCols; // Ancho de las celdas
@@ -68,7 +68,6 @@ function initializeGame() {
 
     initialScreen.style.display = 'none';
     gameScreen.style.display = 'block';
-    turnIndicator.innerText = `Turno de ${player1Name}`;
 
     // Crea el tablero
     board = new Board(selectedRows, selectedCols, ctx, boardImage);
@@ -97,12 +96,30 @@ function createTokensForPlayer(tokensArray, tokenImage, playerNumber, xPosition,
 // Dibujar el fondo del tablero y fichas en el canvas
 function drawGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Agregar fondo al canvas
+    ctx.fillStyle = '#f0f0f0'; // Color de fondo
+    ctx.fillRect(0, 0, canvas.width, canvas.height); // Dibuja un rectángulo que cubra todo el canvas
+
     board.draw(); // Llama al método draw de la clase Board
 
     // Dibuja las fichas de los jugadores a los lados
     drawPlayerTokens(player1Tokens, 30); // Fichas del jugador 1 a la izquierda
     drawPlayerTokens(player2Tokens, canvas.width - 130); // Fichas del jugador 2 a la derecha
+
+    // Dibuja el título y el indicador de turno en el canvas
+    ctx.fillStyle = '#333'; // Color del texto
+    ctx.font = 'bold 36px Arial'; // Estilo de la fuente
+    ctx.textAlign = 'center'; // Centrar el texto
+    ctx.fillText('Conecta 4', canvas.width / 2, 50); // Centrado en el canvas
+
+    const player1Name = player1NameInput.value || 'Jugador 1';
+    const player2Name = player2NameInput.value || 'Jugador 2';
+
+    ctx.font = '24px Arial'; // Estilo de la fuente para el indicador de turno
+    ctx.fillText(`Turno de ${currentPlayer === 1 ? player1Name : player2Name}`, canvas.width / 2, 100); // Centrado
 }
+
 
 // Método para dibujar las fichas de un jugador en una posición dada
 function drawPlayerTokens(tokens, startX) {
@@ -139,12 +156,9 @@ canvas.addEventListener('mouseup', (e) => {
 
         if (board.placeToken(col, currentPlayer)) {
             currentPlayer = currentPlayer === 1 ? 2 : 1;
-            const player1Name = player1NameInput.value || 'Jugador 1';
-            const player2Name = player2NameInput.value || 'Jugador 2';
-            turnIndicator.innerText = `Turno de ${currentPlayer === 1 ? player1Name : player2Name}`;
+            drawGame(); // Redibuja el tablero con la ficha colocada
         }
 
-        drawGame(); // Redibuja el tablero con la ficha colocada
         draggingFicha = null;
     }
 });
@@ -169,7 +183,7 @@ player2TokenButtons.forEach(button => {
     });
 });
 
-// Función para resaltar el token seleccionado
+// Resaltar el token seleccionado
 function highlightSelectedToken(selectedButton, allButtons) {
     allButtons.forEach(button => {
         button.classList.remove('selected');
@@ -177,5 +191,5 @@ function highlightSelectedToken(selectedButton, allButtons) {
     selectedButton.classList.add('selected');
 }
 
-// Agregar evento para el botón de inicio
+// Inicializar el juego al hacer clic en el botón "Iniciar Juego"
 startGameButton.addEventListener('click', initializeGame);
