@@ -89,6 +89,7 @@ button:hover {
     height: 50px; /* Ajusta el tamaño de las fichas */
     cursor: pointer; /* Cambia el cursor al pasar sobre la ficha */
     border: 2px solid #e63946; /* Opción: añade un borde para distinguir las fichas */
+    border-radius: 50%;
 }
 
 /* Área de fichas del Jugador 2 */

@@ -14,6 +14,16 @@ class Board {
         this.player2TokenImage.src = player2Token; // Asegúrate de que player2Token esté definido antes de usarlo
     }
 
+    // Método para obtener la siguiente fila disponible en una columna
+    getNextAvailableRow(col) {
+        for (let row = this.rows - 1; row >= 0; row--) {
+            if (this.grid[row][col] === null) {
+                return row; // Retorna la fila disponible
+            }
+        }
+        return -1; // Retorna -1 si la columna está llena
+    }
+
     // Método para dibujar el tablero
     draw(boardImage) {
         // Dibuja el fondo del tablero
@@ -41,11 +51,10 @@ class Board {
 
     // Método para colocar una ficha en el tablero
     placeToken(col, player) {
-        for (let row = this.rows - 1; row >= 0; row--) {
-            if (this.grid[row][col] === null) {
-                this.grid[row][col] = player; // Guarda el jugador (1 o 2) en la celda
-                return true; // Retorna true si la colocación fue exitosa
-            }
+        const row = this.getNextAvailableRow(col); // Usa el nuevo método para obtener la fila disponible
+        if (row !== -1) {
+            this.grid[row][col] = player; // Guarda el jugador (1 o 2) en la celda
+            return true; // Retorna true si la colocación fue exitosa
         }
         return false; // Retorna false si no se pudo colocar la ficha
     }
@@ -68,3 +77,4 @@ class Board {
 
 // Hacer que la clase Board esté disponible globalmente
 window.Board = Board;
+

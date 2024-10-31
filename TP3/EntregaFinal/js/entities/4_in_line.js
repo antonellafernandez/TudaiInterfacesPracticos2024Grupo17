@@ -8,14 +8,13 @@ const turnIndicator = document.getElementById("turn-indicator");
 const canvas = document.getElementById("main-canvas");
 const ctx = canvas.getContext("2d");
 
-
 // Variables globales
 let selectedRows = 6;
 let selectedCols = 7;
 let boardImage = '';
 let player1Token = '';
 let player2Token = '';
-let currentPlayer = 1;
+let currentPlayer = 1; // Inicializa el jugador actual en 1
 const SRC_ARENA = [
     '../EntregaFinal/img/4_in_line/dead-pool.webp',
     '../EntregaFinal/img/4_in_line/jinsei-chamber.webp',
@@ -101,7 +100,6 @@ function initializeGame() {
     setPlayerTokenImages(tokensPerPlayer); // Pasa el cálculo a la función
 }
 
-
 // Evento para el botón de inicio que llama a la función `initializeGame`
 startGameButton.addEventListener('click', initializeGame);
 
@@ -110,26 +108,68 @@ function setPlayerTokenImages(tokensPerPlayer) {
     const player1TokenImg = document.getElementById('player1-token-img');
     const player2TokenImg = document.getElementById('player2-token-img');
 
-    // Asignar las imágenes de las fichas seleccionadas a cada contenedor
-    player1TokenImg.innerHTML = ''; // Limpiar contenido anterior
-    player2TokenImg.innerHTML = ''; // Limpiar contenido anterior
+    // Limpiar fichas anteriores
+    player1TokenImg.innerHTML = ''; // Limpia las fichas del jugador 1
+    player2TokenImg.innerHTML = ''; // Limpia las fichas del jugador 2
 
+    // Crear las fichas para el jugador 1
     for (let i = 0; i < tokensPerPlayer; i++) {
-        const token1 = document.createElement('div');
-        token1.className = 'draggable-token'; // Añadir clase para estilos
-        token1.style.backgroundImage = `url(${player1Token})`;
-        token1.style.width = '50px';
-        token1.style.height = '50px';
-        player1TokenImg.appendChild(token1); // Agregar al contenedor correcto
+        createDraggableToken(player1TokenImg, player1Token, '1'); // Crea la ficha para el jugador 1
+    }
 
-        const token2 = document.createElement('div');
-        token2.className = 'draggable-token'; // Añadir clase para estilos
-        token2.style.backgroundImage = `url(${player2Token})`;
-        token2.style.width = '50px';
-        token2.style.height = '50px';
-        player2TokenImg.appendChild(token2); // Agregar al contenedor correcto
+    // Crear las fichas para el jugador 2
+    for (let i = 0; i < tokensPerPlayer; i++) {
+        createDraggableToken(player2TokenImg, player2Token, '2'); // Crea la ficha para el jugador 2
     }
 }
+
+// Función para crear y agregar fichas arrastrables
+function createDraggableToken(container, tokenImage, playerNumber) {
+    const tokenDiv = document.createElement('div');
+    tokenDiv.className = 'draggable-token'; // Añadir clase para estilos
+    tokenDiv.style.backgroundImage = `url(${tokenImage})`;
+    tokenDiv.setAttribute('data-player', playerNumber); // Asigna el número de jugador al token
+
+    // Agregar eventos de mouse para arrastrar
+    tokenDiv.draggable = true;
+
+    tokenDiv.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', tokenImage); // Guarda la imagen para usarla al soltar
+        e.dataTransfer.setData('text/player', playerNumber); // Envía el número del jugador
+        e.dataTransfer.setDragImage(tokenDiv, 20, 20); // Ajusta la imagen que se arrastra
+        tokenDiv.classList.add('dragging'); // Añade una clase para cambiar el estilo si es necesario
+    });
+
+    tokenDiv.addEventListener('dragend', () => {
+        tokenDiv.classList.remove('dragging'); // Elimina la clase al soltar
+    });
+
+    container.appendChild(tokenDiv); // Agrega la ficha al contenedor
+}
+
+// Evento de drop en el tablero
+canvas.addEventListener('dragover', (e) => {
+    e.preventDefault(); // Necesario para permitir el drop
+});
+
+canvas.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const tokenImage = e.dataTransfer.getData('text/plain'); // Obtiene la imagen de la ficha
+
+    // Lógica para determinar dónde colocar la ficha en el tablero
+    const rect = canvas.getBoundingClientRect(); // Obtiene la posición del canvas
+    const x = e.clientX - rect.left; // Coordenada X relativa
+    const col = Math.floor(x / (canvas.width / selectedCols)); // Determina la columna
+
+    // Coloca la ficha en el tablero
+    if (board.placeToken(col, currentPlayer)) {
+        board.draw(boardImage); // Redibuja el tablero usando la función draw de la clase Board
+        currentPlayer = currentPlayer === 1 ? 2 : 1; // Cambia el turno
+        const player1Name = player1NameInput.value || 'Jugador 1';
+        const player2Name = player2NameInput.value || 'Jugador 2';
+        turnIndicator.innerText = `Turno de ${currentPlayer === 1 ? player1Name : player2Name}`;
+    }
+});
 
 // Función para dibujar las fichas en el área de arrastre de cada jugador
 function drawTokens(container, tokenImage, count) {
