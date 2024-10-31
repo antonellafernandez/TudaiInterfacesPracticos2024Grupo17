@@ -22,6 +22,7 @@ let player1Token = '';
 let player2Token = '';
 let currentPlayer = 1;
 let draggingFicha = null; // Definición de la variable global
+let timeRemaining = 180; 
 
 // Declaración del tablero
 let board; 
@@ -93,31 +94,62 @@ function createTokensForPlayer(tokensArray, tokenImage, playerNumber, xPosition,
     }
 }
 
-// Dibujar el fondo del tablero y fichas en el canvas
+function startTimer() {
+    const timerInterval = setInterval(() => {
+        timeRemaining -= 1;
+        updateTimerDisplay(); // Actualiza solo el temporizador
+
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            endGame(); // Termina el juego en empate cuando se acaba el tiempo
+        }
+    }, 1000); // Actualiza cada segundo
+}
+
+function endGame() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawGame();
+    ctx.fillStyle = '#333'; // Color del texto
+    ctx.font = 'bold 36px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('¡Tiempo agotado! El juego ha terminado en empate', canvas.width / 2, 100);
+}
+
+// Función de dibujo principal que muestra el tablero, fichas y título
 function drawGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Agregar fondo al canvas
-    ctx.fillStyle = '#f0f0f0'; // Color de fondo
-    ctx.fillRect(0, 0, canvas.width, canvas.height); // Dibuja un rectángulo que cubra todo el canvas
+    // Fondo del canvas
+    ctx.fillStyle = '#f0f0f0';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    board.draw(); // Llama al método draw de la clase Board
+    board.draw(); // Dibuja el tablero
 
     // Dibuja las fichas de los jugadores a los lados
     drawPlayerTokens(player1Tokens, 30); // Fichas del jugador 1 a la izquierda
     drawPlayerTokens(player2Tokens, canvas.width - 130); // Fichas del jugador 2 a la derecha
 
-    // Dibuja el título y el indicador de turno en el canvas
+
+    // Llama a la función que actualiza el temporizador
+    updateTimerDisplay();
+}
+
+function updateTimerDisplay() {
+    // Asegurarse de que el fondo cubre todo el área del temporizador
+    ctx.fillStyle = '#f0f0f0'; // Usa el mismo color del fondo principal
+    ctx.fillRect(canvas.width / 2 - 120, 50, 240, 60); // Ajusta el tamaño del rectángulo para cubrir completamente el temporizador
+
+    // Texto del temporizador
     ctx.fillStyle = '#333'; // Color del texto
-    ctx.font = 'bold 36px Arial'; // Estilo de la fuente
-    ctx.textAlign = 'center'; // Centrar el texto
-    ctx.fillText('Conecta 4', canvas.width / 2, 50); // Centrado en el canvas
-
-    const player1Name = player1NameInput.value || 'Jugador 1';
-    const player2Name = player2NameInput.value || 'Jugador 2';
-
-    ctx.font = '24px Arial'; // Estilo de la fuente para el indicador de turno
-    ctx.fillText(`Turno de ${currentPlayer === 1 ? player1Name : player2Name}`, canvas.width / 2, 100); // Centrado
+    ctx.font = '24px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText(
+        timeRemaining > 0
+            ? `Tiempo restante: ${Math.floor(timeRemaining / 60)}:${String(timeRemaining % 60).padStart(2, '0')}`
+            : 'Juego en empate',
+        canvas.width / 2,
+        85 // Ajusta la posición vertical del texto del temporizador
+    );
 }
 
 
@@ -191,5 +223,8 @@ function highlightSelectedToken(selectedButton, allButtons) {
     selectedButton.classList.add('selected');
 }
 
-// Inicializar el juego al hacer clic en el botón "Iniciar Juego"
-startGameButton.addEventListener('click', initializeGame);
+// Iniciar el juego y el temporizador al hacer clic en "Iniciar Juego"
+startGameButton.addEventListener('click', () => {
+    initializeGame();
+    startTimer(); // Inicia el temporizador después de la configuración del juego
+});
