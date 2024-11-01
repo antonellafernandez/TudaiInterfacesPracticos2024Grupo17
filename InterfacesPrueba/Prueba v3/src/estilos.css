@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('img/bg.jpg'); /* Establece la imagen de fondo */
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    margin: 0; /* Elimina el margen por defecto */
+    height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+    display: flex; /* Usar flexbox para el cuerpo */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    overflow: hidden; /* Evita el desplazamiento */
+}
+
+#pantallaSeleccion {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Centra horizontalmente los elementos */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para el menú */
+    padding: 40px; /* Espaciado alrededor del contenido */
+    border-radius: 10px;
+    width: 80%; /* Ancho del contenedor */
+    max-width: 800px; /* Máximo ancho para pantallas grandes */
+}
+
+
+h2, h3 {
+    font-family: 'Press Start 2P', cursive; /* Fuente arcade para títulos */
+    color: #ffcc00; /* Color dorado para títulos */
+}
+
+#tablero {
+    border: 4px solid #ff0000; /* Borde rojo para el tablero */
+    background-color: #222; /* Fondo oscuro para el tablero */
+    display: block;
+    margin: 20px auto; /* Centra el canvas */
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #333; /* Fondo oscuro para botones */
+    color: #ffcc00; /* Texto dorado */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+    position: relative; /* Necesario para el efecto de "liquido" */
+}
+
+button:hover {
+    background-color: #ffcc00; /* Fondo dorado al pasar el mouse */
+    color: #333; /* Texto oscuro al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón */
+}
+
+/* Efecto de selección utilizando :focus y :active */
+button:focus, button:active {
+    background-color: #ff0000; /* Color rojo al seleccionarlo */
+    animation: blinkEffect 0.5s infinite; /* Parpadeo */
+    transform: scale(1.1); /* Aumenta el tamaño del botón */
+}
+/* Botones del Jugador 1 */
+#pantallaSeleccion div:nth-child(2) button {
+    background-color: #007bff; /* Fondo azul para botones del Jugador 1 */
+    color: white; /* Texto blanco */
+    border: 2px solid #0056b3; /* Borde más oscuro de azul */
+}
+
+#pantallaSeleccion div:nth-child(2) button:hover {
+    background-color: #0056b3; /* Fondo azul más oscuro al pasar el mouse */
+}
+
+/* Botones del Jugador 2 */
+#pantallaSeleccion div:nth-child(3) button {
+    background-color: #ffc107; /* Fondo amarillo para botones del Jugador 2 */
+    color: white; /* Texto blanco */
+    border: 2px solid #c69500; /* Borde más oscuro de amarillo */
+}
+
+#pantallaSeleccion div:nth-child(3) button:hover {
+    background-color: #c69500; /* Fondo amarillo más oscuro al pasar el mouse */
+}
+/* Animación de parpadeo */
+@keyframes blinkEffect {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5; /* Disminuye la opacidad al 50% */
+    }
+}
+
+/* Botón Iniciar Juego */
+#iniciarJuego {
+    background-color: #ff0000; /* Fondo rojo */
+    color: #fff; /* Texto blanco */
+    padding: 15px 30px; /* Mayor padding para resaltar */
+    font-size: 20px; /* Tamaño de fuente mayor */
+    transition: background-color 0.3s; /* Solo transiciones de fondo */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+#iniciarJuego:hover {
+    background-color: #fff; /* Fondo blanco al pasar el mouse */
+    color: #ff0000; /* Texto rojo al pasar el mouse */
+}
+
+
+#iniciarJuego:hover {
+    background-color: #fff; /* Fondo blanco al pasar el mouse */
+    color: #ff0000; /* Texto rojo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón */
+}
+
+/* Estilo para los botones de selección de tamaño del tablero */
+#opciones {
+    display: flex; /* Usar flexbox para disposición horizontal */
+    justify-content: center; /* Centrar los botones */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+#opciones button {
+    margin: 10px; /* Espaciado entre botones */
+    background-color: #444; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    border: 2px solid #222;
+    padding: 10px 20px; /* Padding para los botones */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+#opciones button:hover {
+    color: #fff; /* Texto blanco al pasar el mouse */
+}
+
+/* Efecto de parpadeo cuando el botón está en foco */
+#opciones button:focus, #opciones button:active {
+    background-color: #ff0000; /* Color rojo al seleccionarlo */
+    animation: blinkEffect 0.5s infinite; /* Parpadeo */
+}

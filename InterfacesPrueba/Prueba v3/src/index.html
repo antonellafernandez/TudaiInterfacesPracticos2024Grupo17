@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡En Línea!</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="pantallaSeleccion">
+        <h2>Selecciona tus fichas</h2>
+        <div>
+            <h3>Jugador 1</h3>
+            <button onclick="seleccionarFichaJugador1('roja')">Ficha Roja</button>
+            <button onclick="seleccionarFichaJugador1('amarilla')">Ficha Amarilla</button>
+        </div>
+        <div>
+            <h3>Jugador 2</h3>
+            <button onclick="seleccionarFichaJugador2('azul')">Ficha Azul</button>
+            <button onclick="seleccionarFichaJugador2('verde')">Ficha Verde</button>
+        </div>
+        <button id="iniciarJuego">Iniciar Juego</button>
+        
+        <div id="opciones">
+            <button id="4enlinea">4 en línea (6x7)</button>
+            <button id="5enlinea">5 en línea (7x8)</button>
+            <button id="6enlinea">6 en línea (8x9)</button>
+            <button id="7enlinea">7 en línea (9x10)</button>
+        </div>
+    </div>
+    
+    <div id="game-screen" style="display: none;">
+        <canvas id="tablero" width="1920" height="1080"></canvas>
+    </div>
+    
+    <canvas id="tablero" width="700" height="600" style="display: none;"></canvas>
+    
+    <script src="script.js"></script>
+</body>
+</html>
