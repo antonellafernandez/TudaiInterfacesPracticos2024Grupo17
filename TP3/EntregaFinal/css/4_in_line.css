@@ -1,149 +1,141 @@
-/* Estilos generales */
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #1c1c1c; /* Fondo oscuro */
-    color: #f5f5f5; /* Color de texto claro */
+game-image{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    margin: 0; /* Elimina el margen por defecto */
+    height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+    display: flex; /* Usar flexbox para el cuerpo */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    width:792px;
+
+}
+
+#pantallaSeleccion {
+    overflow: hidden; /* Evita el desplazamiento */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-}
-
-/* Pantalla inicial */
-#initial-screen {
-    background: rgba(50, 50, 50, 0.8); /* Fondo semi-transparente */
-    padding: 20px;
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Centra horizontalmente los elementos */
+    padding: 40px; /* Espaciado alrededor del contenido */
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    text-align: center; /* Centrar texto */
+    width: 100%; /* Ancho del contenedor */
+    max-width: 800px; /* Máximo ancho para pantallas grandes */
+    height: 100%;
+    background-color: rgba(34, 34, 34, 0.7); /* Color de fondo con opacidad */
 }
 
-h1, h2 {
-    font-family: 'Impact', sans-serif; /* Fuente más acorde al estilo de juego */
-    color: #e63946; /* Color rojo oscuro */
+
+#pantallaSeleccion h2, h3 {
+    font-family: 'Press Start 2P', cursive; /* Fuente arcade para títulos */
+    color: #faf600; /* Color dorado para títulos */
 }
 
-/* Estilos de formularios */
-label {
-    margin-top: 10px;
-    display: block; /* Cada etiqueta en su propia línea */
+#tablero {
+    border: 4px solid #ff0000; /* Borde rojo para el tablero */
+    background-color: #222; /* Fondo oscuro para el tablero */
+    display: block;
 }
 
-input[type="text"] {
-    width: 90%; /* Ancho del input */
-    padding: 10px;
-    margin: 10px 0; /* Margen arriba y abajo */
-    border: 1px solid #e63946; /* Borde rojo */
-    border-radius: 5px;
-    background: #333; /* Fondo del input */
-    color: #f5f5f5; /* Texto claro */
-}
-
-/* Botones */
 button {
-    background: #e63946; /* Fondo rojo */
-    color: #f5f5f5; /* Texto claro */
-    border: none; /* Sin borde */
-    padding: 10px 15px; /* Espaciado del botón */
-    margin: 10px 5px; /* Margen de los botones */
-    border-radius: 5px;
-    cursor: pointer; /* Cursor de mano */
-    font-weight: bold;
-    transition: background 0.3s ease; /* Transición suave para el hover */
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #333; /* Fondo oscuro para botones */
+    color: #ffcc00; /* Texto dorado */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+    position: relative; /* Necesario para el efecto de "liquido" */
 }
 
 button:hover {
-    background: #d62839; /* Color más oscuro al pasar el mouse */
+    background-color: #ffcc00; /* Fondo dorado al pasar el mouse */
+    color: #333; /* Texto oscuro al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón */
 }
 
-/* Estilos generales para las áreas de fichas */
-.player-drag-area {
-    display: flex;
-    flex-direction: column; /* Coloca el título y el contenedor de fichas en columna */
-    align-items: center; /* Centra los elementos horizontalmente */
+/* Efecto de selección utilizando :focus y :active */
+button:focus, button:active {
+    background-color: #ff0000; /* Color rojo al seleccionarlo */
+    animation: blinkEffect 0.5s infinite; /* Parpadeo */
+    transform: scale(1.1); /* Aumenta el tamaño del botón */
+}
+/* Botones del Jugador 1 */
+#pantallaSeleccion div:nth-child(2) button {
+    background-color: #007bff; /* Fondo azul para botones del Jugador 1 */
+    color: white; /* Texto blanco */
+    border: 2px solid #0056b3; /* Borde más oscuro de azul */
 }
 
-/* Contenedor de fichas de jugadores */
-.draggable-token-container {
-    display: flex; /* Usa flexbox para colocar las fichas en fila */
-    flex-wrap: wrap; /* Permite que las fichas se ajusten a la siguiente línea si es necesario */
-    gap: 5px; /* Espacio entre las fichas */
-    margin-top: 10px; /* Espacio entre el título y las fichas */
-    max-width: calc(50px * 4 + 15px * 3); /* Ajusta el ancho máximo para 4 fichas (50px cada una + 3 espacios de 5px) */
+#pantallaSeleccion div:nth-child(2) button:hover {
+    background-color: #0056b3; /* Fondo azul más oscuro al pasar el mouse */
 }
 
-/* Estilos de fichas */
-.draggable-token {
-    background-size: contain; /* Asegura que la imagen se ajuste */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-    width: 50px; /* Ajusta el tamaño de las fichas */
-    height: 50px; /* Ajusta el tamaño de las fichas */
-    cursor: pointer; /* Cambia el cursor al pasar sobre la ficha */
-    border: 2px solid #e63946; /* Opción: añade un borde para distinguir las fichas */
-    border-radius: 50%;
+/* Botones del Jugador 2 */
+#pantallaSeleccion div:nth-child(3) button {
+    background-color: #ffc107; /* Fondo amarillo para botones del Jugador 2 */
+    color: white; /* Texto blanco */
+    border: 2px solid #c69500; /* Borde más oscuro de amarillo */
 }
 
-/* Área de fichas del Jugador 2 */
-#player2-drag-tokens {
-    margin-left: 20px; /* Ajusta este valor para aumentar o disminuir la distancia con el tablero */
+#pantallaSeleccion div:nth-child(3) button:hover {
+    background-color: #c69500; /* Fondo amarillo más oscuro al pasar el mouse */
+}
+/* Animación de parpadeo */
+@keyframes blinkEffect {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5; /* Disminuye la opacidad al 50% */
+    }
+}
+
+/* Botón Iniciar Juego */
+#iniciarJuego {
+    background-color: #ff0000; /* Fondo rojo */
+    color: #fff; /* Texto blanco */
+    padding: 15px 30px; /* Mayor padding para resaltar */
+    font-size: 20px; /* Tamaño de fuente mayor */
+    transition: background-color 0.3s; /* Solo transiciones de fondo */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+#iniciarJuego:hover {
+    background-color: #fff; /* Fondo blanco al pasar el mouse */
+    color: #ff0000; /* Texto rojo al pasar el mouse */
 }
 
 
-/* Iconos */
-.icon {
-    width: 100%;
-    height: auto;
+#iniciarJuego:hover {
+    background-color: #fff; /* Fondo blanco al pasar el mouse */
+    color: #ff0000; /* Texto rojo al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón */
 }
 
-/* Pantalla del juego */
-#game-screen {
-    display: none; /* Oculto por defecto */
+/* Estilo para los botones de selección de tamaño del tablero */
+#opciones {
+    display: flex; /* Usar flexbox para disposición horizontal */
+    justify-content: center; /* Centrar los botones */
+    margin-top: 20px; /* Espaciado superior */
 }
 
-#pantalla-juego {
-    display: flex;
-    flex-direction: column; /* Colocar canvas y botones en columna */
-    align-items: center; /* Centrar elementos horizontalmente */
-    margin-top: 20px;
+#opciones button {
+    margin: 10px; /* Espaciado entre botones */
+    background-color: #444; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    border: 2px solid #222;
+    padding: 10px 20px; /* Padding para los botones */
+    font-size: 16px; /* Tamaño de fuente */
 }
 
-/* Canvas */
-#main-canvas {
-    border: 2px solid #e63946; /* Borde rojo alrededor del canvas */
-    border-radius: 5px;
+#opciones button:hover {
+    color: #fff; /* Texto blanco al pasar el mouse */
 }
 
-/* Contenedor de íconos de jugadores */
-.icon-container-player {
-    display: flex;
-    justify-content: center; /* Centra los botones horizontalmente */
-    gap: 10px; /* Espacio entre los botones */
-    padding-bottom: 20px; /* Opcional: para separación con otros elementos */
-}
-
-/* Estilos de botones de íconos */
-.icon-button {
-    background: transparent; /* Fondo transparente */
-    border: none; /* Sin borde */
-    padding: 0; /* Sin padding para ajustar al ícono */
-    width: 60px; /* Ajusta el tamaño del botón */
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.icon-button .icon {
-    width: 70px; /* Tamaño del ícono */
-    height: 70px;
-    border-radius: 50%; /* Hace que el ícono sea redondo */
-    background: #1c1c1c; /* Fondo oscuro para el ícono */
-}
-
-.icon-button.selected {
-    border: 2px solid #d62839; /* Borde rojo para indicar selección */
-    background-color: #333; /* Fondo oscuro */
+/* Efecto de parpadeo cuando el botón está en foco */
+#opciones button:focus, #opciones button:active {
+    background-color: #ff0000; /* Color rojo al seleccionarlo */
+    animation: blinkEffect 0.5s infinite; /* Parpadeo */
 }
