@@ -189,7 +189,7 @@ function dibujarTablero() {
             ctx.arc(j * tamanoCelda + tamanoCelda / 2, i * tamanoCelda + tamanoCelda / 2, tamanoCelda / 2 - 5, 0, Math.PI * 2);
             ctx.fillStyle = '#fff'; // Color de fondo de las celdas
             ctx.fill();
-            ctx.strokeStyle = '#fff'; // Color del borde
+            ctx.strokeStyle = '#000'; // Color del borde
             ctx.stroke();
         }
     }
