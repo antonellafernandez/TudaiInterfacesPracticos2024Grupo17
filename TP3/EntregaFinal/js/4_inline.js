@@ -1,9 +1,8 @@
 // Variables globales canvas
 let tablero = document.getElementById('tablero');
 let ctx = tablero.getContext('2d');
-// Establecer el tamaño del canvas
-tablero.width = 792; // Ancho fijo
-tablero.height = 520; // Altura fija
+
+
 
 // Variables globales otras
 let opciones = document.getElementById('opciones');
@@ -21,7 +20,6 @@ let hints = [];
 let timer = 120; // Tiempo inicial en segundos
 let desplazamientoX = 0;
 let desplazamientoY = 0;
-
 
 
 /////////// FUNCION PARA MANEJAR EL CAMBIO DE PANTALLAS, DE CONFIG AL CANVAS

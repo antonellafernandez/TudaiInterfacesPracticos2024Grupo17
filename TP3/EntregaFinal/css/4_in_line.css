@@ -1,141 +1,128 @@
-game-image{
+.game-image {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
-    background-position: center; /* Centra la imagen */
-    margin: 0; /* Elimina el margen por defecto */
-    height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
-    display: flex; /* Usar flexbox para el cuerpo */
-    align-items: center; /* Centra verticalmente los elementos */
-    justify-content: center; /* Centra horizontalmente los elementos */
-    width:792px;
-
-}
-
-#pantallaSeleccion {
-    overflow: hidden; /* Evita el desplazamiento */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
     display: flex;
-    flex-direction: column; /* Organiza los elementos en columna */
-    align-items: center; /* Centra horizontalmente los elementos */
-    padding: 40px; /* Espaciado alrededor del contenido */
+    align-items: center;
+    justify-content: center;
+}
+
+.game-image #pantallaSeleccion {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
     border-radius: 10px;
-    width: 100%; /* Ancho del contenedor */
-    max-width: 800px; /* Máximo ancho para pantallas grandes */
-    height: 100%;
-    background-color: rgba(34, 34, 34, 0.7); /* Color de fondo con opacidad */
+    width: 100%;
+    max-width: 800px;
+    height: 90%;
+    background-color: rgba(34, 34, 34, 0.7);
 }
 
-
-#pantallaSeleccion h2, h3 {
-    font-family: 'Press Start 2P', cursive; /* Fuente arcade para títulos */
-    color: #faf600; /* Color dorado para títulos */
+.game-image #pantallaSeleccion h2,
+.game-image #pantallaSeleccion h3 {
+    font-family: 'Press Start 2P', cursive;
+    color: #faf600;
 }
 
-#tablero {
-    border: 4px solid #ff0000; /* Borde rojo para el tablero */
-    background-color: #222; /* Fondo oscuro para el tablero */
+.game-image #tablero {
+    background-color: #222;
     display: block;
+    box-shadow: #333;
 }
 
-button {
+.game-image button {
     margin: 10px;
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
-    border-radius: 5px; /* Bordes redondeados */
-    background-color: #333; /* Fondo oscuro para botones */
-    color: #ffcc00; /* Texto dorado */
-    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
-    position: relative; /* Necesario para el efecto de "liquido" */
+    border-radius: 5px;
+    background-color: #333;
+    color: #ffcc00;
+    transition: background-color 0.3s, transform 0.2s;
+    position: relative;
 }
 
-button:hover {
-    background-color: #ffcc00; /* Fondo dorado al pasar el mouse */
-    color: #333; /* Texto oscuro al pasar el mouse */
-    transform: scale(1.1); /* Aumenta el tamaño del botón */
+.game-image button:hover {
+    color: #333;
+    transform: scale(1.1);
 }
 
-/* Efecto de selección utilizando :focus y :active */
-button:focus, button:active {
-    background-color: #ff0000; /* Color rojo al seleccionarlo */
-    animation: blinkEffect 0.5s infinite; /* Parpadeo */
-    transform: scale(1.1); /* Aumenta el tamaño del botón */
-}
-/* Botones del Jugador 1 */
-#pantallaSeleccion div:nth-child(2) button {
-    background-color: #007bff; /* Fondo azul para botones del Jugador 1 */
-    color: white; /* Texto blanco */
-    border: 2px solid #0056b3; /* Borde más oscuro de azul */
+.game-image button:focus,
+.game-image button:active {
+    background-color: #ff0000;
+    animation: blinkEffect 0.5s infinite;
+    transform: scale(1.1);
 }
 
-#pantallaSeleccion div:nth-child(2) button:hover {
-    background-color: #0056b3; /* Fondo azul más oscuro al pasar el mouse */
+.game-image #pantallaSeleccion div:nth-child(2) button {
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #0056b3;
 }
 
-/* Botones del Jugador 2 */
-#pantallaSeleccion div:nth-child(3) button {
-    background-color: #ffc107; /* Fondo amarillo para botones del Jugador 2 */
-    color: white; /* Texto blanco */
-    border: 2px solid #c69500; /* Borde más oscuro de amarillo */
+.game-image #pantallaSeleccion div:nth-child(2) button:hover {
+    background-color: #0056b3;
 }
 
-#pantallaSeleccion div:nth-child(3) button:hover {
-    background-color: #c69500; /* Fondo amarillo más oscuro al pasar el mouse */
+.game-image #pantallaSeleccion div:nth-child(3) button {
+    background-color: #ffc107;
+    color: white;
+    border: 2px solid #c69500;
 }
-/* Animación de parpadeo */
+
+.game-image #pantallaSeleccion div:nth-child(3) button:hover {
+    background-color: #c69500;
+}
+
 @keyframes blinkEffect {
     0%, 100% {
         opacity: 1;
     }
     50% {
-        opacity: 0.5; /* Disminuye la opacidad al 50% */
+        opacity: 0.5;
     }
 }
 
-/* Botón Iniciar Juego */
-#iniciarJuego {
-    background-color: #ff0000; /* Fondo rojo */
-    color: #fff; /* Texto blanco */
-    padding: 15px 30px; /* Mayor padding para resaltar */
-    font-size: 20px; /* Tamaño de fuente mayor */
-    transition: background-color 0.3s; /* Solo transiciones de fondo */
-    margin-top: 20px; /* Espaciado superior */
+.game-image #iniciarJuego {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 20px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
 }
 
-#iniciarJuego:hover {
-    background-color: #fff; /* Fondo blanco al pasar el mouse */
-    color: #ff0000; /* Texto rojo al pasar el mouse */
+.game-image #iniciarJuego:hover {
+    background-color: #fff;
+    color: #ff0000;
+    transform: scale(1.1);
 }
 
-
-#iniciarJuego:hover {
-    background-color: #fff; /* Fondo blanco al pasar el mouse */
-    color: #ff0000; /* Texto rojo al pasar el mouse */
-    transform: scale(1.1); /* Aumenta el tamaño del botón */
+.game-image #opciones {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-/* Estilo para los botones de selección de tamaño del tablero */
-#opciones {
-    display: flex; /* Usar flexbox para disposición horizontal */
-    justify-content: center; /* Centrar los botones */
-    margin-top: 20px; /* Espaciado superior */
-}
-
-#opciones button {
-    margin: 10px; /* Espaciado entre botones */
-    background-color: #444; /* Fondo oscuro */
-    color: #fff; /* Texto blanco */
+.game-image #opciones button {
+    margin: 10px;
+    background-color: #444;
+    color: #fff;
     border: 2px solid #222;
-    padding: 10px 20px; /* Padding para los botones */
-    font-size: 16px; /* Tamaño de fuente */
+    padding: 10px 20px;
+    font-size: 16px;
 }
 
-#opciones button:hover {
-    color: #fff; /* Texto blanco al pasar el mouse */
+.game-image #opciones button:hover {
+    color: #fff;
 }
 
-/* Efecto de parpadeo cuando el botón está en foco */
-#opciones button:focus, #opciones button:active {
-    background-color: #ff0000; /* Color rojo al seleccionarlo */
-    animation: blinkEffect 0.5s infinite; /* Parpadeo */
+.game-image #opciones button:focus,
+.game-image #opciones button:active {
+    background-color: #ff0000;
+    animation: blinkEffect 0.5s infinite;
 }

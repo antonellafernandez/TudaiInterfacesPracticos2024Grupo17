@@ -78,12 +78,27 @@
                 </div>
 
                 <div class="separator"></div>
-
+                <!-- Instrucciones de Juego (Aside) -->
+                <aside class="card">
+                    <div class="card-body">
+                        <h2 class="section-title">How to Play</h2>
+                        <button id="closeAside" class="close-btn">
+                            <i class="fas fa-times"></i> <!-- Close icon from Font Awesome -->
+                        </button>
+                        <ul class="game-instructions">
+                            <li>1. Before starting, choose your player skin to customize your pieces.</li>
+                            <li>2. Select the board size in the options. If you do not select a size, the game will start in classic mode (Connect 4).</li>
+                            <li>3. Press "Start Game" to begin</li>
+                            <li>4. Select your piece and drag it to the board to place it in the desired column.</li>
+                            <li>5. Connect 4/5/6/7 pieces (depending on the board) in any direction: vertical, horizontal, or diagonal before your opponent to win!</li>
+                        </ul>
+                    </div>
+                </aside>
                     
                     <!-- Juego -->
-                    <div class="main-content">
+                    <div class="game-container">
                     <!-- Game Image -->
-                    <div class="game-image"  style="background-image: url('img/game/game.webp')">
+                    <div class="game-image"  style="background-image: url('img/bg.jpg')">
                         <div id="pantallaSeleccion">
                             <h2>Selecciona tus fichas</h2>
                             <div>
@@ -107,36 +122,11 @@
                         </div>
                         
                         <div id="game-screen" style="display: none;">
-                            <canvas id="tablero" width="1920" height="1080"></canvas>
+                            <canvas id="tablero" width="1160" height="560"></canvas>
                         </div>
-                        
-                        <canvas id="tablero" width="700" height="600" style="display: none;"></canvas>
                     </div>
                     
-                <!-- Game Modes and Player Controls (Aside) -->
-                <aside class="card">
-                    <div class="card-body">
-                        <h2 class="section-title">Game Modes</h2>
-                        <ul class="game-modes">
-                            <li>1 vs 1 (local): Two players compete by taking turns on the same keyboard.</li>
-                            <li>Against AI: Challenge the AI and choose the difficulty level between Easy, Normal, or Hard.</li>
-                        </ul>
-                        <h2 class="section-title">Player Controls</h2>
-                        <div class="player-controls">
-                            <div class="control-group">
-                                <p>Direction Keys: Use the arrow keys to move your piece.</p>
-                                <div class="arrow-controls">
-                                    <button class="control-btn"> <i class="fas fa-arrow-left"></i> </button>
-                                    <button class="control-btn"> <i class="fas fa-arrow-right"></i></button>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <p>Spacebar(Space): Press the spacebar to drop the piece into the column.</p>
-                                <button class="control-btn">SPACE</button>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
+
                     </div>
 
                 <!-- Galería -->
@@ -181,11 +171,9 @@
                 <!-- Descripcion del juego -->
                 <div class="card-description">
                     <div class="card-description-text">
-                    <p>
-                        Challenge a friend to disc-dropping fun with the classic game of Connect 4! Drop your skyblue or yellow
-                        discs in the grid and be the first to get 4 in a row to win. If your opponent is getting too close to 4 in a row, block them with your own disc!
-                        Whoever wins can pull out the slider bar to release all the discs and start the fun all over again!
-                    </p>
+                        <p>
+                            Challenge a friend in a strategic battle of wits inspired by the rivalry of Subzero and Scorpion! Engage in a thrilling game of Connect 4 as you drop your icy blue or fiery yellow discs into the grid. Aim to be the first to align 4 in a row while blocking your opponent's moves to prevent them from achieving victory. Will you outsmart your rival and claim the title? When the match concludes, simply pull out the slider bar to release all the discs and ignite the competition again!
+                        </p>
                     </div>
 
 
@@ -338,6 +326,7 @@
 
 
 <script src="js/menu.js" ></script>
+<script src="js/Game.js" ></script>
 <script src="js/4_inline.js" ></script>
 </body>
 </html>
