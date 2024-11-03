@@ -1,3 +1,4 @@
+/* Contenedor Principal */
 .game-image {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -9,6 +10,7 @@
     justify-content: center;
 }
 
+/* Pantalla de Selección */
 .game-image #pantallaSeleccion {
     overflow: hidden;
     display: flex;
@@ -18,8 +20,8 @@
     border-radius: 10px;
     width: 100%;
     max-width: 800px;
-    height: 90%;
-    background-color: rgba(34, 34, 34, 0.7);
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .game-image #pantallaSeleccion h2,
@@ -28,56 +30,121 @@
     color: #faf600;
 }
 
-.game-image #tablero {
-    background-color: #222;
-    display: block;
-    box-shadow: #333;
-}
-
-.game-image button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 18px;
+/* Botón Iniciar Juego */
+.game-image #iniciarJuego {
+    background-color: #c8102e; /* Color rojo intenso, más acorde con la temática */
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+    margin-top: 20px;
     cursor: pointer;
-    border-radius: 5px;
-    background-color: #333;
-    color: #ffcc00;
-    transition: background-color 0.3s, transform 0.2s;
-    position: relative;
 }
 
-.game-image button:hover {
-    color: #333;
+.game-image #iniciarJuego:hover {
+    background-color: #ffcc00; /* Fondo dorado al pasar el mouse */
+    color: #c8102e; /* Texto rojo al pasar el mouse */
+    transform: scale(1.1); /* Aumentar el tamaño del botón */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7); /* Aumentar la sombra al hacer hover */
+}
+
+/* Efecto de Presión */
+.game-image #iniciarJuego:active {
+    transform: scale(1.05); /* Reduce ligeramente el tamaño al hacer clic */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra reducida al hacer clic */
+}
+
+/* Opciones */
+.game-image #opciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1vw;
+    margin-top: 20px;
+}
+
+.game-image #opciones button {
+    background-color: #444;
+    color: #fff;
+    border: 2px solid #222;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.game-image #opciones button:hover {
+    color: #fff;
+    background-color: #ffcc00;
     transform: scale(1.1);
 }
 
-.game-image button:focus,
-.game-image button:active {
+.game-image #opciones button:focus,
+.game-image #opciones button:active {
     background-color: #ff0000;
     animation: blinkEffect 0.5s infinite;
     transform: scale(1.1);
 }
 
-.game-image #pantallaSeleccion div:nth-child(2) button {
-    background-color: #007bff;
-    color: white;
-    border: 2px solid #0056b3;
+/* Contenedores Flexibles */
+.containerGameMode,
+.containerPlayers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1vw;
 }
 
-.game-image #pantallaSeleccion div:nth-child(2) button:hover {
-    background-color: #0056b3;
+.selectGamePieces {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    padding:10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
-.game-image #pantallaSeleccion div:nth-child(3) button {
-    background-color: #ffc107;
-    color: white;
-    border: 2px solid #c69500;
+/* Botones de Personajes */
+#subZero-1, #subZero-2, #scorpion-1, #scorpion-2 {
+    border: 0.1vw solid #fff;
+    border-radius: 50%;
+    background-color: transparent;
+    overflow: hidden;
+    margin-top: 20px;
 }
 
-.game-image #pantallaSeleccion div:nth-child(3) button:hover {
-    background-color: #c69500;
+button img {
+    
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    display: block;
 }
 
+/* Botones Seleccionables */
+.seleccionBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+button:hover {
+    background-color: #ffcc00;
+    color: #333;
+    transform: scale(1.1);
+}
+
+.blinkBtn {
+    background-color: #ff0000;
+    animation: blinkEffect 0.5s infinite;
+    transform: scale(1.1);
+}
+
+/* Animación de Parpadeo */
 @keyframes blinkEffect {
     0%, 100% {
         opacity: 1;
@@ -87,42 +154,109 @@
     }
 }
 
-.game-image #iniciarJuego {
-    background-color: #ff0000;
-    color: #fff;
-    padding: 15px 30px;
-    font-size: 20px;
-    transition: background-color 0.3s;
-    margin-top: 20px;
-}
-
-.game-image #iniciarJuego:hover {
-    background-color: #fff;
-    color: #ff0000;
-    transform: scale(1.1);
-}
-
-.game-image #opciones {
+.game-controls {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    gap: 50px;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 18px;
 }
 
-.game-image #opciones button {
-    margin: 10px;
-    background-color: #444;
-    color: #fff;
-    border: 2px solid #222;
-    padding: 10px 20px;
+#restartButton {
+    padding: 8px 16px;
     font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #f44336; /* Color de reinicio */
+    color: white;
 }
 
-.game-image #opciones button:hover {
-    color: #fff;
+#timer {
+    color: yellow;
+    font-weight: bold;
 }
 
-.game-image #opciones button:focus,
-.game-image #opciones button:active {
-    background-color: #ff0000;
-    animation: blinkEffect 0.5s infinite;
+/* Pantalla de ganador */
+.game-image #pantallaGanador {
+    position: absolute; /* Cambiado de fixed a absolute */
+    top: 0;
+    left: 0;
+    width: 100%; /* Cambiado para ocupar todo el ancho del contenedor */
+    height: 100%; /* Cambiado para ocupar todo el alto del contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background-image: url('/TP3/EntregaFinal/img/fondowin.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffcc00;
+}
+
+#pantallaGanador::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Superposición oscura */
+    z-index: -1; /* Asegura que esté detrás del contenido */
+}
+
+/* Estilo para el mensaje del Jugador 1 */
+.ganador-jugador1 {
+    font-size: 3rem;
+    color: #00aaff; /* Azul sólido */
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 100px;
+    text-shadow: 4px 4px 15px #ffffff; /* Sombra blanca */
+    animation: glowJugador1 1.5s infinite alternate;
+}
+
+/* Estilo para el mensaje del Jugador 2 */
+.ganador-jugador2 {
+    font-size: 3rem;
+    font-family: 'Press Start 2P', cursive;
+    color: #ffcc00; /* Dorado sólido */
+    margin-bottom: 100px;
+    text-shadow: 4px 4px 15px #660000; /* Sombra roja */
+    animation: glowJugador2 1.5s infinite alternate;
+}
+
+/* Efecto de brillo para el Jugador 1 */
+@keyframes glowJugador1 {
+    0% { text-shadow: 4px 4px 15px #ffffff; }
+    100% { text-shadow: 4px 4px 30px #00aaff; }
+}
+
+/* Efecto de brillo para el Jugador 2 */
+@keyframes glowJugador2 {
+    0% { text-shadow: 4px 4px 15px #660000; }
+    100% { text-shadow: 4px 4px 30px #ffcc00; }
+}
+
+/* Botón de reiniciar */
+#botonReiniciar {
+    background-color: #660000; /* Rojo oscuro */
+    color: #ffcc00;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-family: 'Press Start 2P', cursive;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-shadow: 2px 2px 8px #000000; /* Sombra para darle profundidad */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#botonReiniciar:hover {
+    background-color: #ffcc00; /* Cambia a dorado */
+    color: #660000; /* Texto rojo oscuro */
+    transform: scale(1.1); /* Aumenta de tamaño al pasar el mouse */
 }

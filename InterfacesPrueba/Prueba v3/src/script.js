@@ -16,7 +16,8 @@ let tamanoCelda = 100;
 let fichaArrastrando = null;
 let posicionFichaArrastrando = null;
 let hints = [];
-let timer = 5; // Tiempo inicial en segundos
+let countdown; 
+let timer = 120; // Tiempo inicial en segundos
 let desplazamientoX = 0;
 let desplazamientoY = 0;
 
@@ -28,7 +29,7 @@ let popoverMostrado = false; // Variable para controlar si el popover ha sido mo
 //===========================================================================================================
 //===========================================================================================================
 // CANDE ACÁ MODIFIQUÉ
-////////////////////////////////////////////////////////////////// Manejar cambio de pantallas, de config al canvas
+// Manejar cambio de pantallas, de config al canvas
 document.getElementById('iniciarJuego').addEventListener('click', function() {
     // Ocultar la pantalla de selección
     document.getElementById('pantallaSeleccion').style.display = 'none';
@@ -36,8 +37,17 @@ document.getElementById('iniciarJuego').addEventListener('click', function() {
     // Mostrar el canvas del juego
     document.getElementById('game-screen').style.display = 'block';
 
+    // Detener el temporizador si está activo
+    if (countdown) {
+        clearInterval(countdown);
+    }
 
-    const countdown = setInterval(() => {
+    // Reiniciar el temporizador a su valor inicial
+    timer = 60; // Ajusta esto según tu lógica de juego
+    updateTimerDisplay(); // Actualiza la visualización del temporizador
+
+    // Iniciar el temporizador
+    countdown = setInterval(() => {
         timer--; // Disminuye el contador de tiempo en 1 cada segundo
         updateTimerDisplay(); // Solo actualiza la visualización del temporizador
 
@@ -45,24 +55,50 @@ document.getElementById('iniciarJuego').addEventListener('click', function() {
             clearInterval(countdown); // Detiene el temporizador
             comprobarGanador(); // Verifica si hay ganador o es empate
             disableGameInteraction(); // Llama a la función para desactivar la interacción
-            showPopoverInCanvas();
-            
+            showPopoverInCanvas(); // Muestra el mensaje de finalización
         }
     }, 1000); // Ejecuta cada segundo
 
     cargarFondo(); // Asegúrate de que esta función esté definida para iniciar el juego.
     dibujarTablero(); // También puedes redibujar el tablero aquí.
-    dibujarBotonRestart();
+    dibujarBotonRestart(); // Si tienes un botón de reinicio, lo dibujas aquí.
 });
+
+////////////////////////// para mostrar la pantalla del ganador
+function dibujarMensajeGanador(jugador) {
+    const mensajeGanador = document.getElementById('mensajeGanador');
+    
+    // Eliminar clases de ganador anteriores
+    mensajeGanador.classList.remove('ganador-jugador1', 'ganador-jugador2');
+    
+    // Añadir la clase correspondiente y ajustar el mensaje
+    if (jugador === 1) {
+        mensajeGanador.classList.add('ganador-jugador1');
+        mensajeGanador.textContent = 'Sub-Zero wins!';
+    } else if (jugador === 2) {
+        mensajeGanador.classList.add('ganador-jugador2');
+        mensajeGanador.textContent = 'Scorpion wins!';
+    }
+
+    // Mostrar la pantalla de ganador
+    document.getElementById('pantallaGanador').style.display = 'flex';
+}
+
+
 
 // Función para reiniciar el juego
 function reiniciarJuego() {
     // Ocultar la pantalla de selección
     document.getElementById('pantallaSeleccion').style.display = 'flex';
-
+    document.getElementById('pantallaGanador').style.display = 'none';
     // Mostrar el canvas del juego
     document.getElementById('game-screen').style.display = 'none';
 
+    // Detener el temporizador si está activo
+    if (countdown) {
+        clearInterval(countdown);
+        countdown = null; // Restablecer la variable de temporizador
+    }
 
     // Reiniciar variables
     fichas = [];
@@ -75,11 +111,11 @@ function reiniciarJuego() {
     };
 
     // Reiniciar el tablero
-    
     cargarFondo();
     centrarTablero(); 
     dibujarTablero();
 }
+
 
 function showPopoverInCanvas() {
     const canvas = document.getElementById('tablero');
@@ -342,7 +378,7 @@ const centerY = tablero.height / 2;
 // Función para dibujar el tablero
 function dibujarTablero() {
     // Usar el tamaño fijo del canvas
-    ctx.clearRect(0, 0, tablero.width, tablero.height);
+    ctx.clearRect(0, 0, tablero.width-4, tablero.height-4);
 
     // Dibujar fondo de rectángulos para las fichas iniciales
     ctx.fillStyle = 'rgba(255, 255, 255, 1)';
@@ -473,72 +509,36 @@ ctx.fillText(timer, centroX, centroY); // Coloca el texto en el centro del círc
 //===========================================================================================================
 // CANDE ACÁ MODIFIQUÉ
 ////////////////////////////////////////////////////////////////// Comprobar ganador
-// Modificar la función comprobarGanador
+// Función para comprobar el ganador
 function comprobarGanador() {
     for (let i = 0; i < fichas.length; i++) {
         let ficha = fichas[i];
 
         // Comprobar horizontal
         if (contarFichas(ficha.x, ficha.y, 1, 0, ficha.jugador) >= linea) {
+            console.log(`Ganador encontrado: Jugador ${ficha.jugador} (horizontal)`); // Mensaje de depuración
             dibujarMensajeGanador(ficha.jugador);
-
-            setTimeout(() => {
-                reiniciarJuego();
-            }, 3000);
-
-            return;
+            return; // Detener aquí, el mensaje se dibuja antes de reiniciar
         }
         // Comprobar vertical
         if (contarFichas(ficha.x, ficha.y, 0, 1, ficha.jugador) >= linea) {
+            console.log(`Ganador encontrado: Jugador ${ficha.jugador} (vertical)`); // Mensaje de depuración
             dibujarMensajeGanador(ficha.jugador);
-
-            setTimeout(() => {
-                reiniciarJuego();
-            }, 3000);
-
             return;
         }
-        // Comprobar diagonal (diagonal izquierda a derecha)
+        // Comprobar diagonal (izquierda a derecha)
         if (contarFichas(ficha.x, ficha.y, 1, 1, ficha.jugador) >= linea) {
+            console.log(`Ganador encontrado: Jugador ${ficha.jugador} (diagonal izquierda a derecha)`); // Mensaje de depuración
             dibujarMensajeGanador(ficha.jugador);
-
-            setTimeout(() => {
-                reiniciarJuego();
-            }, 3000);
-
             return;
         }
-        // Comprobar diagonal (diagonal derecha a izquierda)
+        // Comprobar diagonal (derecha a izquierda)
         if (contarFichas(ficha.x, ficha.y, -1, 1, ficha.jugador) >= linea) {
+            console.log(`Ganador encontrado: Jugador ${ficha.jugador} (diagonal derecha a izquierda)`); // Mensaje de depuración
             dibujarMensajeGanador(ficha.jugador);
-
-            setTimeout(() => {
-                reiniciarJuego();
-            }, 3000);
-
             return;
         }
     }
-}
-
-// Función para mensaje de ganador
-function dibujarMensajeGanador(jugador) {
-    const mensaje = `¡Player ${jugador} wins!`;
-console.log(mensaje);
-    // Limpiar toda la pantalla
-    ctx.clearRect(0, 0, tablero.width, tablero.height);
-
-    ctx.save();
-    ctx.font = "bold 50px 'Comic Sans MS'";
-    ctx.fillStyle = "gold";
-    ctx.shadowColor = "black";
-    ctx.shadowOffsetX = 5;
-    ctx.shadowOffsetY = 5;
-    ctx.shadowBlur = 10;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText(mensaje, tablero.width / 2, tablero.height / 2);
-    ctx.restore();
 }
 //===========================================================================================================
 //===========================================================================================================

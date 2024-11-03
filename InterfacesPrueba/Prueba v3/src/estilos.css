@@ -159,3 +159,85 @@ button:hover {
         opacity: 0.5;
     }
 }
+
+
+/* Pantalla de ganador */
+#pantallaGanador {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background-image: url('img/fondowin.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffcc00;
+}
+
+#pantallaGanador::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Superposición oscura */
+    z-index: -1; /* Asegura que esté detrás del contenido */
+}
+
+/* Estilo para el mensaje del Jugador 1 */
+.ganador-jugador1 {
+    font-size: 3rem;
+    color: #00aaff; /* Azul sólido */
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 100px;
+    text-shadow: 4px 4px 15px #ffffff; /* Sombra blanca */
+    animation: glowJugador1 1.5s infinite alternate;
+}
+
+/* Estilo para el mensaje del Jugador 2 */
+.ganador-jugador2 {
+    font-size: 3rem;
+    font-family: 'Press Start 2P', cursive;
+    color: #ffcc00; /* Dorado sólido */
+    margin-bottom: 100px;
+    text-shadow: 4px 4px 15px #660000; /* Sombra roja */
+    animation: glowJugador2 1.5s infinite alternate;
+}
+
+/* Efecto de brillo para el Jugador 1 */
+@keyframes glowJugador1 {
+    0% { text-shadow: 4px 4px 15px #ffffff; }
+    100% { text-shadow: 4px 4px 30px #00aaff; }
+}
+
+/* Efecto de brillo para el Jugador 2 */
+@keyframes glowJugador2 {
+    0% { text-shadow: 4px 4px 15px #660000; }
+    100% { text-shadow: 4px 4px 30px #ffcc00; }
+}
+
+/* Botón de reiniciar */
+#botonReiniciar {
+    background-color: #660000; /* Rojo oscuro */
+    color: #ffcc00;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-family: 'Press Start 2P', cursive;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-shadow: 2px 2px 8px #000000; /* Sombra para darle profundidad */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#botonReiniciar:hover {
+    background-color: #ffcc00; /* Cambia a dorado */
+    color: #660000; /* Texto rojo oscuro */
+    transform: scale(1.1); /* Aumenta de tamaño al pasar el mouse */
+}
