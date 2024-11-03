@@ -26,7 +26,7 @@ let popoverMostrado = false; // Variable para controlar si el popover ha sido mo
 
 
 
-////temporizador
+/* temporizador
 
 function iniciarTemporizador() {
     document.getElementById("timeDisplay").textContent = tiempoRestante + "s";
@@ -41,7 +41,7 @@ function iniciarTemporizador() {
             reiniciarJuego();
         }
     }, 1000);
-}
+}*/
 
 
 //===========================================================================================================
@@ -75,9 +75,14 @@ function dibujarMensajeGanador(jugador) {
         mensajeGanador.textContent = 'Scorpion wins!';
     }
 
-    // Mostrar la pantalla de ganador
-    document.getElementById('pantallaGanador').style.display = 'flex';
+    // Mostrar la pantalla de ganador después de 1 segundo y añadir clase visible
+    setTimeout(() => {
+        const pantallaGanador = document.getElementById('pantallaGanador');
+        pantallaGanador.style.display = 'flex';
+        pantallaGanador.classList.add('visible'); // Agregar clase visible para la transición
+    }, 1000); // Tiempo antes de mostrar
 }
+
 
 // Función para reiniciar el juego
 function reiniciarJuego() {
