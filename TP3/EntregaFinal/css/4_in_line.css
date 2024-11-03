@@ -78,7 +78,6 @@
 
 .game-image #opciones button:hover {
     color: #fff;
-    background-color: #ffcc00;
     transform: scale(1.1);
 }
 
@@ -133,7 +132,6 @@ button img {
 }
 
 button:hover {
-    background-color: #ffcc00;
     color: #333;
     transform: scale(1.1);
 }
