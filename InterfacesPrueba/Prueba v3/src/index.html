@@ -10,32 +10,52 @@
 </head>
 <body>
     <div id="pantallaSeleccion">
-        <h2>Selecciona tus fichas</h2>
-        <div>
-            <h3>Jugador 1</h3>
-            <button onclick="seleccionarFichaJugador1('roja')">Ficha Roja</button>
-            <button onclick="seleccionarFichaJugador1('amarilla')">Ficha Amarilla</button>
+        <div class="containerPlayers">
+            <h2>Select your game pieces</h2>
+            <div class="selectGamePieces">
+                <div>
+                    <h3>Player 1</h3>
+                    <div class="seleccionBtn">
+                        <button id="subZero-1">
+                            <img src="img/sub-zero-1-token.png" alt="">
+                        </button>
+
+                        <button id="subZero-2">
+                            <img src="img/sub-zero-2-token.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <h3>Player 2</h3>
+                    <div class="seleccionBtn">
+                        <button id="scorpion-1">
+                            <img src="img/scorpion-1-token.png" alt="">
+                        </button>
+
+                        <button id="scorpion-2">
+                            <img src="img/scorpion-2-token.png" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <h3>Jugador 2</h3>
-            <button onclick="seleccionarFichaJugador2('azul')">Ficha Azul</button>
-            <button onclick="seleccionarFichaJugador2('verde')">Ficha Verde</button>
+
+        <div class="containerGameMode">
+            <h2>Select your game mode</h2>
+            <div id="opciones" class="seleccionBtn">
+                <button id="4enlinea">Connect 4</button>
+                <button id="5enlinea">Connect 5</button>
+                <button id="6enlinea">Connect 6</button>
+                <button id="7enlinea">Connect 7</button>
+            </div>
         </div>
-        <button id="iniciarJuego">Iniciar Juego</button>
-        
-        <div id="opciones">
-            <button id="4enlinea">4 en línea (6x7)</button>
-            <button id="5enlinea">5 en línea (7x8)</button>
-            <button id="6enlinea">6 en línea (8x9)</button>
-            <button id="7enlinea">7 en línea (9x10)</button>
-        </div>
+
+        <button id="iniciarJuego">Start Game</button>
     </div>
     
     <div id="game-screen" style="display: none;">
         <canvas id="tablero" width="1920" height="1080"></canvas>
     </div>
-    
-    <canvas id="tablero" width="700" height="600" style="display: none;"></canvas>
     
     <script src="script.js"></script>
 </body>
