@@ -12,6 +12,20 @@ body {
     overflow: hidden; /* Evita el desplazamiento */
 }
 
+#id_popover {
+    position: absolute; /* Importante: asegurarse de que sea 'absolute' */
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    z-index: 1000;
+}
+
+
+
+
 #pantallaSeleccion {
     display: flex;
     flex-direction: column; /* Organiza los elementos en columna */

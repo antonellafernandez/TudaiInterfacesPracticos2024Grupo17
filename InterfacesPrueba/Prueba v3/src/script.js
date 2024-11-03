@@ -16,12 +16,14 @@ let tamanoCelda = 100;
 let fichaArrastrando = null;
 let posicionFichaArrastrando = null;
 let hints = [];
-let timer = 120; // Tiempo inicial en segundos
+let timer = 5; // Tiempo inicial en segundos
 let desplazamientoX = 0;
 let desplazamientoY = 0;
 
 
+const popover = document.querySelector('#id_popover');
 
+let popoverMostrado = false; // Variable para controlar si el popover ha sido mostrado
 
 //===========================================================================================================
 //===========================================================================================================
@@ -33,6 +35,20 @@ document.getElementById('iniciarJuego').addEventListener('click', function() {
 
     // Mostrar el canvas del juego
     document.getElementById('game-screen').style.display = 'block';
+
+
+    const countdown = setInterval(() => {
+        timer--; // Disminuye el contador de tiempo en 1 cada segundo
+        updateTimerDisplay(); // Solo actualiza la visualización del temporizador
+
+        if (timer <= 0) {
+            clearInterval(countdown); // Detiene el temporizador
+            comprobarGanador(); // Verifica si hay ganador o es empate
+            disableGameInteraction(); // Llama a la función para desactivar la interacción
+            showPopoverInCanvas();
+            
+        }
+    }, 1000); // Ejecuta cada segundo
 
     cargarFondo(); // Asegúrate de que esta función esté definida para iniciar el juego.
     dibujarTablero(); // También puedes redibujar el tablero aquí.
@@ -46,6 +62,44 @@ function reiniciarJuego() {
 
     // Mostrar el canvas del juego
     document.getElementById('game-screen').style.display = 'none';
+
+
+    // Reiniciar variables
+    fichas = [];
+    jugadorActual = 1; // 1 para SubZero, 2 para Scorpion
+    ganador = null;
+    hints = [];
+    fichasDisponibles = {
+        subZero: 6, // Suponiendo que comienzas con 6 fichas de SubZero
+        scorpion: 6   // Y 6 fichas de Scorpion
+    };
+
+    // Reiniciar el tablero
+    
+    cargarFondo();
+    centrarTablero(); 
+    dibujarTablero();
+}
+
+function showPopoverInCanvas() {
+    const canvas = document.getElementById('tablero');
+    const popover = document.getElementById('id_popover');
+
+    // Calcula la posición centrada del popover dentro del canvas
+    const canvasRect = canvas.getBoundingClientRect();
+    popover.style.left = `${canvasRect.left + canvasRect.width / 2}px`;
+    popover.style.top = `${canvasRect.top + canvasRect.height / 2}px`;
+    popover.style.transform = 'translate(-50%, -50%)';
+    popover.style.display = 'block';
+}
+
+
+// Función para deshabilitar la interacción con el juego
+function disableGameInteraction() {
+    const gameBoard = document.getElementById('game-screen'); // Suponiendo que tienes un elemento contenedor del juego
+    if (gameBoard) {
+        gameBoard.style.pointerEvents = 'none'; // Desactiva la interacción con el contenedor del juego
+    }
 }
 
 
@@ -161,7 +215,7 @@ Promise.all([fichaSubZeroImg.decode(), fichaScorpionImg.decode()])
     .then(() => {
         cargarFondo();
         dibujarTablero();
-        countdown;
+        
     });
 
 function dibujarFichas() {
@@ -375,24 +429,11 @@ function dibujarTablero() {
     dibujarFichas();
     generarHints();
     dibujarHints();
+    updateTimerDisplay();
 }
 //===========================================================================================================
 //===========================================================================================================
 
-
-
-
-////////////////////////////////////////////////////////////////// Temporizador
-// Funcion para el temporizador
-const countdown = setInterval(() => {
-    timer--; // Disminuye el contador de tiempo en 1 cada segundo
-    updateTimerDisplay(); // Solo actualiza la visualización del temporizador
-
-    if (timer <= 0) {
-        clearInterval(countdown); // Detiene el temporizador
-        checkForWinner(); // Verifica si hay ganador o es empate
-    }
-}, 1000); // Ejecuta cada 2 segundo
 
 // Función para actualizar la visualización del temporizador
 function updateTimerDisplay() {
