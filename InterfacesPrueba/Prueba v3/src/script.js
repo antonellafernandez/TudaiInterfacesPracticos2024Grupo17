@@ -6,7 +6,6 @@ tablero.width = 1920; // Ancho fijo
 tablero.height = 1080; // Altura fija
 
 // Variables globales otras
-let opciones = document.getElementById('opciones');
 let fichas = [];
 let jugadorActual = 1; // 1 para SubZero, 2 para Scorpion
 let ganador = null;
@@ -35,7 +34,6 @@ document.getElementById('iniciarJuego').addEventListener('click', function() {
     // Mostrar el canvas del juego
     document.getElementById('game-screen').style.display = 'block';
 
-    // Aquí puedes iniciar el juego, cargar imágenes, etc.
     cargarFondo(); // Asegúrate de que esta función esté definida para iniciar el juego.
     dibujarTablero(); // También puedes redibujar el tablero aquí.
     dibujarBotonRestart();
@@ -60,7 +58,6 @@ function dibujarBotonRestart() {
 
 
 }
-
 //===========================================================================================================
 //===========================================================================================================
 
@@ -304,8 +301,15 @@ function dibujarTablero() {
     const altoFondo = (fila + 1) * tamanoCelda;
 
     ctx.save();
+
+    ctx.shadowColor = "black";
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
+    ctx.shadowBlur = 10;
+
     ctx.beginPath();
     ctx.roundRect(inicioX, inicioY, anchoFondo, altoFondo, 20); // Usar roundRect para bordes redondeados
+    ctx.fill();
     ctx.clip();
     ctx.drawImage(fondoImg, inicioX, inicioY, anchoFondo, altoFondo);
     ctx.restore();
@@ -330,9 +334,17 @@ function dibujarTablero() {
         const fichaY = centerY - (fila / 2) * tamanoCelda + row * tamanoCelda + tamanoCelda / 2;
 
         ctx.save();
+
         ctx.beginPath();
         ctx.arc(fichaX, fichaY, (tamanoCelda / 2) - 5, 0, Math.PI * 2);
+
+        ctx.shadowColor = "black";
+        ctx.shadowOffsetX = 5;
+        ctx.shadowOffsetY = 5;
+        ctx.shadowBlur = 10;
+        ctx.fill();
         ctx.clip();
+
         ctx.drawImage(fichaSubZeroImg, fichaX - (tamanoCelda / 2) + 5, fichaY - (tamanoCelda / 2) + 5, tamanoCelda - 10, tamanoCelda - 10);
         ctx.restore();
     }
@@ -345,9 +357,17 @@ function dibujarTablero() {
         const fichaY = centerY - (fila / 2) * tamanoCelda + row * tamanoCelda + tamanoCelda / 2;
 
         ctx.save();
+
         ctx.beginPath();
         ctx.arc(fichaX, fichaY, (tamanoCelda / 2) - 5, 0, Math.PI * 2);
+
+        ctx.shadowColor = "black";
+        ctx.shadowOffsetX = 5;
+        ctx.shadowOffsetY = 5;
+        ctx.shadowBlur = 10;
+        ctx.fill();
         ctx.clip();
+
         ctx.drawImage(fichaScorpionImg, fichaX - (tamanoCelda / 2) + 5, fichaY - (tamanoCelda / 2) + 5, tamanoCelda - 10, tamanoCelda - 10);
         ctx.restore();
     }
@@ -408,7 +428,9 @@ ctx.fillText(timer, centroX, centroY); // Coloca el texto en el centro del círc
 
 
 
-
+//===========================================================================================================
+//===========================================================================================================
+// CANDE ACÁ MODIFIQUÉ
 ////////////////////////////////////////////////////////////////// Comprobar ganador
 // Modificar la función comprobarGanador
 function comprobarGanador() {
@@ -418,37 +440,50 @@ function comprobarGanador() {
         // Comprobar horizontal
         if (contarFichas(ficha.x, ficha.y, 1, 0, ficha.jugador) >= linea) {
             dibujarMensajeGanador(ficha.jugador);
-            reiniciarJuego(); // Llamar a reiniciar el juego
+
+            setTimeout(() => {
+                reiniciarJuego();
+            }, 3000);
+
             return;
         }
         // Comprobar vertical
         if (contarFichas(ficha.x, ficha.y, 0, 1, ficha.jugador) >= linea) {
             dibujarMensajeGanador(ficha.jugador);
-            reiniciarJuego(); // Llamar a reiniciar el juego
+
+            setTimeout(() => {
+                reiniciarJuego();
+            }, 3000);
+
             return;
         }
         // Comprobar diagonal (diagonal izquierda a derecha)
         if (contarFichas(ficha.x, ficha.y, 1, 1, ficha.jugador) >= linea) {
             dibujarMensajeGanador(ficha.jugador);
-            reiniciarJuego(); // Llamar a reiniciar el juego
+
+            setTimeout(() => {
+                reiniciarJuego();
+            }, 3000);
+
             return;
         }
         // Comprobar diagonal (diagonal derecha a izquierda)
         if (contarFichas(ficha.x, ficha.y, -1, 1, ficha.jugador) >= linea) {
             dibujarMensajeGanador(ficha.jugador);
-            reiniciarJuego(); // Llamar a reiniciar el juego
+
+            setTimeout(() => {
+                reiniciarJuego();
+            }, 3000);
+
             return;
         }
     }
 }
 
-//===========================================================================================================
-//===========================================================================================================
-// CANDE ACÁ MODIFIQUÉ
 // Función para mensaje de ganador
 function dibujarMensajeGanador(jugador) {
     const mensaje = `¡Player ${jugador} wins!`;
-
+console.log(mensaje);
     // Limpiar toda la pantalla
     ctx.clearRect(0, 0, tablero.width, tablero.height);
 
