@@ -92,17 +92,14 @@ function dibujarMensajeGanador(jugador) {
 
     // Muestra la pantalla de ganador
     document.getElementById('pantallaGanador').style.display = 'flex';
-<<<<<<< HEAD
-=======
     // Mostrar la pantalla de ganador después de 1 segundo y añadir clase visible
     setTimeout(() => {
         const pantallaGanador = document.getElementById('pantallaGanador');
         pantallaGanador.style.display = 'flex';
         pantallaGanador.classList.add('visible'); // Agregar clase visible para la transición
     }, 1000); // Tiempo antes de mostrar
-
->>>>>>> 6ae51da68e190d3001de794ab3cae53cf0fc5441
 }
+
 // Función para mostrar el mensaje de empate
 function dibujarMensajeEmpate() {
     const mensajeEmpate = document.getElementById('mensajeEmpate');

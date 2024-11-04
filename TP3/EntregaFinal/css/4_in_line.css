@@ -30,7 +30,8 @@
 
 .game-image #pantallaSeleccion h2,
 .game-image #pantallaSeleccion h3 {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
+    font-size: 2vw;
     color: #faf600;
 }
 
@@ -38,7 +39,8 @@
 .game-image #iniciarJuego {
     background-color: #8b0000; /* Rojo oscuro para una apariencia agresiva */
     color: #fff;
-    padding: 15px 40px;
+    padding:10px 40px;
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
     font-size: 22px;
     font-weight: bold;
     text-transform: uppercase;
@@ -212,8 +214,8 @@ button:hover {
     background-color: #660000; /* Rojo oscuro */
     color: #ffcc00; /* Color dorado */
     padding: 12px 24px; /* Espaciado más grande */
-    font-size: 1rem; /* Tamaño de fuente más grande */
-    font-family: 'Press Start 2P', cursive; /* Fuente temática */
+    font-size: 1.5rem; /* Tamaño de fuente más grande */
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
     border: none;
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer;
@@ -231,9 +233,9 @@ button:hover {
 #timer {
     color: #ffcc00; /* Color dorado */
     font-weight: bold;
-    font-size: 1rem; /* Tamaño de fuente más grande para destacar */
+    font-size: 2rem; /* Tamaño de fuente más grande para destacar */
     text-shadow: 2px 2px 5px #000000; /* Sombra para darle profundidad */
-    font-family: 'Press Start 2P', cursive; /* Fuente temática */
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
 }
 
 /* Pantalla de ganador */
@@ -279,6 +281,7 @@ button:hover {
     font-size: 3em;
     animation: flicker 1.5s infinite alternate;
     text-shadow: 0 0 8px #ff0000, 0 0 12px #ff0000, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+    margin-bottom: 20px;
 }
 
 @keyframes flicker {
@@ -300,8 +303,8 @@ button:hover {
 .ganador-jugador1 {
     font-size: 3rem;
     color: #00aaff; /* Azul sólido */
-    font-family: 'Press Start 2P', cursive;
-    margin-bottom: 100px;
+    font-family: 'Metal Mania', sans-serif;
+ 
     text-shadow: 4px 4px 15px #ffffff; /* Sombra blanca */
     animation: glowJugador1 1.5s infinite alternate;
 }
@@ -309,9 +312,9 @@ button:hover {
 /* Estilo para el mensaje del Jugador 2 */
 .ganador-jugador2 {
     font-size: 3rem;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Metal Mania', sans-serif;
     color: #ffcc00; /* Dorado sólido */
-    margin-bottom: 100px;
+
     text-shadow: 4px 4px 15px #660000; /* Sombra roja */
     animation: glowJugador2 1.5s infinite alternate;
 }
@@ -327,21 +330,22 @@ button:hover {
     0% { text-shadow: 4px 4px 15px #660000; }
     100% { text-shadow: 4px 4px 30px #ffcc00; }
 }
-
 /* Botón de reiniciar */
 #botonReiniciar {
-    background-color: #660000; /* Rojo oscuro */
-    color: #ffcc00;
+    margin-top: 50px;
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
     padding: 15px 30px;
-    font-size: 1.5rem;
-    font-family: 'Press Start 2P', cursive;
-    border: none;
-    border-radius: 5px;
+    font-size: 1.5em; /* Tamaño de fuente aumentado */
+    color: #fff; /* Texto blanco */
+    background-color: #ff0000; /* Fondo rojo intenso */
+    border: 2px solid #ffdd00; /* Borde amarillo */
+    border-radius: 8px; /* Bordes redondeados */
     cursor: pointer;
-    text-shadow: 2px 2px 8px #000000; /* Sombra para darle profundidad */
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave para color y tamaño */
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7); /* Efecto de luz roja */
 }
 
+/* Efecto al pasar el mouse */
 #botonReiniciar:hover {
     background-color: #ffcc00; /* Cambia a dorado */
     color: #660000; /* Texto rojo oscuro */

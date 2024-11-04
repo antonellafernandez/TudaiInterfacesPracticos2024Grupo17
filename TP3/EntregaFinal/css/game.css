@@ -369,7 +369,7 @@ aside.card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #00b8e6;;
+    border: 1px solid #00b8e6;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 12px;
@@ -478,3 +478,51 @@ aside.card {
     margin-top: 10px;
 }
 
+/* Estilo del botón "How to Play" */
+.how-to-play-btn {
+    background-color: #ff0055; /* Color principal */
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra para darle profundidad */
+    text-transform: uppercase;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+/* Efecto hover */
+.how-to-play-btn:hover {
+    background-color: #00b8e6; /* Color alternativo */
+    border-color: #ff0055; /* Borde de color principal */
+    color: #ff0055; /* Texto del color principal */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6); /* Aumenta la sombra */
+}
+
+/* Efecto de animación en hover */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 0, 85, 0.5), 0 0 20px rgba(0, 184, 230, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 0, 85, 0.8), 0 0 40px rgba(0, 184, 230, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 0, 85, 0.5), 0 0 20px rgba(0, 184, 230, 0.5);
+    }
+}
+
+.how-to-play-btn:hover {
+    animation: pulse 1s infinite alternate; /* Activa la animación */
+}
+
+/* Efecto de clic (presionado) */
+.how-to-play-btn:active {
+    transform: scale(0.98); /* Reduce ligeramente el tamaño al hacer clic */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra reducida */
+}
