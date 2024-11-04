@@ -1,6 +1,7 @@
 // Variables globales canvas
 let tablero = document.getElementById('tablero');
 let ctx = tablero.getContext('2d');
+
 // Establecer el tamaño del canvas
 tablero.width = 1160; // Ancho ajustado
 tablero.height = 572; // Altura ajustada
@@ -68,8 +69,24 @@ document.getElementById('iniciarJuego').addEventListener('click', function() {
     // Mostrar el canvas del juego
     document.getElementById('game-screen').style.display = 'block';
 
-    cargarFondo(); // Asegúrate de que esta función esté definida para iniciar el juego.
-    dibujarTablero(); // También puedes redibujar el tablero aquí.
+    // Quitar blink a botones de la pantalla de selección
+    const botonesJugador1 = document.querySelectorAll('#subZero-1, #subZero-2');
+    const botonesJugador2 = document.querySelectorAll('#scorpion-1, #scorpion-2');
+    const botonesOpciones = document.querySelectorAll('#opciones button');
+
+    function reiniciarSeleccion(botones, clase) {
+        botones.forEach(boton => {
+            boton.classList.remove(clase); // Elimina la clase del botón específico
+        });
+    }
+
+    reiniciarSeleccion(botonesJugador1, 'blinkBtn');
+    reiniciarSeleccion(botonesJugador2, 'blinkBtn');
+    reiniciarSeleccion(botonesOpciones, 'blinkOptions');
+
+    // Cargar juego
+    cargarFondo();
+    dibujarTablero();
     iniciarTemporizador();
 });
 
@@ -121,11 +138,9 @@ function dibujarMensajeEmpate() {
     document.getElementById('pantallaEmpate').style.alignItems = 'center';
     document.getElementById('pantallaEmpate').style.justifyContent = 'center';
     document.getElementById('pantallaEmpate').style.zIndex = '10';
-    
 
-
-      // Muestra la pantalla de empate
-      document.getElementById('pantallaEmpate').style.display = 'flex';
+    // Muestra la pantalla de empate
+    document.getElementById('pantallaEmpate').style.display = 'flex';
 }
 
 // Función para reiniciar el juego
@@ -175,6 +190,7 @@ function disableGameInteraction() {
     if (gameBoard) gameBoard.style.pointerEvents = 'none';
 }
 
+// Función para centrar el tablero
 function centrarTablero() {
     let anchoTablero = columna * tamanoCelda;
     let altoTablero = fila * tamanoCelda;
@@ -183,6 +199,7 @@ function centrarTablero() {
     desplazamientoY = (tablero.height - altoTablero) / 2;
 }
 
+////////////////////////////////////////////////////////////////// Fichas
 let fichasDisponibles = {
     subZero: fila * 2,
     scorpion: fila * 2
@@ -237,6 +254,7 @@ requestAnimationFrame(() => {
     dibujarTablero();
 });
 
+// Función para dibujar fichas
 function dibujarFichas() {
     for (let ficha of fichas) {
         const img = ficha.jugador === 1 ? fichaSubZeroImg : fichaScorpionImg;
@@ -265,6 +283,8 @@ function dibujarFichas() {
     }
 }
 
+////////////////////////////////////////////////////////////////// Hints
+// Función para generar hints
 function generarHints() {
     hints = [];
     for (let j = 0; j < columna; j++) {
@@ -350,7 +370,6 @@ if (!isAnimating) {
     animarHints();
 }
 
-
 ////////////////////////////////////////////////////////////////// Crear tablero
 let fondoImg = new Image();
 
@@ -379,7 +398,6 @@ function cargarFondo() {
     };
 }
 
-//===========================================================================================================
 // Variables para obtener ejes x y
 const centerX = tablero.width / 2;
 const centerY = tablero.height / 2;
@@ -605,6 +623,7 @@ tablero.addEventListener('mouseup', (event) => {
         dibujarTablero(); // Redibuja el tablero para eliminar cualquier ficha fantasma
     }
 });
+
 ////////////////////////////////////////////////////////////////// Animación caída
 // Variables para la animación de caída
 let gravedad = 0.5; // Aceleración hacia el hint
@@ -680,6 +699,7 @@ function actualizarCaidaFicha() {
         requestAnimationFrame(actualizarCaidaFicha);
     }
 }
+
 ////////////////////////////////////////////////////////////////// Cambiar modo
 // Función para manejar el cambio de modo y cargar la imagen de fondo correspondiente
 function cambiarModo(nuevoModo) {
@@ -721,5 +741,3 @@ document.getElementById('4enlinea').addEventListener('click', () => cambiarModo(
 document.getElementById('5enlinea').addEventListener('click', () => cambiarModo('5enlinea'));
 document.getElementById('6enlinea').addEventListener('click', () => cambiarModo('6enlinea'));
 document.getElementById('7enlinea').addEventListener('click', () => cambiarModo('7enlinea'));
-
-
