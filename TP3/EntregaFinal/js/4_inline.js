@@ -12,7 +12,7 @@ let ganador = null;
 let fila = 6;
 let columna = 7;
 let linea = 4;
-let tiempoRestante = 180; // Tiempo inicial en segundos
+let tiempoRestante = 10; // Tiempo inicial en segundos
 let temporizador;
 let alertTiempoMostrado = false; // Variable para controlar si el alert de tiempo agotado ya fue mostrado
 
@@ -28,7 +28,7 @@ let popoverMostrado = false; // Variable para controlar si el popover ha sido mo
 
 
 
-/* temporizador
+////temporizador
 
 function iniciarTemporizador() {
     // Mostrar el tiempo restante inicialmente
@@ -56,7 +56,7 @@ function iniciarTemporizador() {
             }
         }
     }, 1000);
-}*/
+}
 
 
 //===========================================================================================================
@@ -91,17 +91,8 @@ function dibujarMensajeGanador(jugador) {
         mensajeGanador.textContent = 'Scorpion wins!';
     }
 
-<<<<<<< HEAD
     // Muestra la pantalla de ganador
     document.getElementById('pantallaGanador').style.display = 'flex';
-=======
-    // Mostrar la pantalla de ganador después de 1 segundo y añadir clase visible
-    setTimeout(() => {
-        const pantallaGanador = document.getElementById('pantallaGanador');
-        pantallaGanador.style.display = 'flex';
-        pantallaGanador.classList.add('visible'); // Agregar clase visible para la transición
-    }, 1000); // Tiempo antes de mostrar
->>>>>>> 731d4799ecc0af478884ff28b0cbf666ced67506
 }
 // Función para mostrar el mensaje de empate
 function dibujarMensajeEmpate() {
@@ -132,7 +123,6 @@ function dibujarMensajeEmpate() {
       document.getElementById('pantallaEmpate').style.display = 'flex';
 }
 
-
 // Función para reiniciar el juego
 function reiniciarJuego() {
       // Restablece la visualización de la selección
@@ -143,7 +133,7 @@ function reiniciarJuego() {
   
       // Reinicia las variables del juego y del temporizador
       clearInterval(temporizador); // Asegura que el temporizador se detiene
-      tiempoRestante = 180; // Reinicia el tiempo inicial
+      tiempoRestante = 10; // Reinicia el tiempo inicial
       alertTiempoMostrado = false; // Restablece el estado del alert de tiempo agotado
   
       // Reinicia el estado del juego
