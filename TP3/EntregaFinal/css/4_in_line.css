@@ -24,7 +24,7 @@
     border-radius: 10px;
     width: 100%;
     max-width: 800px;
-    height: 80%;
+    height: 90%;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -214,7 +214,7 @@ button:hover {
     background-color: #660000; /* Rojo oscuro */
     color: #ffcc00; /* Color dorado */
     padding: 12px 24px; /* Espaciado más grande */
-    font-size: 1.5rem; /* Tamaño de fuente más grande */
+    font-size: 1rem; /* Tamaño de fuente más grande */
     font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
     border: none;
     border-radius: 5px; /* Bordes redondeados */
