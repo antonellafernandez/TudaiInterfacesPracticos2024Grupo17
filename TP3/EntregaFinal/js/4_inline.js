@@ -88,7 +88,7 @@ document.getElementById('iniciarJuego').addEventListener('click', function() {
     iniciarTemporizador();
 });
 
-////////////////////////// para mostrar la pantalla del ganador
+////////////////////////// Mostrar la pantalla ganador
 function dibujarMensajeGanador(jugador) {
     const mensajeGanador = document.getElementById('mensajeGanador');
     // Detén el temporizador si hay un ganador
@@ -168,13 +168,6 @@ function reiniciarJuego() {
      cargarFondo();
      centrarTablero(); 
      dibujarTablero();
-
-}
-
-
-function disableGameInteraction() {
-    const gameBoard = document.getElementById('game-screen');
-    if (gameBoard) gameBoard.style.pointerEvents = 'none';
 }
 
 // Función para centrar el tablero
@@ -186,42 +179,33 @@ function centrarTablero() {
     desplazamientoY = (tablero.height - altoTablero) / 2;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ////////////////////////////////////////////////////////////////// Fichas
+let fichasDisponibles = {
+    subZero: fila * 2,
+    scorpion: fila * 2
+};
 
-
-///////ACA VA EL CODIGO VIEJO
-/*
 // Cargar imágenes de token predefinidas
-fichaSubZeroImg.src = 'img/sub-zero-1-token.png';
-fichaScorpionImg.src = 'img/scorpion-1-token.png';
+let fichaSubZeroImg = new Image();
+let fichaScorpionImg = new Image();
+
+fichaSubZeroImg.src = 'img/4_in_line/sub-zero-1-token.png';
+fichaScorpionImg.src = 'img/4_in_line/scorpion-1-token.png';
 
 // Función para manejar el cambio de ficha y cargar la imagen de ficha correspondiente
 function cambiarFicha(ficha) {
     switch (ficha) {
         case 'subZero-1':
-            fichaSubZeroImg.src = 'img/sub-zero-1-token.png';
+            fichaSubZeroImg.src = 'img/4_in_line/sub-zero-1-token.png';
             break;
         case 'subZero-2':
-            fichaSubZeroImg.src = 'img/sub-zero-2-token.png';
+            fichaSubZeroImg.src = 'img/4_in_line/sub-zero-2-token.png';
             break;
         case 'scorpion-1':
-            fichaScorpionImg.src = 'img/scorpion-1-token.png';
+            fichaScorpionImg.src = 'img/4_in_line/scorpion-1-token.png';
             break;
         case 'scorpion-2':
-            fichaScorpionImg.src = 'img/scorpion-2-token.png';
+            fichaScorpionImg.src = 'img/4_in_line/scorpion-2-token.png';
             break;
     }
 }
@@ -259,108 +243,16 @@ botonesJugador2.forEach(boton => {
     });
 });
 
-
+// Animar selección de opciones de tablero
 botonesOpciones.forEach(boton => {
     boton.addEventListener('click', () => {
         // Quita la clase 'blinkOptions' de todos los botones
-        botonesOpciones.forEach(b => b.classList.remove('blinkOptions'));
+        botonesOpciones.forEach(b => b.classList.remove('blinkBtnOptions'));
 
-        // Agrega la clase 'blinkOptions' al botón seleccionado
-        boton.classList.add('blinkOptions');
+        // Agrega la clase 'blinkBtnOptions' al botón seleccionado
+        boton.classList.add('blinkBtnOptions');
     });
 });
-//==========================
-*/
-let fichasDisponibles = {
-    subZero: fila * 2,
-    scorpion: fila * 2
-};
-
-let fichaSubZeroImg = new Image();
-let fichaScorpionImg = new Image();
-
-fichaSubZeroImg.src = 'img/4_in_line/sub-zero-1-token.png';
-fichaScorpionImg.src = 'img/4_in_line/scorpion-1-token.png';
-
-function cambiarFicha(ficha) {
-    switch (ficha) {
-        case 'subZero-1':
-            fichaSubZeroImg.src = 'img/4_in_line/sub-zero-1-token.png';
-            break;
-        case 'subZero-2':
-            fichaSubZeroImg.src = 'img/4_in_line/sub-zero-2-token.png';
-            break;
-        case 'scorpion-1':
-            fichaScorpionImg.src = 'img/4_in_line/scorpion-1-token.png';
-            break;
-        case 'scorpion-2':
-            fichaScorpionImg.src = 'img/4_in_line/scorpion-2-token.png';
-            break;
-    }
-}
-
-['subZero-1', 'subZero-2', 'scorpion-1', 'scorpion-2'].forEach(id => {
-    document.getElementById(id).addEventListener('click', () => cambiarFicha(id));
-});
-
-const botonesJugador1 = document.querySelectorAll('#subZero-1, #subZero-2');
-const botonesJugador2 = document.querySelectorAll('#scorpion-1, #scorpion-2');
-const botonesOpciones = document.querySelectorAll('#opciones button');
-
-let fichaSeleccionadaJugador1 = null;
-let fichaSeleccionadaJugador2 = null;
-let opcionSeleccionada = null;
-
-// Función para manejar la animación de selección de fichas para cada jugador
-function agregarAnimacionSeleccionFichas(botones, clase, fichaSeleccionadaRef) {
-    botones.forEach(boton => {
-        boton.addEventListener('click', () => {
-            // Quitar la clase de selección solo de la ficha previamente seleccionada para ese jugador
-            if (fichaSeleccionadaRef.value) {
-                fichaSeleccionadaRef.value.classList.remove(clase);
-            }
-            // Asignar la nueva ficha seleccionada y agregar la clase de animación
-            boton.classList.add(clase);
-            fichaSeleccionadaRef.value = boton;
-        });
-    });
-}
-
-// Función para manejar la animación de selección de opciones de mapa
-function agregarAnimacionSeleccionOpciones(botones, clase) {
-    botones.forEach(boton => {
-        boton.addEventListener('click', () => {
-            // Quitar la clase de selección solo de la opción previamente seleccionada
-            if (opcionSeleccionada) {
-                opcionSeleccionada.classList.remove(clase);
-            }
-            // Asignar la nueva opción seleccionada y agregar la clase de animación
-            boton.classList.add(clase);
-            opcionSeleccionada = boton;
-        });
-    });
-}
-
-// Asignar la lógica de selección de fichas y opciones por separado
-agregarAnimacionSeleccionFichas(botonesJugador1, 'blinkBtn', { value: fichaSeleccionadaJugador1 });
-agregarAnimacionSeleccionFichas(botonesJugador2, 'blinkBtn', { value: fichaSeleccionadaJugador2 });
-agregarAnimacionSeleccionOpciones(botonesOpciones, 'blinkOptions');
-
-// Código adicional para cargar fondo y dibujar tablero
-requestAnimationFrame(() => {
-    cargarFondo();
-    dibujarTablero();
-});
-
-
-
-
-
-
-
-
-
-
 
 // Función para dibujar fichas
 function dibujarFichas() {
@@ -390,6 +282,12 @@ function dibujarFichas() {
         ctx.restore();
     }
 }
+
+// Código adicional para cargar fondo y dibujar tablero
+requestAnimationFrame(() => {
+    cargarFondo();
+    dibujarTablero();
+});
 
 ////////////////////////////////////////////////////////////////// Hints
 // Función para generar hints

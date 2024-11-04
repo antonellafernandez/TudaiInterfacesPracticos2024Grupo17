@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap'); /* Fuente estilo Mortal Kombat */
 
-
-
 /* Contenedor Principal */
 .game-image {
     font-family: Arial, sans-serif;
@@ -115,25 +113,6 @@
     transform: scale(1.1);
 }
 
-/* Animación de parpadeo */
-@keyframes blinkEffect {
-    0%, 100% {
-        box-shadow: 0 0 5px rgba(255, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.4); /* Resplandor rojo */
-    }
-    50% {
-        box-shadow: 0 0 10px rgba(255, 0, 0, 0.9), 0 0 20px rgba(255, 0, 0, 0.6); /* Resplandor más fuerte */
-    }
-}
-
-/* Focus y Active: efecto de resplandor */
-.game-image #opciones button:focus,
-.game-image #opciones button:active {
-    background-color: #ff0000; /* Fondo rojo intenso */
-    color: #fff;
-    border-color: #ff4500; /* Borde rojo anaranjado */
-    animation: blinkEffect 0.5s infinite; /* Animación de parpadeo */
-    transform: scale(1.1);
-}
 /* Contenedores Flexibles */
 .containerGameMode,
 .containerPlayers {
@@ -187,12 +166,37 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Animación de Parpadeo */
 @keyframes blinkEffect {
     0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.4); /* Resplandor rojo */
         opacity: 1;
     }
     50% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.9), 0 0 20px rgba(255, 0, 0, 0.6); /* Resplandor más fuerte */
+        opacity: 0.5;
+    }
+}
+
+.blinkBtnOptions {
+    color: #fff;
+    border-color: #ffcc00; /* Borde rojo anaranjado */
+    animation: blinkEffectOptions 0.5s infinite; /* Animación de parpadeo */
+    transform: scale(1.1);
+}
+
+@keyframes blinkEffectOptions {
+    0%, 100% {
+        background-color: #8b0000; /* Fondo rojo intenso */
+        color: #fff;
+        border-color: #ffcc00; /* Borde rojo anaranjado */
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.4); /* Resplandor rojo */
+        opacity: 1;
+    }
+    50% {
+        background-color: #ff0000; /* Fondo rojo intenso */
+        color: #fff;
+        border-color: #ffcc00; /* Borde rojo anaranjado */
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.9), 0 0 20px rgba(255, 0, 0, 0.6); /* Resplandor más fuerte */
         opacity: 0.5;
     }
 }
@@ -209,7 +213,6 @@ button:hover {
 
 
 /* BOTON RESTART PARA TODA LA PAGINA */
-
 #restartButton {
     background-color: #660000; /* Rojo oscuro */
     color: #ffcc00; /* Color dorado */
@@ -351,7 +354,6 @@ button:hover {
     color: #660000; /* Texto rojo oscuro */
     transform: scale(1.1); /* Aumenta de tamaño al pasar el mouse */
 }
-
 
 #mensajeEmpate {
     font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */

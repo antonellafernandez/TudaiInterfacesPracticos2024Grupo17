@@ -26,15 +26,15 @@ footer.custom-footer {
   justify-content: space-between; /* Espacio igual entre columnas */
   width: 100%;
   margin: auto;
-  gap: 2%; /* Espacio entre columnas */
+  padding: 0 2%;
   flex-wrap: nowrap;
-  margin-left: 1%; /*DANI ESTO PUSE PARA Q SE VEA CENTRADO EN MI PC, BORRALO PARA VER COMO SE VE EN LA TUYA*/
 }
 
 .custom-footer .footer-column {
+  min-width: fit-content;
+  max-width: fit-content;
   margin: 1%;
   text-align: left;
-  flex: 1; /* Asegura que cada columna ocupe el mismo espacio */
 }
 
 .custom-footer .footer-column h3 {

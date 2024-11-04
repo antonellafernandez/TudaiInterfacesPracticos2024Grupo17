@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928ec8fa-add8-4070-a8cd-a0e95b79e92b" name="Changes" comment="" />
+    <list default="true" id="928ec8fa-add8-4070-a8cd-a0e95b79e92b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntregaFinal/css/4_in_line.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/css/4_in_line.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntregaFinal/css/fatfooter.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/css/fatfooter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntregaFinal/css/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/css/game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntregaFinal/js/4_inline.js" beforeDir="false" afterPath="$PROJECT_DIR$/EntregaFinal/js/4_inline.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +44,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/InterfacesTPE3.github.io&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/IdeaProjects/Interfaces2024Grupo17/InterfacesPrueba/Prueba v3/src/estilos.css&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -109,6 +115,9 @@
       <workItem from="1730226993800" duration="5405000" />
       <workItem from="1730233423396" duration="10170000" />
       <workItem from="1730392129743" duration="15071000" />
+      <workItem from="1730742146753" duration="3544000" />
+      <workItem from="1730745764265" duration="16000" />
+      <workItem from="1730745889387" duration="534000" />
     </task>
     <servers />
   </component>
