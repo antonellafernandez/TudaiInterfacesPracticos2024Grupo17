@@ -28,8 +28,7 @@ let popoverMostrado = false; // Variable para controlar si el popover ha sido mo
 
 
 
-////temporizador
-
+//// Temporizador
 function iniciarTemporizador() {
     // Mostrar el tiempo restante inicialmente
     document.getElementById("timeDisplay").textContent = tiempoRestante + "s";
@@ -158,6 +157,7 @@ function reiniciarJuego() {
      dibujarTablero();
 
 }
+
 function showPopoverInCanvas() {
     const canvas = document.getElementById('tablero');
     const popover = document.getElementById('id_popover');
@@ -274,20 +274,80 @@ function generarHints() {
     }
 }
 
+// Variables de animación
+let animationTime = 0;
+const animationSpeed = 0.05; // Velocidad de parpadeo ajustada
+let isAnimating = false; // Controla si la animación ya está corriendo
+
+// Función para el efecto de titileo de los hints
+function animarHints() {
+    // Incrementa el tiempo para el efecto de titileo
+    animationTime += animationSpeed;
+
+    // Redibuja solo los hints en su ciclo de titileo
+    dibujarHints();
+
+    // Continúa la animación en el siguiente cuadro
+    requestAnimationFrame(animarHints);
+}
+
+// Función para dibujar los hints con el efecto de titileo
 function dibujarHints() {
-    ctx.globalAlpha = 0.4;
+    // Calcula la opacidad de titileo
+    const alpha = 0.5 + 0.5 * Math.sin(animationTime); // Alterna entre 0.5 y 1
+
     for (let hint of hints) {
         const hintX = desplazamientoX + hint.x * tamanoCelda + tamanoCelda / 2;
         const hintY = desplazamientoY + hint.y * tamanoCelda + tamanoCelda / 2;
+        const radioHint = (tamanoCelda - 10) / 2;
 
+        // Limpia el área del hint de manera circular
         ctx.save();
         ctx.beginPath();
-        ctx.arc(hintX, hintY, (tamanoCelda - 10) / 2, 0, Math.PI * 2);
+        ctx.arc(hintX, hintY, radioHint, 0, Math.PI * 2);
         ctx.clip();
-        ctx.drawImage(hint.img, hintX - (tamanoCelda / 2) + 5, hintY - (tamanoCelda / 2) + 5, tamanoCelda - 10, tamanoCelda - 10);
+
+        // Cambia el modo de mezcla para borrar solo en la forma circular
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.fillStyle = "rgba(0, 0, 0, 1)";
+        ctx.fill(); // Borra el área circular
+
+        // Restaura el modo de mezcla normal para dibujar los hints
+        ctx.globalCompositeOperation = "source-over";
+        ctx.restore();
+
+        // Dibuja el fondo blanco circular antes del hint
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(hintX, hintY, radioHint, 0, Math.PI * 2);
+        ctx.clip();
+        ctx.fillStyle = "white";
+        ctx.fill();
+        ctx.stroke(); // Dibuja el borde
+        ctx.restore();
+
+        // Dibuja el hint con el efecto de titileo
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(hintX, hintY, radioHint, 0, Math.PI * 2);
+        ctx.clip();
+
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = jugadorActual === 1 ? `rgba(173, 216, 230, ${alpha})` : `rgba(255, 204, 0, ${alpha})`;
+
+        ctx.drawImage(hint.img, hintX - radioHint, hintY - radioHint, radioHint * 2, radioHint * 2);
+        ctx.fill(); // Aplica el color de fondo
+
         ctx.restore();
     }
-    ctx.globalAlpha = 1.0;
+
+    ctx.globalAlpha = 1.0; // Restaura la opacidad para otros elementos
+}
+
+// Llama a animarHints una vez para iniciar el ciclo de titileo
+if (!isAnimating) {
+    isAnimating = true;
+    animarHints();
 }
 
 
@@ -347,72 +407,72 @@ function dibujarTablero() {
     ctx.drawImage(fondoImg, inicioX, inicioY, anchoFondo, altoFondo);
     ctx.restore();
 
-// Dibujar celdas del tablero como círculos
-for (let i = 0; i < fila; i++) {
-    for (let j = 0; j < columna; j++) {
-        ctx.beginPath();
-        const posX = centerX - (columna / 2) * tamanoCelda + j * tamanoCelda + tamanoCelda / 2;
-        const posY = centerY - (fila / 2) * tamanoCelda + i * tamanoCelda + tamanoCelda / 2;
+    // Dibujar celdas del tablero como círculos
+    for (let i = 0; i < fila; i++) {
+        for (let j = 0; j < columna; j++) {
+            ctx.beginPath();
+            const posX = centerX - (columna / 2) * tamanoCelda + j * tamanoCelda + tamanoCelda / 2;
+            const posY = centerY - (fila / 2) * tamanoCelda + i * tamanoCelda + tamanoCelda / 2;
 
-        ctx.arc(posX, posY, tamanoCelda / 2 - 5, 0, Math.PI * 2);
-        
-        ctx.fillStyle = '#fff'; // Color de relleno blanco
-        ctx.fill();
-        ctx.stroke(); // Dibuja el borde
+            ctx.arc(posX, posY, tamanoCelda / 2 - 5, 0, Math.PI * 2);
+
+            ctx.fillStyle = '#fff'; // Color de relleno blanco
+            ctx.fill();
+            ctx.stroke(); // Dibuja el borde
+        }
     }
-}
 
-// Dibujar fichas iniciales a la izquierda (SubZero)
-for (let i = 0; i < fichasDisponibles.subZero; i++) {
-    const col = Math.floor(i / fila);
-    const row = i % fila;
-    const fichaX = centerX - (columna / 2) * tamanoCelda - (2 + col) * tamanoCelda + tamanoCelda / 2;
-    const fichaY = centerY - (fila / 2) * tamanoCelda + row * tamanoCelda + tamanoCelda / 2;
+    // Dibujar fichas iniciales a la izquierda (SubZero)
+    for (let i = 0; i < fichasDisponibles.subZero; i++) {
+        const col = Math.floor(i / fila);
+        const row = i % fila;
+        const fichaX = centerX - (columna / 2) * tamanoCelda - (2 + col) * tamanoCelda + tamanoCelda / 2;
+        const fichaY = centerY - (fila / 2) * tamanoCelda + row * tamanoCelda + tamanoCelda / 2;
 
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(fichaX, fichaY, (tamanoCelda / 2) - 5, 0, Math.PI * 2);
-    ctx.shadowColor = "black";
-    ctx.shadowOffsetX = 5;
-    ctx.shadowOffsetY = 5;
-    ctx.shadowBlur = 10;
-    ctx.fill();
-    
-    // Borde llamativo para las fichas
-    ctx.lineWidth = 3; // Grosor del borde
-    ctx.strokeStyle = '#FF5733'; // Color del borde (puedes cambiarlo a tu gusto)
-    ctx.stroke();
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(fichaX, fichaY, (tamanoCelda / 2) - 5, 0, Math.PI * 2);
+        ctx.shadowColor = "black";
+        ctx.shadowOffsetX = 5;
+        ctx.shadowOffsetY = 5;
+        ctx.shadowBlur = 10;
+        ctx.fill();
 
-    ctx.clip();
-    ctx.drawImage(fichaSubZeroImg, fichaX - (tamanoCelda / 2) + 5, fichaY - (tamanoCelda / 2) + 5, tamanoCelda - 10, tamanoCelda - 10);
-    ctx.restore();
-}
+        // Borde llamativo para las fichas
+        ctx.lineWidth = 3; // Grosor del borde
+        ctx.strokeStyle = '#FF5733'; // Color del borde (puedes cambiarlo a tu gusto)
+        ctx.stroke();
 
-// Dibujar fichas iniciales a la derecha (Scorpion)
-for (let i = 0; i < fichasDisponibles.scorpion; i++) {
-    const col = Math.floor(i / fila);
-    const row = i % fila;
-    const fichaX = centerX + (columna / 2) * tamanoCelda + (2 + col) * tamanoCelda - tamanoCelda / 2;
-    const fichaY = centerY - (fila / 2) * tamanoCelda + row * tamanoCelda + tamanoCelda / 2;
+        ctx.clip();
+        ctx.drawImage(fichaSubZeroImg, fichaX - (tamanoCelda / 2) + 5, fichaY - (tamanoCelda / 2) + 5, tamanoCelda - 10, tamanoCelda - 10);
+        ctx.restore();
+    }
 
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(fichaX, fichaY, (tamanoCelda / 2) - 5, 0, Math.PI * 2);
-    ctx.shadowColor = "black";
-    ctx.shadowOffsetX = 5;
-    ctx.shadowOffsetY = 5;
-    ctx.shadowBlur = 10;
-    ctx.fill();
-    
-    // Borde llamativo para las fichas
-    ctx.lineWidth = 3; // Grosor del borde
-    ctx.strokeStyle = '#FF5733'; // Color del borde (puedes cambiarlo a tu gusto)
-    ctx.stroke();
+    // Dibujar fichas iniciales a la derecha (Scorpion)
+    for (let i = 0; i < fichasDisponibles.scorpion; i++) {
+        const col = Math.floor(i / fila);
+        const row = i % fila;
+        const fichaX = centerX + (columna / 2) * tamanoCelda + (2 + col) * tamanoCelda - tamanoCelda / 2;
+        const fichaY = centerY - (fila / 2) * tamanoCelda + row * tamanoCelda + tamanoCelda / 2;
 
-    ctx.clip();
-    ctx.drawImage(fichaScorpionImg, fichaX - (tamanoCelda / 2) + 5, fichaY - (tamanoCelda / 2) + 5, tamanoCelda - 10, tamanoCelda - 10);
-    ctx.restore();
-}
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(fichaX, fichaY, (tamanoCelda / 2) - 5, 0, Math.PI * 2);
+        ctx.shadowColor = "black";
+        ctx.shadowOffsetX = 5;
+        ctx.shadowOffsetY = 5;
+        ctx.shadowBlur = 10;
+        ctx.fill();
+
+        // Borde llamativo para las fichas
+        ctx.lineWidth = 3; // Grosor del borde
+        ctx.strokeStyle = '#FF5733'; // Color del borde (puedes cambiarlo a tu gusto)
+        ctx.stroke();
+
+        ctx.clip();
+        ctx.drawImage(fichaScorpionImg, fichaX - (tamanoCelda / 2) + 5, fichaY - (tamanoCelda / 2) + 5, tamanoCelda - 10, tamanoCelda - 10);
+        ctx.restore();
+    }
 
 
     dibujarFichas();
