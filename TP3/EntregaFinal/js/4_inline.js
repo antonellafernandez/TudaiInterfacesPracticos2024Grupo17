@@ -12,7 +12,7 @@ let ganador = null;
 let fila = 6;
 let columna = 7;
 let linea = 4;
-let tiempoRestante = 10; // Tiempo inicial en segundos
+let tiempoRestante = 180; // Tiempo inicial en segundos
 let temporizador;
 let alertTiempoMostrado = false; // Variable para controlar si el alert de tiempo agotado ya fue mostrado
 
@@ -142,7 +142,7 @@ function reiniciarJuego() {
   
       // Reinicia las variables del juego y del temporizador
       clearInterval(temporizador); // Asegura que el temporizador se detiene
-      tiempoRestante = 10; // Reinicia el tiempo inicial
+      tiempoRestante = 180; // Reinicia el tiempo inicial
       alertTiempoMostrado = false; // Restablece el estado del alert de tiempo agotado
   
       // Reinicia el estado del juego
