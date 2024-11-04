@@ -18,7 +18,6 @@ body {
 }
 
 .game_container {
-    
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
@@ -119,7 +118,7 @@ body {
 .game-image {
     position: relative;
     width: 100%;
-    height: 700px;
+    height: 650px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

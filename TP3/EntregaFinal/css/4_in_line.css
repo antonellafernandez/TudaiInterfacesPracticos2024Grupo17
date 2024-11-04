@@ -32,28 +32,49 @@
 
 /* Botón Iniciar Juego */
 .game-image #iniciarJuego {
-    background-color: #c8102e; /* Color rojo intenso, más acorde con la temática */
+    background-color: #8b0000; /* Rojo oscuro para una apariencia agresiva */
     color: #fff;
-    padding: 15px 30px;
-    font-size: 20px;
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
-    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #ffcc00; /* Borde dorado intenso */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(255, 204, 0, 0.3); /* Sombra para mayor profundidad */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden; /* Oculta los elementos que se animen fuera del botón */
     cursor: pointer;
+    margin-top: 40px;
+}
+
+/* Animación de Fuego en Hover */
+@keyframes fireHover {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .game-image #iniciarJuego:hover {
-    background-color: #ffcc00; /* Fondo dorado al pasar el mouse */
-    color: #c8102e; /* Texto rojo al pasar el mouse */
+    background: linear-gradient(270deg, #ff8c00, #ff4500, #ffcc00, #ff8c00);
+    background-size: 400% 400%; /* Tamaño para permitir el efecto de desplazamiento */
+    color: #000;
     transform: scale(1.1); /* Aumentar el tamaño del botón */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7); /* Aumentar la sombra al hacer hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(255, 69, 0, 0.6);
+    animation: fireHover 1.5s ease-in-out infinite; /* Efecto de fuego */
 }
 
 /* Efecto de Presión */
 .game-image #iniciarJuego:active {
     transform: scale(1.05); /* Reduce ligeramente el tamaño al hacer clic */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra reducida al hacer clic */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), inset 0 0 8px rgba(255, 69, 0, 0.8); /* Sombra intensa al hacer clic */
 }
 
 /* Opciones */
@@ -61,33 +82,52 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 1vw;
-    margin-top: 20px;
+    gap: 0.5vw;
+    margin-top: 10px;
 }
-
 .game-image #opciones button {
-    background-color: #444;
+    background-color: #333; /* Fondo oscuro */
     color: #fff;
     border: 2px solid #222;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
-    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px 25px;
+    font-size: 10px;
+    margin: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra para profundidad */
 }
 
+/* Hover: brillo metálico */
 .game-image #opciones button:hover {
-    color: #fff;
+    background-color: #555; /* Ligero cambio de fondo */
+    border-color: #ffcc00; /* Borde dorado en hover */
+    box-shadow: 0 6px 15px rgba(255, 204, 0, 0.5), 0 0 8px rgba(255, 204, 0, 0.3); /* Brillo dorado */
     transform: scale(1.1);
 }
 
+/* Animación de parpadeo */
+@keyframes blinkEffect {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.4); /* Resplandor rojo */
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.9), 0 0 20px rgba(255, 0, 0, 0.6); /* Resplandor más fuerte */
+    }
+}
+
+/* Focus y Active: efecto de resplandor */
 .game-image #opciones button:focus,
 .game-image #opciones button:active {
-    background-color: #ff0000;
-    animation: blinkEffect 0.5s infinite;
+    background-color: #ff0000; /* Fondo rojo intenso */
+    color: #fff;
+    border-color: #ff4500; /* Borde rojo anaranjado */
+    animation: blinkEffect 0.5s infinite; /* Animación de parpadeo */
     transform: scale(1.1);
 }
-
 /* Contenedores Flexibles */
 .containerGameMode,
 .containerPlayers {
@@ -95,7 +135,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.1vw;
+    gap: 0.5vw;
 }
 
 .selectGamePieces {
@@ -103,8 +143,7 @@
     flex-direction: row;
     gap: 5vw;
     padding:10px;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 /* Botones de Personajes */
@@ -113,11 +152,10 @@
     border-radius: 50%;
     background-color: transparent;
     overflow: hidden;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 button img {
-    
     width: 5vw;
     height: 5vw;
     border-radius: 50%;
@@ -129,6 +167,7 @@ button img {
     display: flex;
     flex-direction: row;
     gap: 1vw;
+    margin-bottom: 10px;
 }
 
 button:hover {
@@ -155,7 +194,7 @@ button:hover {
 .game-controls {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 10px;
     align-items: center;
     padding: 10px;
     color: white;
