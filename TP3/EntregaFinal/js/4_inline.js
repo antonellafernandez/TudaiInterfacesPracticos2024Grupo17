@@ -199,7 +199,91 @@ function centrarTablero() {
     desplazamientoY = (tablero.height - altoTablero) / 2;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ////////////////////////////////////////////////////////////////// Fichas
+
+
+///////ACA VA EL CODIGO VIEJO
+/*
+// Cargar imágenes de token predefinidas
+fichaSubZeroImg.src = 'img/sub-zero-1-token.png';
+fichaScorpionImg.src = 'img/scorpion-1-token.png';
+
+// Función para manejar el cambio de ficha y cargar la imagen de ficha correspondiente
+function cambiarFicha(ficha) {
+    switch (ficha) {
+        case 'subZero-1':
+            fichaSubZeroImg.src = 'img/sub-zero-1-token.png';
+            break;
+        case 'subZero-2':
+            fichaSubZeroImg.src = 'img/sub-zero-2-token.png';
+            break;
+        case 'scorpion-1':
+            fichaScorpionImg.src = 'img/scorpion-1-token.png';
+            break;
+        case 'scorpion-2':
+            fichaScorpionImg.src = 'img/scorpion-2-token.png';
+            break;
+    }
+}
+
+// Eventos para cambiar de ficha
+document.getElementById('subZero-1').addEventListener('click', () => cambiarFicha('subZero-1'));
+document.getElementById('subZero-2').addEventListener('click', () => cambiarFicha('subZero-2'));
+document.getElementById('scorpion-1').addEventListener('click', () => cambiarFicha('scorpion-1'));
+document.getElementById('scorpion-2').addEventListener('click', () => cambiarFicha('scorpion-2'));
+
+// Animación de selección de fichas
+const botonesJugador1 = document.querySelectorAll('#subZero-1, #subZero-2');
+const botonesJugador2 = document.querySelectorAll('#scorpion-1, #scorpion-2');
+const botonesOpciones= document.querySelectorAll('#opciones button');
+
+// Animar selección de fichas del Jugador 1
+botonesJugador1.forEach(boton => {
+    boton.addEventListener('click', () => {
+        // Quita la clase 'blinkBtn' de todos los botones
+        botonesJugador1.forEach(b => b.classList.remove('blinkBtn'));
+
+        // Agrega la clase 'blinkBtn' al botón seleccionado
+        boton.classList.add('blinkBtn');
+    });
+});
+
+// Animar selección de fichas del Jugador 2
+botonesJugador2.forEach(boton => {
+    boton.addEventListener('click', () => {
+        // Quita la clase 'blinkBtn' de todos los botones
+        botonesJugador2.forEach(b => b.classList.remove('blinkBtn'));
+
+        // Agrega la clase 'blinkBtn' al botón seleccionado
+        boton.classList.add('blinkBtn');
+    });
+});
+
+// Animar selección de opciones de tablero
+botonesOpciones.forEach(boton => {
+    boton.addEventListener('click', () => {
+        // Quita la clase 'blinkOptions' de todos los botones
+        botonesOpciones.forEach(b => b.classList.remove('blinkOptions'));
+
+        // Agrega la clase 'blinkOptions' al botón seleccionado
+        boton.classList.add('blinkOptions');
+    });
+});
+//==========================
+*/
 let fichasDisponibles = {
     subZero: fila * 2,
     scorpion: fila * 2
@@ -236,23 +320,60 @@ const botonesJugador1 = document.querySelectorAll('#subZero-1, #subZero-2');
 const botonesJugador2 = document.querySelectorAll('#scorpion-1, #scorpion-2');
 const botonesOpciones = document.querySelectorAll('#opciones button');
 
-function agregarAnimacionSeleccion(botones, clase) {
+let fichaSeleccionadaJugador1 = null;
+let fichaSeleccionadaJugador2 = null;
+let opcionSeleccionada = null;
+
+// Función para manejar la animación de selección de fichas para cada jugador
+function agregarAnimacionSeleccionFichas(botones, clase, fichaSeleccionadaRef) {
     botones.forEach(boton => {
         boton.addEventListener('click', () => {
-            botones.forEach(b => b.classList.remove(clase));
+            // Quitar la clase de selección solo de la ficha previamente seleccionada para ese jugador
+            if (fichaSeleccionadaRef.value) {
+                fichaSeleccionadaRef.value.classList.remove(clase);
+            }
+            // Asignar la nueva ficha seleccionada y agregar la clase de animación
             boton.classList.add(clase);
+            fichaSeleccionadaRef.value = boton;
         });
     });
 }
 
-agregarAnimacionSeleccion(botonesJugador1, 'blinkBtn');
-agregarAnimacionSeleccion(botonesJugador2, 'blinkBtn');
-agregarAnimacionSeleccion(botonesOpciones, 'blinkOptions');
+// Función para manejar la animación de selección de opciones de mapa
+function agregarAnimacionSeleccionOpciones(botones, clase) {
+    botones.forEach(boton => {
+        boton.addEventListener('click', () => {
+            // Quitar la clase de selección solo de la opción previamente seleccionada
+            if (opcionSeleccionada) {
+                opcionSeleccionada.classList.remove(clase);
+            }
+            // Asignar la nueva opción seleccionada y agregar la clase de animación
+            boton.classList.add(clase);
+            opcionSeleccionada = boton;
+        });
+    });
+}
 
+// Asignar la lógica de selección de fichas y opciones por separado
+agregarAnimacionSeleccionFichas(botonesJugador1, 'blinkBtn', { value: fichaSeleccionadaJugador1 });
+agregarAnimacionSeleccionFichas(botonesJugador2, 'blinkBtn', { value: fichaSeleccionadaJugador2 });
+agregarAnimacionSeleccionOpciones(botonesOpciones, 'blinkOptions');
+
+// Código adicional para cargar fondo y dibujar tablero
 requestAnimationFrame(() => {
     cargarFondo();
     dibujarTablero();
 });
+
+
+
+
+
+
+
+
+
+
 
 // Función para dibujar fichas
 function dibujarFichas() {
@@ -353,7 +474,7 @@ function dibujarHints() {
         ctx.clip();
 
         ctx.globalAlpha = alpha;
-        ctx.fillStyle = jugadorActual === 1 ? `rgba(173, 216, 230, ${alpha})` : `rgba(255, 204, 0, ${alpha})`;
+        ctx.fillStyle = jugadorActual === 1 ? `rgba(0, 191, 255, ${alpha})` : `rgba(255, 204, 0, ${alpha})`;
 
         ctx.drawImage(hint.img, hintX - radioHint, hintY - radioHint, radioHint * 2, radioHint * 2);
         ctx.fill(); // Aplica el color de fondo
