@@ -77,7 +77,6 @@ document.getElementById('iniciarJuego').addEventListener('click', function() {
 ////////////////////////// para mostrar la pantalla del ganador
 function dibujarMensajeGanador(jugador) {
     const mensajeGanador = document.getElementById('mensajeGanador');
-    
     // Detén el temporizador si hay un ganador
     clearInterval(temporizador);
 
@@ -91,17 +90,15 @@ function dibujarMensajeGanador(jugador) {
         mensajeGanador.textContent = 'Scorpion wins!';
     }
 
-<<<<<<< HEAD
     // Muestra la pantalla de ganador
     document.getElementById('pantallaGanador').style.display = 'flex';
-=======
     // Mostrar la pantalla de ganador después de 1 segundo y añadir clase visible
     setTimeout(() => {
         const pantallaGanador = document.getElementById('pantallaGanador');
         pantallaGanador.style.display = 'flex';
         pantallaGanador.classList.add('visible'); // Agregar clase visible para la transición
     }, 1000); // Tiempo antes de mostrar
->>>>>>> 731d4799ecc0af478884ff28b0cbf666ced67506
+
 }
 // Función para mostrar el mensaje de empate
 function dibujarMensajeEmpate() {
