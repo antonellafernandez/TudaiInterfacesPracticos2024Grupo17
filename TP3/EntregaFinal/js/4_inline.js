@@ -12,8 +12,10 @@ let ganador = null;
 let fila = 6;
 let columna = 7;
 let linea = 4;
-let tiempoRestante = 120; // Tiempo inicial en segundos
+let tiempoRestante = 180; // Tiempo inicial en segundos
 let temporizador;
+let alertTiempoMostrado = false; // Variable para controlar si el alert de tiempo agotado ya fue mostrado
+
 let tamanoCelda = 60; // Tamaño de celda ajustado (anteriormente 100)
 let fichaArrastrando = null;
 let posicionFichaArrastrando = null;
@@ -29,16 +31,29 @@ let popoverMostrado = false; // Variable para controlar si el popover ha sido mo
 /* temporizador
 
 function iniciarTemporizador() {
+    // Mostrar el tiempo restante inicialmente
     document.getElementById("timeDisplay").textContent = tiempoRestante + "s";
+    
     temporizador = setInterval(() => {
+        // Verifica si hay un ganador antes de continuar
+        if (ganador !== null) {
+            clearInterval(temporizador); // Detén el temporizador si hay un ganador
+            return;
+        }
+
         tiempoRestante--;
+
+        // Actualiza la visualización del tiempo restante
         document.getElementById("timeDisplay").textContent = tiempoRestante + "s";
 
-        if (tiempoRestante <= 0) {
-            clearInterval(temporizador);
-            // Aquí puedes añadir lógica para cuando el tiempo se agote
-            alert("Tiempo agotado");
-            reiniciarJuego();
+        // Comprueba si el tiempo se ha agotado y muestra el alert solo una vez
+        if (tiempoRestante <= 0 && !alertTiempoMostrado) {
+            clearInterval(temporizador); // Detén el temporizador
+            alertTiempoMostrado = true; // Marca el alert como mostrado
+            // Si el tiempo se agota y no hay ganador, muestra el mensaje de empate
+            if (ganador === null) {
+                dibujarMensajeEmpate();
+            }
         }
     }, 1000);
 }*/
@@ -63,10 +78,11 @@ document.getElementById('iniciarJuego').addEventListener('click', function() {
 function dibujarMensajeGanador(jugador) {
     const mensajeGanador = document.getElementById('mensajeGanador');
     
-    // Eliminar clases de ganador anteriores
+    // Detén el temporizador si hay un ganador
+    clearInterval(temporizador);
+
+    // Actualiza el mensaje del ganador según el jugador
     mensajeGanador.classList.remove('ganador-jugador1', 'ganador-jugador2');
-    
-    // Añadir la clase correspondiente y ajustar el mensaje
     if (jugador === 1) {
         mensajeGanador.classList.add('ganador-jugador1');
         mensajeGanador.textContent = 'Sub-Zero wins!';
@@ -75,43 +91,76 @@ function dibujarMensajeGanador(jugador) {
         mensajeGanador.textContent = 'Scorpion wins!';
     }
 
+<<<<<<< HEAD
+    // Muestra la pantalla de ganador
+    document.getElementById('pantallaGanador').style.display = 'flex';
+=======
     // Mostrar la pantalla de ganador después de 1 segundo y añadir clase visible
     setTimeout(() => {
         const pantallaGanador = document.getElementById('pantallaGanador');
         pantallaGanador.style.display = 'flex';
         pantallaGanador.classList.add('visible'); // Agregar clase visible para la transición
     }, 1000); // Tiempo antes de mostrar
+>>>>>>> 731d4799ecc0af478884ff28b0cbf666ced67506
+}
+// Función para mostrar el mensaje de empate
+function dibujarMensajeEmpate() {
+    const mensajeEmpate = document.getElementById('mensajeEmpate');
+    
+    // Detén el temporizador en caso de empate
+    clearInterval(temporizador);
+
+    // Actualiza el mensaje de empate
+    mensajeEmpate.textContent = "It's a draw!";
+
+    // Muestra la pantalla de empate sin cambiar de pantalla de juego
+    document.getElementById('pantallaEmpate').style.display = 'flex';
+    document.getElementById('pantallaEmpate').style.position = 'absolute';
+    document.getElementById('pantallaEmpate').style.top = '0';
+    document.getElementById('pantallaEmpate').style.left = '0';
+    document.getElementById('pantallaEmpate').style.width = '100%';
+    document.getElementById('pantallaEmpate').style.height = '100%';
+    document.getElementById('pantallaEmpate').style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Fondo semi-transparente
+    document.getElementById('pantallaEmpate').style.display = 'flex';
+    document.getElementById('pantallaEmpate').style.alignItems = 'center';
+    document.getElementById('pantallaEmpate').style.justifyContent = 'center';
+    document.getElementById('pantallaEmpate').style.zIndex = '10';
+    
+
+
+      // Muestra la pantalla de empate
+      document.getElementById('pantallaEmpate').style.display = 'flex';
 }
 
 
 // Función para reiniciar el juego
 function reiniciarJuego() {
-    // Ocultar la pantalla de selección
-    document.getElementById('pantallaSeleccion').style.display = 'flex';
-    document.getElementById('pantallaGanador').style.display = 'none';
-    // Mostrar el canvas del juego
-    document.getElementById('game-screen').style.display = 'none';
-
-    // Detener el temporizador si está activo
-    if (countdown) {
-        clearInterval(countdown);
-        countdown = null; // Restablecer la variable de temporizador
-    }
-
-    // Reiniciar variables
-    fichas = [];
-    jugadorActual = 1; // 1 para SubZero, 2 para Scorpion
-    ganador = null;
-    hints = [];
-    fichasDisponibles = {
-        subZero: 6, // Suponiendo que comienzas con 6 fichas de SubZero
-        scorpion: 6   // Y 6 fichas de Scorpion
+      // Restablece la visualización de la selección
+      document.getElementById('pantallaSeleccion').style.display = 'flex';
+      document.getElementById('pantallaGanador').style.display = 'none';
+      document.getElementById('pantallaEmpate').style.display = 'none';
+      document.getElementById('game-screen').style.display = 'none';
+  
+      // Reinicia las variables del juego y del temporizador
+      clearInterval(temporizador); // Asegura que el temporizador se detiene
+      tiempoRestante = 180; // Reinicia el tiempo inicial
+      alertTiempoMostrado = false; // Restablece el estado del alert de tiempo agotado
+  
+      // Reinicia el estado del juego
+      fichas = [];
+      jugadorActual = 1;
+      ganador = null;
+      hints = [];
+      fichasDisponibles = {
+          subZero: 6,
+          scorpion: 6
     };
 
-    // Reiniciar el tablero
-    cargarFondo();
-    centrarTablero(); 
-    dibujarTablero();
+     // Redibuja el tablero
+     cargarFondo();
+     centrarTablero(); 
+     dibujarTablero();
+
 }
 function showPopoverInCanvas() {
     const canvas = document.getElementById('tablero');
@@ -388,6 +437,10 @@ function comprobarGanador() {
         if (contarFichas(ficha.x, ficha.y, 1, 0, ficha.jugador) >= linea) {
             console.log(`Ganador encontrado: Jugador ${ficha.jugador} (horizontal)`);
             dibujarMensajeGanador(ficha.jugador);
+            if (countdown) {
+                clearInterval(countdown);
+                countdown = null; // Restablecer la variable de temporizador
+            }
             return; // Detiene la función al encontrar un ganador
         }
         // Comprobar en dirección vertical
