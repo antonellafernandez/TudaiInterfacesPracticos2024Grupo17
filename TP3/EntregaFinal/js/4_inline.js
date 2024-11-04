@@ -24,8 +24,6 @@ let hints = [];
 let desplazamientoX = 0;
 let desplazamientoY = 0;
 
-const popover = document.querySelector('#id_popover');
-let popoverMostrado = false; // Variable para controlar si el popover ha sido mostrado
 
 
 
@@ -173,17 +171,6 @@ function reiniciarJuego() {
 
 }
 
-function showPopoverInCanvas() {
-    const canvas = document.getElementById('tablero');
-    const popover = document.getElementById('id_popover');
-
-    // Posiciona el popover centrado dentro del canvas
-    const { left, top, width, height } = canvas.getBoundingClientRect();
-    popover.style.left = `${left + width / 2}px`;
-    popover.style.top = `${top + height / 2}px`;
-    popover.style.transform = 'translate(-50%, -50%)';
-    popover.style.display = 'block';
-}
 
 function disableGameInteraction() {
     const gameBoard = document.getElementById('game-screen');
@@ -272,7 +259,7 @@ botonesJugador2.forEach(boton => {
     });
 });
 
-// Animar selección de opciones de tablero
+
 botonesOpciones.forEach(boton => {
     boton.addEventListener('click', () => {
         // Quita la clase 'blinkOptions' de todos los botones
