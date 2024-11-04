@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap'); /* Fuente estilo Mortal Kombat */
+
+
+
 /* Contenedor Principal */
 .game-image {
     font-family: Arial, sans-serif;
@@ -259,4 +263,51 @@ button:hover {
     background-color: #ffcc00; /* Cambia a dorado */
     color: #660000; /* Texto rojo oscuro */
     transform: scale(1.1); /* Aumenta de tamaño al pasar el mouse */
+}
+
+
+#mensajeEmpate {
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
+    font-size: 4em;
+    color: #ffdd00; /* Color amarillo típico de Mortal Kombat */
+    text-shadow: 2px 2px 4px #000; /* Sombra al texto */
+    text-transform: uppercase;
+    margin-bottom: 60px; /* Incrementa el margen inferior */
+    animation: shake 1s infinite; /* Animación de vibración */
+}
+
+#botonReiniciarEmpate {
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
+    padding: 15px 30px;
+    font-size: 1.5em;
+    color: #fff; /* Texto blanco */
+    background-color: #ff0000; /* Fondo rojo intenso */
+    border: 2px solid #ffdd00; /* Borde amarillo */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7); /* Efecto de luz roja */
+}
+
+#botonReiniciarEmpate:hover {
+    background-color: #ff4500; /* Rojo más claro al pasar el mouse */
+    transform: scale(1.1); /* Ligero aumento de tamaño */
+}
+
+/* Animación de vibración para el mensaje de empate */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+#pantallaEmpate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Asegura espacio interno alrededor del contenido */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente para enfoque */
+    border-radius: 10px; /* Bordes redondeados para estética */
 }
