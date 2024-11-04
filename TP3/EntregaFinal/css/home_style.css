@@ -772,16 +772,38 @@ a {
         border-radius: 1vw;
         height: 2vw;
         width: 4.25vw;
-        transition: transform 0.3s ease, background-color 0.3s ease;
+        transition: transform 0.8s ease, background-color 0.8s ease;
+        position: relative; /* Para el pseudo-elemento */
+        overflow: hidden; /* Para ocultar el pseudo-elemento */
     }
-
+    
     .featured-buy-button i {
         font-size: 1.125vw;
     }
-
+    
     .featured-buy-button:hover {
         transform: scale(1.1); /* Aumenta el tamaño del botón */
         background-color: #b3003b; /* Cambia el color en hover */
+    }
+    
+    /* Pseudo-elemento para el efecto de halo */
+    .featured-buy-button::before {
+        content: ''; /* Necesario para el pseudo-elemento */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%; /* Grande para la expansión */
+        height: 300%;
+        background: rgba(255, 255, 255, 0.3); /* Color de halo */
+        transition: transform 0.8s ease; /* Transición suave */
+        border-radius: 50%; /* Hacerlo circular */
+        transform: translate(-50%, -50%) scale(0); /* Comenzar oculto */
+        z-index: 0; /* Detrás del texto */
+    }
+    
+    .featured-buy-button:hover::before {
+        transform: translate(-50%, -50%) scale(1); /* Expandir el halo en hover */
+        opacity: 0.5; /* Opacidad del halo */
     }
 
     /* Carousel */
@@ -870,6 +892,13 @@ a {
         font-size: 0.8vw;
     }
 
+    .buy-button:hover {
+        transform: scale(1.1);
+        background-color: #e6005c;
+        box-shadow: 0 0 10px #ff6699;
+    }
+
+
     .in-cart-button {
         border-radius: 1vw;
         height: 1.5vw;
@@ -888,19 +917,52 @@ a {
         width: 4.25vw;
         letter-spacing: 0.2em;
         font-size: 0.6vw;
-        transition: transform 0.3s ease, background-color 0.3s ease;
+        background-color: #004b59; /* Color inicial */
+        color: #ffffff; /* Color del texto */
+        position: relative; /* Para el pseudo-elemento */
+        overflow: hidden; /* Para ocultar el pseudo-elemento */
+        transition: background-color 0.3s ease; /* Solo transición de color */
     }
-
-    .buy-button:hover {
-        transform: scale(1.1);
-        background-color: #e6005c;
-        box-shadow: 0 0 10px #ff6699;
-    }
-
+    
     .play-button:hover {
-        transform: scale(1.1);
         background-color: #003d4d; /* Color azul más oscuro en hover */
-        box-shadow: 0 0 10px #00b8e6;
+        animation: pulse 0.6s infinite; /* Añadimos la animación de pulso */
+    }
+    
+    /* Efecto de pulso */
+    @keyframes pulse {
+        0% {
+            transform: scale(1); /* Tamaño normal */
+            box-shadow: 0 0 10px #00b8e6; /* Sombra inicial */
+        }
+        50% {
+            transform: scale(1.1); /* Aumenta al 110% */
+            box-shadow: 0 0 20px #00b8e6; /* Aumenta la sombra */
+        }
+        100% {
+            transform: scale(1); /* Vuelve al tamaño normal */
+            box-shadow: 0 0 10px #00b8e6; /* Sombra inicial */
+        }
+    }
+    
+    /* Pseudo-elemento para un efecto adicional */
+    .play-button::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%; /* Grande para la expansión */
+        height: 300%;
+        background: rgba(0, 184, 230, 0.3); /* Color de halo */
+        transition: transform 0.5s ease; /* Transición suave */
+        border-radius: 50%; /* Hacerlo circular */
+        transform: translate(-50%, -50%) scale(0); /* Comenzar oculto */
+        z-index: 0; /* Detrás del contenido */
+    }
+    
+    .play-button:hover::before {
+        transform: translate(-50%, -50%) scale(1); /* Expandir el halo en hover */
+        opacity: 0.5; /* Opacidad del halo */
     }
 
     .in-cart-button:hover {
