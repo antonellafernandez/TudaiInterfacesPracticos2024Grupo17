@@ -279,7 +279,6 @@ aside.card {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
-    cursor: pointer;
     padding: 8px;
     border-radius: 6px;
     color: white;
@@ -287,11 +286,10 @@ aside.card {
 
 /* Estilos del icono de play más grande y centrado */
 .play-icon-gallery {
-    font-size: 60px;
+    font-size: 5px;
+    top: 3px;
+    right: 3px;
     background: none;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 /* Estilos del icono de lupa más pequeño y en la esquina superior derecha */

@@ -732,8 +732,8 @@ function cambiarModo(nuevoModo) {
             break;
     }
     // Actualiza la cantidad de fichas disponibles para cada jugador igual al número de filas
-    fichasDisponibles.subZero = fila * 2;
-    fichasDisponibles.scorpion = fila * 2;
+    fichasDisponibles.subZero = fila * 3;
+    fichasDisponibles.scorpion = fila * 3;
 
     fichas = [];
     jugadorActual = 1;

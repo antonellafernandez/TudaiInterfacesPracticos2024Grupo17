@@ -768,44 +768,56 @@ a {
     }
 
     .featured-buy-button {
-        background-color: #ff4081;
+        background-color: #ff4081; /* Color rosado original */
         border-radius: 1vw;
         height: 2vw;
         width: 4.25vw;
-        transition: transform 0.8s ease, background-color 0.8s ease;
-        position: relative; /* Para el pseudo-elemento */
-        overflow: hidden; /* Para ocultar el pseudo-elemento */
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        position: relative;
+        overflow: hidden;
     }
     
     .featured-buy-button i {
         font-size: 1.125vw;
     }
     
+    /* Efecto de pulso suave */
     .featured-buy-button:hover {
-        transform: scale(1.1); /* Aumenta el tamaño del botón */
-        background-color: #b3003b; /* Cambia el color en hover */
+        transform: scale(1.1);
+        background-color: #ff4081; /* Mantiene el color rosado en hover */
+        animation: softPulse 1s infinite alternate; /* Añade animación de pulso */
+    }
+    
+    /* Keyframes para el efecto de pulso suave */
+    @keyframes softPulse {
+        0% {
+            box-shadow: 0 0 10px rgba(255, 64, 129, 0.5); /* Sombra inicial */
+        }
+        100% {
+            box-shadow: 0 0 20px rgba(255, 64, 129, 0.8); /* Aumenta la sombra */
+        }
     }
     
     /* Pseudo-elemento para el efecto de halo */
     .featured-buy-button::before {
-        content: ''; /* Necesario para el pseudo-elemento */
+        content: '';
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 300%; /* Grande para la expansión */
+        width: 300%;
         height: 300%;
-        background: rgba(255, 255, 255, 0.3); /* Color de halo */
-        transition: transform 0.8s ease; /* Transición suave */
-        border-radius: 50%; /* Hacerlo circular */
-        transform: translate(-50%, -50%) scale(0); /* Comenzar oculto */
-        z-index: 0; /* Detrás del texto */
+        background: rgba(255, 64, 129, 0.3); /* Color de halo rosado */
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        z-index: 0;
+        transition: transform 0.8s ease;
     }
     
     .featured-buy-button:hover::before {
-        transform: translate(-50%, -50%) scale(1); /* Expandir el halo en hover */
-        opacity: 0.5; /* Opacidad del halo */
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
     }
-
+    
     /* Carousel */
     .carousel-wrap {
         margin: 0 auto 2%;
