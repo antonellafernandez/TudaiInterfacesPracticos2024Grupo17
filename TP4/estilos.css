@@ -1,18 +1,17 @@
 * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  list-style: none;
-  outline: none;
-  box-sizing: border-box;
-  
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    outline: none;
+    box-sizing: border-box;
 
 }
 
 body{
-  background-color: white;
-  max-width: 1280px;
-  margin: auto;
+    background-color: white;
+    max-width: 1280px;
+    margin: auto;
 }
 header{
   width: 1280px;
@@ -242,16 +241,10 @@ nav{
   background-size: cover;
   background-repeat: repeat-x;
 }
-.layer-6,
-.layer-5,
-.layer-4,
-.layer-2,
-.layer-1 {
-opacity: 0;
-}
+
 
 /*  en cada layer cambiamos la velocidad de la animacion    */
-.layer-13{
+.layer-10{
   position: absolute;
   background-image: url("images/paisaje.svg");
   animation: scroll 10s infinite linear ;
@@ -261,70 +254,42 @@ opacity: 0;
                           termina en x se pone devuelta la imagen la pone el browser automaticamente*/
 }
 
-.layer-12{
-  background-image: url("images/arbusto4.svg");
-  width: 543.5px;
-  height: 213.5px;
-  margin-top: 96px;
-  margin-left: 398px;
- 
-
-}
-
-.layer-11{
-  background-image: url("images/arbusto3.svg");
-  width: 543.5px;
-  height: 213.5px;
-  margin-top: 96px;
-  margin-left: 398px;
- 
-
-}
-.layer-10{
-  background-image: url("images/arbusto2.svg");
-  width: 543.5px;
-  height: 213.5px;
-  margin-top: 96px;
-  margin-left: 398px;
- 
-
-}
-
 
 .layer-9{
-  background-image: url("images/arbol 3.svg");
-  width: 543.5px;
-  height: 213.5px;
-  margin-top: 96px;
-  margin-left: 398px;
+  background-image: url("images/arbol3.svg");
+  width: 278.03px;
+  height: 430.85px;
+  margin-top: 280px;
+  margin-left: 1080px;
  
 
 }
 
 .layer-8{
-  background-image: url("images/arbol 2.svg");
-  margin-top: 117px;
-  width: 452px;
-  height: 720px;
-  margin-left: -52px;
+  background-image: url("images/arbol2.svg");
+  width: 434.21px;
+  height: 672.52px;
+  margin-top: 98px;
+  margin-left: 878px;
 }
 
 .layer-7{
-  background-image: url("images/arbol 1.svg");
-  width: 374px;
-  height: 727.5px;
-  margin-top: 98px;
-  margin-left: 905px;
+  background-image: url("images/arbol1.svg");
+  margin-top: 1px;
+  width: 560.1px;
+  height: 867.75px;
+  margin-left: -145px;
 }
+
+
 .layer-6{
   background-image: url("images/RedOne.svg");
-  animation-name: scale;
-  width: 360px;
-  height: 444px;
-  margin-left: 95px;
-  margin-top: 338px;
+  width: 240.4px;
+  height: 314.48px;
+  margin-left: 425px;
+  margin-top: 485px;
   animation: fadeIn ease .8s forwards;
-  z-index: 2;
+  z-index: 3;
 }
 
 
@@ -336,10 +301,10 @@ opacity: 0;
 .layer-5{
   background-image: url("images/OrangeTwo.svg");
   animation-name: scale;
-  width: 300px;
-  height: 300px;
-  margin-left: 380px;
-  margin-top: 420px;
+  width: 197px;
+  height: 270px;
+  margin-left: 540px;
+  margin-top: 390px;
   animation: fadeIn 1s forwards;
   transition: transform 0.2s ease-out; /* Agregar transición para suavizar el efecto */
   z-index: 2;
@@ -347,13 +312,12 @@ opacity: 0;
 }
 .layer-4{
   background-image: url("images/yellowThree.svg");
-  animation-name: scale;
-  width: 393px;
-  height: 393px;
+  width: 174px;
+  height: 384px;
   margin-left: 680px;
-  margin-top: 350px;
+  margin-top: 320px;
   animation: fadeIn 1s forwards;
-  z-index: 2;
+  z-index: 1;
 
 }
 .layer-3{
@@ -378,25 +342,22 @@ opacity: 0;
 
 }
 
-
+.layer-1{
+  background-image: url("images/rock2.svg");
+  width: 145.41px;
+  height: 78.09px;
+  margin-left: 140px;
+  margin-top: 795px;
+  animation: fadeIn 2s forwards;
+}
 
 
 .layer-2{
-  background-image: url("images/rock.svg");
-  width: 145.41px;
-  height: 78.09px;
-  margin-left: 850px;
-  margin-top: 695px;
-  animation: fadeIn 2s forwards;
-  
-
-}
-.layer-1{
   background-image: url("images/arbusto.svg");
-  width: 249.76px;
-  height: 114.44px;
-  margin-left: 9  2px;
-  margin-top: 385px;
-  animation: fadeIn 2s forwards;
-  z-index: 2;
+  width: 158.41px;
+  height: 105 .44px;
+  margin-left: 200px;
+  margin-top: 825px;
+  z-index: 72;
 }
+
