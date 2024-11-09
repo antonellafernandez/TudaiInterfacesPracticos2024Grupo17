@@ -232,7 +232,7 @@ header.abajo{
 nav{
   position: absolute;
   width: 1280px;
-  height: 1100px;
+  height: 100vh;
   
   overflow: hidden;
 
@@ -439,3 +439,15 @@ nav{
   z-index: 72;
 }
 
+
+
+
+.seccion2{
+margin-top: 90vh;
+position: absolute;
+width: 1280px;
+height: 894px;
+background: linear-gradient(0deg, #88DE7F 0%, #A8EBEC 46%);
+transform: matrix(1, 0, 0, -1, 0, 0);
+
+}
