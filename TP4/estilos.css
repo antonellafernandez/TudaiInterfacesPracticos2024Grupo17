@@ -10,8 +10,10 @@
 
 body{
     background-color: white;
-    max-width: 1280px;
+    max-width: 1080px;
     margin: auto;
+    display: flex;
+    justify-content: center;
 }
 header{
   width: 1280px;
@@ -244,7 +246,7 @@ nav{
 
 
 /*  en cada layer cambiamos la velocidad de la animacion    */
-.layer-10{
+.layer-16{
   position: absolute;
   background-image: url("images/paisaje.svg");
   animation: scroll 10s infinite linear ;
@@ -255,12 +257,83 @@ nav{
 }
 
 
+.layer-15{
+  background-image: url("images/arbusto4.svg");
+  background-size: contain;
+  width: 191.19px;
+  height: 63.28px;
+  margin-top: 620px;
+  margin-left: 1029px;
+  z-index: 1;
+}
+
+
+.layer-14{
+  background-image: url("images/arbusto3.svg");
+  background-size: contain;
+  width: 244.37px;
+  height: 108px;
+  margin-top: 655px;
+  margin-left: 1075px;
+  z-index: 3;
+}
+
+
+.layer-13{
+  background-image: url("images/arbusto2.svg");
+  background-size: contain;
+  width: 249.76px;
+  height: 114.44px;
+  margin-top: 720px;
+  margin-left: 165px;
+  z-index: 1;
+}
+
+
+
+.layer-12{
+  background-image: url("images/rock4.svg");
+  background-size: contain;
+  width: 59.24px;
+  height: 35.01px;
+  margin-top: 770px;
+  margin-left: 1040px;
+  z-index: 6;
+}
+
+
+.layer-11{
+  background-image: url("images/rock3.svg");
+  background-size: contain;
+  width: 66.65px;
+  height: 56.55px;
+  margin-top: 720px;
+  margin-left: 1031px;
+  z-index: 4;
+}
+
+
+
+.layer-10{
+  background-image: url("images/rock.svg");
+  background-size: contain;
+  width: 113.77px;
+  height: 74.05px;
+  margin-top: 720px;
+  margin-left: 1070px;
+  z-index: 5;
+}
+
+
+
 .layer-9{
   background-image: url("images/arbol3.svg");
   width: 278.03px;
   height: 430.85px;
   margin-top: 280px;
   margin-left: 1080px;
+  z-index: 2;
+
  
 
 }
@@ -271,6 +344,8 @@ nav{
   height: 672.52px;
   margin-top: 98px;
   margin-left: 878px;
+  z-index: 3;
+
 }
 
 .layer-7{
@@ -279,6 +354,7 @@ nav{
   width: 560.1px;
   height: 867.75px;
   margin-left: -145px;
+  z-index: 2;
 }
 
 
@@ -312,10 +388,10 @@ nav{
 }
 .layer-4{
   background-image: url("images/yellowThree.svg");
-  width: 174px;
+  width: 190px;
   height: 384px;
-  margin-left: 680px;
-  margin-top: 320px;
+  margin-left: 690px;
+  margin-top: 345px;
   animation: fadeIn 1s forwards;
   z-index: 1;
 
@@ -349,6 +425,8 @@ nav{
   margin-left: 140px;
   margin-top: 795px;
   animation: fadeIn 2s forwards;
+  z-index: 3;
+
 }
 
 
