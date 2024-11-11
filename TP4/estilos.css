@@ -14,6 +14,7 @@ body{
     flex-direction: column;
     align-items: center;
 }
+
 header{
   width: 1280px;
   height: 80px;
@@ -440,48 +441,71 @@ nav{
 
 
 
-
-
+/*SECCION DOS*/
 
 .curved-section {
   overflow: hidden;
-  position: absolute;
-  height: 894px;
-  margin-top: 100vh;
+  position: relative;
+  width: 1279x; /* Ancho fijo de 1080px */
+  height: 894px; /* Altura de la sección con el fondo */
+  margin-top: 959px; /* Posición desde la parte inferior de la pantalla */
 }
 
 .curved-section svg {
-  width: 100%;           /* Ancho completo del SVG */
-  height: 100%;          /* Altura completa de la sección */
+  width: 100%;
+  height: 100%;
   display: block;
 }
 
-.main-content {
-  position: absolute; /* Posicionamos los divs encima del SVG */
-  top: 100px;             /* Ajustamos la posición vertical */
-  left: 470px;          /* Centrado horizontal */
-  transform: translateX(-50%); /* Centrado horizontal exacto */
-  z-index: 1;         /* Aseguramos que estén encima del SVG */
-  padding: 20px;
+.elementos-seccion-uno {
+  display: flex; /* Para alinear los elementos de lado */
+  align-items: flex-start; 
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  margin-left: 130px;
 }
 
-.main-content h1{
+
+.main-content h1 {
+  margin-top: 100px;
   font-family: 'Lato', sans-serif;
   font-size: 47px;
   color: #1B428F;
 }
 
-.main-content p{
+.main-content p {
   padding-top: 20px;
   font-family: 'Lato', sans-serif;
   font-size: 20px;
   color: #1B428F;
 }
-
+ 
 .aside-content {
-  background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+.figura5 {
+  background-image: url("images/figura5.svg");
+  background-size: contain; /* Asegura que la imagen se ajuste sin recortarse */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+  background-repeat: no-repeat; /* No repite la imagen */
+  width: 572px; /* El ancho de la imagen */
+  height: 1259px; /* La altura de la imagen */
+  position: absolute; /* Posiciona la imagen de manera absoluta */
+  top: 0; /* Asegura que la imagen esté alineada con el borde superior */
+  left: 0; /* Asegura que la imagen esté alineada con el borde izquierdo */
+  z-index: 10; /* Para que quede encima de otros elementos */
+  background-attachment: fixed; /* Crea el efecto parallax */
+}
+
+/* TERCERA SECCION*/
+
+.tercera-seccion{
+  position: relative;
+  width: 1280px;
+  height: 1334px;
+  background-color: #502222;
+  z-index: 1;
 }
 
