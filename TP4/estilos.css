@@ -447,5 +447,17 @@ width: 1280px;
 height: 894px;
 background: linear-gradient(0deg, #88DE7F 0%, #A8EBEC 46%);
 transform: matrix(1, 0, 0, -1, 0, 0);
+}
 
+.curved-section {
+  overflow: hidden;
+  position: absolute;
+  height: 894px;
+  margin-top: 96vh;
+}
+
+.curved-section svg {
+  width: 100%;           /* Ancho completo del SVG */
+  height: 100%;          /* Altura completa de la sección */
+  display: block;
 }
