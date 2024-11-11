@@ -1,16 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const scrollFactor = 0.3; // Ajusta este valor para controlar la velocidad de movimiento
-
-  const spiderman = document.querySelector('.layer-5');
-  const spidermanLimit = 400; // Ajusta este valor al punto en el que deseas detener la animación
-
- 
   
-  const chicaSpiderman = document.querySelector('.layer-6');
-  const chicaSpidermanLimit = 700; 
-
-  
-
 
   window.addEventListener('scroll', function () {
     let logo = document.querySelector('.layer-3');
@@ -32,20 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         logo.classList.remove("small");
     }
 
-    // Ajustar la posición vertical de Spiderman dentro del rango especificado
-    if (scrollY <= spidermanLimit) {
-      spiderman.style.transform = `translateY(${scrollY * 0.2}px)`;
-    }
-
-    // Ajustar la posición vertical de la telaraña dentro del rango especificado
   
-
-    if (scrollY <= chicaSpidermanLimit) {
-      chicaSpiderman.style.transform = `translateY(${scrollY * 0.2}px)`;
-    }
-
-   
-
     
   });
 });
