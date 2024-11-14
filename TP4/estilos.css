@@ -443,72 +443,100 @@ nav{
 
 
 /*SECCION DOS*/
-
 .curved-section {
   overflow: hidden;
-  position: relative;
-  width: 1279x; /* Ancho fijo de 1080px */
-  height: 894px; /* Altura de la sección con el fondo */
-  margin-top: 959px; /* Posición desde la parte inferior de la pantalla */
+  width: 1279px; 
+  min-height: 894px;
+  margin-top: 900px;
 }
 
-.curved-section svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.elementos-seccion-uno {
-  display: flex; /* Para alinear los elementos de lado */
+.content-container {
+  background-image: url("images/Rectangle\ 8.png");
+  background-repeat: no-repeat;
+  background-position: center center; 
+  background-size: cover; 
+  display: flex;
   align-items: flex-start; 
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  margin-left: 130px;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;  
+  height: auto; 
+  min-height: 894px;
 }
 
-
-.main-content h1 {
-  margin-top: 100px;
+.content-container h1 {
+  margin-top: 95px;
+  padding-left: 100px;
   font-family: 'Lato', sans-serif;
   font-size: 47px;
   color: #1B428F;
 }
 
-.main-content p {
-  padding-top: 20px;
+.content-container p {
+  padding-top: 22px;
+  padding-left: 100px;
   font-family: 'Lato', sans-serif;
   font-size: 20px;
   color: #1B428F;
 }
- 
+
+.carrusel-conteiner{
+  margin-top: 26px;
+  margin-left: 236px;
+}
+
+.numero-cuatro{
+  padding-left: 48px;
+  position: absolute;
+  z-index: 6;
+  top: 610px;
+}
+
+.numero-cinco{
+  padding-left: 48px;
+  position: absolute;
+  z-index: 10;
+  right: -77px;
+  top: -20px;
+}
+
 .aside-content {
   width: 300px;
 }
 
-.figura5 {
-  background-image: url("images/figura5.svg");
-  background-size: contain; /* Asegura que la imagen se ajuste sin recortarse */
-  background-position: center; /* Centra la imagen dentro del contenedor */
-  background-repeat: no-repeat; /* No repite la imagen */
-  width: 572px; /* El ancho de la imagen */
-  height: 1259px; /* La altura de la imagen */
-  position: absolute; /* Posiciona la imagen de manera absoluta */
-  top: 0; /* Asegura que la imagen esté alineada con el borde superior */
-  left: 0; /* Asegura que la imagen esté alineada con el borde izquierdo */
-  z-index: 10; /* Para que quede encima de otros elementos */
-  background-attachment: fixed; /* Crea el efecto parallax */
+.white-background{
+height: 600px;
 }
+
+.card-container{
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 23px;
+}
+
+.card{
+  width: 333px;
+  height: 519px;
+}
+
+.card img{
+  width: 332.96px;
+  height: 302.69px;
+}
+.card p{
+  margin-top: 23px;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  color: #000000;
+  
+}
+
 
 /* TERCERA SECCION*/
-
-.tercera-seccion{
-  position: relative;
-  width: 1280px;
-  height: 1334px;
-  background-color: #502222;
-  z-index: 1;
-}
 
 /* INICIO SECCIÓN "MÁS AMIGOS, MÁS DIVERSION!" */
 .amigos-diversion-section {
