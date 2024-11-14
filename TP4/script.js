@@ -44,3 +44,28 @@ menuButton.addEventListener('click', function() {
 });
 
 
+window.addEventListener('scroll', function() {
+  var scrollY = window.scrollY;
+
+  // Efecto parallax para .numero-cuatro (movimiento muy sutil)
+  var numeroCuatro = document.querySelector('.numero-cuatro');
+  numeroCuatro.style.transform = `translateY(${scrollY * 0.04}px)`;  // Movimiento muy sutil
+
+  // Efecto parallax para .numero-cinco (movimiento más suave, menos pronunciado)
+  var numeroCinco = document.querySelector('.numero-cinco');
+  numeroCinco.style.transform = `translateY(${scrollY * 0.03}px)`;  // Movimiento más sutil
+});
+
+window.addEventListener('scroll', function() {
+  var cards = document.querySelectorAll('.card');
+  
+  // Recorre todas las tarjetas
+  cards.forEach(function(card) {
+    var rect = card.getBoundingClientRect();
+    
+    // Si la tarjeta está dentro del viewport (ajustando el top a la altura de la ventana)
+    if (rect.top >= 0 && rect.top <= window.innerHeight * 0.8) { // 80% de la ventana
+      card.classList.add('visible');  // Activa la animación
+    }
+  });
+});

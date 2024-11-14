@@ -489,7 +489,7 @@ nav{
   padding-left: 48px;
   position: absolute;
   z-index: 6;
-  top: 610px;
+  top: 560px;
 }
 
 .numero-cinco{
@@ -518,9 +518,41 @@ height: 600px;
   gap: 23px;
 }
 
-.card{
+.card {
   width: 333px;
   height: 519px;
+  opacity: 0;  /* Las tarjetas están ocultas inicialmente */
+  transform: translateY(50px); /* Las tarjetas están desplazadas hacia abajo */
+  transition: opacity 0.3s ease, transform 0.5s ease; /* La transición será suave */
+  will-change: opacity, transform; /* Mejora la performance para las animaciones */
+}
+
+/* Animación que las hace aparecer desde abajo */
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);  /* Empieza desde abajo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);  /* Llega a su posición original */
+  }
+}
+
+/* Activamos la animación cuando se hace scroll */
+.card.visible {
+  animation: floatUp 0.5s ease-out forwards; /* Activamos la animación */
+}
+
+/* Retraso en la animación para cada tarjeta */
+.card:nth-child(1).visible {
+  animation-delay: 0s; /* Primer tarjeta, sin retraso */
+}
+.card:nth-child(2).visible {
+  animation-delay: 0.3s; /* Segunda tarjeta, con 0.3s de retraso */
+}
+.card:nth-child(3).visible {
+  animation-delay: 0.6s; /* Tercera tarjeta, con 0.6s de retraso */
 }
 
 .card img{
