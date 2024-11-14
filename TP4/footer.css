@@ -18,18 +18,182 @@ body {
 .pre-footer-section {
     height: 1570px;
     width: 1280px;
-    padding: 0 100px;
+    padding: 190px 100px 0 100px; /* top right bot left */
     background: linear-gradient(to bottom, #FFFFFF, #EDFDFF, #ADF8FD, #E0D299);
+    position: relative;
+    overflow: hidden;
 }
 
 .pre-footer-section h1 {
+    position: absolute;
     height: 171px;
     width: 816px;
+    top: 100px;
+    z-index: 4;
     font-size: 60px;
     font-weight: 700;
     min-width: 802px;
     color: #000;
 }
+
+#pre-footer-form {
+    position: absolute;
+    top: 397px;
+    z-index: 4;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#pre-footer-form input {
+    height: 100px;
+    width: 562px;
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 94.5%;
+    letter-spacing: 2.2px;
+
+    color: rgba(0, 0, 0, 0.39);
+    background-color: #ECECEC;
+
+    padding-left: 52px;
+
+    border: 8px solid #FFFFFF;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    box-shadow: 4px 5px 0 #02187E;
+}
+
+#pre-footer-form button {
+    height: 100px;
+    width: 218px;
+
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 94.5%;
+    letter-spacing: 2.2px;
+
+    color: #FFFFFF;
+    background-color: #83C252;
+
+    border-top: 8px solid #FFFFFF;
+    border-right: 8px solid #FFFFFF;
+    border-bottom: 8px solid #FFFFFF;
+    border-left: none;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 4px 5px 0 #02187E;
+}
+
+.pre-footer-section p {
+    position: absolute;
+    height: 95px;
+    width: 578px;
+    bottom: 932px;
+    z-index: 4;
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 94.5%;
+    color: #000000;
+}
+
+.pre-footer-section span {
+    text-decoration: underline;
+}
+
+.pre-footer-esrb {
+    position: absolute;
+    height: 145px;
+    width: 231px;
+    top: 649px;
+    z-index: 4;
+}
+
+/**  Inicio Nubes **/
+@keyframes scroll {
+    0% { transform: translateX(387px); }
+    100% { transform: translateX(-1280px); }
+}
+
+.layer {
+    position: absolute;
+    background-repeat: repeat-x;
+    background-size: cover;
+}
+
+.layer-1 {
+    background-image: url("./images/pre-footer-cloud.svg");
+    animation: scroll 20s infinite linear;
+    height: 181px;
+    width: 387px;
+    top: 819px;
+    left: -540px;
+    position: absolute;
+    z-index: 1;
+}
+
+
+.layer-2 {
+    background-image: url("./images/pre-footer-cloud.svg");
+    animation: scroll 15s infinite linear;
+    height: 124px;
+    width: 265px;
+    top: 517px;
+    left: 372px; /* 540 - 168 (xFIGMA nube 3 - xFIGMA nube 2) */
+    position: absolute;
+    z-index: 2;
+}
+
+.layer-3 {
+    background-image: url("./images/pre-footer-cloud.svg");
+    animation: scroll 10s infinite linear;
+    height: 181px;
+    width: 387px;
+    top: 560px;
+    left: 540px;
+    position: absolute;
+    z-index: 3;
+}
+/**  Fin Nubes **/
+
+.pre-footer-grass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 389px;
+    width: 1280px;
+    z-index: 0; /* Envía el césped al fondo, detrás de otros elementos */
+}
+
+.pre-footer-number-2 {
+    position: absolute;
+    height: 480px;
+    width: 480px;
+    bottom: 42px;
+    left: 65px;
+    z-index: 4;
+}
+
+.pre-footer-number-3 {
+    position: absolute;
+    height: 509px;
+    width: 509px;
+    bottom: 42px;
+    left: 407px;
+    z-index: 4;
+}
+
+.pre-footer-number-7 {
+    position: absolute;
+    height: 997px;
+    width: 561px;
+    top: 613px;
+    left: 756px;
+    z-index: 4;
+}
+
 /* FIN SECCIÓN "PRE FOOTER"*/
 
 /* INICIO SECCIÓN "FOOTER" */
