@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Licencias</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+        }
+
+        .header {
+            border: 1px solid #000000;         
+            font-size: 20px;            
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .table-header {
+            font-size: 15px;            
+            text-transform: uppercase;
+        }
+
+        .box {
+            padding: 20px;
+        }
+
+        table {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            table td {
+                border: 1px solid #000000;           
+                padding: 8px;
+            }
+
+            table th {
+                border: 1px solid #000000;            
+                font-size: 15px;                
+                text-align: center;
+                text-transform: uppercase;
+                padding: 10px;
+            }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tfoot {
+            display: table-row-group;
+        }
+
+        tr {
+            page-break-inside: avoid;
+        }
+
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        .watermark-back {
+            position: absolute;
+            height: 100%;
+        }
+
+        .watermark {
+            position: fixed;
+            margin-left: 100px;
+            opacity: 0.3;
+            z-index: 99;
+            color: black;
+            font-size: 60px;
+            -webkit-transform: rotate(-55deg);
+        }
+
+            .watermark .title {
+                font-size: 80px;
+                font-weight: bold;
+            }
+
+        .text-center {
+            text-align: center;
+        }
+        .recuadro {
+            border: 1px solid #000; /* Grosor y color del borde */
+            padding: 20px; /* Relleno dentro del borde */
+            margin: 20px; /* Margen alrededor del recuadro */
+            text-align: center; /* Centrar el contenido */
+         }
+    </style>
+    <script>
+        function zeroPad(num, places) {
+            var zero = places - num.toString().length + 1;
+            return Array(+(zero > 0 && zero)).join("0") + num;
+        }
+        function sepNum(num) {
+            return num.replace(/\B(?=(\d{3})+(?!\d))/g, ".").toString()
+        }
+        function formatDate(date) {
+            return zeroPad(date.getDate(), 2) + "/" + zeroPad(date.getMonth() + 1, 2) + "/" + date.getFullYear();
+        }
+        function formatTime(date) {
+            return zeroPad(date.getHours(), 2) + ":" + zeroPad(date.getMinutes(), 2) + ":" + zeroPad(date.getSeconds(), 2);
+        }
+    </script>
+    
+    <div class="recuadro">
+        <div style="float: right;">                                
+            <img src="https://homologacion.sigemytrc.com/portal/imagenes/logoriocuarto.png" width="300" height="155"  /><br>
+            <div>
+                <script>
+
+                    var dt = new Date();
+
+                    var month = dt.getMonth() + 1;
+                    var day = dt.getDate();
+                    var year = dt.getFullYear();
+                    var hour = dt.getHours();
+                    var min = dt.getMinutes();
+                    var seg = dt.getSeconds();
+
+                    var minutos
+                    if (min <= 9)
+                        minutos = "0" + min;
+                    else
+                        minutos = min;
+
+                    document.write("Fecha y hora de impresión: " + day + '/' + month + '/' + year + ' - ' + hour + ':' + minutos + ':' + seg);
+                </script>            
+            </div>
+        </div>
+        <div style="float: left;">
+            <img src="https://homologacion.sigemytrc.com/portal/imagenes/so.png"  /><br>
+            <h4 >Salud Ocupacional</h4>            
+        </div>
+        <div style="text-align: center;">
+            <h2>Municipalidad de Río Cuarto</h2>
+            <h2>Secretaría de Gobierno y Participación Ciudadana</h2>
+            <h2>Subsecretaría de Recursos Humanos</h2>
+            
+        </div>           
+    </div>
+    <div style="text-align: center;">
+        <h1>Licencias Médicas </h1>
+        <h1 style="text-align: center;">Filtros Utilizados</h1>       
+            <table>
+                <thead>
+                    <th>
+                        LEGAJO
+                    </th>
+                    <th>
+                        D.N.I
+                    </th>
+                    <th>
+                        APELLIDO
+                    </th>
+                    <th>
+                        NOMBRE
+                    </th>
+                    <th>
+                        FECHA DESDE
+                    </th>
+                    <th>
+                        FECHA HASTA
+                    </th>
+                    <th>
+                        LIC. PSIQ.
+                    </th>
+                    <th>
+                        ESTADO AGENTE.
+                    </th> 
+                    <th>
+                        ESTADO LIC.
+                    </th>
+                </thead>
+                <#TABLA3>
+                <tr>                    
+                    <td class="text-center">
+                        <h5><#LEGAJO></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#DNI></h5>
+                    </td>                   
+                    <td class="text-center">
+                        <h5><#APELLIDO></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#NOMBRE></h5>
+                    </td> 
+                    <td class="text-center">
+                        <h5><#FEC_INICIO></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#FEC_FIN></h5>
+                    </td> 
+                    <td class="text-center">
+                        <h5><#LIC_PSI></h5>
+                    </td> 
+                    <td class="text-center">
+                        <h5><#ESTADO_AGENTE></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#ESTADO_LIC></h5>
+                    </td>                                  
+                </tr>
+                </#TABLA3>    
+            </table>       
+    </div>
+    <div style="text-align: center;">       
+        <h1 style="text-align: center;">Licencias Médicas</h1>       
+            <table>
+                <thead>
+                    <th>
+                        APELLIDO y NOMBRE
+                    </th>
+                    <th>
+                        NRO. LEGAJO
+                    </th>
+                    <th>
+                        ESTADO AG.
+                    </th> 
+                    <th>
+                        MOTIVO SALIDA
+                    </th> 
+                    <th>
+                        TIPO LICENCIA
+                    </th>
+                    <th>
+                        FECHA DESDE
+                    </th>
+                    <th>
+                        FECHA HASTA
+                    </th>
+                    <th>
+                        ESTADO LIC.
+                    </th> 
+                    <th>
+                        OBSERVACIONES
+                    </th>
+                    <th>
+                        CANT. DÍAS
+                    </th>
+                    <th>
+                        FECHA REAL CERTIF.
+                    </th>                   
+                    <th>
+                        PSIQ.
+                    </th>
+                    <th>
+                        MÉDICO
+                    </th>
+                    <th>
+                        DIAG.
+                    </th>                                                           
+                </thead>
+                <#TABLA1>
+                <tr>                    
+                    <td class="text-center">
+                        <h5><#APE_NOM></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#NRO_LEGAJO></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#ESTADO_AGENTE></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#MOTIVO_SALIDA></h5>
+                    </td>                 
+                    <td class="text-center">
+                        <h5><#TIPO></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#FEC_INICIO></h5>
+                    </td> 
+                    <td class="text-center">
+                        <h5><#FEC_FIN></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#ESTADO></h5>
+                    </td> 
+                    <td class="text-center">
+                        <h5><#DETALLES></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#CANT_DIAS></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#FECHA_CERT></h5>
+                    </td>                   
+                    <td class="text-center">
+                        <h5><#PSIQUIATRICO></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#MEDICO></h5>
+                    </td>
+                    <td class="text-center">
+                        <h5><#DIAGNOSTICO></h5>
+                    </td>
+                                      
+                                         
+                </tr>
+                </#TABLA1>    
+            </table>       
+    </div>
+    <br>
+    <div style="display: flex; align-items: center; justify-content: flex-start;">
+        <#TABLA2>
+            <div style="text-align: left;">           
+                <h3>Total de registros: <#TOTAL></h3>
+            </div>        
+        </#TABLA2>
+    </div>    
+    
+</body>
+</html>

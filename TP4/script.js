@@ -69,3 +69,23 @@ window.addEventListener('scroll', function() {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const images = [
+    "images/gal1.svg",
+    "images/gal2.svg",
+    "images/gal3.svg"
+  ];
+
+  let currentIndex = 0;
+  const galleryImage = document.querySelector('.gallery-image');
+
+  // Función para cambiar la imagen
+  function changeImage() {
+    currentIndex = (currentIndex + 1) % images.length; // Siguiente imagen en el array
+    galleryImage.src = images[currentIndex];
+  }
+
+  // Cambiar imagen automáticamente cada 3 segundos
+  setInterval(changeImage, 3000);
+});
