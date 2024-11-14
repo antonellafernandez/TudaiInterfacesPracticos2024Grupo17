@@ -70,6 +70,8 @@ window.addEventListener('scroll', function() {
   });
 });
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const images = [
     "images/gal1.svg",
@@ -80,10 +82,33 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
   const galleryImage = document.querySelector('.gallery-image');
 
-  // Función para cambiar la imagen
+  // Crear una imagen secundaria para la transición
+  const nextImage = document.createElement('img');
+  nextImage.classList.add('gallery-image');
+  document.querySelector('.image-frame').appendChild(nextImage);
+
+  // Función para cambiar la imagen con efecto de deslizamiento
   function changeImage() {
-    currentIndex = (currentIndex + 1) % images.length; // Siguiente imagen en el array
-    galleryImage.src = images[currentIndex];
+    // Configurar la imagen secundaria con la nueva fuente
+    currentIndex = (currentIndex + 1) % images.length;
+    nextImage.src = images[currentIndex];
+
+    // Colocar la nueva imagen en la posición inicial (derecha)
+    nextImage.classList.add('slide-in-left');
+
+    // Deslizar ambas imágenes al mismo tiempo
+    galleryImage.classList.add('slide-out-left');
+    nextImage.classList.remove('slide-in-left');
+
+    // Esperar a que la animación termine antes de intercambiar las imágenes
+    setTimeout(() => {
+      // Cambiar la referencia principal a la nueva imagen
+      galleryImage.src = nextImage.src;
+
+      // Resetear las clases de animación
+      galleryImage.classList.remove('slide-out-left');
+      nextImage.classList.add('slide-in-left');
+    }, 600); // Tiempo en milisegundos que tarda la animación
   }
 
   // Cambiar imagen automáticamente cada 3 segundos

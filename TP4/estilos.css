@@ -496,6 +496,7 @@ nav{
   justify-content: center;
   box-sizing: border-box; /* Incluye el borde en las dimensiones */
   overflow: hidden;
+  position: relative;
 }
 
 /* Estilo para la imagen que estará dentro del marco */
@@ -504,6 +505,14 @@ nav{
   height: 100%;
   object-fit: cover;
   border-radius: 48px; /* Opcional: bordes internos redondeados */
+  position: absolute; /* Para permitir la animación de deslizamiento */
+  transition: transform 0.6s ease; /* Transición suave */
+}
+
+/* Estado para mover la imagen hacia la izquierda */
+.gallery-image.slide-out-left {
+  transform: translateX(-100%);
+  z-index: 2;
 }
 
 .numero-cuatro{
