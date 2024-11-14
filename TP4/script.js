@@ -1,5 +1,42 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const circles = document.querySelectorAll('.circle');
+  const loader = document.querySelector('.loader-container');  
+  const mainContent = document.querySelector('.pageContent');  
+
+  let currentIndex = 0;
+  let showLoaderDuration = 3000; 
+
+
+  function showNextNumber() {
+    circles.forEach((circle, index) => {
+      circle.style.opacity = '0';
+      circle.style.transform = 'scale(0.5)';
+    });
+
+
+    const nextCircle = circles[currentIndex];
+    nextCircle.style.opacity = '1';
+    nextCircle.style.transform = 'scale(1)';
+
+    currentIndex = (currentIndex + 1) % circles.length;
+
+
+    setTimeout(showNextNumber, 1000);
+  }
+
+
+  showNextNumber();
+
+
+  setTimeout(() => {
+    loader.style.display = 'none'; 
+    mainContent.style.display = 'block'; 
+  }, showLoaderDuration); 
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
-  const scrollFactor = 0.3; // Ajusta este valor para controlar la velocidad de movimiento
+  const scrollFactor = 0.3; 
   
 
   window.addEventListener('scroll', function () {

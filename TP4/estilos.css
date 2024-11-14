@@ -16,6 +16,89 @@ body{
     background-color: white;
 }
 
+/*ESTILOS DEL LOADER..............................*/
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Contenedor de números */
+.number-loader {
+  display: flex;
+  gap: 20px; /* Espacio entre círculos */
+  animation: bounce 2s infinite; /* Animación de rebote del conjunto */
+}
+
+/* Círculos con números */
+.circle {
+  width: 80px;
+  height: 80px;
+  background-color: #FFD700; /* Amarillo brillante */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  animation: colorChange 2s infinite; 
+}
+
+
+@keyframes colorChange {
+  0% {
+    background-color: #FFD700;
+  }
+  25% {
+    background-color: #FFA07A;
+  }
+  50% {
+    background-color: #98FB98;
+  }
+  75% {
+    background-color: #87CEFA; 
+  }
+  100% {
+    background-color: #FFD700; 
+  }
+}
+
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+
+.number {
+  animation: spinAndAppear 1.5s infinite ease-in-out;
+}
+
+
+@keyframes spinAndAppear {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: rotate(360deg) scale(1.2); 
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.5;
+  }
+}
+/*FIN DE ESTILOS DEL LOADER..............................*/
+
+
+/*ESTILOS NAVEGADOR, MENU, ETC............*/
 header{
   width: 1280px;
   height: 80px;
@@ -33,7 +116,7 @@ header svg {
 header.abajo{
   width: 1280px;
   height: 80px;
-  background-color: rgba(255, 255, 255, 0.8);  
+  background-color: rgba(39, 161, 65, 0.8);  
   padding-bottom: 20px;
 }
 
@@ -68,9 +151,26 @@ header.abajo{
 
   
 }
-.btnComprar:hover{
+
+/* Efecto hover con keyframes */
+.btnComprar:hover {
+  animation: hoverPulse 0.6s ease-in-out forwards; /* Activa la animación */
   box-shadow: 0px 0px 15px 10px white;
 }
+
+/* Animación con keyframes */
+@keyframes hoverPulse {
+  0% {
+    transform: scale(1); /* Tamaño original */
+  }
+  50% {
+    transform: scale(1.05); /* Aumenta ligeramente de tamaño */
+  }
+  100% {
+    transform: scale(1); /* Vuelve a su tamaño original */
+  }
+}
+
 @keyframes fadeIn {
   0% {
       opacity:0;
