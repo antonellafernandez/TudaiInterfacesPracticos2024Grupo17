@@ -5,9 +5,9 @@ const textSections = document.querySelectorAll('.amigos-diversion-right div');
 // Asegura que cada imagen tenga un evento onload para manejar su visibilidad
 images.forEach((img, index) => {
     img.onload = () => {
-        // La primera imagen será visible al inicio
+        // Una vez que la imagen ha cargado, se le puede aplicar la transición cuando sea activa
         if (index === 0) {
-            img.classList.add('active');
+            img.classList.add('active'); // La primera imagen será visible al inicio
         }
     };
 });
@@ -25,15 +25,9 @@ function handleScroll() {
         if (scrollPosition >= sectionTop - window.innerHeight / 2 &&
             scrollPosition < sectionTop + sectionHeight) {
 
-            // Muestra la imagen correspondiente, o la primera imagen si es el último div
+            // Muestra la imagen correspondiente
             images.forEach(img => img.classList.remove('active'));
-
-            if (index < images.length) {
-                images[index].classList.add('active');
-            } else {
-                // Si es el último div, muestra la primera imagen
-                images[0].classList.add('active');
-            }
+            images[index].classList.add('active');
         }
     });
 }
