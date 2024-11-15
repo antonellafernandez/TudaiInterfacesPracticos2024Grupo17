@@ -14,6 +14,18 @@ body {
     width: 100%;
 }
 
+#grilla-colores-number-1 {
+    width:226px;
+    height: 317px;
+    background: url("./images/sprites-bw.svg") left center;
+    animation: spin 6s steps(3) infinite;
+}
+
+@keyframes spin {
+    0% { background-position: 0; }
+    100% { background-position: -678px; }
+}
+
 /* INICIO SECCIÓN "PRE FOOTER"*/
 .pre-footer-section {
     height: 1570px;
