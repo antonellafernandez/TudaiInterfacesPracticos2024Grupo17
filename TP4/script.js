@@ -86,7 +86,7 @@ window.addEventListener('scroll', function() {
 
   // Efecto parallax para .numero-cuatro (movimiento muy sutil)
   var numeroCuatro = document.querySelector('.numero-cuatro');
-  numeroCuatro.style.transform = `translateY(${scrollY * 0.04}px)`;  // Movimiento muy sutil
+  numeroCuatro.style.transform = `translateY(${scrollY * 0.06}px)`;  // Movimiento muy sutil
 
   // Efecto parallax para .numero-cinco (movimiento más suave, menos pronunciado)
   var numeroCinco = document.querySelector('.numero-cinco');
