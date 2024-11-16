@@ -700,6 +700,74 @@ height: 600px;
 
 /* TERCERA SECCION*/
 
+.seccion-3 {
+  background-image: url("images/imagen-fondo-seccion-2.svg");
+  position: relative; 
+  overflow: hidden; 
+  z-index:1;
+  width: 1280px;
+  height: 1157px;
+
+}
+
+.seccion-3 #parallax{
+  margin-top: 420px;
+}
+.seccion-3 p{
+  position: absolute;
+  width: 950px;
+  height: 153px;
+  margin-left: 450px;
+  margin-top: 200px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 61.14px;
+  line-height: 110%;
+  color: #FFFFFF;
+  left: calc(20% - 950px/2);
+}
+
+
+
+.btnDescargar {
+  background: #83C252;
+  box-shadow: 4px 5px 0px #02187E;
+  border-radius: 111px;
+  width: 540px;
+  height: 66px;
+  position: absolute;
+  margin-top: 400px;
+  margin-left: 450px;
+  left: calc(30% - 950px/2);
+  color: #FFFFFF;
+  border: 8px solid #FFFFFF;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 31.14px;
+  line-height: 110%;
+  position: absolute;
+  z-index: 999;
+}
+
+
+
+.btnDescargar:hover{
+  box-shadow: 0px 0px 15px 10px white;
+}
+
+
+#parallax {
+  position: absolute;
+  width: 1280px; /* Ancho en píxeles, ajusta según el diseño */
+  height: 767px; /* Altura en píxeles, ajusta según el diseño */
+  background-image: url("images/personajesSeccion2.svg");
+  background-repeat: no-repeat;
+  background-size: 1300px 800px; /* Tamaño específico del fondo en píxeles */
+  z-index: 2;
+}
+
 /* INICIO SECCIÓN "MÁS AMIGOS, MÁS DIVERSION!" */
 .amigos-diversion-section {
   width: 1280px;
