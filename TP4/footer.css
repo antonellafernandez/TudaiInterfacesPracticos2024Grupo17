@@ -13,7 +13,7 @@ body {
     color: #000;
     width: 100%;
 }
-
+/*
 #grilla-colores-number-1 {
     width:226px;
     height: 317px;
@@ -24,7 +24,49 @@ body {
 @keyframes spin {
     0% { background-position: 0; }
     100% { background-position: -678px; }
+}*/
+
+/* INICIO SECCIÓN "GRILLA COLORES"*/
+.grilla-colores-section {
+    height: 729px;
+    width: 1280px;
+
+    background-image: url("images/grilla-colores.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    overflow: hidden;
 }
+
+.grilla-colores-numbers-1 {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    height: 373px;
+}
+
+.grilla-colores-numbers-2 {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    height: 323px;
+}
+
+.grilla-colores-section img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grilla-colores-section img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 32px 16px rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+/* FIN SECCIÓN "GRILLA COLORES"*/
 
 /* INICIO SECCIÓN "PRE FOOTER"*/
 .pre-footer-section {
@@ -36,23 +78,43 @@ body {
     overflow: hidden;
 }
 
-.pre-footer-section h1 {
+.pre-footer-container-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 46px;
+
     position: absolute;
+    z-index: 4;
+}
+
+.pre-footer-container-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 36px;
+}
+
+.pre-footer-container-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+}
+
+.pre-footer-section h1 {
     height: 171px;
     width: 816px;
-    top: 100px;
-    z-index: 4;
     font-size: 60px;
     font-weight: 700;
-    min-width: 802px;
+    line-height: 94.5%;
     color: #000;
 }
 
 #pre-footer-form {
-    position: absolute;
-    top: 397px;
-    z-index: 4;
-
     display: flex;
     flex-direction: row;
 }
@@ -99,11 +161,8 @@ body {
 }
 
 .pre-footer-section p {
-    position: absolute;
     height: 95px;
     width: 578px;
-    bottom: 932px;
-    z-index: 4;
 
     font-size: 20px;
     font-weight: 400;
@@ -116,19 +175,11 @@ body {
 }
 
 .pre-footer-esrb {
-    position: absolute;
     height: 145px;
     width: 231px;
-    top: 649px;
-    z-index: 4;
 }
 
 /**  Inicio Nubes **/
-@keyframes scroll {
-    0% { transform: translateX(387px); }
-    100% { transform: translateX(-1280px); }
-}
-
 .layer {
     position: absolute;
     background-repeat: repeat-x;
@@ -137,11 +188,8 @@ body {
 
 .layer-1 {
     background-image: url("./images/pre-footer-cloud.svg");
-    animation: scroll 20s infinite linear;
     height: 181px;
     width: 387px;
-    top: 819px;
-    left: -540px;
     position: absolute;
     z-index: 1;
 }
@@ -149,22 +197,16 @@ body {
 
 .layer-2 {
     background-image: url("./images/pre-footer-cloud.svg");
-    animation: scroll 15s infinite linear;
     height: 124px;
     width: 265px;
-    top: 517px;
-    left: 372px; /* 540 - 168 (xFIGMA nube 3 - xFIGMA nube 2) */
     position: absolute;
     z-index: 2;
 }
 
 .layer-3 {
     background-image: url("./images/pre-footer-cloud.svg");
-    animation: scroll 10s infinite linear;
     height: 181px;
     width: 387px;
-    top: 560px;
-    left: 540px;
     position: absolute;
     z-index: 3;
 }
