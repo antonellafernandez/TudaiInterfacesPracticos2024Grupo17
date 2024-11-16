@@ -796,6 +796,7 @@ Right
   overflow: hidden;
   min-height: 1443.83px;
   position: relative;
+  perspective: 1000px;
 }
 
 .video-youtube h1{
@@ -816,6 +817,7 @@ Right
   overflow: hidden;
   position: relative; 
   z-index: 1;
+  will-change: transform;
 }
 
 .numero-3 {
@@ -824,6 +826,8 @@ Right
   right: -40px; /* Ajusta horizontalmente según sea necesario */
   transform: translateY(-50%); /* Centra la imagen verticalmente */
   z-index: 6; /* Coloca la imagen por encima del video */
+  will-change: transform; /* Mejora la eficiencia del parallax */
+  transition: transform 0.2s ease-out; /* Suaviza la transición */
 }
 
 .numero-3 img {

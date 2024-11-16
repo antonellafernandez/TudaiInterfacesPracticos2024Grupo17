@@ -1,153 +1,105 @@
 document.addEventListener("DOMContentLoaded", () => {
   const circles = document.querySelectorAll('.circle');
-  const loader = document.querySelector('.loader-container');  
-  const mainContent = document.querySelector('.pageContent');  
-
-  let currentIndex = 0;
-  let showLoaderDuration = 3000; 
-
-
-  function showNextNumber() {
-    circles.forEach((circle, index) => {
-      circle.style.opacity = '0';
-      circle.style.transform = 'scale(0.5)';
-    });
-
-
-    const nextCircle = circles[currentIndex];
-    nextCircle.style.opacity = '1';
-    nextCircle.style.transform = 'scale(1)';
-
-    currentIndex = (currentIndex + 1) % circles.length;
-
-
-    setTimeout(showNextNumber, 1000);
-  }
-
-
-  showNextNumber();
-
-
-  setTimeout(() => {
-    loader.style.display = 'none'; 
-    mainContent.style.display = 'block'; 
-  }, showLoaderDuration); 
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  const scrollFactor = 0.3; 
-  
-
-  window.addEventListener('scroll', function () {
-    let logo = document.querySelector('.layer-3');
-
-    var header = document.querySelector("header")
-    header.classList.toggle("abajo",window.scrollY>0)  //cuando la haga scroll y el valor sea mayor a 0
-    
-    var dropMenu = document.querySelector(".drop-menu")
-    dropMenu.classList.toggle("abajo2",window.scrollY>0) 
-    
-    // Obtener el desplazamiento vertical de la página
-    const scrollY = window.scrollY || window.pageYOffset;
-    
-    
-    // Agregar la clase 'small' cuando el desplazamiento es mayor que 200px
-    if (window.scrollY > 20) {
-        logo.classList.add("small");
-    } else {
-        logo.classList.remove("small");
-    }
-
-  
-    
-  });
-});
-
-
-const menuButton = document.querySelector('.menu');
-const dropMenu = document.querySelector('.drop-menu');
-const navListItems = document.querySelectorAll('.nav-list li');
-
-menuButton.addEventListener('click', function() {
-  dropMenu.classList.toggle('visible');
-  menuButton.classList.toggle('active');
-
-  if (dropMenu.classList.contains('visible')) {
-    navListItems.forEach((item, index) => {
-      item.style.animationDelay = `${index * 200}ms`; // retraso de los LI
-    });
-  }
-});
-
-
-window.addEventListener('scroll', function() {
-  var scrollY = window.scrollY;
-
-  // Efecto parallax para .numero-cuatro (movimiento muy sutil)
-  var numeroCuatro = document.querySelector('.numero-cuatro');
-  numeroCuatro.style.transform = `translateY(${scrollY * 0.06}px)`;  // Movimiento muy sutil
-
-  // Efecto parallax para .numero-cinco (movimiento más suave, menos pronunciado)
-  var numeroCinco = document.querySelector('.numero-cinco');
-  numeroCinco.style.transform = `translateY(${scrollY * 0.03}px)`;  // Movimiento más sutil
-});
-
-window.addEventListener('scroll', function() {
-  var cards = document.querySelectorAll('.card');
-  
-  // Recorre todas las tarjetas
-  cards.forEach(function(card) {
-    var rect = card.getBoundingClientRect();
-    
-    // Si la tarjeta está dentro del viewport (ajustando el top a la altura de la ventana)
-    if (rect.top >= 0 && rect.top <= window.innerHeight * 0.8) { // 80% de la ventana
-      card.classList.add('visible');  // Activa la animación
-    }
-  });
-});
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const images = [
-    "images/gal1.svg",
-    "images/gal2.svg",
-    "images/gal3.svg"
-  ];
-
-  let currentIndex = 0;
+  const loader = document.querySelector('.loader-container');
+  const mainContent = document.querySelector('.pageContent');
+  const menuButton = document.querySelector('.menu');
+  const dropMenu = document.querySelector('.drop-menu');
+  const navListItems = document.querySelectorAll('.nav-list li');
   const galleryImage = document.querySelector('.gallery-image');
-
-  // Crear una imagen secundaria para la transición
+  const video = document.querySelector('.video');
+  const numero3 = document.querySelector('.numero-3');
+  const parallaxElements = [
+    { selector: '.numero-cuatro', speed: 0.06 },
+    { selector: '.numero-cinco', speed: 0.03 },
+  ];
+  
+  let currentIndex = 0;
+  const showLoaderDuration = 3000;
+  const images = ["images/gal1.svg", "images/gal2.svg", "images/gal3.svg"];
   const nextImage = document.createElement('img');
   nextImage.classList.add('gallery-image');
   document.querySelector('.image-frame').appendChild(nextImage);
 
-  // Función para cambiar la imagen con efecto de deslizamiento
-  function changeImage() {
-    // Configurar la imagen secundaria con la nueva fuente
+  // Helper functions
+  const toggleClassOnScroll = (element, className, offset = 0) => {
+    const scrollY = window.scrollY;
+    if (scrollY > offset) {
+      element.classList.add(className);
+    } else {
+      element.classList.remove(className);
+    }
+  };
+
+  const applyParallax = () => {
+    parallaxElements.forEach(({ selector, speed, offset = '0' }) => {
+      const element = document.querySelector(selector);
+      if (element) {
+        const scrollY = window.scrollY;
+        element.style.transform = `translateY(${scrollY * speed}px) translateY(${offset})`;
+      }
+    });
+  };
+
+  // Animations
+  const showNextCircle = () => {
+    circles.forEach((circle, index) => {
+      circle.style.opacity = '0';
+      circle.style.transform = 'scale(0.5)';
+    });
+    const nextCircle = circles[currentIndex];
+    nextCircle.style.opacity = '1';
+    nextCircle.style.transform = 'scale(1)';
+    currentIndex = (currentIndex + 1) % circles.length;
+    setTimeout(showNextCircle, 1000);
+  };
+
+  const changeGalleryImage = () => {
     currentIndex = (currentIndex + 1) % images.length;
     nextImage.src = images[currentIndex];
-
-    // Colocar la nueva imagen en la posición inicial (derecha)
     nextImage.classList.add('slide-in-left');
-
-    // Deslizar ambas imágenes al mismo tiempo
     galleryImage.classList.add('slide-out-left');
-    nextImage.classList.remove('slide-in-left');
-
-    // Esperar a que la animación termine antes de intercambiar las imágenes
     setTimeout(() => {
-      // Cambiar la referencia principal a la nueva imagen
       galleryImage.src = nextImage.src;
-
-      // Resetear las clases de animación
       galleryImage.classList.remove('slide-out-left');
-      nextImage.classList.add('slide-in-left');
-    }, 600); // Tiempo en milisegundos que tarda la animación
-  }
+      nextImage.classList.remove('slide-in-left');
+    }, 600);
+  };
 
-  // Cambiar imagen automáticamente cada 3 segundos
-  setInterval(changeImage, 3000);
+  const handleCardsVisibility = () => {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top <= window.innerHeight * 0.8) {
+        card.classList.add('visible');
+      }
+    });
+  };
+
+  // Event Listeners
+  window.addEventListener('scroll', () => {
+    toggleClassOnScroll(document.querySelector('header'), 'abajo', 0);
+    toggleClassOnScroll(dropMenu, 'abajo2', 0);
+    toggleClassOnScroll(document.querySelector('.layer-3'), 'small', 20);
+    applyParallax();
+    handleCardsVisibility();
+  });
+
+  menuButton.addEventListener('click', () => {
+    dropMenu.classList.toggle('visible');
+    menuButton.classList.toggle('active');
+    if (dropMenu.classList.contains('visible')) {
+      navListItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 200}ms`;
+      });
+    }
+  });
+
+  // Initialization
+  setTimeout(() => {
+    loader.style.display = 'none';
+    mainContent.style.display = 'block';
+  }, showLoaderDuration);
+
+  showNextCircle();
+  setInterval(changeGalleryImage, 3000);
 });
