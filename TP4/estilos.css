@@ -46,7 +46,6 @@ body{
   animation: colorChange 2s infinite; 
 }
 
-
 @keyframes colorChange {
   0% {
     background-color: #FFD700;
@@ -65,7 +64,6 @@ body{
   }
 }
 
-
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
@@ -75,11 +73,9 @@ body{
   }
 }
 
-
 .number {
   animation: spinAndAppear 1.5s infinite ease-in-out;
 }
-
 
 @keyframes spinAndAppear {
   0% {
@@ -95,11 +91,10 @@ body{
     opacity: 0.5;
   }
 }
-/*FIN DE ESTILOS DEL LOADER..............................*/
+/* FIN DE ESTILOS DEL LOADER..............................*/
 
-
-/*ESTILOS NAVEGADOR, MENU, ETC............*/
-header{
+/* ESTILOS NAVEGADOR, MENU, ETC............*/
+header {
   width: 1280px;
   height: 80px;
   position: fixed;
@@ -113,14 +108,14 @@ header svg {
   margin-top: 20px;
 }
 
-header.abajo{
+header.abajo {
   width: 1280px;
   height: 80px;
   background-color: rgb(37, 167, 218);  
   padding-bottom: 20px;
 }
 
-.btnComprar{
+.btnComprar {
   margin-top: 0.5%;
   font-family: 'Lato';
   font-style: normal;
@@ -140,7 +135,7 @@ header.abajo{
   background: #77c43c;
   /* Drop Shadow */
   box-shadow: 4px 5px 0px #02187E;
-  -webkit-text-stroke:2px;
+  -webkit-text-stroke: 2px;
   color: #ffffff;
   line-height: 94.5%; /* 18.9px */
   letter-spacing: 0.1em;
@@ -148,8 +143,6 @@ header.abajo{
   padding-top: 14px;
   width: 230px;
   height: 60px;
-
-  
 }
 
 /* Efecto hover con keyframes */
@@ -211,8 +204,6 @@ header.abajo{
   }
 }
 
-
-
 .drop-menu {
   display: none;
   width: 250px;
@@ -224,12 +215,12 @@ header.abajo{
   z-index: 999; /* menú por encima del contenido */
   position: fixed;
   background-color: rgba(7, 207, 77, 0.562);
-  
 }
   
-.drop-menu.abajo2{
+.drop-menu.abajo2 {
   margin-top: 20px;
 }
+
 .visible {
   display: block;
   opacity: 1;
@@ -243,7 +234,7 @@ header.abajo{
   font-size: 1.5rem;
 }
 
-  /* retraso gradual a cada elemento li */
+/* Retraso gradual a cada elemento li */
 .nav-list li {
   display: flex;
   justify-content: center;
@@ -267,48 +258,44 @@ header.abajo{
   box-shadow: 4px 5px 0px 0px #024318;
   color: #024318;
   letter-spacing: 2.2px;
-  -webkit-text-stroke:2px;
+  -webkit-text-stroke: 2px;
 }
 
-
-  @keyframes slide {
+@keyframes slide {
   from {
-      opacity: 0;
-      transform: translateX(-100%);
+    opacity: 0;
+    transform: translateX(-100%);
   }
   to {
-      opacity: 1;
-      transform: translateX(0%);
+    opacity: 1;
+    transform: translateX(0%);
   }
-  }
+}
 
-  .nav-list li:hover{
-      box-shadow: 0px 0px 15px 10px white;
-  }
+.nav-list li:hover{
+  box-shadow: 0px 0px 15px 10px white;
+}
 
-  
- 
-  .menu .rect1,
-  .menu .rect2,
-  .menu .rect3 {
-    transition: opacity 0.4s ease, transform 0.5s ease; /* Ajusta la duración y el tipo de animación según tus preferencias */
-  }
+.menu .rect1,
+.menu .rect2,
+.menu .rect3 {
+  transition: opacity 0.4s ease, transform 0.5s ease; /* Ajusta la duración y el tipo de animación según tus preferencias */
+}
 
-/* animacion*/
-
-  .menu.active .rect1{
+/* Animación */
+.menu.active .rect1{
   opacity: 0;
-  }
-  .menu.active .rect2 {
+}
+
+.menu.active .rect2 {
   transform: translate(20px, -7px) rotate(45deg);
-  }
+}
 
-  .menu.active .rect3 {
+.menu.active .rect3 {
   transform: translate(-10px, 15px) rotate(-45deg);
-  }
+}
 
-  
-.layer-3{
+.layer-3 {
   position: absolute;
   background-image: url("../images/LOGO.png");
   width: 590px;
@@ -327,17 +314,16 @@ header.abajo{
   width: 133px;
   height: 68px;
   z-index: 9999;
-
 }
 
-
-nav{
+nav {
   position: absolute;
   width: 1280px;
   height: 1100px;  
   overflow: hidden;
 
 }
+
 /*  TDDOS LOS LAYER DEBEN TENRE UNA PROPIEDAD EN COMUN  */
 .layer{
   position: absolute;
@@ -345,20 +331,18 @@ nav{
   background-repeat: repeat-x;
 }
 
-
-/*  en cada layer cambiamos la velocidad de la animacion    */
-.layer-16{
+/*  En cada layer cambiamos la velocidad de la animacion    */
+.layer-16 {
   position: absolute;
   background-image: url("images/paisaje.svg");
   animation: scroll 10s infinite linear ;
   width: 1280px;
   height: 1010px;
-  background-repeat: repeat-x; /*hace que la imagen cuando se 
-                          termina en x se pone devuelta la imagen la pone el browser automaticamente*/
+  background-repeat: repeat-x; /* Hace que la imagen cuando se
+                          termina en x se pone devuelta la imagen la pone el browser automaticamente */
 }
 
-
-.layer-15{
+.layer-15 {
   background-image: url("images/arbusto4.svg");
   background-size: contain;
   width: 191.19px;
@@ -368,8 +352,7 @@ nav{
   z-index: 1;
 }
 
-
-.layer-14{
+.layer-14 {
   background-image: url("images/arbusto3.svg");
   background-size: contain;
   width: 244.37px;
@@ -379,8 +362,7 @@ nav{
   z-index: 3;
 }
 
-
-.layer-13{
+.layer-13 {
   background-image: url("images/arbusto2.svg");
   background-size: contain;
   width: 249.76px;
@@ -390,9 +372,7 @@ nav{
   z-index: 1;
 }
 
-
-
-.layer-12{
+.layer-12 {
   background-image: url("images/rock4.svg");
   background-size: contain;
   width: 59.24px;
@@ -402,8 +382,7 @@ nav{
   z-index: 6;
 }
 
-
-.layer-11{
+.layer-11 {
   background-image: url("images/rock3.svg");
   background-size: contain;
   width: 66.65px;
@@ -413,9 +392,7 @@ nav{
   z-index: 4;
 }
 
-
-
-.layer-10{
+.layer-10 {
   background-image: url("images/rock.svg");
   background-size: contain;
   width: 113.77px;
@@ -425,31 +402,25 @@ nav{
   z-index: 5;
 }
 
-
-
-.layer-9{
+.layer-9 {
   background-image: url("images/arbol3.svg");
   width: 278.03px;
   height: 430.85px;
   margin-top: 280px;
   margin-left: 1080px;
   z-index: 2;
-
- 
-
 }
 
-.layer-8{
+.layer-8 {
   background-image: url("images/arbol2.svg");
   width: 434.21px;
   height: 672.52px;
   margin-top: 98px;
   margin-left: 878px;
   z-index: 3;
-
 }
 
-.layer-7{
+.layer-7 {
   background-image: url("images/arbol1.svg");
   margin-top: 1px;
   width: 560.1px;
@@ -458,8 +429,7 @@ nav{
   z-index: 2;
 }
 
-
-.layer-6{
+.layer-6 {
   background-image: url("images/RedOne.svg");
   width: 240.4px;
   height: 314.48px;
@@ -469,13 +439,7 @@ nav{
   z-index: 3;
 }
 
-
-
-
-
-
-
-.layer-5{
+.layer-5 {
   background-image: url("images/OrangeTwo.svg");
   animation-name: scale;
   width: 197px;
@@ -487,7 +451,8 @@ nav{
   z-index: 2;
 
 }
-.layer-4{
+
+.layer-4 {
   background-image: url("images/yellowThree.svg");
   width: 190px;
   height: 384px;
@@ -497,7 +462,8 @@ nav{
   z-index: 1;
 
 }
-.layer-3{
+
+.layer-3 {
   position: absolute;
   background-image: url("images/logo.svg");
   width: 590px;
@@ -530,7 +496,6 @@ nav{
 
 }
 
-
 .layer-2{
   background-image: url("images/arbusto.svg");
   width: 158.41px;
@@ -539,8 +504,6 @@ nav{
   margin-top: 825px;
   z-index: 72;
 }
-
-
 
 /*SECCION DOS*/
 .curved-section {
@@ -551,7 +514,7 @@ nav{
 }
 
 .content-container {
-  background-image: url("images/Rectangle\ 8.png");
+  background-image: url("images/Rectangle 8.png");
   background-repeat: no-repeat;
   background-position: center center; 
   background-size: cover; 
@@ -678,9 +641,11 @@ height: 600px;
 .card:nth-child(1).visible {
   animation-delay: 0s; /* Primer tarjeta, sin retraso */
 }
+
 .card:nth-child(2).visible {
   animation-delay: 0.3s; /* Segunda tarjeta, con 0.3s de retraso */
 }
+
 .card:nth-child(3).visible {
   animation-delay: 0.6s; /* Tercera tarjeta, con 0.6s de retraso */
 }
@@ -689,17 +654,16 @@ height: 600px;
   width: 332.96px;
   height: 302.69px;
 }
+
 .card p{
   margin-top: 23px;
   font-family: 'Lato', sans-serif;
   font-size: 20px;
   color: #000000;
-  
 }
 
 
 /* TERCERA SECCION*/
-
 .seccion-3 {
   background-image: url("images/imagen-fondo-seccion-2.svg");
   position: relative; 
@@ -707,12 +671,12 @@ height: 600px;
   z-index:1;
   width: 1280px;
   height: 1157px;
-
 }
 
 .seccion-3 #parallax{
   margin-top: 420px;
 }
+
 .seccion-3 p{
   position: absolute;
   width: 950px;
@@ -727,8 +691,6 @@ height: 600px;
   color: #FFFFFF;
   left: calc(20% - 950px/2);
 }
-
-
 
 .btnDescargar {
   background: #83C252;
@@ -751,12 +713,9 @@ height: 600px;
   z-index: 999;
 }
 
-
-
 .btnDescargar:hover{
   box-shadow: 0px 0px 15px 10px white;
 }
-
 
 #parallax {
   position: absolute;
@@ -771,7 +730,7 @@ height: 600px;
 /* INICIO SECCIÓN "MÁS AMIGOS, MÁS DIVERSION!" */
 .amigos-diversion-section {
   width: 1280px;
-  padding: 174px 100px;
+  padding: 174px 100px 0;
 }
 
 .amigos-diversion {
@@ -856,7 +815,6 @@ Right
 
 
 /* SECCION CON EL VIDEO DE YOUTUBE*/
-
 .video-youtube{
   background-image: url("images/fondovideo.svg");
   background-repeat: no-repeat;
