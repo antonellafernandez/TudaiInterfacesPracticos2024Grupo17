@@ -860,6 +860,11 @@ Right
   width: 638px; /* Ajusta el tamaño máximo según necesidad */
   height: 989px;
 }
+/*<dna*/
+
+.section-3dfigure{
+  height: 1000px;
+}
 
 /* INICIO SECCIÓN "GRILLA COLORES"*/
 .grilla-colores-section {
