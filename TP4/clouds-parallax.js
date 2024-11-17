@@ -1,4 +1,4 @@
-const layers = document.querySelectorAll('.layer');
+const layers = document.querySelectorAll('.cloud-layer');
 
 // Configuración de cada capa (sin especificar cloudWidth)
 const configs = [
@@ -56,5 +56,27 @@ function animateLayer(layer, config) {
     requestAnimationFrame(animate);
 }
 
-// Iniciar la animación para cada capa
-layers.forEach((layer, index) => animateLayer(layer, configs[index]));
+// Seleccionar la sección `pre-footer-section`
+const preFooterSection = document.querySelector('.pre-footer-section');
+
+// Configurar Intersection Observer para la sección
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Iniciar la animación de todas las capas
+                layers.forEach((layer, index) => animateLayer(layer, configs[index]));
+
+                // Dejar de observar la sección (evita reiniciar animaciones)
+                observer.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        root: null, // Viewport actual
+        threshold: 0.1, // Activar cuando el 10% de la sección sea visible
+    }
+);
+
+// Observar la sección
+observer.observe(preFooterSection);

@@ -1015,13 +1015,13 @@ Right
 }
 
 /**  Inicio Nubes **/
-.layer {
+.cloud-layer {
   position: absolute;
   background-repeat: repeat-x;
   background-size: cover;
 }
 
-.layer-1 {
+.cloud-layer-1 {
   background-image: url("./images/pre-footer-cloud.svg");
   height: 181px;
   width: 387px;
@@ -1030,7 +1030,7 @@ Right
 }
 
 
-.layer-2 {
+.cloud-layer-2 {
   background-image: url("./images/pre-footer-cloud.svg");
   height: 124px;
   width: 265px;
@@ -1038,7 +1038,7 @@ Right
   z-index: 2;
 }
 
-.layer-3 {
+.cloud-layer-3 {
   background-image: url("./images/pre-footer-cloud.svg");
   height: 181px;
   width: 387px;
