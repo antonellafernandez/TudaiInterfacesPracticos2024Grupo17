@@ -720,7 +720,7 @@ height: 600px;
 #parallax {
   position: absolute;
   width: 1280px; /* Ancho en píxeles, ajusta según el diseño */
-  height: 767px; /* Altura en píxeles, ajusta según el diseño */
+  height: 745px; /* Altura en píxeles, ajusta según el diseño */
   background-image: url("images/personajesSeccion2.svg");
   background-repeat: no-repeat;
   background-size: 1300px 800px; /* Tamaño específico del fondo en píxeles */
