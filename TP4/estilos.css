@@ -813,9 +813,8 @@ Right
 }
 /* FIN SECCIÓN "MÁS AMIGOS, MÁS DIVERSIÓN!" */
 
-
 /* INICIO SECCIÓN VIDEO DE YOUTUBE */
-.video-youtube{
+.video-youtube {
   background-image: url("images/fondovideo.svg");
   background-repeat: no-repeat;
   width: 1280px;
@@ -825,7 +824,7 @@ Right
   perspective: 1000px;
 }
 
-.video-youtube h1{
+.video-youtube h1 {
   height: 171px;
   width: 802px;
   font-family: 'Lato', sans-serif;
@@ -838,7 +837,7 @@ Right
   margin-left: 100px;
 }
 
-.video{
+.video {
   margin-left: 100px;
   margin-top: 48px;
   width: 805px;
@@ -851,7 +850,7 @@ Right
   will-change: transform;
 }
 
-.numero-3 {
+.video-youtube-numero-3 {
   position: absolute; /* Coloca la imagen en relación a la sección video-youtube */
   top: 890px; /* Ajusta verticalmente según sea necesario */
   right: -40px; /* Ajusta horizontalmente según sea necesario */
@@ -861,7 +860,7 @@ Right
   transition: transform 0.2s ease-out; /* Suaviza la transición */
 }
 
-.numero-3 img {
+.video-youtube-numero-3 img {
   width: 638px; /* Ajusta el tamaño máximo según necesidad */
   height: 989px;
 }
