@@ -846,7 +846,7 @@ Right
   border-radius: 50px;
   overflow: hidden;
   position: relative; 
-  z-index: 1;
+  z-index: 2;
   will-change: transform;
 }
 
@@ -855,7 +855,7 @@ Right
   top: 890px; /* Ajusta verticalmente según sea necesario */
   right: -40px; /* Ajusta horizontalmente según sea necesario */
   transform: translateY(-50%); /* Centra la imagen verticalmente */
-  z-index: 6; /* Coloca la imagen por encima del video */
+  z-index: 3; /* Coloca la imagen por encima del video */
   will-change: transform; /* Mejora la eficiencia del parallax */
   transition: transform 0.2s ease-out; /* Suaviza la transición */
 }
