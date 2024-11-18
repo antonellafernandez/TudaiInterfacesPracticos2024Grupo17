@@ -814,7 +814,7 @@ Right
 /* FIN SECCIÓN "MÁS AMIGOS, MÁS DIVERSIÓN!" */
 
 
-/* SECCION CON EL VIDEO DE YOUTUBE*/
+/* INICIO SECCIÓN VIDEO DE YOUTUBE */
 .video-youtube{
   background-image: url("images/fondovideo.svg");
   background-repeat: no-repeat;
@@ -865,61 +865,56 @@ Right
   width: 638px; /* Ajusta el tamaño máximo según necesidad */
   height: 989px;
 }
+/* FIN SECCIÓN VIDEO DE YOUTUBE */
 
-
-/*Inicio seccion figura 3D*/
-
+/* INICIO SECCIÓN FIGURA 3D */
 .section-3dfigure{
   position:relative;
-
   height: 900px;
 }
+
 .section-3dfigure  h2{
+  position: absolute;
+  width: 746px;
+  height: 285px;
+  left: 102px;
+  top: 142px;
 
-position: absolute;
-width: 746px;
-height: 285px;
-left: 102px;
-top: 142px;
-
-font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 60px;
-line-height: 57px;
-color: #9D2121;
-z-index: 2;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 57px;
+  color: #9D2121;
+  z-index: 2;
 }
-
 
 .section-3dfigure  p{
   z-index: 2;
-  
-position: absolute;
-width: 467px;
-height: 190px;
-left: 100px;
-top: 482px;
 
-font-family: 'Lato';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 19px;
-color: #000000;
+  position: absolute;
+  width: 467px;
+  height: 190px;
+  left: 100px;
+  top: 482px;
+
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 19px;
+  color: #000000;
 }
 
 #reveal {
   position: absolute;
-
   width: 667px; /* Cambia el ancho */
   height: 973px; /* Cambia la altura */
   left: 599px;
   margin-bottom: 800px;
   z-index: 1;
 }
-
-
+/* FIN SECCIÓN FIGURA 3D */
 
 /* INICIO SECCIÓN "GRILLA COLORES"*/
 .grilla-colores-section {
