@@ -8,11 +8,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const galleryImage = document.querySelector('.gallery-image');
   const video = document.querySelector('.video');
   const numero3 = document.querySelector('.video-youtube-numero-3');
+  
   const parallaxElements = [
     { selector: '.numero-cuatro', speed: 0.06 },
     { selector: '.numero-cinco', speed: 0.03 },
   ];
   
+  const parallaxLayers = [
+    { selector: '.layer-15', speed: 0.2 },
+    { selector: '.layer-14', speed: 0.25 },
+    { selector: '.layer-13', speed: 0.3 },
+    { selector: '.layer-12', speed: 0.35 },
+    { selector: '.layer-11', speed: 0.4 },
+    { selector: '.layer-10', speed: 0.45 },
+    { selector: '.layer-9', speed: 0.5 },
+    { selector: '.layer-8', speed: 0.55 },
+    { selector: '.layer-7', speed: 0.6 }, // Árboles, rocas y arbustos
+    { selector: '.layer-6', speed: 0.2 }, // Personajes más cercanos
+    { selector: '.layer-5', speed: 0.2 },
+    { selector: '.layer-4', speed: 0.2 },
+  ];
+
   let currentIndex = 0;
   const showLoaderDuration = 3000;
   const images = ["images/gal1.svg", "images/gal2.svg", "images/gal3.svg"];
@@ -31,11 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const applyParallax = () => {
-    parallaxElements.forEach(({ selector, speed, offset = '0' }) => {
+    [...parallaxElements, ...parallaxLayers].forEach(({ selector, speed }) => {
       const element = document.querySelector(selector);
       if (element) {
         const scrollY = window.scrollY;
-        element.style.transform = `translateY(${scrollY * speed}px) translateY(${offset})`;
+        const offset = parseFloat(getComputedStyle(element).getPropertyValue('--offset') || 0);
+        element.style.transform = `translateY(${scrollY * speed + offset}px)`;
       }
     });
   };
@@ -103,6 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
   showNextCircle();
   setInterval(changeGalleryImage, 3000);
 });
+
+
+
 
 /* FUNCIÓN DE PARALLAX AL MOVERSE CONTRA EL MOUSE */
 (function() {

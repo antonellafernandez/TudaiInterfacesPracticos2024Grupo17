@@ -317,34 +317,35 @@ nav {
 
 }
 
-
 .layer-3 {
   position: absolute;
-  background-image: url("../images/LOGO.png");
-  width: 590px;
-  height: 301px;
-  margin-left: 345px;
-  margin-top: 100px;
+  background-image: url("images/logo.svg");
+  background-size: contain;
+  width: 560px;
+  height: 320px;
+  margin-left: 361px;
+  margin-top: 54px;
   transition: width 0.4s;
   z-index: 9990;
+  animation-delay: 0s;
 }
 
 .layer-3.small {
   position: absolute;
   left: 200px;
-  top: -90px;
+  top: -50px;
   padding-top: 10px;
   width: 133px;
   height: 68px;
   z-index: 9999;
-}
 
+}
 
 /*  TDDOS LOS LAYER DEBEN TENRE UNA PROPIEDAD EN COMUN  */
 .layer{
   position: absolute;
   background-size: cover;
-  background-repeat: repeat-x;
+  background-repeat: no-repeat;
   animation: fadeInScale 1s ease-out forwards;
   opacity: 0;
 }
@@ -489,29 +490,6 @@ nav {
   animation: fadeIn 1s forwards;
   z-index: 1;
   animation-delay: 0.7s;
-
-}
-
-.layer-3 {
-  position: absolute;
-  background-image: url("images/logo.svg");
-  width: 590px;
-  height: 301px;
-  margin-left: 345px;
-  margin-top: 100px;
-  transition: width 0.4s;
-  z-index: 9990;
-  animation-delay: 0s;
-}
-
-.layer-3.small {
-  position: absolute;
-  left: 200px;
-  top: -90px;
-  padding-top: 10px;
-  width: 133px;
-  height: 68px;
-  z-index: 9999;
 
 }
 
