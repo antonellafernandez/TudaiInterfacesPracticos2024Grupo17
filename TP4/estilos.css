@@ -125,17 +125,18 @@ header.abajo {
   text-align: center;
   cursor: pointer;
   flex-shrink: 0;
-  border-radius:  111px;;
+  border-radius:  111px;
   border: 8px solid #FFFFFF;
   background: #83C252;
   box-shadow: 4px 5px 0px #02187E;
   -webkit-text-stroke: 2px;
   color: #ffffff;
   line-height: 94.5%;
-  letter-spacing: 0.1em;
+  letter-spacing: 2.2px;
   padding: 14px 30px 30px 30px;
   width: 200px;
   height: 50px;
+  overflow: hidden;
 }
 
 /* Efecto hover con keyframes */
@@ -143,32 +144,25 @@ header.abajo {
   animation: hoverPulse 0.6s ease-in-out forwards; /* Activa la animación */
   box-shadow: 0px 0px 15px 10px white;
 }
-/*
-.submit-button:hover {
-  box-shadow: 0 0 20px #0e7490,
-  0 0 40px #0e7490,
-  0 0 60px #0e7490;
-}
 
-.submit-button::after {
+.btnComprar::after {
   content: "";
-  background: #0e7490;
+  background: #e05d29;
   position: absolute;
   z-index: -1;
-  padding: 16px 20px;
   display: block;
   left: -20%;
   right: -20%;
   top: 0;
   bottom: 0;
   transform: skewX(-45deg) scale(0, 1);
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
-.submit-button:hover::after {
-  transition: all 0.3s ease-out;
+.btnComprar:hover::after {
+  transition: all 0.5s ease-out;
   transform: skewX(-45deg) scale(1, 1);
-}*/
+}
 
 /* Animación con keyframes */
 @keyframes hoverPulse {
@@ -690,69 +684,94 @@ height: 600px;
   color: #000000;
 }
 
-
-/* TERCERA SECCION*/
+/* TERCERA SECCION */
 .seccion-3 {
   background-image: url("images/imagen-fondo-seccion-2.svg");
-  position: relative; 
-  overflow: hidden; 
-  z-index:1;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
   width: 1280px;
   height: 1157px;
 }
 
-.seccion-3 #parallax{
-  margin-top: 420px;
+.seccion-3-contenido {
+  margin-top: 175px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 62px;
+  z-index: 2;
+  position: relative;
 }
 
-.seccion-3 p{
-  position: absolute;
+.seccion-3 h1 {
   width: 950px;
   height: 153px;
-  margin-left: 450px;
-  margin-top: 200px;
-  font-family: 'Lato';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 61.14px;
-  line-height: 110%;
   color: #FFFFFF;
-  left: calc(20% - 950px/2);
+  text-align: center;
+  line-height: 110%;
+  position: relative;
+  z-index: 3;
+}
+
+.seccion-3 span {
+  font-weight: 900;
+  font-style: italic;
 }
 
 .btnDescargar {
   background: #83C252;
-  box-shadow: 4px 5px 0px #02187E;
+  box-shadow: 4px 5px 0 #02187E;
   border-radius: 111px;
-  width: 540px;
-  height: 66px;
-  position: absolute;
-  margin-top: 400px;
-  margin-left: 450px;
-  left: calc(30% - 950px/2);
+  width: 548px;
+  height: 74px;
   color: #FFFFFF;
   border: 8px solid #FFFFFF;
-  font-family: 'Lato';
   font-style: normal;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 31.14px;
   line-height: 110%;
-  position: absolute;
-  z-index: 999;
+  letter-spacing: 0;
+  position: relative;
+  z-index: 4;
+  overflow: hidden;
 }
 
-.btnDescargar:hover{
-  box-shadow: 0px 0px 15px 10px white;
+.btnDescargar:hover {
+  box-shadow: 4px 5px 0 #02187E;
+}
+
+.btnDescargar::after {
+  content: "";
+  background: #e05d29;
+  position: absolute;
+  z-index: -1;
+  display: block;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s ease;
+}
+
+.btnDescargar:hover::after {
+  transition: all 0.5s ease-out;
+  transform: skewX(-45deg) scale(1, 1);
 }
 
 #parallax {
   position: absolute;
-  width: 1280px; /* Ancho en píxeles, ajusta según el diseño */
-  height: 745px; /* Altura en píxeles, ajusta según el diseño */
+  width: 1280px;
+  height: 745px;
   background-image: url("images/personajesSeccion2.svg");
   background-repeat: no-repeat;
-  background-size: 1300px 800px; /* Tamaño específico del fondo en píxeles */
-  z-index: 2;
+  background-size: 1300px 800px;
+  z-index: -3;
+  bottom: 0;
 }
 
 /* INICIO SECCIÓN "MÁS AMIGOS, MÁS DIVERSION!" */
@@ -1066,6 +1085,35 @@ Right
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
   box-shadow: 4px 5px 0 #02187E;
+
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+
+  z-index: 0;
+}
+
+#pre-footer-form button:hover {
+  box-shadow: 4px 5px 0 #02187E;
+}
+
+#pre-footer-form button::after {
+  content: "";
+  background: #e05d29;
+  position: absolute;
+  z-index: -1;
+  display: block;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s ease;
+}
+
+#pre-footer-form button:hover::after {
+  transition: all 0.5s ease-out;
+  transform: skewX(-45deg) scale(1, 1);
 }
 
 .pre-footer-section p {

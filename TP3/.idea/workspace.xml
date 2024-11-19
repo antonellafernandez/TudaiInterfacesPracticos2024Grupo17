@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="928ec8fa-add8-4070-a8cd-a0e95b79e92b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP4/clouds-parallax.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/clouds-parallax.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TP4/estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/estilos.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP4/images/video-3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/images/video-3.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP4/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP4/video-youtube.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/video-youtube.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +116,7 @@
       <workItem from="1730745764265" duration="16000" />
       <workItem from="1730745889387" duration="534000" />
       <workItem from="1730920513833" duration="21000" />
-      <workItem from="1732045332379" duration="724000" />
+      <workItem from="1732045332379" duration="1011000" />
     </task>
     <servers />
   </component>
