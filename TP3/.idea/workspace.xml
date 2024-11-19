@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928ec8fa-add8-4070-a8cd-a0e95b79e92b" name="Changes" comment="" />
+    <list default="true" id="928ec8fa-add8-4070-a8cd-a0e95b79e92b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP4/clouds-parallax.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/clouds-parallax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP4/estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/estilos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP4/images/video-3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/images/video-3.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP4/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP4/video-youtube.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TP4/video-youtube.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Admin/IdeaProjects/ArquitecturasWeb2024Grupo4/TPE",
+    "last_opened_file_path": "C:/Users/Admin/IdeaProjects/Interfaces2024Grupo17/TP3",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -113,6 +121,7 @@
       <workItem from="1730745764265" duration="16000" />
       <workItem from="1730745889387" duration="534000" />
       <workItem from="1730920513833" duration="21000" />
+      <workItem from="1732045332379" duration="724000" />
     </task>
     <servers />
   </component>

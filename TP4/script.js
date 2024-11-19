@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropMenu = document.querySelector('.drop-menu');
   const navListItems = document.querySelectorAll('.nav-list li');
   const galleryImage = document.querySelector('.gallery-image');
-  const video = document.querySelector('.video');
-  const numero3 = document.querySelector('.video-youtube-numero-3');
   
   const parallaxElements = [
     { selector: '.numero-cuatro', speed: 0.06 },
