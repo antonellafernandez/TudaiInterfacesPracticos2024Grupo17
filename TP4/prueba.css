@@ -1,0 +1,19 @@
+.sprite-uno{
+    height: 190px ;
+    width: 138.46153846153846153846153846154px; /* Ajusta ligeramente para evitar mostrar bordes */
+    background: url("images/imgenUnos.png") repeat-x;;
+    margin: 0 auto;
+    animation: rotar 3s steps(13) infinite;
+    position:relative;
+
+}
+
+
+@keyframes rotar {
+    0%{
+        background-position: 0px;
+    }
+    100%{
+        background-position: -1800px ;
+    }
+}
