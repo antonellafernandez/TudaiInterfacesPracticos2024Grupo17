@@ -834,7 +834,7 @@ Left
   object-fit: cover;
   opacity: 0;
   transform: scale(1.1);
-  transition: opacity 1.5s ease, transform 1.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .amigos-diversion-image.active {
