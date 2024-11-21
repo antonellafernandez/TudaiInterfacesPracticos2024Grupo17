@@ -29,7 +29,7 @@
     margin: 0 auto;
     animation: run .5s steps(2) infinite;
     position: relative;
-    top: 1050px;
+    top: 1035px;
     right: 500px;
     z-index: 9999;
     transform: scale(0.7); /* Escala el sprite al 50% de su tamaño original */
