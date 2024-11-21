@@ -13,6 +13,7 @@ body{
     align-items: center;
     font-family: 'Lato', sans-serif;
     background-color: white;
+
 }
 
 /*ESTILOS DEL LOADER..............................*/
@@ -529,10 +530,11 @@ nav {
 
 /*SECCION DOS*/
 .curved-section {
-  overflow:visible;
   width: 1279px; 
   min-height: 894px;
   margin-top: 900px;
+  overflow-x: hidden;
+
 }
 
 .content-container {
@@ -612,12 +614,13 @@ nav {
   position: absolute;
   z-index: 9999;
   right: -77px;
-  top: 80px;
+  top: 150px;
 
 }
 
 .aside-content {
   width: 300px;
+  overflow:hidden;
 }
 
 .white-background{
