@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Arcade •713• Home</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="css/home_style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="body-container">
+        <!-- Loader -->
+        <div id="loading" class="loading-container">
+            <div class="spinner"></div>
+            <div class="loading-text">Cargando... <span id="percentage">0%</span></div>
+        </div>
+
+        <!-- Contenido de la página -->
+        <div class="page-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="nav-left">
+                    <i class="fas fa-bars" id="menu-btn"></i> <!-- Ícono de menú hamburguesa -->
+                </div>
+                <div class="nav-center">
+                    <img src="img/logo.png" alt="Logo" class="logo">
+                </div>
+                <div class="nav-right">
+                    <i class="fas fa-shopping-cart"></i> <!-- Ícono de carrito -->
+                    <div class="user-photo">
+                        <img src="img/avatar.jpg" alt="Usuario">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Barra lateral oculta inicialmente -->
+            <div id="sidebar" class="sidebar">
+                <ul>
+                    <li><a href="#profile">Profile</a></li>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#social-media">Social Media</a></li>
+                    <li><a href="#help-support">Help & Support</a></li>
+                    <li><a href="Login.html">Logout</a></li>
+                </ul>
+            </div>
+
+            <!-- Overlay para detectar clic fuera de la barra lateral -->
+            <div id="overlay" class="overlay"></div>
+
+            <!-- Main -->
+            <main class="main">
+                <section>
+                    <h2 class="section-title">FEATURED GAMES</h2>
+
+                    <div class="featured-carousel-wrap">
+                        <div class="featured-carousel-container">
+                            <div class="featured-games">
+                                <div class="featured-card">
+                                    <img src="img/the-legend-of-zelda-tears-of-the-kingdom.jpg" alt="The Legend of Zelda: Tears of the Kingdom" class="featured-game-image">
+
+                                    <div class="featured-game-info">
+                                        <div class="info">
+                                            <h3 class="featured-game-title">The Legend of Zelda: Tears of the Kingdom</h3>
+                                            <p class="game-price">$200.00</p>
+                                        </div>
+
+                                        <button class="featured-buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="featured-card">
+                                    <img src="img/tomb-raider.jpg" alt="Tomb Raider" class="featured-game-image">
+
+                                    <div class="featured-game-info">
+                                        <div class="info">
+                                            <h3 class="featured-game-title">Tomb Raider</h3>
+                                            <p class="game-price">$200.00</p>
+                                        </div>
+
+                                        <button class="featured-buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="featured-card">
+                                    <img src="img/frost-fire.jpg" alt="FrostFire Clash: Scorpion vs. Subzero" class="featured-game-image">
+
+                                    <div class="featured-game-info">
+                                        <div class="info">
+                                            <h3 class="featured-game-title">FrostFire Clash: Scorpion vs. Subzero</h3>
+                                            <p class="game-price">$200.00</p>
+                                        </div>
+
+                                        <a href="Game.html">
+                                            <button class="featured-buy-button">
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="featured-card">
+                                    <img src="img/sonic.jpg" alt="Sonic" class="featured-game-image">
+
+                                    <div class="featured-game-info">
+                                        <div class="info">
+                                            <h3 class="featured-game-title">Sonic</h3>
+                                            <p class="game-price">$200.00</p>
+                                        </div>
+
+                                        <button class="featured-buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="featured-card">
+                                    <img src="img/street-fighter.jpg" alt="Street Fighter" class="featured-game-image">
+
+                                    <div class="featured-game-info">
+                                        <div class="info">
+                                            <h3 class="featured-game-title">Street Fighter</h3>
+                                            <p class="game-price">$200.00</p>
+                                        </div>
+
+                                        <button class="featured-buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title">TOP 10 OF THE WEEK</h2>
+                    <div class="carousel-wrap">
+                        <button class="prev-button">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+
+                        <div class="carousel-container">
+                            <div class="carousel">
+                                <div class="card">
+                                    <img src="img/katana-zero.jpg" alt="Katana Zero" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Katana Zero</h3>
+                                            <p class="game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/portadatp4.png" alt="R-Type" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">R-Type</h3>
+                                            <p class="game-price">$40.99</p>
+                                        </div>
+
+                                        <a href="Juegos.html" target="_blank">
+                                            <button class="buy-button">
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/slay-the-spire.jpg" alt="Slay the Spire" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Slay the Spire</h3>
+                                            <p class="in-cart-game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="in-cart-button">
+                                            <span>In Cart </span>
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/the-king-of-fighters.jpeg" alt="The King of Fighters" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">The King of Fighters</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/cuphead.jpg" alt="Cuphead" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Cuphead</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/tmnt.jpg" alt="Teenage Mutant Ninja Turtles: Shredder's Revenge" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Teenage Mutant Ninja Turtles: Shredder's Revenge</h3>
+                                            <p class="game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/pac-man.jpg" alt="Pac-Man" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Pac-Man</h3>
+                                            <p class="game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/dig-dug.jpg" alt="Dig Dug" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Dig Dug</h3>
+                                            <p class="in-cart-game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="in-cart-button">
+                                            <span>In Cart </span>
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/super-mario-bros.jpg" alt="Super Mario Bros" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Super Mario Bros</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/scott-pilgrim.jpg" alt="Scott Pilgrim vs. The World™: The Game" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Scott Pilgrim vs. The World™: The Game</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="next-button">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <h2 class="section-title">STILL PLAYING, USERNAME?</h2>
+                    <div class="carousel-wrap">
+                        <button class="prev-button">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+
+                        <div class="carousel-container">
+                            <div class="carousel">
+                                <div class="card">
+                                    <img src="img/house-of-the-dead.jpg" alt="House of the Dead" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">House of the Dead</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/galaga.jpg" alt="Galaga" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">House of the Dead</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/marvel-vs-capcom.jpg" alt="Marvel vs. Capcom" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Marvel vs. Capcom</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/megaman.jpg" alt="Megaman" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Megaman</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/asteroids.jpg" alt="Asteroids" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Asteroids</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/dome-keeper.jpg" alt="Dome Keeper" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Dome Keeper</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="next-button">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <h2 class="section-title">POPULAR</h2>
+                    <div class="carousel-wrap">
+                        <button class="prev-button">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+
+                        <div class="carousel-container">
+                            <div class="carousel">
+                                <div class="card">
+                                    <img src="img/tmnt.jpg" alt="Teenage Mutant Ninja Turtles: Shredder's Revenge" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Teenage Mutant Ninja Turtles: Shredder's Revenge</h3>
+                                            <p class="game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/pac-man.jpg" alt="Pac-Man" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Pac-Man</h3>
+                                            <p class="game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/dig-dug.jpg" alt="Dig Dug" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Dig Dug</h3>
+                                            <p class="in-cart-game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="in-cart-button">
+                                            <span>In Cart </span>
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/super-mario-bros.jpg" alt="Super Mario Bros" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Super Mario Bros</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/donkey-kong.jpg" alt="Donkey Kong" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Donkey Kong</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/jungle-hunt.jpg" alt="Jungle Hunt" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Jungle Hunt</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="next-button">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <h2 class="section-title">PLATFORM</h2>
+                    <div class="carousel-wrap">
+                        <button class="prev-button">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+
+                        <div class="carousel-container">
+                            <div class="carousel">
+                                <div class="card">
+                                    <img src="img/ghouls-n-ghosts.jpg" alt="Ghouls 'n Ghosts" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Ghouls 'n Ghosts</h3>
+                                            <p class="game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/snow-bros.jpg" alt="Snow Bros" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Snow Bros</h3>
+                                            <p class="game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/alex-kidd.jpg" alt="Alex Kidd in the Enchanted Castle" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Alex Kidd in the Enchanted Castle</h3>
+                                            <p class="in-cart-game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="in-cart-button">
+                                            <span>In Cart </span>
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/earthworm-jim.jpg" alt="Earthworm Jim" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Earthworm Jim</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/tazmania.jpg" alt="Tazmania" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Tazmania</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/tmnt.jpg" alt="Teenage Mutant Ninja Turtles: Shredder's Revenge" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Teenage Mutant Ninja Turtles: Shredder's Revenge</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="next-button">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <h2 class="section-title">RPG</h2>
+                    <div class="carousel-wrap">
+                        <button class="prev-button">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+
+                        <div class="carousel-container">
+                            <div class="carousel">
+                                <div class="card">
+                                    <img src="img/baldurs-gate.jpg" alt="Baldur’s Gate" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Baldur’s Gate</h3>
+                                            <p class="game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/fallout-2.jpg" alt="Fallout 2" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Fallout 2</h3>
+                                            <p class="game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="buy-button">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/harvest-moon.jpg" alt="Harvest Moon" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Harvest Moon</h3>
+                                            <p class="in-cart-game-price">$40.99</p>
+                                        </div>
+
+                                        <button class="in-cart-button">
+                                            <span>In Cart </span>
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/grandia.jpg" alt="Grandia" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Grandia</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/final-fantasy-tactics.jpg" alt="Final Fantasy Tactics" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Final Fantasy Tactics</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img src="img/chrono-cross.jpg" alt="Chrono Cross" class="game-image">
+
+                                    <div class="game-info">
+                                        <div class="info">
+                                            <h3 class="game-title">Chrono Cross</h3>
+                                            <p class="game-price">Free</p>
+                                        </div>
+
+                                        <button class="play-button">Play</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="next-button">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Popular Games</a></li>
+                            <li><a href="#">Game Categories</a></li>
+                            <li><a href="#">New Releases</a></li>
+                            <li><a href="#">Recommended Games</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Beginner's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>About Us</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms and Conditions</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Community</h3>
+                        <ul>
+                            <li><a href="#">Discussion Forum</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Follow Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Promotions</h3>
+                        <ul>
+                            <li><a href="#">Subscribe to Our Newsletter</a></li>
+                            <li><a href="#">Special Offers</a></li>
+                            <li><a href="#">Player Rewards</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>External Links</h3>
+                        <ul>
+                            <li><a href="#">Partner Websites</a></li>
+                            <li><a href="#">Media Mentions</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Extras</h3>
+                        <ul>
+                            <li><a href="#">Sitemap</a></li>
+                            <li><a href="#">Mobile App</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>® 2024, Arcade Inc.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="js/home_script.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap'); /* Fuente estilo Mortal Kombat */
+
+/* Contenedor Principal */
+.game-image {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Pantalla de Selección */
+.game-image #pantallaSeleccion {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    height: 90%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.game-image #pantallaSeleccion h2,
+.game-image #pantallaSeleccion h3 {
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
+    font-size: 2vw;
+    color: #faf600;
+}
+
+/* Botón Iniciar Juego */
+.game-image #iniciarJuego {
+    background-color: #8b0000; /* Rojo oscuro para una apariencia agresiva */
+    color: #fff;
+    padding:10px 40px;
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #ffcc00; /* Borde dorado intenso */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(255, 204, 0, 0.3); /* Sombra para mayor profundidad */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden; /* Oculta los elementos que se animen fuera del botón */
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+/* Animación de Fuego en Hover */
+@keyframes fireHover {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.game-image #iniciarJuego:hover {
+    background: linear-gradient(270deg, #ff8c00, #ff4500, #ffcc00, #ff8c00);
+    background-size: 400% 400%; /* Tamaño para permitir el efecto de desplazamiento */
+    color: #000;
+    transform: scale(1.1); /* Aumentar el tamaño del botón */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(255, 69, 0, 0.6);
+    animation: fireHover 1.5s ease-in-out infinite; /* Efecto de fuego */
+}
+
+/* Efecto de Presión */
+.game-image #iniciarJuego:active {
+    transform: scale(1.05); /* Reduce ligeramente el tamaño al hacer clic */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), inset 0 0 8px rgba(255, 69, 0, 0.8); /* Sombra intensa al hacer clic */
+}
+
+/* Opciones */
+.game-image #opciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5vw;
+    margin-top: 10px;
+}
+.game-image #opciones button {
+    background-color: #333; /* Fondo oscuro */
+    color: #fff;
+    border: 2px solid #222;
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px 25px;
+    font-size: 10px;
+    margin: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra para profundidad */
+}
+
+/* Hover: brillo metálico */
+.game-image #opciones button:hover {
+    background-color: #555; /* Ligero cambio de fondo */
+    border-color: #ffcc00; /* Borde dorado en hover */
+    box-shadow: 0 6px 15px rgba(255, 204, 0, 0.5), 0 0 8px rgba(255, 204, 0, 0.3); /* Brillo dorado */
+    transform: scale(1.1);
+}
+
+/* Contenedores Flexibles */
+.containerGameMode,
+.containerPlayers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vw;
+}
+
+.selectGamePieces {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    padding:10px;
+    margin-bottom: 40px;
+}
+
+/* Botones de Personajes */
+#subZero-1, #subZero-2, #scorpion-1, #scorpion-2 {
+    border: 0.1vw solid #fff;
+    border-radius: 50%;
+    background-color: transparent;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+button img {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Botones Seleccionables */
+.seleccionBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    color: #333;
+    transform: scale(1.1);
+}
+
+.blinkBtn {
+    background-color: #ff0000;
+    animation: blinkEffect 0.5s infinite;
+    transform: scale(1.1);
+}
+
+@keyframes blinkEffect {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.4); /* Resplandor rojo */
+        opacity: 1;
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.9), 0 0 20px rgba(255, 0, 0, 0.6); /* Resplandor más fuerte */
+        opacity: 0.5;
+    }
+}
+
+.blinkBtnOptions {
+    color: #fff;
+    border-color: #ffcc00; /* Borde rojo anaranjado */
+    animation: blinkEffectOptions 0.5s infinite; /* Animación de parpadeo */
+    transform: scale(1.1);
+}
+
+@keyframes blinkEffectOptions {
+    0%, 100% {
+        background-color: #8b0000; /* Fondo rojo intenso */
+        color: #fff;
+        border-color: #ffcc00; /* Borde rojo anaranjado */
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.4); /* Resplandor rojo */
+        opacity: 1;
+    }
+    50% {
+        background-color: #ff0000; /* Fondo rojo intenso */
+        color: #fff;
+        border-color: #ffcc00; /* Borde rojo anaranjado */
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.9), 0 0 20px rgba(255, 0, 0, 0.6); /* Resplandor más fuerte */
+        opacity: 0.5;
+    }
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+
+/* BOTON RESTART PARA TODA LA PAGINA */
+#restartButton {
+    background-color: #660000; /* Rojo oscuro */
+    color: #ffcc00; /* Color dorado */
+    padding: 12px 24px; /* Espaciado más grande */
+    font-size: 1rem; /* Tamaño de fuente más grande */
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    text-shadow: 2px 2px 8px #000000; /* Sombra para darle profundidad */
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para efecto 3D */
+}
+
+#restartButton:hover {
+    background-color: #ffcc00; /* Cambia a dorado */
+    color: #660000; /* Texto rojo oscuro */
+    transform: scale(1.1); /* Aumenta de tamaño al pasar el mouse */
+}
+
+#timer {
+    color: #ffcc00; /* Color dorado */
+    font-weight: bold;
+    font-size: 2rem; /* Tamaño de fuente más grande para destacar */
+    text-shadow: 2px 2px 5px #000000; /* Sombra para darle profundidad */
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
+}
+
+/* Pantalla de ganador */
+.game-image #pantallaGanador {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background-image: url('/TP3/EntregaFinal/img/fondowin.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffcc00;
+    opacity: 0;
+    transform: scale(0.8); /* Comienza más pequeño */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#pantallaGanador.visible {
+    opacity: 1;
+    transform: scale(1); /* Se agranda suavemente */
+}
+
+/* Superposición oscura */
+#pantallaGanador::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+/* Animación de sombra parpadeante para el texto */
+#pantallaGanador h1 {
+    font-size: 3em;
+    animation: flicker 1.5s infinite alternate;
+    text-shadow: 0 0 8px #ff0000, 0 0 12px #ff0000, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+    margin-bottom: 20px;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ffcc00, 0 0 40px #ffcc00;
+    }
+    50% {
+        opacity: 0.8;
+        text-shadow: 0 0 5px #ffcc00, 0 0 10px #ff0000, 0 0 15px #ffcc00, 0 0 20px #ff0000;
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 8px #ff0000, 0 0 15px #ffcc00, 0 0 25px #ffcc00, 0 0 30px #ff0000;
+    }
+}
+
+/* Estilo para el mensaje del Jugador 1 */
+.ganador-jugador1 {
+    font-size: 3rem;
+    color: #00aaff; /* Azul sólido */
+    font-family: 'Metal Mania', sans-serif;
+ 
+    text-shadow: 4px 4px 15px #ffffff; /* Sombra blanca */
+    animation: glowJugador1 1.5s infinite alternate;
+}
+
+/* Estilo para el mensaje del Jugador 2 */
+.ganador-jugador2 {
+    font-size: 3rem;
+    font-family: 'Metal Mania', sans-serif;
+    color: #ffcc00; /* Dorado sólido */
+
+    text-shadow: 4px 4px 15px #660000; /* Sombra roja */
+    animation: glowJugador2 1.5s infinite alternate;
+}
+
+/* Efecto de brillo para el Jugador 1 */
+@keyframes glowJugador1 {
+    0% { text-shadow: 4px 4px 15px #ffffff; }
+    100% { text-shadow: 4px 4px 30px #00aaff; }
+}
+
+/* Efecto de brillo para el Jugador 2 */
+@keyframes glowJugador2 {
+    0% { text-shadow: 4px 4px 15px #660000; }
+    100% { text-shadow: 4px 4px 30px #ffcc00; }
+}
+/* Botón de reiniciar */
+#botonReiniciar {
+    margin-top: 50px;
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
+    padding: 15px 30px;
+    font-size: 1.5em; /* Tamaño de fuente aumentado */
+    color: #fff; /* Texto blanco */
+    background-color: #ff0000; /* Fondo rojo intenso */
+    border: 2px solid #ffdd00; /* Borde amarillo */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave para color y tamaño */
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7); /* Efecto de luz roja */
+}
+
+/* Efecto al pasar el mouse */
+#botonReiniciar:hover {
+    background-color: #ffcc00; /* Cambia a dorado */
+    color: #660000; /* Texto rojo oscuro */
+    transform: scale(1.1); /* Aumenta de tamaño al pasar el mouse */
+}
+
+#mensajeEmpate {
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
+    font-size: 4em;
+    color: #ffdd00; /* Color amarillo típico de Mortal Kombat */
+    text-shadow: 2px 2px 4px #000; /* Sombra al texto */
+    text-transform: uppercase;
+    margin-bottom: 60px; /* Incrementa el margen inferior */
+    animation: shake 1s infinite; /* Animación de vibración */
+}
+
+#botonReiniciarEmpate {
+    font-family: 'Metal Mania', sans-serif; /* Fuente estilo Mortal Kombat */
+    padding: 15px 30px;
+    font-size: 1.5em;
+    color: #fff; /* Texto blanco */
+    background-color: #ff0000; /* Fondo rojo intenso */
+    border: 2px solid #ffdd00; /* Borde amarillo */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7); /* Efecto de luz roja */
+}
+
+#botonReiniciarEmpate:hover {
+    background-color: #ff4500; /* Rojo más claro al pasar el mouse */
+    transform: scale(1.1); /* Ligero aumento de tamaño */
+}
+
+/* Animación de vibración para el mensaje de empate */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+#pantallaEmpate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Asegura espacio interno alrededor del contenido */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente para enfoque */
+    border-radius: 10px; /* Bordes redondeados para estética */
+}
