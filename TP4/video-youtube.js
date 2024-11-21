@@ -24,6 +24,6 @@ window.addEventListener('scroll', () => {
     const sectionRect = section.getBoundingClientRect();
     const scrollOffset = sectionRect.top;
 
-    video.style.transform = `translateY(${-scrollOffset * 0.05}px)`;
-    videoNumero3.style.transform = `translateY(${-scrollOffset * 0.1}px)`;
+    video.style.transform = `translateY(${-scrollOffset * 0.1}px)`;
+    videoNumero3.style.transform = `translateY(${scrollOffset * 0.2}px)`;
 });

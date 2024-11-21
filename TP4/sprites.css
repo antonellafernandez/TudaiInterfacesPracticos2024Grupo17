@@ -2,10 +2,13 @@
     height: 190px;
     width: 200px;
     background: url("images/Frame.png") no-repeat;
-    background-size: 2400px 200px;
     margin: 0 auto;
     animation: rotar 2.5s steps(12) infinite;
-    position: relative;
+    position: absolute;
+    overflow: hidden;
+    top: 200px;
+    left: 1000px;
+    z-index: 9999;
 }
 
 
@@ -26,6 +29,11 @@
     margin: 0 auto;
     animation: run .5s steps(2) infinite;
     position: relative;
+    top: 1050px;
+    right: 500px;
+    z-index: 9999;
+    transform: scale(0.7); /* Escala el sprite al 50% de su tamaño original */
+    transform-origin: top left;
 }
 
 
@@ -45,6 +53,10 @@
     margin: 0 auto;
     animation: dance 1.5s steps(5) infinite;
     position: relative;
+    top: 650px;
+    left: 250px;
+    transform: scale(0.5); /* Escala el sprite al 50% de su tamaño original */
+    transform-origin: top left;
 }
 
 

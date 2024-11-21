@@ -529,7 +529,7 @@ nav {
 
 /*SECCION DOS*/
 .curved-section {
-  overflow: hidden;
+  overflow:visible;
   width: 1279px; 
   min-height: 894px;
   margin-top: 900px;
@@ -610,9 +610,10 @@ nav {
 .numero-cinco{
   padding-left: 48px;
   position: absolute;
-  z-index: 10;
+  z-index: 9999;
   right: -77px;
-  top: -20px;
+  top: 80px;
+
 }
 
 .aside-content {

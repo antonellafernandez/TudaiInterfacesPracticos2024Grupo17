@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const galleryImage = document.querySelector('.gallery-image');
   
   const parallaxElements = [
-    { selector: '.numero-cuatro', speed: 0.06 },
-    { selector: '.numero-cinco', speed: 0.03 },
+    { selector: '.numero-cuatro', speed: 0.08 },
+    { selector: '.numero-cinco', speed: 0.2 },
   ];
   
   const parallaxLayers = [
@@ -50,7 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (element) {
         const scrollY = window.scrollY;
         const offset = parseFloat(getComputedStyle(element).getPropertyValue('--offset') || 0);
-        element.style.transform = `translateY(${scrollY * speed + offset}px)`;
+        
+        // Verifica si es `.numero-cinco` para invertir el movimiento
+        const directionMultiplier = selector === '.numero-cinco' ? -1 : 1;
+  
+        element.style.transform = `translateY(${scrollY * speed * directionMultiplier + offset}px)`;
       }
     });
   };
