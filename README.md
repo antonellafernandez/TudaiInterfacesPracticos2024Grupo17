@@ -17,3 +17,7 @@
 <p>/Login</p>
 <p>/Home</p>
 <p>/Game</p>
+
+<h4>Entregable N°4</h4>
+<p>Comentario - Number Blocks se encuentra en el primer carousel, segunda card.</p>
+<p>Link a GitHub Pages Entregable N°4: https://antonellafernandez.github.io/TudaiInterfacesPracticos2024Grupo17/TP4/Home.html<p>
